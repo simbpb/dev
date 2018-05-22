@@ -1,6 +1,7 @@
 <?php
 namespace App\Models\StrukturBpb;
 
+use Auth;
 
 class StrukturBpbRepository
 {
@@ -42,35 +43,51 @@ class StrukturBpbRepository
      
       public function create($params = [])
       {
+         $userId = Auth::user()->user_id;
          $model = new StrukturBpb();
-         $model->nama = $params['nama'];
-         $model->nip = $params['nip'];
-         $model->role_id = $params['role_id'];
-         $model->username = $params['username'];
-         $model->email = $params['email'];
-         $model->password = bcrypt($params['password']);
-         $model->lokasi_kode = rand(1,10);
-         $model->status = '1';
-         $model->created_by = '1';
-         $model->updated_by = '1';
+         $model->id_level = $params['level'];
+         $model->kd_id = '01';
+         $model->kd_pupr = '001';
+         $model->kd_struktur = $params['level'].'000.000';
+         $model->kd_output = $params['output'];
+         $model->parent_id = $params['output'];
+         $model->kd_suboutput = !empty($params['suboutput']) ? $params['suboutput'] : '000';
+         $model->kd_komponen = !empty($params['komponen']) ? $params['komponen'] : '000';
+         $model->kd_aktivitas_1 = !empty($params['aktifitas1']) ? $params['aktifitas1'] : '00';
+         $model->kd_aktivitas_2 = !empty($params['aktifitas2']) ? $params['aktifitas2'] : '00';
+         $model->kd_aktivitas_3 = !empty($params['aktifitas3']) ? $params['aktifitas3'] : '00';
+         $model->kd_aktivitas_4 = !empty($params['aktifitas4']) ? $params['aktifitas4'] : '00';
+         $model->uraian = $params['uraian'];
+         $model->sub_bid = $params['sub_bidang'];
+         $model->jenis_volume = $params['jenis_volume'];
+         $model->isActive = '1';
+         $model->created_by = $userId;
+         $model->updated_by = $userId;
          return $model->save();
       }
 
       public function update($id, $params = [])
       {
+         $userId = Auth::user()->user_id;
          $model = StrukturBpb::find($id);
-         $model->nama = $params['nama'];
-         $model->nip = $params['nip'];
-         $model->role_id = $params['role_id'];
-         $model->username = $params['username'];
-         $model->email = $params['email'];
-         if (!empty($params['password'])) {
-            $model->password = bcrypt($params['password']);
-         }
-         $model->lokasi_kode = 'sss';
-         $model->status = '1';
-         $model->created_by = '1';
-         $model->updated_by = '1';
+         $model->id_level = $params['level'];
+         $model->kd_id = '01';
+         $model->kd_pupr = '001';
+         $model->kd_struktur = $params['level'].'000.000';
+         $model->kd_output = $params['output'];
+         $model->parent_id = $params['output'];
+         $model->kd_suboutput = !empty($params['suboutput']) ? $params['suboutput'] : '000';
+         $model->kd_komponen = !empty($params['komponen']) ? $params['komponen'] : '000';
+         $model->kd_aktivitas_1 = !empty($params['aktifitas1']) ? $params['aktifitas1'] : '00';
+         $model->kd_aktivitas_2 = !empty($params['aktifitas2']) ? $params['aktifitas2'] : '00';
+         $model->kd_aktivitas_3 = !empty($params['aktifitas3']) ? $params['aktifitas3'] : '00';
+         $model->kd_aktivitas_4 = !empty($params['aktifitas4']) ? $params['aktifitas4'] : '00';
+         $model->uraian = $params['uraian'];
+         $model->sub_bid = $params['sub_bidang'];
+         $model->jenis_volume = $params['jenis_volume'];
+         $model->isActive = '1';
+         $model->created_by = $userId;
+         $model->updated_by = $userId;
          return $model->save();
       }
 

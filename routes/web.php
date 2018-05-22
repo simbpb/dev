@@ -22,6 +22,7 @@ Route::any('/si-perdabg/login', 'Auth\PerdabgController@login')->name('perdabg.l
 Route::group(['prefix' => 'si-bpb', 'middleware' => 'auth:bpb'], function () {
     Route::any('/', 'Auth\BpbController@index');
     Route::any('/logout', 'Auth\BpbController@logout');
+    Route::get('/ajax-cascade/{parent_id}', 'Ajax\StrukturProgramController@index');
 
     Route::group(['prefix' => 'user-bpb'], function () {
         Route::get('/', 'UserBpbController@index');
