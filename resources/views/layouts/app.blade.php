@@ -10,9 +10,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/css/ace-fonts.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/css/ace.css') }}" class="ace-main-stylesheet" id="main-ace-style" />
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" />
-        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.4/css/fixedColumns.bootstrap.min.css" />
-        <!-- <script src="{{ asset('assets/js/ace-extra.js') }}"></script> -->
+        @yield('css')
     </head>
     <body class="no-skin">
         <div id="navbar" class="navbar navbar-default">

@@ -157,6 +157,6 @@ function enableFrom(level) {
 			$('.form-group.aktifitas3 select').prop('disabled', false);
 			break;
 		default:
-			alert("Error Dropdown List Level");
+			console.log('no selected');
 	}
 }

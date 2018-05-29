@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Struktur Program')
+@section('title', 'Informasi Wilayah')
 @section('breadcrumb')
 	<li class="active">@yield('title')</li>
 @endsection
@@ -13,7 +13,7 @@
 </div>
 <div class="row">
    <div class="col-xs-12">
-      <a href="/si-bpb/struktur-program/create" class="btn btn-success btn-sm">
+      <a href="/si-bpb/informasi-wilayah/create" class="btn btn-success btn-sm">
          <i class="fa fa-plus"></i> Tambah Data</a>
    </div>
 	<div class="col-xs-12">
@@ -38,20 +38,6 @@
                'copyHtml5', 'excelHtml5', 'pdfHtml5'
             ]
          });
-         $('#'+api.table().container().id+' thead th').each( function () {
-               var title = $(this).text();
-               if (title != 'Action' && title != 'No.') {
-                  $(this).html(title+'<br/><input type="text" placeholder="Search '+title+'" />');
-               }
-         });
-         api.columns().every( function () {
-            var that = this;
-            $('input', this.header()).on('keyup change', function () {
-               if (that.search() !== this.value ) {
-                  api.search(this.value).draw();
-               }
-            });
-         });
          api.buttons().container().appendTo( '#' + api.table().container().id + ' .col-sm-6:eq(0) .dataTables_length' );  
       },
       "processing": true,
@@ -65,7 +51,7 @@
       "ajax": function(data, callback, settings) {
          var column = data.columns[data.order[0].column].data;
          var dir = data.order[0].dir;
-         $.getJSON(base_url + '/si-bpb/struktur-program', {
+         $.getJSON(base_url + '/si-bpb/informasi-wilayah', {
             limit: data.length,
             search: data.search.value,
             page: Math.ceil(data.start/data.length) + 1,
@@ -85,19 +71,17 @@
       },
       "columns": [
          { "title": "ID", "data": "id", "visible": false },
-         { "title" : "Action", "data": null, "orderable": false, "className": "text-center", render: function (data, type, row, meta) {
-            var edt = '<a href="'+base_url+'/si-bpb/struktur-program/'+row.id+'/edit"><i class="ace-icon fa fa-pencil"></i></a>';
-            var del = '<a href="'+base_url+'/si-bpb/struktur-program/'+row.id+'/delete"><i class="ace-icon fa fa-trash"></i></a>';
+         { "title" : "Action", "width": "80px", "orderable": false, "className": "text-center", render: function (data, type, row, meta) {
+            var edt = '<a href="'+base_url+'/informasi-wilayah/'+row.id+'/edit"><i class="ace-icon fa fa-pencil"></i></a>';
+            var del = '<a href="'+base_url+'/informasi-wilayah/'+row.id+'/delete"><i class="ace-icon fa fa-trash"></i></a>';
             return edt+' '+del;
          }},
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Kode Struktur", "data": "kd_struktur" },
-         { "title": "Uraian", "data": "uraian" },
-         { "title": "ID Level", "data": "id_level" },
-         { "title": "Level", "data": "nama_level" },
-         { "title": "Jenis Volume", "data": "jenis_volume" },
+         { "title": "Provinsi", "data": "provinsi" },
+         { "title": "Kabupaten Kota", "data": "kabupatenkota" },
+         { "title": "Luas Wilayah (Km)", "data": "luas_wilayah_km" },
       ]
    });
 </script>

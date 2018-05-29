@@ -26,12 +26,12 @@ $bpb_menu[] = [
             'childs' => [
                 [
                     'label' => 'Informasi Kewilayahan', 
-                    'url' => '#', 
+                    'url' => '/si-bpb/informasi-wilayah', 
                     'icon' => 'fa fa-caret-right'
                 ],
                 [
                     'label' => 'Pembinaan dan Pengawasan Penyelenggaraan Bangunan Gedung', 
-                    'url' => '#', 
+                    'url' => '/si-bpb/pembinaan-pengawasan', 
                     'icon' => 'fa fa-caret-right'
                 ],
             ]

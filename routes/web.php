@@ -55,6 +55,14 @@ Route::group(['prefix' => 'si-bpb', 'middleware' => 'auth:bpb'], function () {
         Route::any('/{id}/edit', 'StrukturProgramController@edit');
         Route::get('/{id}/delete', 'StrukturProgramController@delete');
     });
+
+    Route::group(['prefix' => 'informasi-wilayah'], function () {
+        Route::get('/', 'InfoWilayahController@index');
+        Route::get('/{id}/view', 'InfoWilayahController@view');
+        Route::any('/create', 'InfoWilayahController@create');
+        Route::any('/{id}/edit', 'InfoWilayahController@edit');
+        Route::get('/{id}/delete', 'InfoWilayahController@delete');
+    });
 });
 
 /** for si-hsbgn users **/
