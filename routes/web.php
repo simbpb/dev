@@ -11,70 +11,46 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', 'HomeController@index');
-/** Routes for Auths **/
-Route::any('/si-bpb/login', 'Auth\BpbController@login')->name('bpb.login');
-Route::any('/si-hsbgn/login', 'Auth\HsbgnController@login')->name('hsbgn.login');
-Route::any('/si-perdabg/login', 'Auth\PerdabgController@login')->name('perdabg.login');
-/** end Auths **/
+Auth::routes();
 
-/** for si-bpb users **/
-Route::group(['prefix' => 'si-bpb', 'middleware' => 'auth:bpb'], function () {
-    Route::any('/', 'Auth\BpbController@index');
-    Route::any('/logout', 'Auth\BpbController@logout');
-    Route::get('/ajax-cascade/{parent_id}', 'Ajax\StrukturProgramController@index');
+Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], function () {
+    Route::get('/', 'AdminController@index');
+    Route::get('/profile', 'Auth\ProfileController@index');
+    Route::any('/change-password', 'Auth\ProfileController@changePassword');
 
-    Route::group(['prefix' => 'user-bpb'], function () {
-        Route::get('/', 'UserBpbController@index');
-        Route::get('/{id}/view', 'UserBpbController@view');
-        Route::any('/create', 'UserBpbController@create');
-        Route::any('/{id}/edit', 'UserBpbController@edit');
-        Route::get('/{id}/delete', 'UserBpbController@delete');
-    });
+    Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+	    Route::get('/', 'UsersController@index')->middleware('permission:users_view');
+	    Route::get('/{id}/view', 'UsersController@view')->middleware('permission:users_view');
+	    Route::any('/create', 'UsersController@create')->middleware('permission:users_create');
+	    Route::any('/{id}/edit', 'UsersController@edit')->middleware('permission:users_edit');
+	    Route::delete('/{id}/delete', 'UsersController@delete')->middleware('permission:users_delete');
+	});
 
-    Route::group(['prefix' => 'user-hsbgn'], function () {
-        Route::get('/', 'UserHsbgnController@index');
-        Route::get('/{id}/view', 'UserHsbgnController@view');
-        Route::any('/create', 'UserHsbgnController@create');
-        Route::any('/{id}/edit', 'UserHsbgnController@edit');
-        Route::get('/{id}/delete', 'UserHsbgnController@delete');
-    });
+	Route::group(['prefix' => 'roles', 'middleware' => 'auth'], function () {
+	    Route::get('/', 'RolesController@index')->middleware('permission:roles_view');
+	    Route::get('/{id}/view', 'RolesController@view')->middleware('permission:roles_view');
+	    Route::any('/create', 'RolesController@create')->middleware('permission:roles_create');
+	    Route::any('/{id}/edit', 'RolesController@edit')->middleware('permission:roles_edit');
+	    Route::delete('/{id}/delete', 'RolesController@delete')->middleware('permission:roles_delete');
+	});
 
-    Route::group(['prefix' => 'user-perdabg'], function () {
-        Route::get('/', 'UserPerdabgController@index');
-        Route::get('/{id}/view', 'UserPerdabgController@view');
-        Route::any('/create', 'UserPerdabgController@create');
-        Route::any('/{id}/edit', 'UserPerdabgController@edit');
-        Route::get('/{id}/delete', 'UserPerdabgController@delete');
-    });
+	Route::group(['prefix' => 'menus', 'middleware' => 'auth'], function () {
+	    Route::get('/', 'MenusController@index')->middleware('permission:menus_view');
+	    Route::get('/{id}/view', 'MenusController@view')->middleware('permission:menus_view');
+	    Route::any('/create', 'MenusController@create')->middleware('permission:menus_create');
+	    Route::any('/{id}/edit', 'MenusController@edit')->middleware('permission:menus_edit');
+	    Route::delete('/{id}/delete', 'MenusController@delete')->middleware('permission:menus_delete');
+	});
 
-    Route::group(['prefix' => 'struktur-program'], function () {
-        Route::get('/', 'StrukturProgramController@index');
-        Route::get('/{id}/view', 'StrukturProgramController@view');
-        Route::any('/create', 'StrukturProgramController@create');
-        Route::any('/{id}/edit', 'StrukturProgramController@edit');
-        Route::get('/{id}/delete', 'StrukturProgramController@delete');
-    });
-
-    Route::group(['prefix' => 'informasi-wilayah'], function () {
-        Route::get('/', 'InfoWilayahController@index');
-        Route::get('/{id}/view', 'InfoWilayahController@view');
-        Route::any('/create', 'InfoWilayahController@create');
-        Route::any('/{id}/edit', 'InfoWilayahController@edit');
-        Route::get('/{id}/delete', 'InfoWilayahController@delete');
-    });
+	Route::group(['prefix' => 'permissions', 'middleware' => 'auth'], function () {
+	    Route::get('/', 'PermissionsController@index')->middleware('permission:permissions_view');
+	    Route::get('/{id}/view', 'PermissionsController@view')->middleware('permission:permissions_view');
+	    Route::any('/create', 'PermissionsController@create')->middleware('permission:permissions_create');
+	    Route::any('/{id}/edit', 'PermissionsController@edit')->middleware('permission:permissions_edit');
+	    Route::delete('/{id}/delete', 'PermissionsController@delete')->middleware('permission:permissions_delete');
+	});
 });
-
-/** for si-hsbgn users **/
-Route::group(['prefix' => 'si-hsbgn', 'middleware' => 'auth:hsbgn'], function () {
-    Route::any('/', 'Auth\HsbgnController@index');
-    Route::any('/logout', 'Auth\HsbgnController@logout');
-});
-
-/** for si-perdabg users **/
-Route::group(['prefix' => 'si-perdabg', 'middleware' => 'auth:perdabg'], function () {
-    Route::any('/', 'Auth\PerdabgController@index');
-    Route::any('/logout', 'Auth\PerdabgController@logout');
-});
-
-

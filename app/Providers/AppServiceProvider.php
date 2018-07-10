@@ -14,18 +14,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Builder::macro("searchOrder", function($request, $searchColumns = []){
-            if (!empty($request['column']) && !empty($request['order'])) {
-                $this->orderBy($request['column'], $request['order']);
-            }
-
+        Builder::macro("searchOrder", function($request, $searchFields = []){
             if (!empty($request['search'])) {
                 $keywords = explode(' ', $request['search']);
-                foreach ($keywords as $keyword){
-                    foreach ($searchColumns as $column) {
-                        $this->orWhere($column, 'like', '%'.$keyword.'%');
+                $this->where(function($query) use ($keywords, $searchFields) {
+                    foreach ($keywords as $keyword){
+                        foreach ($searchFields as $key => $field) {
+                            $query->orWhere($field, 'like', '%'.$keyword.'%');
+                        }
                     }
-                }
+                });
+            }
+
+            if (!empty($request['field']) && !empty($request['order'])) {
+                $this->orderBy($request['field'], $request['order']);
             }
 
             return $this;

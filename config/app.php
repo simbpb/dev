@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'auth_page' => 'panel',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
@@ -178,8 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Proengsoft\JsValidation\JsValidationServiceProvider::class,
-        App\Providers\MenuServiceProvider::class,
-
+        App\Providers\NavigationServiceProvider::class,
     ],
 
     /*
@@ -231,7 +230,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
-        'Menu' => App\Helpers\Menu::class,
+        'Navigation' => App\Helpers\Navigation::class,
     ],
 
 ];

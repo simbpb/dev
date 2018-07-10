@@ -45,21 +45,6 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
-
-        'bpb' => [
-            'driver' => 'session',
-            'provider' => 'userbpb',
-        ],
-
-        'hsbgn' => [
-            'driver' => 'session',
-            'provider' => 'userhsbgn',
-        ],
-
-        'perdabg' => [
-            'driver' => 'session',
-            'provider' => 'userperdabg',
-        ],
     ],
 
     /*
@@ -80,24 +65,9 @@ return [
     */
 
     'providers' => [
-        // 'users' => [
-        //     'driver' => 'eloquent',
-        //     'model' => App\User::class,
-        // ],
-
-        'userbpb' => [
+        'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Auth\UserBpb::class,
-        ],
-
-        'userhsbgn' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Auth\UserHsbgn::class,
-        ],
-
-        'userperdabg' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Auth\UserPerdabg::class,
+            'model' => App\Models\User\User::class,
         ],
 
         // 'users' => [
