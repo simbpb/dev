@@ -33,6 +33,27 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Role\Role','id','role_id');
     }
 
+    public function province()
+    {
+        return $this->hasOne('App\Models\Lokasi\Lokasi','lokasi_propinsi','province_id');
+    }
+
+    public function provinceDetail()
+    {
+        return $this->province()->where('lokasi_kabupatenkota','00');
+    }
+
+    public function city()
+    {
+        return $this->hasOne('App\Models\Lokasi\Lokasi','lokasi_kabupatenkota','city_id');
+    }
+
+    public function cityDetail()
+    {
+        return $this->city()->where('lokasi_propinsi', $this->province_id)
+                        ->where('lokasi_kecamatan','00');
+    }
+
     public function isDeveloper() 
     {
         return ($this->id == Access::DEVELOPER) ? true : false;

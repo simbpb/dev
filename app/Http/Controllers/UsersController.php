@@ -9,24 +9,31 @@ use App\Enum\Access;
 use Illuminate\Http\Request;
 use App\Models\User\UserRepository;
 use App\Models\Role\RoleRepository;
+use App\Models\Lokasi\LokasiRepository;
 use App\Http\Controllers\Controller;
 
 class UsersController extends Controller {
     
     protected $model;
     protected $role;
+    protected $lokasi;
 
     public function __construct(
         UserRepository $user, 
-        RoleRepository $role
+        RoleRepository $role,
+        LokasiRepository $lokasi
     ) {
         $this->model = $user;
         $this->role = $role;
+        $this->lokasi = $lokasi;
     }
     
     protected function validationRules($scope = 'create', $id = 0) {
         $rule['fullname'] = 'required';
         $rule['username'] = 'required|unique:users'. ($id ? ",id,$id" : '');
+        $rule['role_id'] = 'required';
+        $rule['province_id'] = 'required';
+        $rule['city_id'] = 'required';
         $rule['role_id'] = 'required';
         $rule['email'] = 'required|email|unique:users'. ($id ? ",id,$id" : '');
         if ($scope == 'create') {
@@ -64,9 +71,10 @@ class UsersController extends Controller {
         }
 
         $roles = $this->role->getOptions();
+        $provinces = $this->lokasi->getProvincesOptions();
         $validator = JsValidator::make($this->validationRules());
 
-        return view('users.form', compact('roles','validator'));
+        return view('users.form', compact('roles','provinces','validator'));
     }
 
     public function edit($id, Request $request)
@@ -92,10 +100,11 @@ class UsersController extends Controller {
         }
 
         $roles = $this->role->getOptions();
+        $provinces = $this->lokasi->getProvincesOptions();
         $validator = JsValidator::make($this->validationRules('edit', $id));
         $model = $this->model->find($id);
 
-        return view('users.form', compact('model','roles','validator'));
+        return view('users.form', compact('model','roles','provinces','validator'));
     }
 
     public function view($id)

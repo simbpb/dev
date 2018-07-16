@@ -45,6 +45,13 @@
 					    		{!! Form::email('email',null, ['class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-2">Password*</label>
+				    		<div class="col-lg-10"> 
+					    		{!! Form::password('password', ['class' => 'form-control']) !!}
+					    		<small><i>{!! (isset($model)) ? '(kosongkan jika tidak diubah)' : '' !!}</i></small>
+					    	</div>
+				  		</div>
 			  		</div>
 			  		<div class="col-lg-6">
 			  			<div class="form-group">
@@ -53,17 +60,26 @@
 					  			{!! Form::select('role_id', $roles, null, ['placeholder' => 'Pilih Group','class' => 'form-control']) !!}
 					  		</div>
 				  		</div>
-			  			<div class="form-group">
-				    		<label class="control-label col-lg-2">Password*</label>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-2">Propinsi*</label>
 				    		<div class="col-lg-10"> 
-					    		{!! Form::password('password', ['class' => 'form-control']) !!}
-					    		<small><i>{!! (isset($model)) ? '(kosongkan jika tidak diubah)' : '' !!}</i></small>
-					    	</div>
+					  			{!! Form::select('province_id', $provinces, null, ['id' => 'provinces', 'class' => 'form-control']) !!}
+					  		</div>
+				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-2">Kabupaten/Kota*</label>
+				    		<div class="col-lg-10"> 
+					  			{!! Form::select('city_id', ['' => 'Pilih Kabupaten/Kota'], null, ['id' => 'cities', 'class' => 'form-control']) !!}
+					  		</div>
 				  		</div>
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-2">Status</label>
 				    		<div class="col-lg-10">
-					    		{!! Form::checkbox('status', '00', $model) !!}
+				    			@if(isset($model))
+					    			{!! Form::checkbox('status', '00', $model) !!}
+					    		@else
+								    {!! Form::checkbox('status', '00') !!}
+								@endif
 					    	</div>
 				  		</div>
 			  		</div>
@@ -77,6 +93,35 @@
 </div>
 @endsection
 @section('js')
+<script type="text/javascript">
+$(function() {
+	@if(isset($model))
+		var currentProvinceId = $('#provinces').val();
+		getCities(currentProvinceId, function(){
+			$('#cities').val(<?=$model['city_id']?>);
+		});
+	@endif
+    $('#provinces').change(function() {
+        var provinceId = this.value;
+        getCities(provinceId);
+    });
+});
+
+function getCities(provinceId, callback) {
+	$('#cities').find('option').not(':first').remove();
+	$.ajax({
+        url: base_url + '/ajax/cities/' + provinceId,
+        type: 'GET',
+        datatype: 'JSON',
+        success: function (result) {
+            $.each(result, function (i, item) {
+                $('#cities').append($('<option></option>').val(i).html(item));
+            });
+            callback()
+        }
+    });
+}
+</script>
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.min.js')}}"></script>
 {!! $validator->selector('#model-form') !!}
 @endsection

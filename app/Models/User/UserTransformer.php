@@ -12,6 +12,10 @@ class UserTransformer{
             'username' => $user->username,
             'email' => $user->email,
             'role_id' => $user->role_id,
+            'province_id' => $user->province_id,
+            'province_name' => ($user->provinceDetail) ? $user->provinceDetail->lokasi_nama : null,
+            'city_id' => $user->city_id,
+            'city_name' => ($user->cityDetail) ? $user->cityDetail->lokasi_nama : null,
             'role_name' => ($user->role) ? $user->role->name : null,
             'status' => $user->status,
         ];

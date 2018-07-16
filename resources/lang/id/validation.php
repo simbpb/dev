@@ -112,7 +112,10 @@ return [
         'description' => 'deskripsi',
         'fullname' => 'nama lengkap',
         'now_password' => 'password baru',
-        'password_confirmation' => 'konfirmasi password'
+        'category' => 'kategori',
+        'password_confirmation' => 'konfirmasi password',
+        'province_id' => 'propinsi',
+        'city_id' => 'kabupaten/kota',
     ],
 
 ];

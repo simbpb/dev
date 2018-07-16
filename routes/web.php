@@ -21,7 +21,11 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
     Route::get('/', 'AdminController@index');
     Route::get('/profile', 'Auth\ProfileController@index');
     Route::any('/change-password', 'Auth\ProfileController@changePassword');
-
+    
+    Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function () {
+    	Route::get('/cities/{provinceId}', 'Ajax\LocationsController@cities');
+    });
+    
     Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
 	    Route::get('/', 'UsersController@index')->middleware('permission:users_view');
 	    Route::get('/{id}/view', 'UsersController@view')->middleware('permission:users_view');
