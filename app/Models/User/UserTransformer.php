@@ -15,6 +15,7 @@ class UserTransformer{
             'province_id' => $user->province_id,
             'province_name' => ($user->provinceDetail) ? $user->provinceDetail->lokasi_nama : null,
             'city_id' => $user->city_id,
+            'subdit_id' => $user->subdit_id,
             'city_name' => ($user->cityDetail) ? $user->cityDetail->lokasi_nama : null,
             'role_name' => ($user->role) ? $user->role->name : null,
             'status' => $user->status,

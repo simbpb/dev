@@ -51,6 +51,7 @@ class UserRepository
             $model->role_id = $params['role_id'];
             $model->province_id = $params['province_id'];
             $model->city_id = $params['city_id'];
+            $model->subdit_id = $params['subdit_id'];
             $model->status = (!empty($params['status'])) ? $params['status'] : Status::INACTIVE;
             $model->save();
 
@@ -71,6 +72,7 @@ class UserRepository
             $model->role_id = $params['role_id'];
             $model->province_id = $params['province_id'];
             $model->city_id = $params['city_id'];
+            $model->subdit_id = $params['subdit_id'];
             $model->status = (!empty($params['status'])) ? $params['status'] : Status::INACTIVE;
             $model->save();
 

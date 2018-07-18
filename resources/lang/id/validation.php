@@ -125,6 +125,7 @@ return [
         'volume_id' => 'Volume',
         'thn_prog' => 'Tahun program',
         'exe_summary_prog' => 'Summary program',
+        'subdit_id' => 'Subdit',
     ],
 
 ];

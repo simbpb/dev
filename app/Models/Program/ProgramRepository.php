@@ -49,7 +49,7 @@ class ProgramRepository
         $model->thn_prog = $request->input('thn_prog');
         $model->exe_summary_prog = $request->input('exe_summary_prog');
         $model->detail_kdprog_id = '001';
-        $model->subdit_id = '001';
+        $model->subdit_id = Auth::user()->subdit_id;
         $model->save();
         DB::commit();
         return true;
@@ -68,7 +68,7 @@ class ProgramRepository
         $model->thn_prog = $request->input('thn_prog');
         $model->exe_summary_prog = $request->input('exe_summary_prog');
         $model->detail_kdprog_id = '001';
-        $model->subdit_id = '001';
+        $model->subdit_id = Auth::user()->subdit_id;
         $model->save();
         DB::commit();
         return true;

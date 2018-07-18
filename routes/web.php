@@ -62,10 +62,10 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 	});
 
 	Route::group(['prefix' => 'program', 'middleware' => 'auth'], function () {
-	    Route::get('/', 'ProgramController@index');
-	    Route::get('/{id}/view', 'ProgramController@view');
-	    Route::any('/create', 'ProgramController@create');
-	    Route::any('/{id}/edit', 'ProgramController@edit');
-	    Route::delete('/{id}/delete', 'ProgramController@delete');
+	    Route::get('/', 'ProgramController@index')->middleware('permission:program_view');
+	    Route::get('/{id}/view', 'ProgramController@view')->middleware('permission:program_view');
+	    Route::any('/create', 'ProgramController@create')->middleware('permission:program_create');
+	    Route::any('/{id}/edit', 'ProgramController@edit')->middleware('permission:program_edit');
+	    Route::delete('/{id}/delete', 'ProgramController@delete')->middleware('permission:program_delete');
 	});
 });

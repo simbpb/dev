@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Role\Role','id','role_id');
     }
 
+    public function subdit()
+    {
+        return $this->hasOne('App\Models\Subdit\Subdit','id','subdit_id');
+    }
+
     public function province()
     {
         return $this->hasOne('App\Models\Lokasi\Lokasi','lokasi_propinsi','province_id');

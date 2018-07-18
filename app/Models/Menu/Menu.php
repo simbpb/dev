@@ -15,7 +15,7 @@ class Menu extends Model
 
    	public function parent() 
     {
-        return $this->hasOne('App\Models\Menu\Menu', 'id', 'parent_id');
+        return $this->belongsTo('App\Models\Menu\Menu', 'parent_id', 'id');
     }
 
    	public function permissions()

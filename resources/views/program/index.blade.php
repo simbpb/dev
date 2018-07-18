@@ -38,13 +38,13 @@ $(function() {
             var view = '';
             var edit = '';
             var dele = '';
-            @can('roles_view')
+            @can('program_view')
                view = '<a href="{{ Navigation::adminUrl('/program') }}/'+row.id+'/view" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="icon-eye"></i></a>';
             @endcan
-            @can('roles_edit')
+            @can('program_edit')
                edit = '<a href="{{ Navigation::adminUrl('/program') }}/'+row.id+'/edit" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="icon-pencil"></i></a>';
             @endcan
-            @can('roles_delete')
+            @can('program_delete')
                dele = '<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteRow(\'{{ Navigation::adminUrl('/program') }}/'+row.id+'/delete\',\'{{ Navigation::adminUrl('/program') }}\');"><i class="icon-eraser3"></i></button>';
             @endcan
             return view+' '+edit+' '+dele;
@@ -69,7 +69,7 @@ $(function() {
             </div>
             <div class="panel-body">
                @include('widgets.message')
-               @can('roles_create')
+               @can('program_create')
                   <a href="{{ Navigation::adminUrl('/program') }}/create" class="btn btn-primary btn-xs">
                      <i class="icon-plus-circle2"></i> Tambah</a>
                @endcan
