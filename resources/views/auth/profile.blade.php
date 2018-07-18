@@ -32,15 +32,15 @@
 					  	<div class="col-xs-4">
 					  		<div class="form-group">
 					    		<label>Group</label>
-					  			<div class="form-group"><b>{!! $model['role_name'] !!}</b></div>
+					  			<div class="form-group"><b>{!! ($model['role_name']) ? $model['role_name'] : '-' !!}</b></div>
 					  		</div>
 					  		<div class="form-group">
 					    		<label>Propinsi</label>
-					  			<div class="form-group"><b>{!! $model['province_name'] !!}</b></div>
+					  			<div class="form-group"><b>{!! ($model['province_name']) ? $model['province_name'] : '-' !!}</b></div>
 					  		</div>
 					  		<div class="form-group">
 					    		<label>Kabupaten/Kota</label>
-					  			<div class="form-group"><b>{!! $model['city_name'] !!}</b></div>
+					  			<div class="form-group"><b>{!! ($model['city_name']) ? $model['city_name'] : '-' !!}</b></div>
 					  		</div>
 					  	</div>
 					  	<div class="col-xs-4">

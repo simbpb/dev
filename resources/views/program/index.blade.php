@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Group')
+@section('title', 'Program/Kegiatan')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/plugins/notifications/sweet_alert.min.js') }}"></script>
@@ -12,7 +12,7 @@ $(function() {
       "ajax": function(data, callback, settings) {
          var column = data.columns[data.order[0].column].data;
          var dir = data.order[0].dir;
-         $.getJSON(base_url + '/roles', {
+         $.getJSON(base_url + '/program', {
             limit: data.length,
             search: data.search.value,
             page: Math.ceil(data.start/data.length) + 1,
@@ -31,22 +31,21 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Nama Group", "data": "name" },
-         { "title": "Kategori", "data": "category", render: function (data, type, row, meta) {
-            return '<span class="label label-success">'+row.category+'</span>';
-         }},
+         { "title": "Uraian Renstra", "data": "uraian_renstra" },
+         { "title": "Sasaran", "data": "nama_sasaran" },
+         { "title": "Tahun Program", "data": "thn_prog" },
          { "title" : "", "orderable": false, "width": "170px", "className": "text-center", render: function (data, type, row, meta) {
             var view = '';
             var edit = '';
             var dele = '';
             @can('roles_view')
-               view = '<a href="{{ Navigation::adminUrl('/roles') }}/'+row.id+'/view" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="icon-eye"></i></a>';
+               view = '<a href="{{ Navigation::adminUrl('/program') }}/'+row.id+'/view" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="icon-eye"></i></a>';
             @endcan
             @can('roles_edit')
-               edit = '<a href="{{ Navigation::adminUrl('/roles') }}/'+row.id+'/edit" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="icon-pencil"></i></a>';
+               edit = '<a href="{{ Navigation::adminUrl('/program') }}/'+row.id+'/edit" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="icon-pencil"></i></a>';
             @endcan
             @can('roles_delete')
-               dele = '<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteRow(\'{{ Navigation::adminUrl('/roles') }}/'+row.id+'/delete\',\'{{ Navigation::adminUrl('/roles') }}\');"><i class="icon-eraser3"></i></button>';
+               dele = '<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteRow(\'{{ Navigation::adminUrl('/program') }}/'+row.id+'/delete\',\'{{ Navigation::adminUrl('/program') }}\');"><i class="icon-eraser3"></i></button>';
             @endcan
             return view+' '+edit+' '+dele;
          }}
@@ -61,7 +60,7 @@ $(function() {
       <div class="content-wrapper">
          <div class="panel panel-flat">
             <div class="panel-heading">
-               <h5 class="panel-title"><i class="icon-users2 position-left"></i> @yield('title')</h5>
+               <h5 class="panel-title"><i class="icon-grid3 position-left"></i> @yield('title')</h5>
                <div class="heading-elements">
                   <ul class="icons-list">
                      <li><a data-action="collapse"></a></li>
@@ -71,7 +70,7 @@ $(function() {
             <div class="panel-body">
                @include('widgets.message')
                @can('roles_create')
-                  <a href="{{ Navigation::adminUrl('/roles') }}/create" class="btn btn-primary btn-xs">
+                  <a href="{{ Navigation::adminUrl('/program') }}/create" class="btn btn-primary btn-xs">
                      <i class="icon-plus-circle2"></i> Tambah</a>
                @endcan
             </div>

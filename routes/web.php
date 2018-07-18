@@ -24,6 +24,9 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
     
     Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function () {
     	Route::get('/cities/{provinceId}', 'Ajax\LocationsController@cities');
+    	Route::get('/suboutput/{outputId}', 'Ajax\MasterController@suboutput');
+    	Route::get('/sasaran/{suboutputId}', 'Ajax\MasterController@sasaran');
+    	Route::get('/volume/{outputId}', 'Ajax\MasterController@volume');
     });
     
     Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
@@ -56,5 +59,13 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 	    Route::any('/create', 'PermissionsController@create')->middleware('permission:permissions_create');
 	    Route::any('/{id}/edit', 'PermissionsController@edit')->middleware('permission:permissions_edit');
 	    Route::delete('/{id}/delete', 'PermissionsController@delete')->middleware('permission:permissions_delete');
+	});
+
+	Route::group(['prefix' => 'program', 'middleware' => 'auth'], function () {
+	    Route::get('/', 'ProgramController@index');
+	    Route::get('/{id}/view', 'ProgramController@view');
+	    Route::any('/create', 'ProgramController@create');
+	    Route::any('/{id}/edit', 'ProgramController@edit');
+	    Route::delete('/{id}/delete', 'ProgramController@delete');
 	});
 });
