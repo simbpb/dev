@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DB;
 use JsValidator;
 use Validator;
 use Navigation;

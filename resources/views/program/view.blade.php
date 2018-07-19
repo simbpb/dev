@@ -9,7 +9,7 @@
             <div class="panel-heading">
                <h5 class="panel-title">
                		<i class="icon-grid3 position-left"></i> 
-	               	<a href="{{ Navigation::adminUrl('/roles') }}">@yield('title')</a>
+	               	<a href="{{ Navigation::adminUrl('/program') }}">@yield('title')</a>
 	               	<i class="icon-forward3"></i> Rincian  
 	           </h5>
                <div class="heading-elements">

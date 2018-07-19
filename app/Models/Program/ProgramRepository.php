@@ -24,7 +24,7 @@ class ProgramRepository
                         'master_sasaran.nama_sasaran'
                    )->join('tbl_renstra','tbl_renstra.id','=','tbl_program.renstra_id')
                     ->join('master_sasaran','master_sasaran.id','=','tbl_program.sasaran_id')
-                    ->searchOrder($request, ['tbl_program.thn_prog','tbl_renstra.uraian_renstra'])
+                    ->searchOrder($request, ['tbl_program.thn_prog','tbl_renstra.uraian_renstra','master_sasaran.nama_sasaran'])
                     ->paginate($limit);
 
         return (new ProgramTransformer)->transformPaginate($model);

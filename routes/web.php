@@ -60,7 +60,39 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 	    Route::any('/{id}/edit', 'PermissionsController@edit')->middleware('permission:permissions_edit');
 	    Route::delete('/{id}/delete', 'PermissionsController@delete')->middleware('permission:permissions_delete');
 	});
+	/** Controllers Master **/
+		Route::group(['prefix' => 'output', 'middleware' => 'auth'], function () {
+		    Route::get('/', 'Master\OutputController@index')->middleware('permission:output_view');
+		    Route::get('/{id}/view', 'Master\OutputController@view')->middleware('permission:output_view');
+		    Route::any('/create', 'Master\OutputController@create')->middleware('permission:output_create');
+		    Route::any('/{id}/edit', 'Master\OutputController@edit')->middleware('permission:output_edit');
+		    Route::delete('/{id}/delete', 'Master\OutputController@delete')->middleware('permission:output_delete');
+		});
 
+		Route::group(['prefix' => 'suboutput', 'middleware' => 'auth'], function () {
+		    Route::get('/', 'Master\SubOutputController@index')->middleware('permission:suboutput_view');
+		    Route::get('/{id}/view', 'Master\SubOutputController@view')->middleware('permission:suboutput_view');
+		    Route::any('/create', 'Master\SubOutputController@create')->middleware('permission:suboutput_create');
+		    Route::any('/{id}/edit', 'Master\SubOutputController@edit')->middleware('permission:suboutput_edit');
+		    Route::delete('/{id}/delete', 'Master\SubOutputController@delete')->middleware('permission:suboutput_delete');
+		});
+
+		Route::group(['prefix' => 'sasaran', 'middleware' => 'auth'], function () {
+		    Route::get('/', 'Master\SasaranController@index')->middleware('permission:sasaran_view');
+		    Route::get('/{id}/view', 'Master\SasaranController@view')->middleware('permission:sasaran_view');
+		    Route::any('/create', 'Master\SasaranController@create')->middleware('permission:sasaran_create');
+		    Route::any('/{id}/edit', 'Master\SasaranController@edit')->middleware('permission:sasaran_edit');
+		    Route::delete('/{id}/delete', 'Master\SasaranController@delete')->middleware('permission:sasaran_delete');
+		});
+
+		Route::group(['prefix' => 'volume', 'middleware' => 'auth'], function () {
+		    Route::get('/', 'Master\VolumeController@index')->middleware('permission:volume_view');
+		    Route::get('/{id}/view', 'Master\VolumeController@view')->middleware('permission:volume_view');
+		    Route::any('/create', 'Master\VolumeController@create')->middleware('permission:volume_create');
+		    Route::any('/{id}/edit', 'Master\VolumeController@edit')->middleware('permission:volume_edit');
+		    Route::delete('/{id}/delete', 'Master\VolumeController@delete')->middleware('permission:volume_delete');
+		});
+	/** End controllers Master**/
 	Route::group(['prefix' => 'program', 'middleware' => 'auth'], function () {
 	    Route::get('/', 'ProgramController@index')->middleware('permission:program_view');
 	    Route::get('/{id}/view', 'ProgramController@view')->middleware('permission:program_view');

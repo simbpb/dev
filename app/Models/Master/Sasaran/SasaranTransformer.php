@@ -16,6 +16,11 @@ class SasaranTransformer{
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
                'id' => $model->id,
+               'master' => $model->master,
+               'master_id' => $model->master_id,
+               'nama_sasaran' => $model->nama_sasaran,
+               'nama_suboutput' => $model->nama_suboutput,
+               'nama_output' => $model->nama_output,
             ];
         });
 

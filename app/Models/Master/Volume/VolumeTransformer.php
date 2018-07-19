@@ -16,6 +16,10 @@ class VolumeTransformer{
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
                'id' => $model->id,
+               'master' => $model->master,
+               'master_id' => $model->master_id,
+               'jenis_volume' => $model->jenis_volume,
+               'nama_output' => $model->nama_output,
             ];
         });
 

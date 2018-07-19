@@ -112,7 +112,9 @@ function getAjaxSource(id, elementTarget, path, callback) {
             $.each(result, function (i, item) {
                 $(elementTarget).append($('<option></option>').val(item.id).html(item.text));
             });
-            callback()
+            if (callback != undefined) {
+               callback()
+            }
          }
    });
 }

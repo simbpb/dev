@@ -1,6 +1,7 @@
 <?php
 namespace App\Models\Master\Uraian;
 
+use DB;
 
 class UraianRepository
 {

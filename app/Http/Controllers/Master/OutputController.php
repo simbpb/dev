@@ -1,30 +1,25 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Master;
 
 use JsValidator;
 use Validator;
 use Navigation;
 use Illuminate\Http\Request;
-use App\Models\Menu\MenuRepository;
-use App\Models\Permission\PermissionRepository;
+use App\Models\Master\Output\OutputRepository;
 use App\Http\Controllers\Controller;
 
-class PermissionsController extends Controller {
+class OutputController extends Controller {
     
     protected $model;
-    protected $menu;
 
     public function __construct(
-        PermissionRepository $permission,
-        MenuRepository $menu
+        OutputRepository $output
     ) {
-        $this->model = $permission;
-        $this->menu = $menu;
+        $this->model = $output;
     }
     
-    protected function validationRules($id = 0) {
-        $rule['name'] = 'required|unique:permissions'. ($id ? ",id,$id" : '');
-        $rule['alias'] = 'required';
+    protected function validationRules() {
+        $rule['nama_output'] = 'required';
         return $rule;
     }
 
@@ -35,7 +30,7 @@ class PermissionsController extends Controller {
             return $model;
         }
 
-        return view('permissions.index');
+        return view('output.index');
     }
 
     public function create(Request $request)
@@ -49,23 +44,21 @@ class PermissionsController extends Controller {
             try {
                 $this->model->create($request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/permissions'));
+                return redirect(Navigation::adminUrl('/output'));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
         }
-
-        $options = $this->menu->getOptions();
         $validator = JsValidator::make($this->validationRules());
 
-        return view('permissions.form', compact('options','validator'));
+        return view('output.form', compact('validator'));
     }
 
     public function edit($id, Request $request)
     {
         if ($request->isMethod('post')) {
 
-            $validation = Validator::make($request->all(), $this->validationRules($id));
+            $validation = Validator::make($request->all(), $this->validationRules());
             if ($validation->fails()) {
                 return redirect()->back()->withInput()->withErrors($validation->errors());
             }
@@ -73,23 +66,22 @@ class PermissionsController extends Controller {
             try {
                 $this->model->update($id, $request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/permissions'));
+                return redirect(Navigation::adminUrl('/output'));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
         }
 
-        $options = $this->menu->getOptions();
-        $validator = JsValidator::make($this->validationRules($id));
+        $validator = JsValidator::make($this->validationRules());
         $model = $this->model->find($id);
 
-        return view('permissions.form', compact('options','model','validator'));
+        return view('output.form', compact('model','validator'));
     }
 
     public function view($id)
     {
         $model = $this->model->find($id);
-        return view('permissions.view', compact('model'));
+        return view('output.view', compact('model'));
     }
 
     public function delete($id) 

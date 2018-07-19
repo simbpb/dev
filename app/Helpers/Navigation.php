@@ -69,26 +69,6 @@ class Navigation {
         return false;
     }
 
-    static function getIds($ids = []) {
-        $ids = Menu::orderBy('order')->whereIn('id', $ids)->get();
-        return self::getUniqueIds($ids);
-    }
-
-    static function getUniqueIds($rows) {
-        $arr = [];
-        foreach ($rows as $row) {
-            $arr[] = $row->id;
-            if ($row->parent) {
-                $exps = explode("|", self::getParent($row->parent));
-                foreach ($exps as $exp) {
-                    $arr[] = $exp;
-                }
-            }
-        }
-
-        return array_unique($arr);
-    }
-
     static function getParent($row) {
         $arr = $row->id;
         if ($row->parent) {
@@ -103,10 +83,16 @@ class Navigation {
             $permissions = Auth::user()->role->permissions;
             foreach ($permissions as $key => $permission) {
                 $arr[] = $permission->menu_id;
+                if ($permission->menu->parent) {
+                    $exps = explode("|", self::getParent($permission->menu->parent));
+                    foreach ($exps as $exp) {
+                        $arr[] = $exp;
+                    }
+                }
             }
         }
 
-        return self::getIds($arr);
+        return array_unique($arr);
     }
     
 }

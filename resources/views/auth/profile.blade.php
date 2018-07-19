@@ -45,6 +45,10 @@
 					  	</div>
 					  	<div class="col-xs-4">
 					  		<div class="form-group">
+					    		<label>Sub Direktorat</label>
+					  			<div class="form-group"><b>{!! ($model['subdit_name']) ? $model['subdit_name'] : '-' !!}</b></div>
+					  		</div>
+					  		<div class="form-group">
 					    		<label>Status</label>
 					    		<div class="form-group"><b>{!! ($model['status'] == '00') ? 'ACTIVE' : 'INACTIVE' !!}</b></div>
 					  		</div>

@@ -16,6 +16,10 @@ class SubOutputTransformer{
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
                'id' => $model->id,
+               'master' => $model->master,
+               'master_id' => $model->master_id,
+               'nama_suboutput' => $model->nama_suboutput,
+               'nama_output' => $model->nama_output,
             ];
         });
 

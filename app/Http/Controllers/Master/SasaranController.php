@@ -1,30 +1,31 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Master;
 
 use JsValidator;
 use Validator;
 use Navigation;
 use Illuminate\Http\Request;
-use App\Models\Menu\MenuRepository;
-use App\Models\Permission\PermissionRepository;
+use App\Models\Master\Sasaran\SasaranRepository;
+use App\Models\Master\Output\OutputRepository;
 use App\Http\Controllers\Controller;
 
-class PermissionsController extends Controller {
+class SasaranController extends Controller {
     
     protected $model;
-    protected $menu;
+    protected $output;
 
     public function __construct(
-        PermissionRepository $permission,
-        MenuRepository $menu
+        SasaranRepository $sasaran,
+        OutputRepository $output
     ) {
-        $this->model = $permission;
-        $this->menu = $menu;
+        $this->model = $sasaran;
+        $this->output = $output;
     }
     
-    protected function validationRules($id = 0) {
-        $rule['name'] = 'required|unique:permissions'. ($id ? ",id,$id" : '');
-        $rule['alias'] = 'required';
+    protected function validationRules() {
+        $rule['nama_sasaran'] = 'required';
+        $rule['output_id'] = 'required';
+        $rule['suboutput_id'] = 'required';
         return $rule;
     }
 
@@ -35,7 +36,7 @@ class PermissionsController extends Controller {
             return $model;
         }
 
-        return view('permissions.index');
+        return view('sasaran.index');
     }
 
     public function create(Request $request)
@@ -49,23 +50,23 @@ class PermissionsController extends Controller {
             try {
                 $this->model->create($request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/permissions'));
+                return redirect(Navigation::adminUrl('/sasaran'));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
         }
 
-        $options = $this->menu->getOptions();
+        $output = $this->output->getOptions();
         $validator = JsValidator::make($this->validationRules());
 
-        return view('permissions.form', compact('options','validator'));
+        return view('sasaran.form', compact('output','validator'));
     }
 
     public function edit($id, Request $request)
     {
         if ($request->isMethod('post')) {
 
-            $validation = Validator::make($request->all(), $this->validationRules($id));
+            $validation = Validator::make($request->all(), $this->validationRules());
             if ($validation->fails()) {
                 return redirect()->back()->withInput()->withErrors($validation->errors());
             }
@@ -73,23 +74,23 @@ class PermissionsController extends Controller {
             try {
                 $this->model->update($id, $request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/permissions'));
+                return redirect(Navigation::adminUrl('/sasaran'));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
         }
 
-        $options = $this->menu->getOptions();
-        $validator = JsValidator::make($this->validationRules($id));
+        $output = $this->output->getOptions();
+        $validator = JsValidator::make($this->validationRules());
         $model = $this->model->find($id);
 
-        return view('permissions.form', compact('options','model','validator'));
+        return view('sasaran.form', compact('model','output','validator'));
     }
 
     public function view($id)
     {
         $model = $this->model->find($id);
-        return view('permissions.view', compact('model'));
+        return view('sasaran.view', compact('model'));
     }
 
     public function delete($id) 
