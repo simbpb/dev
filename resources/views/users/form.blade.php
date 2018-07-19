@@ -52,6 +52,12 @@
 					    		<small><i>{!! (isset($model)) ? '(kosongkan jika tidak diubah)' : '' !!}</i></small>
 					    	</div>
 				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-2">Subdit*</label>
+				    		<div class="col-lg-10">
+					  			{!! Form::select('subdit_id', $subdit, null, ['placeholder' => 'Pilih Subdit','class' => 'form-control']) !!}
+					  		</div>
+				  		</div>
 			  		</div>
 			  		<div class="col-lg-6">
 			  			<div class="form-group">
@@ -93,6 +99,7 @@
 </div>
 @endsection
 @section('js')
+<script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
 <script type="text/javascript">
 $(function() {
 	@if(isset($model))

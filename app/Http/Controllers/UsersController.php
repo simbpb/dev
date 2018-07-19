@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\User\UserRepository;
 use App\Models\Role\RoleRepository;
 use App\Models\Lokasi\LokasiRepository;
+use App\Models\Subdit\SubditRepository;
 use App\Http\Controllers\Controller;
 
 class UsersController extends Controller {
@@ -17,15 +18,18 @@ class UsersController extends Controller {
     protected $model;
     protected $role;
     protected $lokasi;
+    protected $subdit;
 
     public function __construct(
         UserRepository $user, 
         RoleRepository $role,
+        SubditRepository $subdit,
         LokasiRepository $lokasi
     ) {
         $this->model = $user;
         $this->role = $role;
         $this->lokasi = $lokasi;
+        $this->subdit = $subdit;
     }
     
     protected function validationRules($scope = 'create', $id = 0) {
@@ -35,6 +39,7 @@ class UsersController extends Controller {
         $rule['province_id'] = 'required';
         $rule['city_id'] = 'required';
         $rule['role_id'] = 'required';
+        $rule['subdit_id'] = 'required';
         $rule['email'] = 'required|email|unique:users'. ($id ? ",id,$id" : '');
         if ($scope == 'create') {
             $rule['password'] = 'required';
@@ -71,10 +76,11 @@ class UsersController extends Controller {
         }
 
         $roles = $this->role->getOptions();
+        $subdit = $this->subdit->getOptions();
         $provinces = $this->lokasi->getProvincesOptions();
         $validator = JsValidator::make($this->validationRules());
 
-        return view('users.form', compact('roles','provinces','validator'));
+        return view('users.form', compact('roles','subdit','provinces','validator'));
     }
 
     public function edit($id, Request $request)
@@ -100,11 +106,12 @@ class UsersController extends Controller {
         }
 
         $roles = $this->role->getOptions();
+        $subdit = $this->subdit->getOptions();
         $provinces = $this->lokasi->getProvincesOptions();
         $validator = JsValidator::make($this->validationRules('edit', $id));
         $model = $this->model->find($id);
 
-        return view('users.form', compact('model','roles','provinces','validator'));
+        return view('users.form', compact('model','roles','subdit','provinces','validator'));
     }
 
     public function view($id)

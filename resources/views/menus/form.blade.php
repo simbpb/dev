@@ -41,7 +41,7 @@
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-2">Parent Menu</label>
 				    		<div class="col-lg-10"> 
-					    		{!! Form::select('parent_id', $options, null, ['placeholder' => 'Pilih Menu','class' => 'form-control']) !!}
+					    		{!! Form::select('parent_id', ['' => 'Pilih Menu'] + $options, null, ['id' => 'menu','class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
 			  		</div>
@@ -69,10 +69,9 @@
 </div>
 @endsection
 @section('js')
-<script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
 <script>
 $(function() {
-	$('select').select2();
+	$('#menu').select2();
 });
 </script>
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.min.js')}}"></script>

@@ -25,6 +25,14 @@
   <script type="text/javascript" src="{{ asset('assets/js/core/libraries/bootstrap.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/nicescroll.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/drilldown.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('select').select2({
+        minimumResultsForSearch: Infinity
+      });
+    })
+  </script>
   <!-- /core JS files -->
 
   <!-- Theme JS files -->

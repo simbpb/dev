@@ -69,22 +69,30 @@ class Navigation {
         return false;
     }
 
-    
+    static function getParent($row) {
+        $arr = $row->id;
+        if ($row->parent) {
+            $arr .= '|'.self::getParent($row->parent);
+        }
+        return $arr;
+    }
+
     static function getAllowMenus() {
         $arr = [];
         if (!Auth::user()->isDeveloper()) {
             $permissions = Auth::user()->role->permissions;
             foreach ($permissions as $key => $permission) {
-                if ($key == 0) {
-                    $parentId = Menu::select('parent_id')->where('id', $permission->menu_id)->first();
-                    if ($parentId) {
-                        $arr[] = $parentId->parent_id;
+                $arr[] = $permission->menu_id;
+                if ($permission->menu->parent) {
+                    $exps = explode("|", self::getParent($permission->menu->parent));
+                    foreach ($exps as $exp) {
+                        $arr[] = $exp;
                     }
                 }
-                $arr[] = $permission->menu_id;
             }
         }
-        return $arr;
+
+        return array_unique($arr);
     }
     
 }
