@@ -19,6 +19,7 @@ class OutputController extends Controller {
     }
     
     protected function validationRules() {
+        $rule['master'] = 'required';
         $rule['nama_output'] = 'required';
         return $rule;
     }

@@ -29,9 +29,8 @@
             </div>
 
             <div class="panel-body">
-            <h6 class="text-semibold">Start your development with no hassle!</h6>
-            <p class="content-group">Common problem of templates is that all code is deeply integrated into the core. This limits your freedom in decreasing amount of code, i.e. it becomes pretty difficult to remove unnecessary code from the project. Limitless allows you to remove unnecessary and extra code easily just by removing the path to specific LESS file with component styling. All plugins and their options are also in separate files. Use only components you actually need!</p>
-            </div>
+            <h6 class="text-semibold">Welcome to SIBPB</h6>
+            <p class="content-group"> SISTEM INFORMASI BINA PENATAAN BANGUNAN (SIBPB) </div>
          </div>
       </div>
    </div>

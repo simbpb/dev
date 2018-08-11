@@ -10,6 +10,7 @@ use App\Models\Program\ProgramRepository;
 use App\Models\Renstra\RenstraRepository;
 use App\Models\Master\Output\OutputRepository;
 use App\Models\Master\Uraian\UraianRepository;
+use App\Models\Subdit\SubditRepository;
 use App\Http\Controllers\Controller;
 
 class ProgramController extends Controller {
@@ -18,28 +19,31 @@ class ProgramController extends Controller {
     protected $output;
     protected $uraian;
     protected $renstra;
+    protected $subdit;
 
     public function __construct(
         ProgramRepository $program,
         OutputRepository $output,
         UraianRepository $uraian,
-        RenstraRepository $renstra
+        RenstraRepository $renstra,
+        SubditRepository $subdit
     ) {
         $this->model = $program;
         $this->output = $output;
         $this->uraian = $uraian;
         $this->renstra = $renstra;
+        $this->subdit = $subdit;
     }
     
     protected function validationRules() {
         $rule['renstra_id'] = 'required';
-        $rule['uraian_id'] = 'required';
         $rule['output_id'] = 'required';
         $rule['suboutput_id'] = 'required_with:output_id';
         $rule['sasaran_id'] = 'required_with:suboutput_id';
         $rule['volume_id'] = 'required_with:output_id';
         $rule['exe_summary_prog'] = 'required';
         $rule['thn_prog'] = 'required';
+        $rule['subdit_id'] = 'required';
         return $rule;
     }
 
@@ -73,9 +77,10 @@ class ProgramController extends Controller {
         $renstra = $this->renstra->getOptions();
         $output = $this->output->getOptions();
         $uraian = $this->uraian->getOptions();
+        $subdit = $this->subdit->getOptions();
         $validator = JsValidator::make($this->validationRules());
 
-        return view('program.form', compact('renstra','output','uraian','validator'));
+        return view('program.form', compact('subdit','renstra','output','uraian','validator'));
     }
 
     public function edit($id, Request $request)
@@ -99,10 +104,11 @@ class ProgramController extends Controller {
         $renstra = $this->renstra->getOptions();
         $output = $this->output->getOptions();
         $uraian = $this->uraian->getOptions();
+        $subdit = $this->subdit->getOptions();
         $validator = JsValidator::make($this->validationRules());
         $model = $this->model->find($id);
 
-        return view('program.form', compact('model','renstra','output','uraian','validator'));
+        return view('program.form', compact('model','subdit','renstra','output','uraian','validator'));
     }
 
     public function view($id)

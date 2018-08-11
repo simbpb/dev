@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Program/Kegiatan')
+@section('title', 'Uraian')
 @section('content')
 <div class="page-container">
    <div class="page-content">
@@ -8,7 +8,7 @@
             <div class="panel-heading">
                <h5 class="panel-title">
                		<i class="icon-grid3 position-left"></i> 
-               		<a href="{{ Navigation::adminUrl('/program') }}">@yield('title')</a> 
+               		<a href="{{ Navigation::adminUrl('/uraian') }}">@yield('title')</a> 
                		<i class="icon-forward3"></i> {!! (isset($model)) ? 'Ubah' : 'Tambah' !!}
 	           </h5>
                <div class="heading-elements">
@@ -18,7 +18,7 @@
                </div>
             </div>
             <div class="panel-body">
-            	@include('widgets.error')
+            @include('widgets.error')
             	@if(isset($model))
 				    {{ Form::model($model, ['id' => 'model-form']) }}
 				@else
@@ -26,10 +26,6 @@
 				@endif
 				<div class="row"> 
 					<div class="col-lg-6">
-                  <div class="form-group">
-                     <label>Renstra</label>
-                     {!! Form::select('renstra_id', ['' => 'Pilih Renstra'] + $renstra, null, ['id' => 'renstra', 'class' => 'form-control program']) !!}
-                  </div>
                   <div class="form-group row">
                      <div class="col-lg-9">
                         <div class="form-group">
@@ -55,33 +51,12 @@
 			  		</div>
                <div class="col-lg-6">
                   <div class="form-group">
-                     <label>Summary Program*</label> 
-                     {!! Form::textarea('exe_summary_prog',null, ['id' => 'exe_summary_prog', 'class' => 'form-control', 'rows' => '5','readonly' => true]) !!}
-                     {!! Form::hidden('uraian_id',null, ['id' => 'uraian', 'class' => 'form-control']) !!}
-                  </div>
-                  <div class="form-group row">
-                     <div class="col-lg-4">
-                        <div class="form-group">
-                           <label>Tahun Program*</label> 
-                           {!! Form::text('thn_prog',null, ['class' => 'form-control']) !!}
-                        </div>
-                     </div>
-                     <div class="col-lg-8">
-                        <div class="form-group">
-                           <label>Subdit*</label>
-                           {!! Form::select('subdit_id', $subdit, null, ['placeholder' => 'Pilih Subdit','class' => 'form-control']) !!}
-                        </div>
-                     </div>
+                     <label>Master*</label>
+                     {!! Form::text('master',isset($model) ? null : 'URN', ['class' => 'form-control']) !!}
                   </div>
                   <div class="form-group">
-                     <label>Status</label>
-                     <div class="col-lg-12 row">
-                        @if(isset($model))
-                           {!! Form::checkbox('status', '00', ($model->status == '00') ? true : false) !!}
-                        @else
-                           {!! Form::checkbox('status', '00') !!}
-                        @endif
-                     </div>
+                     <label>Nama Uraian*</label> 
+                     {!! Form::textarea('nama_uraian',null, ['class' => 'form-control', 'rows' => '5']) !!}
                   </div>
    		  		</div>
             </div>
@@ -110,18 +85,12 @@ $(function() {
    getCascade('#output','#suboutput','ajax/suboutput');
    getCascade('#output','#volume','ajax/volume');
    getCascade('#suboutput','#sasaran','ajax/sasaran');
-
-   $('#sasaran').change(function() {
-      getAjaxUraian();
-   });
 });
 
 function getCascade(element, elementTarget, path, callback) {
    $(element).change(function() {
       var id = this.value;
       getAjaxSource(id, elementTarget, path);
-      $('#uraian').val('');
-      $('#exe_summary_prog').val('');
    });
 }
 
@@ -138,32 +107,6 @@ function getAjaxSource(id, elementTarget, path, callback) {
             if (callback != undefined) {
                callback()
             }
-         }
-   });
-}
-
-function getAjaxUraian() {
-   var output_id = $('#output').val();
-   var suboutput_id = $('#suboutput').val();
-   var sasaran_id = $('#sasaran').val();
-   var volume_id = $('#volume').val();
-   console.log(output_id)
-   console.log(suboutput_id)
-   console.log(sasaran_id)
-   console.log(volume_id)
-   $.ajax({
-         url: base_url + '/ajax/uraian',
-         type: 'GET',
-         datatype: 'JSON',
-         data: {
-            output_id: output_id,
-            suboutput_id: suboutput_id,
-            sasaran_id: sasaran_id,
-            volume_id: volume_id
-         },
-         success: function (result) {
-            $('#uraian').val(result.id);
-            $('#exe_summary_prog').val(result.content);
          }
    });
 }

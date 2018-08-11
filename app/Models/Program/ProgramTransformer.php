@@ -19,6 +19,7 @@ class ProgramTransformer{
                'uraian_renstra' => $model->uraian_renstra,
                'nama_sasaran' => $model->nama_sasaran,
                'thn_prog' => $model->thn_prog,
+               'status' => ($model->status == Status::ACTIVE) ? 'ACTIVE' : 'INACTIVE',
             ];
         });
 
