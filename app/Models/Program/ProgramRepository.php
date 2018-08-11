@@ -3,6 +3,7 @@ namespace App\Models\Program;
 
 use DB;
 use Auth;
+use App\Enum\Status;
 
 class ProgramRepository
 {
@@ -21,7 +22,8 @@ class ProgramRepository
                         'tbl_program.id',
                         'tbl_program.thn_prog',
                         'tbl_renstra.uraian_renstra',
-                        'master_sasaran.nama_sasaran'
+                        'master_sasaran.nama_sasaran',
+                        'tbl_program.status'
                    )->join('tbl_renstra','tbl_renstra.id','=','tbl_program.renstra_id')
                     ->join('master_sasaran','master_sasaran.id','=','tbl_program.sasaran_id')
                     ->searchOrder($request, ['tbl_program.thn_prog','tbl_renstra.uraian_renstra','master_sasaran.nama_sasaran'])
@@ -48,8 +50,8 @@ class ProgramRepository
         $model->uraian_id = $request->input('uraian_id');
         $model->thn_prog = $request->input('thn_prog');
         $model->exe_summary_prog = $request->input('exe_summary_prog');
-        $model->detail_kdprog_id = '001';
-        $model->subdit_id = Auth::user()->subdit_id;
+        $model->status = ($request->input('status')) ? $request->input('status') : Status::INACTIVE;
+        $model->subdit_id = $request->input('subdit_id');
         $model->save();
         DB::commit();
         return true;
@@ -67,8 +69,8 @@ class ProgramRepository
         $model->uraian_id = $request->input('uraian_id');
         $model->thn_prog = $request->input('thn_prog');
         $model->exe_summary_prog = $request->input('exe_summary_prog');
-        $model->detail_kdprog_id = '001';
-        $model->subdit_id = Auth::user()->subdit_id;
+        $model->status = ($request->input('status')) ? $request->input('status') : Status::INACTIVE;
+        $model->subdit_id = $request->input('subdit_id');
         $model->save();
         DB::commit();
         return true;

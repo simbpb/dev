@@ -8,6 +8,9 @@ class UraianTransformer{
     public function transformDetail($model) {
         return [
             'id' => $model->id,
+            'nama_uraian' => $model->nama_uraian,
+            'nama_output' => $model->nama_output,
+            'nama_suboutput' => $model->nama_suboutput,
         ];
     }
 
@@ -15,7 +18,10 @@ class UraianTransformer{
 
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
-               'id' => $model->id,
+                'id' => $model->id,
+                'nama_uraian' => $model->nama_uraian,
+                'nama_output' => $model->nama_output,
+                'nama_suboutput' => $model->nama_suboutput,
             ];
         });
 

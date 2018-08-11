@@ -23,6 +23,7 @@ class SasaranController extends Controller {
     }
     
     protected function validationRules() {
+        $rule['master'] = 'required';
         $rule['nama_sasaran'] = 'required';
         $rule['output_id'] = 'required';
         $rule['suboutput_id'] = 'required';

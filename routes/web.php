@@ -27,6 +27,7 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
     	Route::get('/suboutput/{outputId}', 'Ajax\MasterController@suboutput');
     	Route::get('/sasaran/{suboutputId}', 'Ajax\MasterController@sasaran');
     	Route::get('/volume/{outputId}', 'Ajax\MasterController@volume');
+    	Route::get('/uraian', 'Ajax\UraianController@detail_uraian');
     });
     
     Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
@@ -91,6 +92,14 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::any('/create', 'Master\VolumeController@create')->middleware('permission:volume_create');
 		    Route::any('/{id}/edit', 'Master\VolumeController@edit')->middleware('permission:volume_edit');
 		    Route::delete('/{id}/delete', 'Master\VolumeController@delete')->middleware('permission:volume_delete');
+		});
+
+		Route::group(['prefix' => 'uraian', 'middleware' => 'auth'], function () {
+		    Route::get('/', 'Master\UraianController@index')->middleware('permission:volume_view');
+		    Route::get('/{id}/view', 'Master\UraianController@view')->middleware('permission:volume_view');
+		    Route::any('/create', 'Master\UraianController@create')->middleware('permission:volume_create');
+		    Route::any('/{id}/edit', 'Master\UraianController@edit')->middleware('permission:volume_edit');
+		    Route::delete('/{id}/delete', 'Master\UraianController@delete')->middleware('permission:volume_delete');
 		});
 	/** End controllers Master**/
 	Route::group(['prefix' => 'program', 'middleware' => 'auth'], function () {

@@ -23,6 +23,7 @@ class SubOutputController extends Controller {
     }
     
     protected function validationRules() {
+        $rule['master'] = 'required';
         $rule['output_id'] = 'required';
         $rule['nama_suboutput'] = 'required';
         return $rule;

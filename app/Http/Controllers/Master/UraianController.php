@@ -1,31 +1,35 @@
 <?php
+
 namespace App\Http\Controllers\Master;
 
 use JsValidator;
 use Validator;
 use Navigation;
 use Illuminate\Http\Request;
-use App\Models\Master\Volume\VolumeRepository;
+use App\Models\Master\Uraian\UraianRepository;
 use App\Models\Master\Output\OutputRepository;
 use App\Http\Controllers\Controller;
 
-class VolumeController extends Controller {
+class UraianController extends Controller {
     
     protected $model;
     protected $output;
 
     public function __construct(
-        VolumeRepository $volume,
+        UraianRepository $uraian,
         OutputRepository $output
     ) {
-        $this->model = $volume;
+        $this->model = $uraian;
         $this->output = $output;
     }
     
     protected function validationRules() {
         $rule['master'] = 'required';
+        $rule['nama_uraian'] = 'required';
         $rule['output_id'] = 'required';
-        $rule['jenis_volume'] = 'required';
+        $rule['suboutput_id'] = 'required_with:output_id';
+        $rule['sasaran_id'] = 'required_with:suboutput_id';
+        $rule['volume_id'] = 'required_with:output_id';
         return $rule;
     }
 
@@ -36,7 +40,7 @@ class VolumeController extends Controller {
             return $model;
         }
 
-        return view('volume.index');
+        return view('uraian.index');
     }
 
     public function create(Request $request)
@@ -50,7 +54,7 @@ class VolumeController extends Controller {
             try {
                 $this->model->create($request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/volume'));
+                return redirect(Navigation::adminUrl('/uraian'));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
@@ -59,7 +63,7 @@ class VolumeController extends Controller {
         $output = $this->output->getOptions();
         $validator = JsValidator::make($this->validationRules());
 
-        return view('volume.form', compact('output','validator'));
+        return view('uraian.form', compact('output','validator'));
     }
 
     public function edit($id, Request $request)
@@ -74,7 +78,7 @@ class VolumeController extends Controller {
             try {
                 $this->model->update($id, $request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/volume'));
+                return redirect(Navigation::adminUrl('/uraian'));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
@@ -84,13 +88,13 @@ class VolumeController extends Controller {
         $validator = JsValidator::make($this->validationRules());
         $model = $this->model->find($id);
 
-        return view('volume.form', compact('model','output','validator'));
+        return view('uraian.form', compact('model','output','validator'));
     }
 
     public function view($id)
     {
         $model = $this->model->find($id);
-        return view('volume.view', compact('model'));
+        return view('uraian.view', compact('model'));
     }
 
     public function delete($id) 
