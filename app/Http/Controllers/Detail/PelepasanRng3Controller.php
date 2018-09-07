@@ -8,34 +8,38 @@ use Navigation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Lokasi\LokasiRepository;
-use App\Models\Detail\P2kh\P2khRepository;
+use App\Models\Detail\PelepasanRng3\PelepasanRng3Repository;
 
-class P2khController extends Controller {
+class PelepasanRng3Controller extends Controller {
 
     protected $model;
     protected $lokasi;
     protected $view;
 
     public function __construct(
-        P2khRepository $model,
+        PelepasanRng3Repository $model,
         LokasiRepository $lokasi
     ) {
         $this->model = $model;
         $this->lokasi = $lokasi;
-        $this->view = 'p2kh';
+        $this->view = 'pelepasan-rng3';
     }
 
     protected function validationRules() {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
-        $rule['nama_lokasi'] = 'required';
-        $rule['thn_penetapan'] = 'required';
-        $rule['luas_kws'] = 'required';
-        $rule['satuan_luas_kws'] = 'required';
-        $rule['cakupan_wilayah'] = 'required';
-        $rule['uraian_karakter_lokasi'] = 'required';
-        $rule['tipe_dok_p2kh'] = 'required';
+        $rule['hdno_rn'] = 'required';
+        $rule['nama_penghuni'] = 'required';
+        $rule['kemen_lembaga'] = 'required';
+        $rule['alamat_rn'] = 'required';
+        $rule['no_sk_gol3'] = 'required';
+        $rule['no_sip_gol3'] = 'required';
+        $rule['no_sk_menteri_pupr'] = 'required';
+        $rule['thn_perjanjian_sewabeli'] = 'required';
+        $rule['status_rn'] = 'required';
+        $rule['thn_pelepasan_rng3'] = 'required';
+        $rule['sk_hak_milik'] = 'required';
         return $rule;
     }
 

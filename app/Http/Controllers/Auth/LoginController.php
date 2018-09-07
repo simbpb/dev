@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Navigation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -64,6 +65,6 @@ class LoginController extends Controller
     {
         $this->guard()->logout();
         $request->session()->invalidate();
-        return redirect('/login');
+        return redirect(Navigation::adminUrl('/login'));
     }
 }

@@ -26,7 +26,7 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
     
     Route::group(['prefix' => 'ajax'], function () {
     	Route::get('/cities/{provinceId}', 'Ajax\LocationsController@cities');
-    	Route::get('/text-cities/{provinceId}', 'Ajax\LocationsController@textCities');
+    	Route::get('/districts/{provinceId}/{cityId}', 'Ajax\LocationsController@districts');
     	Route::get('/suboutput/{outputId}', 'Ajax\MasterController@suboutput');
     	Route::get('/sasaran/{suboutputId}', 'Ajax\MasterController@sasaran');
     	Route::get('/volume/{outputId}', 'Ajax\MasterController@volume');
@@ -162,6 +162,30 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::any('/create', 'Detail\NspkPerdabgController@create');
 		    Route::any('/{id}/edit', 'Detail\NspkPerdabgController@edit');
 		    Route::delete('/{id}/delete', 'Detail\NspkPerdabgController@delete');
+		});
+
+		Route::group(['prefix' => 'p2kh'], function () {
+		    Route::get('/', 'Detail\P2khController@index');
+		    Route::get('/{id}/view', 'Detail\P2khController@view');
+		    Route::any('/create', 'Detail\P2khController@create');
+		    Route::any('/{id}/edit', 'Detail\P2khController@edit');
+		    Route::delete('/{id}/delete', 'Detail\P2khController@delete');
+		});
+
+		Route::group(['prefix' => 'p3kp'], function () {
+		    Route::get('/', 'Detail\P3kpController@index');
+		    Route::get('/{id}/view', 'Detail\P3kpController@view');
+		    Route::any('/create', 'Detail\P3kpController@create');
+		    Route::any('/{id}/edit', 'Detail\P3kpController@edit');
+		    Route::delete('/{id}/delete', 'Detail\P3kpController@delete');
+		});
+
+		Route::group(['prefix' => 'pelepasan-rng3'], function () {
+		    Route::get('/', 'Detail\PelepasanRng3Controller@index');
+		    Route::get('/{id}/view', 'Detail\PelepasanRng3Controller@view');
+		    Route::any('/create', 'Detail\PelepasanRng3Controller@create');
+		    Route::any('/{id}/edit', 'Detail\PelepasanRng3Controller@edit');
+		    Route::delete('/{id}/delete', 'Detail\PelepasanRng3Controller@delete');
 		});
 
 	});

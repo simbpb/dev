@@ -73,11 +73,11 @@
             <li><a href="{{ Navigation::adminUrl('/change-password') }}"><i class="icon-lock2"></i> Ubah Password </a></li>
             <li class="divider"></li>
             <li>
-              <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+              <a href="{{ Navigation::adminUrl('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                   <i class="icon-switch2"></i> 
                   Sign out
               </a>
-              <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+              <form id="logout-form" action="{{ Navigation::adminUrl('/logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}
               </form>
             </li>
