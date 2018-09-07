@@ -57,7 +57,7 @@ class SasaranRepository
         $masterId = $this->model->find($model->id);
         $masterId->master_id = $request->input('master').sprintf("%03d", $model->id);
         $masterId->save();
-
+        $model->details()->attach($request->input('detail_ids'));
         DB::commit();
         return true;
     }
@@ -73,6 +73,7 @@ class SasaranRepository
         $model->master = $request->input('master');
         $model->master_id = $request->input('master').sprintf("%03d", $id);
         $model->save();
+        $model->details()->sync($request->input('detail_ids'));
         DB::commit();
         return true;
     }

@@ -20,6 +20,8 @@ class UraianTransformer{
             return [
                 'id' => $model->id,
                 'nama_uraian' => $model->nama_uraian,
+                'master' => $model->master,
+                'master_id' => $model->master_id,
                 'nama_output' => $model->nama_output,
                 'nama_suboutput' => $model->nama_suboutput,
             ];

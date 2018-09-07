@@ -33,13 +33,13 @@
 					    	</div>
 				  		</div>
 						<div class="form-group">
-				    		<label class="control-label col-lg-2">Output</label>
+				    		<label class="control-label col-lg-2">Output*</label>
 				    		<div class="col-lg-8"> 
 					    		{!! Form::select('output_id',['' => 'Pilih Output'] + $output, null, ['id'=> 'output','class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label class="control-label col-lg-2">Suboutput</label>
+				    		<label class="control-label col-lg-2">Suboutput*</label>
 				    		<div class="col-lg-8"> 
 					    		{!! Form::select('suboutput_id',['' => 'Pilih Suboutput'], null, ['id'=> 'suboutput','class' => 'form-control']) !!}
 					    	</div>
@@ -50,6 +50,12 @@
 					    		{!! Form::text('nama_sasaran',null, ['class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
+                  <div class="form-group">
+                     <label class="control-label col-lg-2">Detail Program*</label>
+                     <div class="col-lg-8"> 
+                        {!! Form::select('detail_ids[]', $detail, !empty($model)?$model->details:null, ['id'=> 'detail', 'class' => 'form-control', 'multiple' => 'multiple']) !!}
+                     </div>
+                  </div>
 			  		</div>
 		  		</div>
 		  		@include('widgets.submit_button')

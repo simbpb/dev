@@ -20,7 +20,9 @@ class UraianRepository
                         'master_uraian.id',
                         'master_uraian.nama_uraian',
                         'master_output.nama_output',
-                        'master_suboutput.nama_suboutput'
+                        'master_suboutput.nama_suboutput',
+                        'master_uraian.master',
+                        'master_uraian.master_id'
                    )->join('master_output','master_output.id','=','master_uraian.output_id')
                     ->join('master_suboutput','master_suboutput.id','=','master_uraian.suboutput_id')
                     ->searchOrder($request, [
