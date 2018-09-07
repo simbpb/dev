@@ -105,7 +105,7 @@ $(function() {
 	@if(isset($model))
 		var currentProvinceId = $('#provinces').val();
 		getCities(currentProvinceId, function(){
-			$('#cities').val(<?=$model['city_id']?>);
+			$('#cities').val('<?=$model['city_id']?>');
 		});
 	@endif
     $('#provinces').change(function() {

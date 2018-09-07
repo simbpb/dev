@@ -7,19 +7,23 @@ use Navigation;
 use Illuminate\Http\Request;
 use App\Models\Master\Sasaran\SasaranRepository;
 use App\Models\Master\Output\OutputRepository;
+use App\Models\Master\Detail\DetailRepository;
 use App\Http\Controllers\Controller;
 
 class SasaranController extends Controller {
     
     protected $model;
     protected $output;
+    protected $detail;
 
     public function __construct(
         SasaranRepository $sasaran,
-        OutputRepository $output
+        OutputRepository $output,
+        DetailRepository $detail
     ) {
         $this->model = $sasaran;
         $this->output = $output;
+        $this->detail = $detail;
     }
     
     protected function validationRules() {
@@ -27,6 +31,7 @@ class SasaranController extends Controller {
         $rule['nama_sasaran'] = 'required';
         $rule['output_id'] = 'required';
         $rule['suboutput_id'] = 'required';
+        $rule['detail_ids'] = 'required';
         return $rule;
     }
 
@@ -58,9 +63,10 @@ class SasaranController extends Controller {
         }
 
         $output = $this->output->getOptions();
+        $detail = $this->detail->getOptions();
         $validator = JsValidator::make($this->validationRules());
 
-        return view('sasaran.form', compact('output','validator'));
+        return view('sasaran.form', compact('output','detail','validator'));
     }
 
     public function edit($id, Request $request)
@@ -82,10 +88,11 @@ class SasaranController extends Controller {
         }
 
         $output = $this->output->getOptions();
+        $detail = $this->detail->getOptions();
         $validator = JsValidator::make($this->validationRules());
         $model = $this->model->find($id);
 
-        return view('sasaran.form', compact('model','output','validator'));
+        return view('sasaran.form', compact('model','output','detail','validator'));
     }
 
     public function view($id)

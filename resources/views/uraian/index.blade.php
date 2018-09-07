@@ -31,6 +31,12 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
+         { "title": "Master", "data": "master", render: function (data, type, row, meta) {
+            return '<span class="label label-success">'+row.master+'</span>';
+         }},
+         { "title": "Master ID", "data": "master_id", render: function (data, type, row, meta) {
+            return '<span class="label label-success">'+row.master_id+'</span>';
+         }},
          { "title": "Nama Uraian", "data": "nama_uraian" },
          { "title": "Nama Output", "data": "nama_output" },
          { "title": "Nama Suboutput", "data": "nama_suboutput" },

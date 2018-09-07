@@ -56,7 +56,7 @@
                <div class="col-lg-6">
                   <div class="form-group">
                      <label>Summary Program*</label> 
-                     {!! Form::textarea('exe_summary_prog',null, ['id' => 'exe_summary_prog', 'class' => 'form-control', 'rows' => '5','readonly' => true]) !!}
+                     {!! Form::textarea('exe_summary_prog',null, ['id' => 'exe_summary_prog', 'class' => 'form-control', 'rows' => '5']) !!}
                      {!! Form::hidden('uraian_id',null, ['id' => 'uraian', 'class' => 'form-control']) !!}
                   </div>
                   <div class="form-group row">
@@ -143,24 +143,17 @@ function getAjaxSource(id, elementTarget, path, callback) {
 }
 
 function getAjaxUraian() {
-   var output_id = $('#output').val();
-   var suboutput_id = $('#suboutput').val();
-   var sasaran_id = $('#sasaran').val();
-   var volume_id = $('#volume').val();
-   console.log(output_id)
-   console.log(suboutput_id)
-   console.log(sasaran_id)
-   console.log(volume_id)
+   var params = {
+      output_id: $('#output').val(),
+      suboutput_id: $('#suboutput').val(),
+      sasaran_id: $('#sasaran').val(),
+      volume_id: $('#volume').val()
+   };
    $.ajax({
          url: base_url + '/ajax/uraian',
          type: 'GET',
          datatype: 'JSON',
-         data: {
-            output_id: output_id,
-            suboutput_id: suboutput_id,
-            sasaran_id: sasaran_id,
-            volume_id: volume_id
-         },
+         data: params,
          success: function (result) {
             $('#uraian').val(result.id);
             $('#exe_summary_prog').val(result.content);

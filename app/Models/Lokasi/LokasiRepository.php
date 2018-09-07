@@ -40,4 +40,35 @@ class LokasiRepository
 
         return $options;
     }
+
+    public function getTextProvincesOptions()
+    {
+        $rows = $this->model->select('lokasi_propinsi','lokasi_nama')
+                    ->where('lokasi_kabupatenkota','00')
+                    ->get();
+
+        $options[null] = 'Pilih Propinsi';
+        foreach($rows as $row) {
+            $options[$row->lokasi_propinsi.'-'.$row->lokasi_nama] = $row->lokasi_nama;
+        }
+
+        return $options;
+    }
+
+    public function getTextCitiesOptions($provinceName)
+    {
+        $provinceId = 
+        $rows = $this->model->select('lokasi_nama')
+                    ->where('lokasi_propinsi','like','%'.$provinceId.'%')
+                    ->where('lokasi_kabupatenkota','<>','00')
+                    ->where('lokasi_kecamatan','00')
+                    ->get();
+
+        $options = [];
+        foreach($rows as $row) {
+            $options[$row->lokasi_nama] = $row->lokasi_nama;
+        }
+
+        return $options;
+    }
 }

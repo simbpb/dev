@@ -17,4 +17,9 @@ class Sasaran extends Model
    	{
       	return $this->hasOne('App\Models\Master\SubOutput\SubOutput','id','suboutput_id') ;
    	}
+
+   	public function details()
+   	{
+   		return $this->belongsToMany('App\Models\Master\Detail\Detail', 'detail_sasaran', 'sasaran_id', 'detail_id');
+   	}
 }
