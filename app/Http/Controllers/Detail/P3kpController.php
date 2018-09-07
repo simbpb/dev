@@ -8,34 +8,29 @@ use Navigation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Lokasi\LokasiRepository;
-use App\Models\Detail\P2kh\P2khRepository;
+use App\Models\Detail\P3kp\P3kpRepository;
 
-class P2khController extends Controller {
+class P3kpController extends Controller {
 
     protected $model;
     protected $lokasi;
     protected $view;
 
     public function __construct(
-        P2khRepository $model,
+        P3kpRepository $model,
         LokasiRepository $lokasi
     ) {
         $this->model = $model;
         $this->lokasi = $lokasi;
-        $this->view = 'p2kh';
+        $this->view = 'p3kp';
     }
 
     protected function validationRules() {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
-        $rule['nama_lokasi'] = 'required';
         $rule['thn_penetapan'] = 'required';
-        $rule['luas_kws'] = 'required';
-        $rule['satuan_luas_kws'] = 'required';
-        $rule['cakupan_wilayah'] = 'required';
-        $rule['uraian_karakter_lokasi'] = 'required';
-        $rule['tipe_dok_p2kh'] = 'required';
+        $rule['tipe_dok_p3kp'] = 'required';
         return $rule;
     }
 

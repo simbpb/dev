@@ -55,18 +55,18 @@ class LokasiRepository
         return $options;
     }
 
-    public function getTextCitiesOptions($provinceName)
+    public function getDistrictsOptions($provinceId, $cityId)
     {
-        $provinceId = 
-        $rows = $this->model->select('lokasi_nama')
-                    ->where('lokasi_propinsi','like','%'.$provinceId.'%')
-                    ->where('lokasi_kabupatenkota','<>','00')
-                    ->where('lokasi_kecamatan','00')
+        $rows = $this->model->select('lokasi_kecamatan','lokasi_nama')
+                    ->where('lokasi_propinsi', $provinceId)
+                    ->where('lokasi_kabupatenkota', $cityId)
+                    ->where('lokasi_kecamatan','<>','00')
+                    ->where('lokasi_kelurahan','0000')
                     ->get();
 
         $options = [];
         foreach($rows as $row) {
-            $options[$row->lokasi_nama] = $row->lokasi_nama;
+            $options[$row->lokasi_kecamatan] = $row->lokasi_nama;
         }
 
         return $options;

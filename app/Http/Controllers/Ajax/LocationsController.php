@@ -21,9 +21,9 @@ class LocationsController extends Controller {
         return $rows;
     }
 
-    public function textCities($provinceId)
+    public function districts($provinceId, $cityId)
     {
-        $rows = $this->model->getTextCitiesOptions($provinceId);
+        $rows = $this->model->getDistrictsOptions($provinceId, $cityId);
         return $rows;
     }
 }
