@@ -1,0 +1,1198 @@
+/**
+
+Offcanvas
+
+styling: selectors
+
+.offcanvas-contents
+
+*/
+
+.offcanvas-wrapper,
+.offcanvas-pusher,
+.offcanvas-contents {
+    height : 100%;
+    }
+
+.offcanvas-contents {
+    /* overflow-y : scroll;
+ background : #f3efe0; */
+    }
+
+.offcanvas-open .offcanvas-contents,
+.offcanvas-open .offcanvas-contents-inner {
+
+    }
+
+.offcanvas-html-open, .offcanvas-body-open {
+    height : 100%
+    }
+
+.offcanvas-contents,
+.offcanvas-contents-inner {
+    position : relative;
+    }
+
+.offcanvas-wrapper {
+    position : relative;
+    overflow : hidden;
+    }
+
+.offcanvas-pusher {
+    position           : relative;
+    left               : 0;
+    z-index            : 99;
+    height             : 100%;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    }
+
+.offcanvas-pusher::after {
+    position           : absolute;
+    top                : 0;
+    right              : 0;
+    width              : 0;
+    height             : 0;
+    background         : rgba(0, 0, 0, 0.5);
+    content            : '';
+    opacity            : 0;
+    -webkit-transition : opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    -moz-transition    : opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    -o-transition      : opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    transition         : opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    z-index            : 999;
+    }
+
+.offcanvas-open .offcanvas-pusher::after {
+    width              : 100%;
+    height             : 100%;
+    opacity            : 1;
+    -webkit-transition : opacity 0.5s;
+    -moz-transition    : opacity 0.5s;
+    -o-transition      : opacity 0.5s;
+    transition         : opacity 0.5s;
+    }
+
+.offcanvas-container {
+    position           : absolute;
+    top                : 0;
+    left               : 0;
+    z-index            : 100;
+    visibility         : hidden;
+    width              : 300px;
+    height             : 100%;
+    background         : #27272C; /* Will Change */
+    -webkit-transition : all 0.5s;
+    -moz-transition    : all 0.5s;
+    -o-transition      : all 0.5s;
+    transition         : all 0.5s;
+    }
+
+.offcanvas-container::after {
+    position           : absolute;
+    top                : 0;
+    right              : 0;
+    width              : 100%;
+    height             : 100%;
+    background         : rgba(0, 0, 0, 0.5);
+    content            : '';
+    opacity            : 1;
+    -webkit-transition : opacity 0.5s;
+    -moz-transition    : opacity 0.5s;
+    -o-transition      : opacity 0.5s;
+    transition         : opacity 0.5s;
+    }
+
+.offcanvas-open .offcanvas-container::after {
+    width              : 0;
+    height             : 0;
+    opacity            : 0;
+    -webkit-transition : opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    -moz-transition    : opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    -o-transition      : opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    transition         : opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    }
+
+.offcanvas-container > div {
+    overflow-y : scroll;
+    overflow-x : hidden;
+    height     : calc(100% - 0px);
+    visibility : visible;
+    }
+
+.offcanvas-container > div::-webkit-scrollbar {
+    width : 0px;
+    }
+
+/*.offcanvas-container > div::-webkit-scrollbar{
+    width: 5px;
+}
+
+.offcanvas-container > div::-webkit-scrollbar-track{
+    background-color: #1F1F23;
+}
+
+.offcanvas-container > div::-webkit-scrollbar-thumb{
+    background-color: #808080;
+}*/
+
+.offcanvas-left .offcanvas-container {
+    left : 0;
+    }
+
+.offcanvas-right .offcanvas-container {
+    left  : auto;
+    right : 0;
+    }
+
+/* Individual effects */
+
+/*
+ Effect 1: Slide in on top
+ Name: slide-in-on-top
+*/
+
+.offcanvas-left.slide-in-on-top.offcanvas-open .offcanvas-container,
+.offcanvas-right.slide-in-on-top.offcanvas-open .offcanvas-container {
+    visibility        : visible;
+    -webkit-transform : translate3d(0, 0, 0);
+    -moz-transform    : translate3d(0, 0, 0);
+    -ms-transform     : translate(0, 0);
+    -o-transform      : translate3d(0, 0, 0);
+    transform         : translate3d(0, 0, 0);
+    }
+
+.offcanvas-left.slide-in-on-top .offcanvas-container {
+    -webkit-transform : translate3d(-100%, 0, 0);
+    -moz-transform    : translate3d(-100%, 0, 0);
+    -ms-transform     : translate(-100%, 0);
+    -o-transform      : translate3d(-100%, 0, 0);
+    transform         : translate3d(-100%, 0, 0);
+    }
+
+.offcanvas-right.slide-in-on-top .offcanvas-container {
+    -webkit-transform : translate3d(100%, 0, 0);
+    -moz-transform    : translate3d(100%, 0, 0);
+    -ms-transform     : translate(100%, 0);
+    -o-transform      : translate3d(100%, 0, 0);
+    transform         : translate3d(100%, 0, 0);
+    }
+
+.slide-in-on-top .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 2: Reveal : done */
+
+.offcanvas-left.reveal.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.reveal.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.reveal .offcanvas-container {
+    z-index    : 0;
+    visibility : hidden;
+    /*opacity: 0;*/
+    }
+
+.reveal.offcanvas-open .offcanvas-container {
+
+    z-index            : 1;
+    visibility         : visible;
+    /*opacity: 1;*/
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    }
+
+.reveal .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 3: Push done */
+
+.offcanvas-left.push-down.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.push-down.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.offcanvas-left.push-down .offcanvas-container {
+    -webkit-transform : translate3d(-100%, 0, 0);
+    -moz-transform    : translate3d(-100%, 0, 0);
+    -ms-transform     : translate(-100%, 0);
+    -o-transform      : translate3d(-100%, 0, 0);
+    transform         : translate3d(-100%, 0, 0);
+    }
+
+.offcanvas-right.push-down .offcanvas-container {
+    -webkit-transform : translate3d(100%, 0, 0);
+    -moz-transform    : translate3d(100%, 0, 0);
+    -ms-transform     : translate(100%, 0);
+    -o-transform      : translate3d(100%, 0, 0);
+    transform         : translate3d(100%, 0, 0);
+    }
+
+.push-down.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    }
+
+.push-down .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 4: Slide along : done*/
+
+.offcanvas-left.slide-along.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.slide-along.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.offcanvas-left.slide-along .offcanvas-container {
+    z-index           : 1;
+    -webkit-transform : translate3d(-50%, 0, 0);
+    -moz-transform    : translate3d(-50%, 0, 0);
+    -ms-transform     : translate(-50%, 0);
+    -o-transform      : translate3d(-50%, 0, 0);
+    transform         : translate3d(-50%, 0, 0);
+    }
+
+.offcanvas-right.slide-along .offcanvas-container {
+    z-index           : 1;
+    -webkit-transform : translate3d(50%, 0, 0);
+    -moz-transform    : translate3d(50%, 0, 0);
+    -ms-transform     : translate(50%, 0);
+    -o-transform      : translate3d(50%, 0, 0);
+    transform         : translate3d(50%, 0, 0);
+    }
+
+.slide-along.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -webkit-transform 0.5s;
+    -ms-transition     : -webkit-transform 0.5s;
+    -o-transition      : -webkit-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(0, 0, 0);
+    -moz-transform     : translate3d(0, 0, 0);
+    -ms-transform      : translate(0, 0);
+    -o-transform       : translate3d(0, 0, 0);
+    transform          : translate3d(0, 0, 0);
+    }
+
+.slide-along .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 5: Reverse slide out  done */
+.offcanvas-left.reverse-slide-out.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.reverse-slide-out.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.offcanvas-left.reverse-slide-out .offcanvas-container {
+    z-index           : 1;
+    -webkit-transform : translate3d(50%, 0, 0);
+    -moz-transform    : translate3d(50%, 0, 0);
+    -ms-transform     : translate(50%, 0);
+    -o-transform      : translate3d(50%, 0, 0);
+    transform         : translate3d(50%, 0, 0);
+    }
+
+.offcanvas-right.reverse-slide-out .offcanvas-container {
+    z-index           : 1;
+    -webkit-transform : translate3d(-50%, 0, 0);
+    -moz-transform    : translate3d(-50%, 0, 0);
+    -ms-transform     : translate(-50%, 0);
+    -o-transform      : translate3d(-50%, 0, 0);
+    transform         : translate3d(-50%, 0, 0);
+    }
+
+.reverse-slide-out.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(0, 0, 0);
+    -moz-transform     : translate3d(0, 0, 0);
+    -ms-transform      : translate(0, 0);
+    -o-transform       : translate3d(0, 0, 0);
+    transform          : translate3d(0, 0, 0);
+    }
+
+/* Effect 6: Rotate pusher   done */
+
+.rotate-pusher.offcanvas-wrapper {
+    -webkit-perspective : 1500px;
+    -moz-perspective    : 1500px;
+    -ms-perspective     : 1500px;
+    -o-perspective      : 1500px;
+    perspective         : 1500px;
+    }
+
+.offcanvas-left.rotate-pusher .offcanvas-pusher {
+    -webkit-transform-origin : 0% 50%;
+    -moz-transform-origin    : 0% 50%;
+    -ms-transform-origin     : 0% 50%;
+    -o-transform-origin      : 0% 50%;
+    transform-origin         : 0% 50%;
+    -webkit-perspective      : 1200px;
+    -moz-perspective         : 1200px;
+    -ms-perspective          : 1200px;
+    -o-perspective           : 1200px;
+    perspective              : 1200px;
+
+    /* -webkit-transform-style  : preserve-3d;
+     transform-style          : preserve-3d;*/
+    }
+
+.offcanvas-right.rotate-pusher .offcanvas-pusher {
+    -webkit-transform-origin : 100% 50%;
+    -moz-transform-origin    : 100% 50%;
+    -ms-transform-origin     : 100% 50%;
+    -o-transform-origin      : 100% 50%;
+    transform-origin         : 100% 50%;
+
+    -webkit-perspective      : 1200px;
+    -moz-perspective         : 1200px;
+    -ms-perspective          : 1200px;
+    -o-perspective           : 1200px;
+    perspective              : 1200px;
+
+    /*-webkit-transform-style  : preserve-3d;
+    transform-style          : preserve-3d;*/
+    }
+
+.offcanvas-left.rotate-pusher.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0) rotateY(-15deg);
+    -moz-transform    : translate3d(300px, 0, 0) rotateY(-15deg);
+    -ms-transform     : translate3d(300px, 0, 0) rotateY(-15deg);
+    -o-transform      : translate3d(300px, 0, 0) rotateY(-15deg);
+    transform         : translate3d(300px, 0, 0) rotateY(-15deg);
+    }
+
+.offcanvas-right.rotate-pusher.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0) rotateY(15deg);
+    -moz-transform    : translate3d(-300px, 0, 0) rotateY(15deg);
+    -ms-transform     : translate3d(-300px, 0, 0) rotateY(15deg);
+    -o-transform      : translate3d(-300px, 0, 0) rotateY(15deg);
+    transform         : translate3d(-300px, 0, 0) rotateY(15deg);
+    }
+
+.offcanvas-left.rotate-pusher .offcanvas-container {
+    -webkit-transform        : translate3d(-100%, 0, 0);
+    -moz-transform           : translate3d(-100%, 0, 0);
+    -ms-transform            : translate(-100%, 0);
+    -o-transform             : translate3d(-100%, 0, 0);
+    transform                : translate3d(-100%, 0, 0);
+    -webkit-transform-origin : 100%;
+    -moz-transform-origin    : 100%;
+    -ms-transform-origin     : 100%;
+    -o-transform-origin      : 100%;
+    transform-origin         : 100%;
+    -webkit-transform-style  : preserve-3d;
+    -moz-transform-style     : preserve-3d;
+    -ms-transform-style      : preserve-3d;
+    -o-transform-style       : preserve-3d;
+    transform-style          : preserve-3d;
+    }
+
+.offcanvas-right.rotate-pusher .offcanvas-container {
+    -webkit-transform        : translate3d(100%, 0, 0);
+    -moz-transform           : translate3d(100%, 0, 0);
+    -ms-transform            : translate(100%, 0);
+    -o-transform             : translate3d(100%, 0, 0);
+    transform                : translate3d(100%, 0, 0);
+    -webkit-transform-origin : 0%;
+    -moz-transform-origin    : 0%;
+    -ms-transform-origin     : 0%;
+    -o-transform-origin      : 0%;
+    transform-origin         : 0%;
+    -webkit-transform-style  : preserve-3d;
+    -moz-transform-style     : preserve-3d;
+    -ms-transform-style      : preserve-3d;
+    -o-transform-style       : preserve-3d;
+    transform-style          : preserve-3d;
+    }
+
+.offcanvas-left.rotate-pusher.offcanvas-open .offcanvas-container {
+    visibility        : visible;
+    -webkit-transform : translate3d(-100%, 0, 0) rotateY(15deg);
+    -moz-transform    : translate3d(-100%, 0, 0) rotateY(15deg);
+    -ms-transform     : translate3d(-100%, 0, 0) rotateY(15deg);
+    -o-transform      : translate3d(-100%, 0, 0) rotateY(15deg);
+    transform         : translate3d(-100%, 0, 0) rotateY(15deg);
+    }
+
+.offcanvas-right.rotate-pusher.offcanvas-open .offcanvas-container {
+    visibility        : visible;
+
+    -webkit-transform : translate3d(100%, 0, 0) rotateY(-15deg);
+    -moz-transform    : translate3d(100%, 0, 0) rotateY(-15deg);
+    -ms-transform     : translate3d(100%, 0, 0) rotateY(-15deg);
+    -o-transform      : translate3d(100%, 0, 0) rotateY(-15deg);
+    transform         : translate3d(100%, 0, 0) rotateY(-15deg);
+    }
+
+.rotate-pusher .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 7: 3D rotate in done */
+
+.offcanvas-left.three-d-rotate-in.offcanvas-wrapper {
+    -webkit-perspective        : 1500px;
+    -moz-perspective           : 1500px;
+    -ms-perspective            : 1500px;
+    -o-perspective             : 1500px;
+    perspective                : 1500px;
+    -webkit-perspective-origin : 0% 50%;
+    -mos-perspective-origin    : 0% 50%;
+    -ms-perspective-origin     : 0% 50%;
+    -o-perspective-origin      : 0% 50%;
+    perspective-origin         : 0% 50%;
+    }
+
+.offcanvas-right.three-d-rotate-in.offcanvas-wrapper {
+    -webkit-perspective        : 1500px;
+    -moz-perspective           : 1500px;
+    -ms-perspective            : 1500px;
+    -o-perspective             : 1500px;
+    perspective                : 1500px;
+    -webkit-perspective-origin : 100% 50%;
+    -moz-perspective-origin    : 100% 50%;
+    -ms-perspective-origin     : 100% 50%;
+    -o-perspective-origin      : 100% 50%;
+    perspective-origin         : 100% 50%;
+    }
+
+.three-d-rotate-in .offcanvas-pusher {
+    -webkit-transform-style : preserve-3d;
+    -moz-transform-style    : preserve-3d;
+    -ms-transform-style     : preserve-3d;
+    -o-transform-style      : preserve-3d;
+    transform-style         : preserve-3d;
+    }
+
+.offcanvas-left.three-d-rotate-in.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.three-d-rotate-in.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.offcanvas-left.three-d-rotate-in .offcanvas-container {
+    -webkit-transform        : translate3d(-100%, 0, 0) rotateY(-90deg);
+    -moz-transform           : translate3d(-100%, 0, 0) rotateY(-90deg);
+    -ms-transform            : translate(-100%, 0) rotateY(-90deg);
+    -o-transform             : translate3d(-100%, 0, 0) rotateY(-90deg);
+    transform                : translate3d(-100%, 0, 0) rotateY(-90deg);
+    -webkit-transform-origin : 100% 50%;
+    -moz-transform-origin    : 100% 50%;
+    -ms-transform-origin     : 100% 50%;
+    -o-transform-origin      : 100% 50%;
+    transform-origin         : 100% 50%;
+    /* -webkit-transform-style  : preserve-3d;
+     transform-style          : preserve-3d;*/
+    }
+
+.offcanvas-right.three-d-rotate-in .offcanvas-container {
+    -webkit-transform        : translate3d(100%, 0, 0) rotateY(90deg);
+    -moz-transform           : translate3d(100%, 0, 0) rotateY(90deg);
+    -ms-transform            : translate(100%, 0) rotateY(90deg);
+    -o-transform             : translate3d(100%, 0, 0) rotateY(90deg);
+    transform                : translate3d(100%, 0, 0) rotateY(90deg);
+    -webkit-transform-origin : 0% 50%;
+    -moz-transform-origin    : 0% 50%;
+    -ms-transform-origin     : 0% 50%;
+    -o-transform-origin      : 0% 50%;
+    transform-origin         : 0% 50%;
+    /* -webkit-transform-style  : preserve-3d;
+     transform-style          : preserve-3d;*/
+    }
+
+.offcanvas-left.three-d-rotate-in.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(-100%, 0, 0) rotateY(0deg);
+    -mos-transform     : translate3d(-100%, 0, 0) rotateY(0deg);
+    -ms-transform      : translate(-100%, 0) rotateY(0deg);
+    -o-transform       : translate3d(-100%, 0, 0) rotateY(0deg);
+    transform          : translate3d(-100%, 0, 0) rotateY(0deg);
+    }
+
+.offcanvas-right.three-d-rotate-in.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(100%, 0, 0) rotateY(0deg);
+    -moz-transform     : translate3d(100%, 0, 0) rotateY(0deg);
+    -ms-transform      : translate(100%, 0) rotateY(0deg);
+    -o-transform       : translate3d(100%, 0, 0) rotateY(0deg);
+    transform          : translate3d(100%, 0, 0) rotateY(0deg);
+    }
+
+/* Effect 8: 3D rotate out  done */
+
+.offcanvas-left.three-d-rotate-out.offcanvas-wrapper {
+    -webkit-perspective        : 1500px;
+    -moz-perspective           : 1500px;
+    -ms-perspective            : 1500px;
+    -o-perspective             : 1500px;
+    perspective                : 1500px;
+    -webkit-perspective-origin : 0% 50%;
+    -moz-perspective-origin    : 0% 50%;
+    -ms-perspective-origin     : 0% 50%;
+    -o-perspective-origin      : 0% 50%;
+    perspective-origin         : 0% 50%;
+    }
+
+.offcanvas-right.three-d-rotate-out.offcanvas-wrapper {
+    -webkit-perspective        : 1500px;
+    -moz-perspective           : 1500px;
+    -ms-perspective            : 1500px;
+    -o-perspective             : 1500px;
+    perspective                : 1500px;
+    -webkit-perspective-origin : 100% 50%;
+    -moz-perspective-origin    : 100% 50%;
+    -ms-perspective-origin     : 100% 50%;
+    -o-perspective-origin      : 100% 50%;
+    perspective-origin         : 100% 50%;
+    }
+
+.three-d-rotate-out .offcanvas-pusher {
+    -webkit-transform-style : preserve-3d;
+    -moz-transform-style    : preserve-3d;
+    -ms-transform-style     : preserve-3d;
+    -o-transform-style      : preserve-3d;
+    transform-style         : preserve-3d;
+    }
+
+.offcanvas-left.three-d-rotate-out.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.three-d-rotate-out.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.offcanvas-left.three-d-rotate-out .offcanvas-container {
+    -webkit-transform        : translate3d(-100%, 0, 0) rotateY(90deg);
+    -moz-transform           : translate3d(-100%, 0, 0) rotateY(90deg);
+    -ms-transform            : translate(-100%, 0) rotateY(90deg);
+    -o-transform             : translate3d(-100%, 0, 0) rotateY(90deg);
+    transform                : translate3d(-100%, 0, 0) rotateY(90deg);
+    -webkit-transform-origin : 100% 50%;
+    -moz-transform-origin    : 100% 50%;
+    -ms-transform-origin     : 100% 50%;
+    -o-transform-origin      : 100% 50%;
+    transform-origin         : 100% 50%;
+    -webkit-transform-style  : preserve-3d;
+    -moz-transform-style     : preserve-3d;
+    -ms-transform-style      : preserve-3d;
+    -o-transform-style       : preserve-3d;
+    transform-style          : preserve-3d;
+    }
+
+.offcanvas-right.three-d-rotate-out .offcanvas-container {
+    -webkit-transform        : translate3d(100%, 0, 0) rotateY(-90deg);
+    -moz-transform           : translate3d(100%, 0, 0) rotateY(-90deg);
+    -ms-transform            : translate(100%, 0) rotateY(-90deg);
+    -o-transform             : translate3d(100%, 0, 0) rotateY(-90deg);
+    transform                : translate3d(100%, 0, 0) rotateY(-90deg);
+    -webkit-transform-origin : 0% 50%;
+    -moz-transform-origin    : 0% 50%;
+    -ms-transform-origin     : 0% 50%;
+    -o-transform-origin      : 0% 50%;
+    transform-origin         : 0% 50%;
+    -webkit-transform-style  : preserve-3d;
+    -moz-transform-style     : preserve-3d;
+    -ms-transform-style      : preserve-3d;
+    -o-transform-style       : preserve-3d;
+    transform-style          : preserve-3d;
+    }
+
+.offcanvas-left.three-d-rotate-out.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(-100%, 0, 0) rotateY(0deg);
+    -moz-transform     : translate3d(-100%, 0, 0) rotateY(0deg);
+    -ms-transform      : translate(-100%, 0) rotateY(0deg);
+    -o-transform       : translate3d(-100%, 0, 0) rotateY(0deg);
+    transform          : translate3d(-100%, 0, 0) rotateY(0deg);
+    }
+
+.offcanvas-right.three-d-rotate-out.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(100%, 0, 0) rotateY(0deg);
+    -moz-transform     : translate3d(100%, 0, 0) rotateY(0deg);
+    -ms-transform      : translate(100%, 0) rotateY(0deg);
+    -o-transform       : translate3d(100%, 0, 0) rotateY(0deg);
+    transform          : translate3d(100%, 0, 0) rotateY(0deg);
+    }
+
+.three-d-rotate-out .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 9: Scale down pusher  done */
+.scale-down-pusher.offcanvas-wrapper {
+    -webkit-perspective : 1000px;
+    -moz-perspective    : 1000px;
+    -ms-perspective     : 1000px;
+    -o-perspective      : 1000px;
+    perspective         : 1000px;
+    }
+
+.scale-down-pusher .offcanvas-pusher {
+    -webkit-transform-style : preserve-3d;
+    -moz-transform-style    : preserve-3d;
+    -ms-transform-style     : preserve-3d;
+    -o-transform-style      : preserve-3d;
+    transform-style         : preserve-3d;
+    }
+
+.scale-down-pusher.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(0, 0, -300px);
+    -moz-transform    : translate3d(0, 0, -300px);
+    -ms-transform     : translate3d(0, 0, -300px);
+    -o-transform      : translate3d(0, 0, -300px);
+    transform         : translate3d(0, 0, -300px);
+    overflow          : hidden;
+    }
+
+.offcanvas-left.scale-down-pusher .offcanvas-container {
+    opacity           : 1;
+    -webkit-transform : translate3d(-100%, 0, 0);
+    -moz-transform    : translate3d(-100%, 0, 0);
+    -ms-transform     : translate(-100%, 0);
+    -o-transform      : translate3d(-100%, 0, 0);
+    transform         : translate3d(-100%, 0, 0);
+    }
+
+.offcanvas-right.scale-down-pusher .offcanvas-container {
+    opacity           : 1;
+    -webkit-transform : translate3d(100%, 0, 0);
+    -moz-transform    : translate3d(100%, 0, 0);
+    -ms-transform     : translate(100%, 0);
+    -o-transform      : translate3d(100%, 0, 0);
+    transform         : translate3d(100%, 0, 0);
+    }
+
+.scale-down-pusher.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -webkit-transform 0.5s;
+    -ms-transition     : -webkit-transform 0.5s;
+    -o-transition      : -webkit-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(0, 0, 0);
+    -moz-transform     : translate3d(0, 0, 0);
+    -ms-transform      : translate(0, 0);
+    -o-transform       : translate3d(0, 0, 0);
+    transform          : translate3d(0, 0, 0);
+    }
+
+.scale-down-pusher .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 10: Scale up  done */
+
+.scale-up.offcanvas-wrapper {
+    -webkit-perspective        : 1000px;
+    -moz-perspective           : 1000px;
+    -ms-perspective            : 1000px;
+    -o-perspective             : 1000px;
+    perspective                : 1000px;
+    -webkit-perspective-origin : 0% 50%;
+    -moz-perspective-origin    : 0% 50%;
+    -ms-perspective-origin     : 0% 50%;
+    -o-perspective-origin      : 0% 50%;
+    perspective-origin         : 0% 50%;
+    }
+
+.offcanvas-left.scale-up.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.scale-up.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.offcanvas-left.scale-up .offcanvas-container {
+    z-index           : 1;
+    opacity           : 1;
+    -webkit-transform : translate3d(0, 0, -300px);
+    -moz-transform    : translate3d(0, 0, -300px);
+    -ms-transform     : translate3d(0, 0, -300px);
+    -o-transform      : translate3d(0, 0, -300px);
+    transform         : translate3d(0, 0, -300px);
+    }
+
+.offcanvas-right.scale-up .offcanvas-container {
+    z-index           : 1;
+    opacity           : 1;
+    -webkit-transform : translate3d(150%, 0, -300px);
+    -moz-transform    : translate3d(150%, 0, -300px);
+    -ms-transform     : translate3d(150%, 0, -300px);
+    -o-transform      : translate3d(150%, 0, -300px);
+    transform         : translate3d(150%, 0, -300px);
+    }
+
+.scale-up.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(0, 0, 0);
+    -moz-transform     : translate3d(0, 0, 0);
+    -ms-transform      : translate(0, 0);
+    -o-transform       : translate3d(0, 0, 0);
+    transform          : translate3d(0, 0, 0);
+    }
+
+/* Effect 11: Scale and rotate pusher  done */
+
+.scale-rotate-pusher.offcanvas-wrapper {
+    -webkit-perspective : 1000px;
+    -moz-perspective    : 1000px;
+    -ms-perspective     : 1000px;
+    -o-perspective      : 1000px;
+    perspective         : 1000px;
+    }
+
+.scale-rotate-pusher .offcanvas-pusher {
+    -webkit-transform-style : preserve-3d;
+    -moz-transform-style    : preserve-3d;
+    -ms-transform-style     : preserve-3d;
+    -o-transform-style      : preserve-3d;
+    transform-style         : preserve-3d;
+    }
+
+.offcanvas-left.scale-rotate-pusher.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(100px, 0, -600px) rotateY(-20deg);
+    -moz-transform    : translate3d(100px, 0, -600px) rotateY(-20deg);
+    -ms-transform     : translate3d(100px, 0, -600px) rotateY(-20deg);
+    -o-transform      : translate3d(100px, 0, -600px) rotateY(-20deg);
+    transform         : translate3d(100px, 0, -600px) rotateY(-20deg);
+    overflow          : hidden;
+    }
+
+.offcanvas-right.scale-rotate-pusher.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-100px, 0, -600px) rotateY(20deg);
+    -moz-transform    : translate3d(-100px, 0, -600px) rotateY(20deg);
+    -ms-transform     : translate3d(-100px, 0, -600px) rotateY(20deg);
+    -o-transform      : translate3d(-100px, 0, -600px) rotateY(20deg);
+    transform         : translate3d(-100px, 0, -600px) rotateY(20deg);
+    overflow          : hidden;
+
+    }
+
+.offcanvas-left.scale-rotate-pusher .offcanvas-container {
+    opacity           : 1;
+    -webkit-transform : translate3d(-100%, 0, 0);
+    -moz-transform    : translate3d(-100%, 0, 0);
+    -ms-transform     : translate(-100%, 0);
+    -o-transform      : translate3d(-100%, 0, 0);
+    transform         : translate3d(-100%, 0, 0);
+    }
+
+.offcanvas-right.scale-rotate-pusher .offcanvas-container {
+    opacity           : 1;
+    -webkit-transform : translate3d(100%, 0, 0);
+    -moz-transform    : translate3d(100%, 0, 0);
+    -ms-transform     : translate(100%, 0);
+    -o-transform      : translate3d(100%, 0, 0);
+    transform         : translate3d(100%, 0, 0);
+    }
+
+.scale-rotate-pusher.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(0, 0, 0);
+    -moz-transform     : translate3d(0, 0, 0);
+    -ms-transform      : translate(0, 0);
+    -o-transform       : translate3d(0, 0, 0);
+    transform          : translate3d(0, 0, 0);
+    }
+
+.scale-rotate-pusher .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 12: Open door  done*/
+
+.open-door.offcanvas-wrapper {
+    -webkit-perspective : 1000px;
+    -moz-perspective    : 1000px;
+    -ms-perspective     : 1000px;
+    -o-perspective      : 1000px;
+    perspective         : 1000px;
+    }
+
+.offcanvas-left.open-door .offcanvas-pusher {
+    -webkit-transform-origin : 100% 50%;
+    transform-origin         : 100% 50%;
+    -webkit-transform-style  : preserve-3d;
+    -moz-transform-style     : preserve-3d;
+    -ms-transform-style      : preserve-3d;
+    -o-transform-style       : preserve-3d;
+    transform-style          : preserve-3d;
+    }
+
+.offcanvas-right.open-door .offcanvas-pusher {
+    -webkit-transform-origin : 0% 50%;
+    -moz-transform-origin    : 0% 50%;
+    -ms-transform-origin     : 0% 50%;
+    -o-transform-origin      : 0% 50%;
+    transform-origin         : 0% 50%;
+    -webkit-transform-style  : preserve-3d;
+    -moz-transform-style     : preserve-3d;
+    -ms-transform-style      : preserve-3d;
+    -o-transform-style       : preserve-3d;
+    transform-style          : preserve-3d;
+    }
+
+.offcanvas-left.open-door.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : rotateY(-10deg);
+    -moz-transform    : rotateY(-10deg);
+    -ms-transform     : rotateY(-10deg);
+    -o-transform      : rotateY(-10deg);
+    transform         : rotateY(-10deg);
+    overflow          : hidden;
+    }
+
+.offcanvas-right.open-door.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : rotateY(10deg);
+    -moz-transform    : rotateY(10deg);
+    -ms-transform     : rotateY(10deg);
+    -o-transform      : rotateY(10deg);
+    transform         : rotateY(10deg);
+    overflow          : hidden;
+    }
+
+.offcanvas-left.open-door .offcanvas-container {
+    opacity           : 1;
+    -webkit-transform : translate3d(-100%, 0, 0);
+    -moz-transform    : translate3d(-100%, 0, 0);
+    -ms-transform     : translate(-100%, 0);
+    -o-transform      : translate3d(-100%, 0, 0);
+    transform         : translate3d(-100%, 0, 0);
+    }
+
+.offcanvas-right.open-door .offcanvas-container {
+    opacity           : 1;
+    -webkit-transform : translate3d(100%, 0, 0);
+    -moz-transform    : translate3d(100%, 0, 0);
+    -ms-transform     : translate(100%, 0);
+    -o-transform      : translate3d(100%, 0, 0);
+    transform         : translate3d(100%, 0, 0);
+    }
+
+.open-door.offcanvas-open .offcanvas-container {
+    visibility         : visible;
+    -webkit-transition : -webkit-transform 0.5s;
+    -moz-transition    : -moz-transform 0.5s;
+    -ms-transition     : -ms-transform 0.5s;
+    -o-transition      : -o-transform 0.5s;
+    transition         : transform 0.5s;
+    -webkit-transform  : translate3d(0, 0, 0);
+    -moz-transform     : translate3d(0, 0, 0);
+    -ms-transform      : translate(0, 0);
+    -o-transform       : translate3d(0, 0, 0);
+    transform          : translate3d(0, 0, 0);
+    }
+
+.open-door .offcanvas-container::after {
+    display : none;
+    }
+
+/* Effect 13: Fall down  done */
+
+.fall-down.offcanvas-wrapper {
+    -webkit-perspective        : 1500px;
+    -moz-perspective           : 1500px;
+    -ms-perspective            : 1500px;
+    -o-perspective             : 1500px;
+    perspective                : 1500px;
+    -webkit-perspective-origin : 0% 50%;
+    -moz-perspective-origin    : 0% 50%;
+    -ms-perspective-origin     : 0% 50%;
+    -o-perspective-origin      : 0% 50%;
+    perspective-origin         : 0% 50%;
+    }
+
+.offcanvas-left.fall-down.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.fall-down.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.fall-down .offcanvas-container {
+    z-index           : 1;
+    opacity           : 1;
+    -webkit-transform : translate3d(0, -100%, 0);
+    -moz-transform    : translate3d(0, -100%, 0);
+    -ms-transform     : translate(0, -100%);
+    -o-transform      : translate3d(0, -100%, 0);
+    transform         : translate3d(0, -100%, 0);
+    }
+
+.fall-down.offcanvas-open .offcanvas-container {
+    visibility                         : visible;
+    -webkit-transition-timing-function : ease-in-out;
+    transition-timing-function         : ease-in-out;
+    -webkit-transition-property        : -webkit-transform;
+    transition-property                : transform;
+    -webkit-transform                  : translate3d(0, 0, 0);
+    -moz-transform                     : translate3d(0, 0, 0);
+    -ms-transform                      : translate(0, 0);
+    -o-transform                       : translate3d(0, 0, 0);
+    transform                          : translate3d(0, 0, 0);
+    -webkit-transition-speed           : 0.2s;
+    transition-speed                   : 0.2s;
+    }
+
+/* Effect 14: Delayed 3D rotate */
+
+.offcanvas-left.delayed-three-d-rotate.offcanvas-wrapper {
+    -webkit-perspective        : 1500px;
+    -moz-perspective           : 1500px;
+    -ms-perspective            : 1500px;
+    -o-perspective             : 1500px;
+    perspective                : 1500px;
+    -webkit-perspective-origin : 0% 50%;
+    -moz-perspective-origin    : 0% 50%;
+    -ms-perspective-origin     : 0% 50%;
+    -o-perspective-origin      : 0% 50%;
+    perspective-origin         : 0% 50%;
+    }
+
+.offcanvas-right.delayed-three-d-rotate.offcanvas-wrapper {
+    -webkit-perspective        : 1500px;
+    -moz-perspective           : 1500px;
+    -ms-perspective            : 1500px;
+    -o-perspective             : 1500px;
+    perspective                : 1500px;
+    -webkit-perspective-origin : 100% 50%;
+    -moz-perspective-origin    : 100% 50%;
+    -ms-perspective-origin     : 100% 50%;
+    -o-perspective-origin      : 100% 50%;
+    perspective-origin         : 100% 50%;
+    }
+
+.delayed-three-d-rotate .offcanvas-pusher {
+    -webkit-transform-style : preserve-3d;
+    -moz-transform-style    : preserve-3d;
+    -ms-transform-style     : preserve-3d;
+    -o-transform-style      : preserve-3d;
+    transform-style         : preserve-3d;
+    }
+
+.offcanvas-left.delayed-three-d-rotate.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(300px, 0, 0);
+    -moz-transform    : translate3d(300px, 0, 0);
+    -ms-transform     : translate(300px, 0);
+    -o-transform      : translate3d(300px, 0, 0);
+    transform         : translate3d(300px, 0, 0);
+    }
+
+.offcanvas-right.delayed-three-d-rotate.offcanvas-open .offcanvas-pusher {
+    -webkit-transform : translate3d(-300px, 0, 0);
+    -moz-transform    : translate3d(-300px, 0, 0);
+    -ms-transform     : translate(-300px, 0);
+    -o-transform      : translate3d(-300px, 0, 0);
+    transform         : translate3d(-300px, 0, 0);
+    }
+
+.offcanvas-left.delayed-three-d-rotate .offcanvas-container {
+    -webkit-transform        : translate3d(-100%, 0, 0) rotateY(90deg);
+    -moz-transform           : translate3d(-100%, 0, 0) rotateY(90deg);
+    -ms-transform            : translate(-100%, 0) rotateY(90deg);
+    -o-transform             : translate3d(-100%, 0, 0) rotateY(90deg);
+    transform                : translate3d(-100%, 0, 0) rotateY(90deg);
+    -webkit-transform-origin : 0% 50%;
+    -moz-transform-origin    : 0% 50%;
+    -ms-transform-origin     : 0% 50%;
+    -o-transform-origin      : 0% 50%;
+    transform-origin         : 0% 50%;
+    -webkit-transform-style  : preserve-3d;
+    -moz-transform-style     : preserve-3d;
+    -ms-transform-style      : preserve-3d;
+    -o-transform-style       : preserve-3d;
+    transform-style          : preserve-3d;
+    }
+
+.offcanvas-right.delayed-three-d-rotate .offcanvas-container {
+    -webkit-transform        : translate3d(100%, 0, 0) rotateY(-90deg);
+    -moz-transform           : translate3d(100%, 0, 0) rotateY(-90deg);
+    -ms-transform            : translate(100%, 0) rotateY(-90deg);
+    -o-transform             : translate3d(100%, 0, 0) rotateY(-90deg);
+    transform                : translate3d(100%, 0, 0) rotateY(-90deg);
+    -webkit-transform-origin : 100% 50%;
+    -moz-transform-origin    : 100% 50%;
+    -ms-transform-origin     : 100% 50%;
+    -o-transform-origin      : 100% 50%;
+    transform-origin         : 100% 50%;
+    -webkit-transform-style  : preserve-3d;
+    -moz-transform-style     : preserve-3d;
+    -ms-transform-style      : preserve-3d;
+    -o-transform-style       : preserve-3d;
+    transform-style          : preserve-3d;
+    }
+
+.offcanvas-left.delayed-three-d-rotate.offcanvas-open .offcanvas-container {
+    visibility                         : visible;
+    -webkit-transition-delay           : 0.1s;
+    transition-delay                   : 0.1s;
+    -webkit-transition-timing-function : ease-in-out;
+    transition-timing-function         : ease-in-out;
+    -webkit-transition-property        : -webkit-transform;
+    transition-property                : transform;
+    -webkit-transform                  : translate3d(-100%, 0, 0) rotateY(0deg);
+    -moz-transform                     : translate3d(-100%, 0, 0) rotateY(0deg);
+    -ms-transform                      : translate(-100%, 0) rotateY(0deg);
+    -o-transform                       : translate3d(-100%, 0, 0) rotateY(0deg);
+    transform                          : translate3d(-100%, 0, 0) rotateY(0deg);
+    }
+
+.offcanvas-right.delayed-three-d-rotate.offcanvas-open .offcanvas-container {
+    visibility                         : visible;
+    -webkit-transition-delay           : 0.1s;
+    transition-delay                   : 0.1s;
+    -webkit-transition-timing-function : ease-in-out;
+    transition-timing-function         : ease-in-out;
+    -webkit-transition-property        : -webkit-transform;
+    transition-property                : transform;
+    -webkit-transform                  : translate3d(100%, 0, 0) rotateY(0deg);
+    -moz-transform                     : translate3d(100%, 0, 0) rotateY(0deg);
+    -ms-transform                      : translate(100%, 0) rotateY(0deg);
+    -o-transform                       : translate3d(100%, 0, 0) rotateY(0deg);
+    transform                          : translate3d(100%, 0, 0) rotateY(0deg);
+    }
+
+/*IE fix*/
+.ie9 .reveal .offcanvas-container,
+.ie10 .reveal .offcanvas-container,
+.ie11 .reveal .offcanvas-container {
+    display : none !important;
+    }
+
+.ie9 .reveal.offcanvas-open .offcanvas-container,
+.ie10 .reveal.offcanvas-open .offcanvas-container,
+.ie11 .reveal.offcanvas-open .offcanvas-container {
+    display : block !important;
+    }

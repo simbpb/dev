@@ -1,0 +1,91 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 13/07/2016 08:40
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-3d-printer:before { content: "\f100"; }
+.flaticon-barrel:before { content: "\f101"; }
+.flaticon-chimney:before { content: "\f102"; }
+.flaticon-container:before { content: "\f103"; }
+.flaticon-container-1:before { content: "\f104"; }
+.flaticon-control:before { content: "\f105"; }
+.flaticon-control-system:before { content: "\f106"; }
+.flaticon-controls:before { content: "\f107"; }
+.flaticon-controls-1:before { content: "\f108"; }
+.flaticon-conveyor:before { content: "\f109"; }
+.flaticon-conveyor-1:before { content: "\f10a"; }
+.flaticon-conveyor-2:before { content: "\f10b"; }
+.flaticon-crane:before { content: "\f10c"; }
+.flaticon-crane-1:before { content: "\f10d"; }
+.flaticon-drill:before { content: "\f10e"; }
+.flaticon-factory:before { content: "\f10f"; }
+.flaticon-factory-1:before { content: "\f110"; }
+.flaticon-factory-2:before { content: "\f111"; }
+.flaticon-factory-3:before { content: "\f112"; }
+.flaticon-factory-4:before { content: "\f113"; }
+.flaticon-factory-5:before { content: "\f114"; }
+.flaticon-factory-6:before { content: "\f115"; }
+.flaticon-gas-station:before { content: "\f116"; }
+.flaticon-gear:before { content: "\f117"; }
+.flaticon-gear-1:before { content: "\f118"; }
+.flaticon-gear-2:before { content: "\f119"; }
+.flaticon-industrial:before { content: "\f11a"; }
+.flaticon-industrial-robot:before { content: "\f11b"; }
+.flaticon-industrial-robot-1:before { content: "\f11c"; }
+.flaticon-industrial-robot-2:before { content: "\f11d"; }
+.flaticon-industrial-robot-3:before { content: "\f11e"; }
+.flaticon-industrial-robot-4:before { content: "\f11f"; }
+.flaticon-lever:before { content: "\f120"; }
+.flaticon-light:before { content: "\f121"; }
+.flaticon-meter:before { content: "\f122"; }
+.flaticon-meter-1:before { content: "\f123"; }
+.flaticon-meter-2:before { content: "\f124"; }
+.flaticon-microchip:before { content: "\f125"; }
+.flaticon-nuclear-plant:before { content: "\f126"; }
+.flaticon-oil:before { content: "\f127"; }
+.flaticon-power-plant:before { content: "\f128"; }
+.flaticon-press:before { content: "\f129"; }
+.flaticon-pushcart:before { content: "\f12a"; }
+.flaticon-remote-control:before { content: "\f12b"; }
+.flaticon-solar-panel:before { content: "\f12c"; }
+.flaticon-stock:before { content: "\f12d"; }
+.flaticon-stock-1:before { content: "\f12e"; }
+.flaticon-switch:before { content: "\f12f"; }
+.flaticon-tank:before { content: "\f130"; }
+.flaticon-tank-1:before { content: "\f131"; }
+.flaticon-tank-2:before { content: "\f132"; }
+.flaticon-trolley:before { content: "\f133"; }
+.flaticon-valve:before { content: "\f134"; }
+.flaticon-valve-1:before { content: "\f135"; }
+.flaticon-voltmeter:before { content: "\f136"; }
+.flaticon-warehouse:before { content: "\f137"; }
+.flaticon-welder:before { content: "\f138"; }
+.flaticon-worker:before { content: "\f139"; }
+.flaticon-worker-1:before { content: "\f13a"; }
+.flaticon-wrench:before { content: "\f13b"; }
