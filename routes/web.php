@@ -188,6 +188,14 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::delete('/{id}/delete', 'Detail\PelepasanRng3Controller@delete');
 		});
 
+		Route::group(['prefix' => 'rtbl'], function () {
+		    Route::get('/', 'Detail\RtblController@index');
+		    Route::get('/{id}/view', 'Detail\RtblController@view');
+		    Route::any('/create', 'Detail\RtblController@create');
+		    Route::any('/{id}/edit', 'Detail\RtblController@edit');
+		    Route::delete('/{id}/delete', 'Detail\RtblController@delete');
+		});
+
 	});
 	/** End controllers Detail **/
 });
