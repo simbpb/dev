@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Kebun Raya')
+@section('title', 'Sub WPS')
 
 @section('content')
 <div class="page-container">
@@ -34,15 +34,15 @@
 					    	</div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Thn Penetapan*</label>
+				    		<label class="control-label col-lg-3">WPS ID*</label>
 				    		<div class="col-lg-9"> 
-					    		{!! Form::text('thn_penetapan',null, ['class' => 'form-control']) !!}
+					    		{!! Form::text('wps_id',null, ['class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Nama Kebun Raya*</label>
+				    		<label class="control-label col-lg-3">Nama Sub WPS*</label>
 				    		<div class="col-lg-9"> 
-					    		{!! Form::text('nama_kebun_raya',null, ['class' => 'form-control']) !!}
+					    		{!! Form::text('nama_sub_wps',null, ['class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
 			  		</div>
