@@ -37,16 +37,7 @@
 				    		<label>Nama Kabupaten/Kota</label>
 				    		<div class="form-group"><b>{!! $model['nama_kabupatenkota'] !!}</b></div>
 				  		</div>
-				  	</div>
-				  	<div class="col-xs-6">
-				  		<div class="form-group">
-				    		<label>File</label>
-				    		<div class="form-group">
-				    			<a class="btn btn-primary" href="{!! $model['file_upload'] !!}" >
-				    			<i class="icon-file-download2"></i>
-				    			Download File</a>
-				    		</div>
-				  		</div>
+				  		{{modelView}}
 				  	</div>
 			  	</div>
 			  	<div class="text-right">

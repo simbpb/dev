@@ -35,6 +35,7 @@ $(function() {
          { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
+         {{modelTable}}
          { "title" : "", "orderable": false, "width": "170px", "className": "text-center", render: function (data, type, row, meta) {
             var view = '';
             var edit = '';

@@ -43,11 +43,11 @@ class CrudGenerator extends Command
         $name = $this->argument('name');
         $table = $this->argument('table');
 
-        $this->controller($name);
+        $this->controller($name, $table);
         $this->model($name, $table);
         $this->repository($name, $table);
-        $this->transformer($name);
-        $this->view($name);
+        $this->transformer($name, $table);
+        $this->view($name, $table);
     }
 
     protected function getStub($type)
@@ -78,16 +78,27 @@ class CrudGenerator extends Command
 
     protected function repository($name, $table)
     {
+        $temps = $this->getBasePaths($table, $this->camelToKebab($name));
         $modelTemplate = str_replace(
             [
                 '{{modelName}}',
                 '{{tableName}}',
-                '{{modelNameKebabLowerCase}}'
+                '{{modelNameKebabLowerCase}}',
+                '{{modelColumns}}',
+                '{{requestColumns}}',
+                '{{modelBasePath}}',
+                '{{uploadCreateFunction}}',
+                '{{uploadUpdateFunction}}'
             ],
             [
                 $name,
                 $table,
-                $this->camelToKebab($name)
+                $this->camelToKebab($name),
+                $this->getModelColumns($table),
+                $this->getRequestColumns($table),
+                $temps['temp1'],
+                $temps['temp2'],
+                $temps['temp3']
             ],
             $this->getStub('Repository')
         );
@@ -99,11 +110,106 @@ class CrudGenerator extends Command
         file_put_contents(app_path("/Models/Detail/{$name}/{$name}Repository.php"), $modelTemplate);
     }
 
-    protected function transformer($name)
+    protected function getBasePaths($table, $kebabLowerCase)
+    {
+        $template1 = '';
+        $template2 = '';
+        $template3 = '';
+        $columns = $this->getColumns($table);
+        $no = 1;
+        foreach ($columns as $key => $column) {
+            if ($this->isFile($column)) {
+                $newColumn = str_replace("_", "-", $column);
+                $template1 .= "protected \$basePath".$no." = '/files/details/".$kebabLowerCase."/".$newColumn."';\n";
+
+                $template2 .= "
+                    if (\$request->hasFile('".$column."')) {
+                        \$image = \$request->file('".$column."');
+                        \$filename = str_slug(\$request->".$column.").'.'.\$image->getClientOriginalExtension();
+                        \$destinationPath = public_path(\$this->basePath".$no.");
+                        \$image->move(\$destinationPath, \$filename);
+                        \$model->".$column." = \$this->basePath".$no.".'/'.\$filename;
+                    }\n";
+
+                $template3 .= "
+                    if (\$request->hasFile('".$column."')) {
+                        \$image = \$request->file('".$column."');
+                        if (File::exists(public_path(\$model->".$column."))) {
+                            File::delete(public_path(\$model->".$column."));
+                        }
+                        \$filename = str_slug(\$request->".$column.").'.'.\$image->getClientOriginalExtension();
+                        \$destinationPath = public_path(\$this->basePath".$no.");
+                        \$image->move(\$destinationPath, \$filename);
+                        \$model->".$column." = \$this->basePath".$no.".'/'.\$filename;
+                    }\n";
+                $no++;
+            }
+            
+        }
+
+        return [
+            'temp1' => $template1,
+            'temp2' => $template2,
+            'temp3' => $template3,
+        ];
+    }
+
+    protected function getRequestColumns($table)
+    {
+        $template = "";
+        $columns = $this->getColumns($table);
+        foreach ($columns as $key => $column) {
+            if (!$this->isFile($column)) {
+                end($columns);
+                if ($key === key($columns)) {
+                    $template .= "\$model->".$column." = \$request->input('".$column."');";
+                } else {
+                    $template .= "\$model->".$column." = \$request->input('".$column."');\n";
+                }
+            }
+        }
+
+        return $template;
+    }
+
+    protected function getModelColumns($table)
+    {
+        $template = "";
+        $columns = $this->getColumns($table);
+        foreach ($columns as $key => $column) {
+            end($columns);
+            if ($key === key($columns)) {
+                $template .= "'".$table.".".$column."'";
+            } else {
+                $template .= "'".$table.".".$column."',\n";
+            }
+        }
+
+        return $template;
+    }
+
+    protected function getTransformColumns($table)
+    {
+        $template = "";
+        $columns = $this->getColumns($table);
+        foreach ($columns as $key => $column) {
+            $template .= "'".$column."' => \$model->".$column.",\n";
+        }
+
+        return $template;
+    }
+
+    protected function transformer($name, $table)
     {
         $modelTemplate = str_replace(
-            ['{{modelName}}'],
-            [$name],
+            [
+                '{{modelName}}',
+                '{{modelTransform}}'
+            ],
+            [
+                $name,
+                $this->getTransformColumns($table)
+            ],
             $this->getStub('Transformer')
         );
 
@@ -114,34 +220,148 @@ class CrudGenerator extends Command
         file_put_contents(app_path("/Models/Detail/{$name}/{$name}Transformer.php"), $modelTemplate);
     }
 
-    protected function view($name)
+    protected function getTableColumns($table)
+    {
+        $template = "";
+        $columns = $this->getColumns($table);
+        foreach ($columns as $key => $column) {
+
+            if (!$this->isFile($column)) {
+                $exp = ucwords(str_replace("_", " ", $column));
+                end($columns);
+                if ($key === key($columns)) {
+                    $template .= "{ \"title\": \"".$exp."\", \"data\": \"".$column."\" },";
+                } else {
+                    $template .= "{ \"title\": \"".$exp."\", \"data\": \"".$column."\" },\n";
+                }
+            }
+        }
+
+        return $template;
+    }
+
+    protected function getFormColumns($table)
+    {
+        $template = "";
+        $columns = $this->getColumns($table);
+        $next = ceil(count($columns)/2);
+        foreach ($columns as $key => $column) {
+            $exp = ucwords(str_replace("_", " ", $column));
+
+            if ($this->isFile($column)) {
+                $template .= "
+                        <div class=\"form-group\">
+                            <label class=\"control-label col-lg-3\">".$exp."*</label>
+                            <div class=\"col-lg-9\"> 
+                                {!! Form::file('".$column."',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        @if (!empty(\$model['".$column."']))
+                        <div class=\"form-group\">
+                            <label class=\"control-label col-lg-3\">Attach File</label>
+                            <div class=\"col-lg-9\">
+                                {!! (\$model['".$column."']) ? \$model['".$column."'] : null !!}
+                            </div>
+                        </div>
+                        @endif \n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
+            } else {
+                $template .= "
+                        <div class=\"form-group\">
+                            <label class=\"control-label col-lg-3\">".$exp."*</label>
+                            <div class=\"col-lg-9\"> 
+                                {!! Form::text('".$column."',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> \n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
+            }
+        }
+
+        return $template;
+    }
+
+    protected function getViewColumns($table)
+    {
+        $template = "";
+        $columns = $this->getColumns($table);
+        $next = ceil(count($columns)/2);
+        foreach ($columns as $key => $column) {
+            $exp = ucwords(str_replace("_", " ", $column));
+
+            if ($this->isFile($column)) {
+                $template .= "
+                            <div class=\"form-group\">
+                                <label>".$exp."</label>
+                                <div class=\"form-group\">
+                                    <a class=\"btn btn-primary\" href=\"{!! \$model['".$column."'] !!}\">
+                                    <i class=\"icon-file-download2\"></i>
+                                    Download File</a>
+                                </div>
+                            </div>\n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
+            } else {
+                $template .= "
+                            <div class=\"form-group\">
+                                <label>".$exp."</label>
+                                <div class=\"form-group\"><b>{!! \$model['".$column."'] !!}</b></div>
+                            </div>\n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
+            }
+        }
+
+        return $template;
+    }
+
+    protected function view($name, $table)
     {
         $indexTemplate = str_replace(
             [
-                '{{modelNameLabel}}'
+                '{{modelNameLabel}}',
+                '{{modelTable}}'
             ],
             [
-                $this->camelToKebab($name, " ")
+                ucwords($this->camelToKebab($name, " ")),
+                $this->getTableColumns($table)
             ],
             $this->getStub('index.blade')
         );
 
         $formTemplate = str_replace(
             [
-                '{{modelNameLabel}}'
+                '{{modelNameLabel}}',
+                '{{modelForm}}'
             ],
             [
-                $this->camelToKebab($name, " ")
+                ucwords($this->camelToKebab($name, " ")),
+                $this->getFormColumns($table)
             ],
             $this->getStub('form.blade')
         );
 
         $viewTemplate = str_replace(
             [
-                '{{modelNameLabel}}'
+                '{{modelNameLabel}}',
+                '{{modelView}}'
             ],
             [
-                $this->camelToKebab($name, " ")
+                ucwords($this->camelToKebab($name, " ")),
+                $this->getViewColumns($table)
             ],
             $this->getStub('view.blade')
         );
@@ -156,20 +376,40 @@ class CrudGenerator extends Command
         file_put_contents(resource_path("/views/details/{$folder}/view.blade.php"), $viewTemplate);
     }
 
-    protected function controller($name)
+    protected function getValidateColumns($table)
+    {
+        $template = "";
+        $columns = $this->getColumns($table);
+        foreach ($columns as $key => $column) {
+            if ($this->isFile($column)) {
+                $template .= "
+                        if (\$scope == 'create') {
+                            \$rule['".$column."'] = 'required';
+                        }\n";
+            } else {
+                $template .= "\$rule['".$column."'] = 'required';\n";
+            }
+        }
+
+        return $template;
+    }
+
+    protected function controller($name, $table)
     {
         $controllerTemplate = str_replace(
             [
                 '{{modelName}}',
                 '{{modelNamePluralLowerCase}}',
                 '{{modelNameSingularLowerCase}}',
-                '{{modelNameKebabLowerCase}}'
+                '{{modelNameKebabLowerCase}}',
+                '{{modelValidate}}'
             ],
             [
                 $name,
                 strtolower(str_plural($name)),
                 strtolower($name),
-                $this->camelToKebab($name)
+                $this->camelToKebab($name),
+                $this->getValidateColumns($table)
             ],
             $this->getStub('Controller')
         );
@@ -177,8 +417,44 @@ class CrudGenerator extends Command
         file_put_contents(app_path("/Http/Controllers/Detail/{$name}Controller.php"), $controllerTemplate);
     }
 
-    protected function camelToKebab($string, $us = "-") {
+    protected function camelToKebab($string, $us = "-") 
+    {
         return strtolower(preg_replace(
             '/(?<=\d)(?=[A-Za-z])|(?<=[A-Za-z])(?=\d)|(?<=[a-z])(?=[A-Z])/', $us, $string));
+    }
+
+    protected function getColumns($table) 
+    {
+        $data = [];
+        $columns = \DB::select("SHOW COLUMNS FROM ".$table);
+        
+        foreach ($columns as $column) {
+            if ($this->deniedColumn($column->Field)) {
+                $data[] = $column->Field;
+            }
+        }
+
+        return $data;
+    }
+
+    protected function deniedColumn($field)
+    {
+        $fields = ['id','detail_kdprog_id','thn_periode_keg','lokasi_kode','nama_propinsi','nama_kabupatenkota','created_by','updated_by','created_at','updated_at','is_actived'];
+        if (in_array($field, $fields)) {
+            return false;
+        }
+        return true;
+    }
+
+    protected function isFile($column)
+    {
+        $exps = explode("_", $column);
+        foreach ($exps as $exp) {
+            if ($exp == 'file' || $exp == 'upload') {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

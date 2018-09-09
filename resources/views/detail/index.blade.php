@@ -32,7 +32,9 @@ $(function() {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
          { "title": "Nama Form", "data": "nama_form" },
-         { "title": "Path", "data": "path" },
+         { "title": "Path", "data": "path", render: function (data, type, row, meta) {
+             return '<a href="'+base_url+'/details'+row.path+'" target="_blank">'+row.path+'</a>';
+         }},
          { "title" : "", "orderable": false, "width": "170px", "className": "text-center", render: function (data, type, row, meta) {
             var view = '';
             var edit = '';

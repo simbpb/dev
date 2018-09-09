@@ -25,10 +25,11 @@ class {{modelName}}Controller extends Controller {
         $this->view = '{{modelNameKebabLowerCase}}';
     }
 
-    protected function validationRules() {
+    protected function validationRules($scope = 'create') {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
+        {{modelValidate}}
         return $rule;
     }
 
@@ -70,7 +71,7 @@ class {{modelName}}Controller extends Controller {
     {
         if ($request->isMethod('post')) {
 
-            $validation = Validator::make($request->all(), $this->validationRules());
+            $validation = Validator::make($request->all(), $this->validationRules('edit'));
             if ($validation->fails()) {
                 return redirect()->back()->withInput()->withErrors($validation->errors());
             }
@@ -85,7 +86,7 @@ class {{modelName}}Controller extends Controller {
         }
 
         $provinces = $this->lokasi->getProvincesOptions();
-        $validator = JsValidator::make($this->validationRules());
+        $validator = JsValidator::make($this->validationRules('edit'));
         $model = $this->model->find($id);
         $path = $this->view;
 
