@@ -122,26 +122,9 @@ class CrudGenerator extends Command
                 $newColumn = str_replace("_", "-", $column);
                 $template1 .= "protected \$basePath".$no." = '/files/details/".$kebabLowerCase."/".$newColumn."';\n";
 
-                $template2 .= "
-                    if (\$request->hasFile('".$column."')) {
-                        \$image = \$request->file('".$column."');
-                        \$filename = str_slug(\$request->".$column.").'.'.\$image->getClientOriginalExtension();
-                        \$destinationPath = public_path(\$this->basePath".$no.");
-                        \$image->move(\$destinationPath, \$filename);
-                        \$model->".$column." = \$this->basePath".$no.".'/'.\$filename;
-                    }\n";
+                $template2 .= "\n\t\tif (\$request->hasFile('".$column."')) {\n\t\t\t\$image = \$request->file('".$column."');\n\t\t\t\$filename = str_slug(\$request->".$column.").'.'.\$image->getClientOriginalExtension();\n\t\t\t\$destinationPath = public_path(\$this->basePath".$no.");\n\t\t\t\$image->move(\$destinationPath, \$filename);\n\t\t\t\$model->".$column." = \$this->basePath".$no.".'/'.\$filename;\n\t\t}\n";
 
-                $template3 .= "
-                    if (\$request->hasFile('".$column."')) {
-                        \$image = \$request->file('".$column."');
-                        if (File::exists(public_path(\$model->".$column."))) {
-                            File::delete(public_path(\$model->".$column."));
-                        }
-                        \$filename = str_slug(\$request->".$column.").'.'.\$image->getClientOriginalExtension();
-                        \$destinationPath = public_path(\$this->basePath".$no.");
-                        \$image->move(\$destinationPath, \$filename);
-                        \$model->".$column." = \$this->basePath".$no.".'/'.\$filename;
-                    }\n";
+                $template3 .= "\n\t\tif (\$request->hasFile('".$column."')) {\n\t\t\t\$image = \$request->file('".$column."');\n\t\t\tif (File::exists(public_path(\$model->".$column."))) {\n\t\t\t\tFile::delete(public_path(\$model->".$column."));\n\t\t\t}\n\t\t\t\$filename = str_slug(\$request->".$column.").'.'.\$image->getClientOriginalExtension();\n\t\t\t\$destinationPath = public_path(\$this->basePath".$no.");\n\t\t\t\$image->move(\$destinationPath, \$filename);\n\t\t\t\$model->".$column." = \$this->basePath".$no.".'/'.\$filename;\n\t\t}\n";
                 $no++;
             }
             
@@ -181,7 +164,7 @@ class CrudGenerator extends Command
             if ($key === key($columns)) {
                 $template .= "'".$table.".".$column."'";
             } else {
-                $template .= "'".$table.".".$column."',\n";
+                $template .= "'".$table.".".$column."',\n\t\t\t\t\t\t";
             }
         }
 
