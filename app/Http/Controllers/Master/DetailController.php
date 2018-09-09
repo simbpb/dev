@@ -20,7 +20,7 @@ class DetailController extends Controller {
     
     protected function validationRules() {
         $rule['nama_form'] = 'required';
-        $rule['url'] = 'required';
+        $rule['path'] = 'required';
         return $rule;
     }
 

@@ -220,6 +220,110 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::delete('/{id}/delete', 'Detail\BantekController@delete');
 		});
 
+		Route::group(['prefix' => 'bgh'], function () {
+		    Route::get('/', 'Detail\BghController@index');
+		    Route::get('/{id}/view', 'Detail\BghController@view');
+		    Route::any('/create', 'Detail\BghController@create');
+		    Route::any('/{id}/edit', 'Detail\BghController@edit');
+		    Route::delete('/{id}/delete', 'Detail\BghController@delete');
+		});
+		
+		Route::group(['prefix' => 'bg-imb'], function () {
+		    Route::get('/', 'Detail\BgImbController@index');
+		    Route::get('/{id}/view', 'Detail\BgImbController@view');
+		    Route::any('/create', 'Detail\BgImbController@create');
+		    Route::any('/{id}/edit', 'Detail\BgImbController@edit');
+		    Route::delete('/{id}/delete', 'Detail\BgImbController@delete');
+		});
+
+		Route::group(['prefix' => 'bg-slfke-1'], function () {
+		    Route::get('/', 'Detail\BgSlfke1Controller@index');
+		    Route::get('/{id}/view', 'Detail\BgSlfke1Controller@view');
+		    Route::any('/create', 'Detail\BgSlfke1Controller@create');
+		    Route::any('/{id}/edit', 'Detail\BgSlfke1Controller@edit');
+		    Route::delete('/{id}/delete', 'Detail\BgSlfke1Controller@delete');
+		});
+
+		Route::group(['prefix' => 'kota-cerdas'], function () {
+		    Route::get('/', 'Detail\KotaCerdasController@index');
+		    Route::get('/{id}/view', 'Detail\KotaCerdasController@view');
+		    Route::any('/create', 'Detail\KotaCerdasController@create');
+		    Route::any('/{id}/edit', 'Detail\KotaCerdasController@edit');
+		    Route::delete('/{id}/delete', 'Detail\KotaCerdasController@delete');
+		});
+
+		Route::group(['prefix' => 'kws-dpn'], function () {
+		    Route::get('/', 'Detail\KwsDpnController@index');
+		    Route::get('/{id}/view', 'Detail\KwsDpnController@view');
+		    Route::any('/create', 'Detail\KwsDpnController@create');
+		    Route::any('/{id}/edit', 'Detail\KwsDpnController@edit');
+		    Route::delete('/{id}/delete', 'Detail\KwsDpnController@delete');
+		});
+
+		Route::group(['prefix' => 'kws-lingkstrategis'], function () {
+		    Route::get('/', 'Detail\KwsLingkstrategisController@index');
+		    Route::get('/{id}/view', 'Detail\KwsLingkstrategisController@view');
+		    Route::any('/create', 'Detail\KwsLingkstrategisController@create');
+		    Route::any('/{id}/edit', 'Detail\KwsLingkstrategisController@edit');
+		    Route::delete('/{id}/delete', 'Detail\KwsLingkstrategisController@delete');
+		});
+
+		Route::group(['prefix' => 'plbn'], function () {
+		    Route::get('/', 'Detail\PlbnController@index');
+		    Route::get('/{id}/view', 'Detail\PlbnController@view');
+		    Route::any('/create', 'Detail\PlbnController@create');
+		    Route::any('/{id}/edit', 'Detail\PlbnController@edit');
+		    Route::delete('/{id}/delete', 'Detail\PlbnController@delete');
+		});
+
+		Route::group(['prefix' => 'rg-terbukapublik'], function () {
+		    Route::get('/', 'Detail\RgTerbukapublikController@index');
+		    Route::get('/{id}/view', 'Detail\RgTerbukapublikController@view');
+		    Route::any('/create', 'Detail\RgTerbukapublikController@create');
+		    Route::any('/{id}/edit', 'Detail\RgTerbukapublikController@edit');
+		    Route::delete('/{id}/delete', 'Detail\RgTerbukapublikController@delete');
+		});
+
+		Route::group(['prefix' => 'rth'], function () {
+		    Route::get('/', 'Detail\RthController@index');
+		    Route::get('/{id}/view', 'Detail\RthController@view');
+		    Route::any('/create', 'Detail\RthController@create');
+		    Route::any('/{id}/edit', 'Detail\RthController@edit');
+		    Route::delete('/{id}/delete', 'Detail\RthController@delete');
+		});
+
+		Route::group(['prefix' => 'tabg'], function () {
+		    Route::get('/', 'Detail\TabgController@index');
+		    Route::get('/{id}/view', 'Detail\TabgController@view');
+		    Route::any('/create', 'Detail\TabgController@create');
+		    Route::any('/{id}/edit', 'Detail\TabgController@edit');
+		    Route::delete('/{id}/delete', 'Detail\TabgController@delete');
+		});
+
+		Route::group(['prefix' => 'hsbgn'], function () {
+		    Route::get('/', 'Detail\HsbgnController@index');
+		    Route::get('/{id}/view', 'Detail\HsbgnController@view');
+		    Route::any('/create', 'Detail\HsbgnController@create');
+		    Route::any('/{id}/edit', 'Detail\HsbgnController@edit');
+		    Route::delete('/{id}/delete', 'Detail\HsbgnController@delete');
+		});
+
+		Route::group(['prefix' => 'peraturan-nasional'], function () {
+		    Route::get('/', 'Detail\PeraturanNasionalController@index');
+		    Route::get('/{id}/view', 'Detail\PeraturanNasionalController@view');
+		    Route::any('/create', 'Detail\PeraturanNasionalController@create');
+		    Route::any('/{id}/edit', 'Detail\PeraturanNasionalController@edit');
+		    Route::delete('/{id}/delete', 'Detail\PeraturanNasionalController@delete');
+		});
+
+		Route::group(['prefix' => 'wps'], function () {
+		    Route::get('/', 'Detail\WpsController@index');
+		    Route::get('/{id}/view', 'Detail\WpsController@view');
+		    Route::any('/create', 'Detail\WpsController@create');
+		    Route::any('/{id}/edit', 'Detail\WpsController@edit');
+		    Route::delete('/{id}/delete', 'Detail\WpsController@delete');
+		});
+
 	});
 	/** End controllers Detail **/
 });
