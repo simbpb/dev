@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Kebun Raya')
+@section('title', 'Bantek')
 
 @section('content')
 <div class="page-container">
@@ -34,19 +34,61 @@
 					    	</div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Thn Penetapan*</label>
+				    		<label class="control-label col-lg-3">Nama Bgn yg Difasilitasi*</label>
 				    		<div class="col-lg-9"> 
-					    		{!! Form::text('thn_penetapan',null, ['class' => 'form-control']) !!}
+					    		{!! Form::text('nama_bgn_yg_difasilitasi',null, ['class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Nama Kebun Raya*</label>
+				    		<label class="control-label col-lg-3">Nama Penyelenggara*</label>
 				    		<div class="col-lg-9"> 
-					    		{!! Form::text('nama_kebun_raya',null, ['class' => 'form-control']) !!}
+					    		{!! Form::text('nama_penyelenggara',null, ['class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
-			  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-3">Waktu Penyelenggara*</label>
+				    		<div class="col-lg-9"> 
+					    		{!! Form::text('waktu_penyelenggara',null, ['class' => 'form-control']) !!}
+					    	</div>
+				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-3">Uraian Sasaran*</label>
+				    		<div class="col-lg-9"> 
+					    		{!! Form::text('uraian_sasaran',null, ['class' => 'form-control']) !!}
+					    	</div>
+				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-3">Materi Kepmen No. 332 thn 2002 Disampaikan*</label>
+				    		<div class="col-lg-9"> 
+					    		{!! Form::text('materi_kepmen_no332thn2002_disampaikan',null, ['class' => 'form-control']) !!}
+					    	</div>
+				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-3">Materi Juknis Pt Disampaikan*</label>
+				    		<div class="col-lg-9"> 
+					    		{!! Form::text('materi_juknis_pt_disampaikan',null, ['class' => 'form-control']) !!}
+					    	</div>
+				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-3">Materi Keppres No. 80 thn 2003 Disampaikan*</label>
+				    		<div class="col-lg-9"> 
+					    		{!! Form::text('materi_keppres_no80thn2003_disampaikan',null, ['class' => 'form-control']) !!}
+					    	</div>
+				  		</div>
+				  	</div>
 			  		<div class="col-lg-6">
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-2">Materi HSBGN Disampaikan*</label>
+				    		<div class="col-lg-10"> 
+					    		{!! Form::text('materi_hsbgn_disampaikan',null, ['class' => 'form-control']) !!}
+					    	</div>
+				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-2">Materi Kepmen No. 29 thn 2006 Disampaikan*</label>
+				    		<div class="col-lg-10"> 
+					    		{!! Form::text('materi_kepmen_no29thn2006_disampaikan',null, ['class' => 'form-control']) !!}
+					    	</div>
+				  		</div>
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-2">Propinsi*</label>
 				    		<div class="col-lg-10"> 
@@ -60,16 +102,30 @@
 					  		</div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label class="control-label col-lg-2">File*</label>
+				    		<label class="control-label col-lg-2">File Upload Materi Bimtek*</label>
 				    		<div class="col-lg-10"> 
-					    		{!! Form::file('file_upload',null, ['class' => 'form-control']) !!}
+					    		{!! Form::file('file_upload_materi_bimtek',null, ['class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
-				  		@if (!empty($model['file_upload']))
+				  		@if (!empty($model['file_upload_materi_bimtek']))
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-2">Attach File</label>
 					    	<div class="col-lg-10">
-					    		{!! ($model['file_upload']) ? $model['file_upload'] : null !!}
+					    		{!! ($model['file_upload_materi_bimtek']) ? $model['file_upload_materi_bimtek'] : null !!}
+					    	</div>
+				  		</div>
+				  		@endif
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-2">Foto Keg Bimtek*</label>
+				    		<div class="col-lg-10"> 
+					    		{!! Form::file('foto_keg_bimtek',null, ['class' => 'form-control']) !!}
+					    	</div>
+				  		</div>
+				  		@if (!empty($model['foto_keg_bimtek']))
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-2">Attach File</label>
+					    	<div class="col-lg-10">
+					    		{!! ($model['foto_keg_bimtek']) ? $model['foto_keg_bimtek'] : null !!}
 					    	</div>
 				  		</div>
 				  		@endif

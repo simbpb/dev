@@ -196,6 +196,30 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::delete('/{id}/delete', 'Detail\RtblController@delete');
 		});
 
+		Route::group(['prefix' => 'sub-wps'], function () {
+		    Route::get('/', 'Detail\SubWpsController@index');
+		    Route::get('/{id}/view', 'Detail\SubWpsController@view');
+		    Route::any('/create', 'Detail\SubWpsController@create');
+		    Route::any('/{id}/edit', 'Detail\SubWpsController@edit');
+		    Route::delete('/{id}/delete', 'Detail\SubWpsController@delete');
+		});
+
+		Route::group(['prefix' => 'asian-games'], function () {
+		    Route::get('/', 'Detail\AsianGamesController@index');
+		    Route::get('/{id}/view', 'Detail\AsianGamesController@view');
+		    Route::any('/create', 'Detail\AsianGamesController@create');
+		    Route::any('/{id}/edit', 'Detail\AsianGamesController@edit');
+		    Route::delete('/{id}/delete', 'Detail\AsianGamesController@delete');
+		});
+
+		Route::group(['prefix' => 'bantek'], function () {
+		    Route::get('/', 'Detail\BantekController@index');
+		    Route::get('/{id}/view', 'Detail\BantekController@view');
+		    Route::any('/create', 'Detail\BantekController@create');
+		    Route::any('/{id}/edit', 'Detail\BantekController@edit');
+		    Route::delete('/{id}/delete', 'Detail\BantekController@delete');
+		});
+
 	});
 	/** End controllers Detail **/
 });

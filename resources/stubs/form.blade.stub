@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Kebun Raya')
+@section('title', '{{modelNameLabel}}')
 
 @section('content')
 <div class="page-container">
