@@ -131,7 +131,7 @@ $model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
 $model->rencana_keu = $request->input('rencana_keu');
 $model->rencana_fisik = $request->input('rencana_fisik');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -185,7 +185,7 @@ $model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
 $model->rencana_keu = $request->input('rencana_keu');
 $model->rencana_fisik = $request->input('rencana_fisik');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

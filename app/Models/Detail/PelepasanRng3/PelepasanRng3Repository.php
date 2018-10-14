@@ -152,7 +152,7 @@ $model->status_rn = $request->input('status_rn');
 $model->thn_pelepasan_rng3 = $request->input('thn_pelepasan_rng3');
 $model->sk_hak_milik = $request->input('sk_hak_milik');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -235,7 +235,7 @@ $model->status_rn = $request->input('status_rn');
 $model->thn_pelepasan_rng3 = $request->input('thn_pelepasan_rng3');
 $model->sk_hak_milik = $request->input('sk_hak_milik');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

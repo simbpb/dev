@@ -52,7 +52,7 @@ $rule['pagar_rumahnegara_belakang'] = 'required';
 $rule['sk_penetapan'] = 'required';
 
                         if ($scope == 'create') {
-                            $rule['file_SK_penetapan_HSBGN'] = 'required';
+                            $rule['file_sk_penetapan_hsbgn'] = 'required';
                         }
 $rule['indeks_kemahalan_konstruksi'] = 'required';
 

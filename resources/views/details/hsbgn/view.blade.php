@@ -147,9 +147,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label>File SK Penetapan HSBGN</label>
+                                <label>File Sk Penetapan Hsbgn</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_SK_penetapan_HSBGN'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_sk_penetapan_hsbgn'] !!}">
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>

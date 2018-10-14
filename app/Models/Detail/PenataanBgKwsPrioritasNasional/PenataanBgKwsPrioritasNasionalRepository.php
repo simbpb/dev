@@ -113,7 +113,7 @@ $model->Lokasi_Kegiatan = $request->input('Lokasi_Kegiatan');
 $model->Titik_koordinat_lat = $request->input('Titik_koordinat_lat');
 $model->Titik_koordinat_log = $request->input('Titik_koordinat_log');
 $model->Status_Aset = $request->input('Status_Aset');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -153,7 +153,7 @@ $model->Lokasi_Kegiatan = $request->input('Lokasi_Kegiatan');
 $model->Titik_koordinat_lat = $request->input('Titik_koordinat_lat');
 $model->Titik_koordinat_log = $request->input('Titik_koordinat_log');
 $model->Status_Aset = $request->input('Status_Aset');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

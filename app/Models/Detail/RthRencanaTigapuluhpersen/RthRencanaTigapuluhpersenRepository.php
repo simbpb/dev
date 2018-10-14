@@ -94,7 +94,7 @@ class RthRencanaTigapuluhpersenRepository
 $model->nama_dokumen_perencanaan = $request->input('nama_dokumen_perencanaan');
 $model->dok_disusun_tahun = $request->input('dok_disusun_tahun');
 $model->dok_disahkan_oleh = $request->input('dok_disahkan_oleh');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -135,7 +135,7 @@ $model->dok_disahkan_oleh = $request->input('dok_disahkan_oleh');
 $model->nama_dokumen_perencanaan = $request->input('nama_dokumen_perencanaan');
 $model->dok_disusun_tahun = $request->input('dok_disusun_tahun');
 $model->dok_disahkan_oleh = $request->input('dok_disahkan_oleh');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

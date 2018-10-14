@@ -268,7 +268,7 @@ $model->perwal_perbup_rtbl_4 = $request->input('perwal_perbup_rtbl_4');
 $model->perwal_perbup_rtbl_5 = $request->input('perwal_perbup_rtbl_5');
 $model->perwal_perbup_rtbl_6 = $request->input('perwal_perbup_rtbl_6');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -463,7 +463,7 @@ $model->perwal_perbup_rtbl_4 = $request->input('perwal_perbup_rtbl_4');
 $model->perwal_perbup_rtbl_5 = $request->input('perwal_perbup_rtbl_5');
 $model->perwal_perbup_rtbl_6 = $request->input('perwal_perbup_rtbl_6');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

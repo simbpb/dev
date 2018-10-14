@@ -215,7 +215,7 @@ $model->jml_penduduk_desa_2015 = $request->input('jml_penduduk_desa_2015');
 $model->jml_penduduk_desa_2016 = $request->input('jml_penduduk_desa_2016');
 $model->jml_penduduk_desa_2017 = $request->input('jml_penduduk_desa_2017');
 $model->jml_penduduk_desa_2018 = $request->input('jml_penduduk_desa_2018');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -289,7 +289,7 @@ $model->jml_penduduk_desa_2015 = $request->input('jml_penduduk_desa_2015');
 $model->jml_penduduk_desa_2016 = $request->input('jml_penduduk_desa_2016');
 $model->jml_penduduk_desa_2017 = $request->input('jml_penduduk_desa_2017');
 $model->jml_penduduk_desa_2018 = $request->input('jml_penduduk_desa_2018');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

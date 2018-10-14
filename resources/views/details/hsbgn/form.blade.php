@@ -198,16 +198,16 @@
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File SK Penetapan HSBGN*</label>
+                            <label class="control-label col-lg-3">File Sk Penetapan Hsbgn*</label>
                             <div class="col-lg-9"> 
-                                {!! Form::file('file_SK_penetapan_HSBGN',null, ['class' => 'form-control']) !!}
+                                {!! Form::file('file_sk_penetapan_hsbgn',null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
-                        @if (!empty($model['file_SK_penetapan_HSBGN']))
+                        @if (!empty($model['file_sk_penetapan_hsbgn']))
                         <div class="form-group">
                             <label class="control-label col-lg-3">Attach File</label>
                             <div class="col-lg-9">
-                                {!! ($model['file_SK_penetapan_HSBGN']) ? $model['file_SK_penetapan_HSBGN'] : null !!}
+                                {!! ($model['file_sk_penetapan_hsbgn']) ? $model['file_sk_penetapan_hsbgn'] : null !!}
                             </div>
                         </div>
                         @endif 

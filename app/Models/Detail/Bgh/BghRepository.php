@@ -147,7 +147,7 @@ $model->no_plakat_bgh = $request->input('no_plakat_bgh');
 $model->thn_penerbitan_sertifikat_pemanfaatan_bgh = $request->input('thn_penerbitan_sertifikat_pemanfaatan_bgh');
 $model->peringkat_bgh = $request->input('peringkat_bgh');
 $model->pemanfaatan_ke = $request->input('pemanfaatan_ke');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -213,7 +213,7 @@ $model->no_plakat_bgh = $request->input('no_plakat_bgh');
 $model->thn_penerbitan_sertifikat_pemanfaatan_bgh = $request->input('thn_penerbitan_sertifikat_pemanfaatan_bgh');
 $model->peringkat_bgh = $request->input('peringkat_bgh');
 $model->pemanfaatan_ke = $request->input('pemanfaatan_ke');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

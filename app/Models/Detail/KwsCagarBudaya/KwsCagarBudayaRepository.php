@@ -100,7 +100,7 @@ $model->nama_instansi_cagar_budaya = $request->input('nama_instansi_cagar_budaya
 $model->lokasi_cagar_budaya = $request->input('lokasi_cagar_budaya');
 $model->sk_penetapan = $request->input('sk_penetapan');
 $model->tahun_penetapan = $request->input('tahun_penetapan');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -143,7 +143,7 @@ $model->nama_instansi_cagar_budaya = $request->input('nama_instansi_cagar_budaya
 $model->lokasi_cagar_budaya = $request->input('lokasi_cagar_budaya');
 $model->sk_penetapan = $request->input('sk_penetapan');
 $model->tahun_penetapan = $request->input('tahun_penetapan');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();
