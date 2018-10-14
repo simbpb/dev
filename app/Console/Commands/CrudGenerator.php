@@ -422,7 +422,25 @@ class CrudGenerator extends Command
 
     protected function deniedColumn($field)
     {
-        $fields = ['id','detail_kdprog_id','thn_periode_keg','lokasi_kode','nama_propinsi','nama_kabupatenkota','created_by','updated_by','created_at','updated_at','is_actived'];
+        $fields = [
+                'id',
+                'renstra_id',
+                'output_id',
+                'suboutput_id',
+                'sasaran_id',
+                'uraian_id',
+                'subdit_id',
+                'volume_id',
+                'thn_periode_keg',
+                'lokasi_kode',
+                'nama_propinsi',
+                'nama_kabupatenkota',
+                'created_by',
+                'updated_by',
+                'created_at',
+                'updated_at',
+                'is_actived'
+            ];
         if (in_array($field, $fields)) {
             return false;
         }
@@ -433,7 +451,7 @@ class CrudGenerator extends Command
     {
         $exps = explode("_", $column);
         foreach ($exps as $exp) {
-            if ($exp == 'file' || $exp == 'upload') {
+            if ($exp == 'file' || $exp == 'upload' || $exp == 'dokumentasi') {
                 return true;
             }
         }

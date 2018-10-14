@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'asian games')
+@section('title', 'Asian Games')
 
 @section('content')
 <div class="page-container">
@@ -37,16 +37,94 @@
 				    		<label>Nama Kabupaten/Kota</label>
 				    		<div class="form-group"><b>{!! $model['nama_kabupatenkota'] !!}</b></div>
 				  		</div>
-				  	</div>
-				  	<div class="col-xs-6">
-				  		<div class="form-group">
-				    		<label>File</label>
-				    		<div class="form-group">
-				    			<a class="btn btn-primary" href="{!! $model['file_upload'] !!}" >
-				    			<i class="icon-file-download2"></i>
-				    			Download File</a>
-				    		</div>
-				  		</div>
+				  		
+                            <div class="form-group">
+                                <label>Nama Kegiatan</label>
+                                <div class="form-group"><b>{!! $model['nama_kegiatan'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Thn Anggaran</label>
+                                <div class="form-group"><b>{!! $model['thn_anggaran'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sumber Anggaran</label>
+                                <div class="form-group"><b>{!! $model['sumber_anggaran'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Alokasi Anggaran</label>
+                                <div class="form-group"><b>{!! $model['alokasi_anggaran'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Volume Pekerjaan</label>
+                                <div class="form-group"><b>{!! $model['volume_pekerjaan'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Instansi Unit Organisasi Pelaksana</label>
+                                <div class="form-group"><b>{!! $model['instansi_unit_organisasi_pelaksana'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Lokasi Kegiatan Proyek</label>
+                                <div class="form-group"><b>{!! $model['lokasi_kegiatan_proyek'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Titik Koordinat</label>
+                                <div class="form-group"><b>{!! $model['titik_koordinat'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Status Aset</label>
+                                <div class="form-group"><b>{!! $model['status_aset'] !!}</b></div>
+                            </div>
+
+                            </div>
+                                <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label>Biaya Pelaksanaan Kontraktor</label>
+                                <div class="form-group"><b>{!! $model['biaya_pelaksanaan_kontraktor'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Manajemen Konstruksi</label>
+                                <div class="form-group"><b>{!! $model['manajemen_konstruksi'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Rencana Keu</label>
+                                <div class="form-group"><b>{!! $model['rencana_keu'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Rencana Fisik</label>
+                                <div class="form-group"><b>{!! $model['rencana_fisik'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mk Keu</label>
+                                <div class="form-group"><b>{!! $model['mk_keu'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mk Fisik</label>
+                                <div class="form-group"><b>{!! $model['mk_fisik'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Dokumentasi</label>
+                                <div class="form-group">
+                                    <a class="btn btn-primary" href="{!! $model['dokumentasi'] !!}">
+                                    <i class="icon-file-download2"></i>
+                                    Download File</a>
+                                </div>
+                            </div>
+
 				  	</div>
 			  	</div>
 			  	<div class="text-right">

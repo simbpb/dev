@@ -31,114 +31,145 @@
 				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
 					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
+					    		{!! Form::hidden('program_id',$programId) !!}
 					    	</div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Nama Kegiatan*</label>
+				    		<label class="control-label col-lg-3">Propinsi*</label>
 				    		<div class="col-lg-9"> 
-					    		{!! Form::text('nama_kegiatan',null, ['class' => 'form-control']) !!}
-					    	</div>
-				  		</div>
-
-				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Biaya Pelaksanaan Kontraktor*</label>
-				    		<div class="col-lg-9"> 
-					    		{!! Form::text('biaya_pelaksanaan_kontraktor',null, ['class' => 'form-control','placeholder' => 'Gunakan format rupiah (Rp)']) !!}
-					    	</div>
-				  		</div>
-				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Manajemen Konstruksi*</label>
-				    		<div class="col-lg-9"> 
-					    		{!! Form::text('manajemen_konstruksi',null, ['class' => 'form-control']) !!}
-					    	</div>
-				  		</div>
-				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Permasalahan*</label>
-				    		<div class="col-lg-9"> 
-					    		{!! Form::text('permasalahan',null, ['class' => 'form-control']) !!}
-					    	</div>
-				  		</div>
-				  		<div class="form-group">
-				    		<label class="control-label col-lg-3">Tindak Lanjut*</label>
-				    		<div class="col-lg-9"> 
-					    		{!! Form::text('tindak_lanjut',null, ['class' => 'form-control']) !!}
-					    	</div>
-				  		</div>
-
-			  		</div>
-			  		<div class="col-lg-6">
-			  			<div class="form-group">
-			  				<div class="col-lg-6">
-					  			<div class="form-group">
-						    		<label class="control-label col-lg-4">Rencana Keu*</label>
-						    		<div class="col-lg-8"> 
-							    		{!! Form::text('rencana_keu',null, ['class' => 'form-control', 'placeholder' => 'Dalam persen (%)']) !!}
-							    	</div>
-						  		</div>
-					  		</div>
-					  		<div class="col-lg-6">
-						  		<div class="form-group">
-						    		<label class="control-label col-lg-4">Realisasi Keu*</label>
-						    		<div class="col-lg-8"> 
-							    		{!! Form::text('realisasi_keu',null, ['class' => 'form-control', 'placeholder' => 'Dalam persen (%)']) !!}
-							    	</div>
-						  		</div>
-					  		</div>
-				  		</div>
-				  		<div class="form-group">
-			  				<div class="col-lg-6">
-					  			<div class="form-group">
-						    		<label class="control-label col-lg-4">Rencana Fisik*</label>
-						    		<div class="col-lg-8"> 
-							    		{!! Form::text('rencana_fisik',null, ['class' => 'form-control', 'placeholder' => 'Dalam persen (%)']) !!}
-							    	</div>
-						  		</div>
-					  		</div>
-					  		<div class="col-lg-6">
-						  		<div class="form-group">
-						    		<label class="control-label col-lg-4">Realisasi Fisik*</label>
-						    		<div class="col-lg-8"> 
-							    		{!! Form::text('realisasi_fisik',null, ['class' => 'form-control', 'placeholder' => 'Dalam persen (%)']) !!}
-							    	</div>
-						  		</div>
-					  		</div>
-				  		</div>
-				  		<div class="form-group">
-			  				<div class="col-lg-6">
-					  			<div class="form-group">
-						    		<label class="control-label col-lg-4">Mk Keu*</label>
-						    		<div class="col-lg-8"> 
-							    		{!! Form::text('mk_keu',null, ['class' => 'form-control', 'placeholder' => 'Dalam persen (%)']) !!}
-							    	</div>
-						  		</div>
-					  		</div>
-					  		<div class="col-lg-6">
-						  		<div class="form-group">
-						    		<label class="control-label col-lg-4">Mk Fisik*</label>
-						    		<div class="col-lg-8"> 
-							    		{!! Form::text('mk_fisik',null, ['class' => 'form-control', 'placeholder' => 'Dalam persen (%)']) !!}
-							    	</div>
-						  		</div>
-					  		</div>
-				  		</div>
-				  		<div class="form-group">
-				    		<label class="control-label col-lg-2">Propinsi*</label>
-				    		<div class="col-lg-10"> 
 					  			{!! Form::select('propinsi_id', $provinces, null, ['id' => 'provinces', 'class' => 'form-control']) !!}
 					  		</div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label class="control-label col-lg-2">Kabupaten/Kota*</label>
-				    		<div class="col-lg-10"> 
+				    		<label class="control-label col-lg-3">Kabupaten/Kota*</label>
+				    		<div class="col-lg-9"> 
 					  			{!! Form::select('kota_id', ['' => 'Pilih Kabupaten/Kota'], null, ['id' => 'cities', 'class' => 'form-control']) !!}
 					  		</div>
 				  		</div>
-				  		<div class="form-group">
-				    		<label class="control-label col-lg-2">Dokumentasi*</label>
-				    		<div class="col-lg-10"> 
-					    		{!! Form::text('dokumentasi',null, ['class' => 'form-control']) !!}
-					    	</div>
-				  		</div>
+						
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Nama Kegiatan*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('nama_kegiatan',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Thn Anggaran*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('thn_anggaran',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Sumber Anggaran*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('sumber_anggaran',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Alokasi Anggaran*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Volume Pekerjaan*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('volume_pekerjaan',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('instansi_unit_organisasi_pelaksana',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Lokasi Kegiatan Proyek*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('lokasi_kegiatan_proyek',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Titik Koordinat*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('titik_koordinat',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Status Aset*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('status_aset',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                            </div>
+                                <div class="col-lg-6">
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Biaya Pelaksanaan Kontraktor*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('biaya_pelaksanaan_kontraktor',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Manajemen Konstruksi*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('manajemen_konstruksi',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Rencana Keu*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('rencana_keu',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Rencana Fisik*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('rencana_fisik',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Mk Keu*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('mk_keu',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Mk Fisik*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('mk_fisik',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Dokumentasi*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::file('dokumentasi',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        @if (!empty($model['dokumentasi']))
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Attach File</label>
+                            <div class="col-lg-9">
+                                {!! ($model['dokumentasi']) ? $model['dokumentasi'] : null !!}
+                            </div>
+                        </div>
+                        @endif 
+
 			  		</div>
 		  		</div>
 		  		@include('widgets.submit_button')

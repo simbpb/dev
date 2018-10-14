@@ -31,6 +31,7 @@
 				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
 					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
+					    		{!! Form::hidden('program_id',$programId) !!}
 					    	</div>
 				  		</div>
 				  		<div class="form-group">
@@ -47,6 +48,69 @@
 				  		</div>
 						
                         <div class="form-group">
+                            <label class="control-label col-lg-3">Nama Kegiatan*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('nama_kegiatan',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Thn Anggaran*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('thn_anggaran',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Sumber Anggaran*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('sumber_anggaran',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Alokasi Anggaran*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Volume Pekerjaan*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('volume_pekerjaan',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('instansi_unit_organisasi_pelaksana',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Lokasi Kegiatan Proyek*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('lokasi_kegiatan_proyek',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Titik Koordinat*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('titik_koordinat',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3">Status Aset*</label>
+                            <div class="col-lg-9"> 
+                                {!! Form::text('status_aset',null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div> 
+
+                        <div class="form-group">
                             <label class="control-label col-lg-3">Nama Kepala Dinas*</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('nama_kepala_dinas',null, ['class' => 'form-control']) !!}
@@ -59,6 +123,9 @@
                                 {!! Form::text('nama_pengelola',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
+
+                            </div>
+                                <div class="col-lg-6">
 
                         <div class="form-group">
                             <label class="control-label col-lg-3">Nama Penyedia Jasa Perencanaan*</label>
@@ -80,9 +147,6 @@
                                 {!! Form::text('no_sertifikat_bgh',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
-
-                            </div>
-                                <div class="col-lg-6">
 
                         <div class="form-group">
                             <label class="control-label col-lg-3">File Upload Sertifikat Bgh*</label>

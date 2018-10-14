@@ -39,6 +39,51 @@
 				  		</div>
 				  		
                             <div class="form-group">
+                                <label>Nama Kegiatan</label>
+                                <div class="form-group"><b>{!! $model['nama_kegiatan'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Thn Anggaran</label>
+                                <div class="form-group"><b>{!! $model['thn_anggaran'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sumber Anggaran</label>
+                                <div class="form-group"><b>{!! $model['sumber_anggaran'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Alokasi Anggaran</label>
+                                <div class="form-group"><b>{!! $model['alokasi_anggaran'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Volume Pekerjaan</label>
+                                <div class="form-group"><b>{!! $model['volume_pekerjaan'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Instansi Unit Organisasi Pelaksana</label>
+                                <div class="form-group"><b>{!! $model['instansi_unit_organisasi_pelaksana'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Lokasi Kegiatan Proyek</label>
+                                <div class="form-group"><b>{!! $model['lokasi_kegiatan_proyek'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Titik Koordinat</label>
+                                <div class="form-group"><b>{!! $model['titik_koordinat'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Status Aset</label>
+                                <div class="form-group"><b>{!! $model['status_aset'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
                                 <label>Nama Kepala Dinas</label>
                                 <div class="form-group"><b>{!! $model['nama_kepala_dinas'] !!}</b></div>
                             </div>
@@ -47,6 +92,9 @@
                                 <label>Nama Pengelola</label>
                                 <div class="form-group"><b>{!! $model['nama_pengelola'] !!}</b></div>
                             </div>
+
+                            </div>
+                                <div class="col-lg-6">
 
                             <div class="form-group">
                                 <label>Nama Penyedia Jasa Perencanaan</label>
@@ -62,9 +110,6 @@
                                 <label>No Sertifikat Bgh</label>
                                 <div class="form-group"><b>{!! $model['no_sertifikat_bgh'] !!}</b></div>
                             </div>
-
-                            </div>
-                                <div class="col-lg-6">
 
                             <div class="form-group">
                                 <label>File Upload Sertifikat Bgh</label>

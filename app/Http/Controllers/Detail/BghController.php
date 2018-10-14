@@ -25,36 +25,51 @@ class BghController extends Controller {
         $this->view = 'bgh';
     }
 
-    protected function validationRules() {
+    protected function validationRules($scope = 'create') {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
-        $rule['nama_kepala_dinas'] = 'required';
+        $rule['nama_kegiatan'] = 'required';
+$rule['thn_anggaran'] = 'required';
+$rule['sumber_anggaran'] = 'required';
+$rule['alokasi_anggaran'] = 'required';
+$rule['volume_pekerjaan'] = 'required';
+$rule['instansi_unit_organisasi_pelaksana'] = 'required';
+$rule['lokasi_kegiatan_proyek'] = 'required';
+$rule['titik_koordinat'] = 'required';
+$rule['status_aset'] = 'required';
+$rule['nama_kepala_dinas'] = 'required';
 $rule['nama_pengelola'] = 'required';
 $rule['nama_penyedia_jasa_perencanaan'] = 'required';
 $rule['thn_penerbitan_sertifikat_bgh'] = 'required';
 $rule['no_sertifikat_bgh'] = 'required';
-$rule['file_upload_sertifikat_bgh'] = 'required';
+
+                        if ($scope == 'create') {
+                            $rule['file_upload_sertifikat_bgh'] = 'required';
+                        }
 $rule['no_plakat_bgh'] = 'required';
 $rule['thn_penerbitan_sertifikat_pemanfaatan_bgh'] = 'required';
-$rule['file_upload_sertifikat_pemanfaatan_bgh'] = 'required';
+
+                        if ($scope == 'create') {
+                            $rule['file_upload_sertifikat_pemanfaatan_bgh'] = 'required';
+                        }
 $rule['peringkat_bgh'] = 'required';
 $rule['pemanfaatan_ke'] = 'required';
 
         return $rule;
     }
 
-    public function index(Request $request) {
+    public function index($programId, Request $request) {
         if ($request->ajax()) {
             $model = $this->model->list($request->all());
             return $model;
         }
         $path = $this->view;
 
-        return view('details.'.$this->view.'.index', compact('path'));
+        return view('details.'.$this->view.'.index', compact('path','programId'));
     }
     
-    public function create(Request $request)
+    public function create($programId, Request $request)
     {
         if ($request->isMethod('post')) {
             $validation = Validator::make($request->all(), $this->validationRules());
@@ -65,7 +80,7 @@ $rule['pemanfaatan_ke'] = 'required';
             try {
                 $this->model->create($request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/details/'.$this->view));
+                return redirect(Navigation::adminUrl('/details/'.$this->view.'/'.$programId));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
@@ -75,14 +90,14 @@ $rule['pemanfaatan_ke'] = 'required';
         $validator = JsValidator::make($this->validationRules());
         $path = $this->view;
 
-        return view('details.'.$this->view.'.form', compact('path','provinces','validator'));
+        return view('details.'.$this->view.'.form', compact('path','programId','provinces','validator'));
     }
 
-    public function edit($id, Request $request)
+    public function edit($programId, $id, Request $request)
     {
         if ($request->isMethod('post')) {
 
-            $validation = Validator::make($request->all(), $this->validationRules());
+            $validation = Validator::make($request->all(), $this->validationRules('edit'));
             if ($validation->fails()) {
                 return redirect()->back()->withInput()->withErrors($validation->errors());
             }
@@ -90,25 +105,25 @@ $rule['pemanfaatan_ke'] = 'required';
             try {
                 $this->model->update($id, $request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/details/'.$this->view));
+                return redirect(Navigation::adminUrl('/details/'.$this->view.'/'.$programId));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
         }
 
         $provinces = $this->lokasi->getProvincesOptions();
-        $validator = JsValidator::make($this->validationRules());
+        $validator = JsValidator::make($this->validationRules('edit','programId'));
         $model = $this->model->find($id);
         $path = $this->view;
 
         return view('details.'.$this->view.'.form', compact('path','model','provinces','validator'));
     }
 
-    public function view($id)
+    public function view($programId, $id)
     {
         $model = $this->model->find($id);
         $path = $this->view;
-        return view('details.'.$this->view.'.view', compact('path','model'));
+        return view('details.'.$this->view.'.view', compact('path','programId','model'));
     }
 
     public function delete($id) 

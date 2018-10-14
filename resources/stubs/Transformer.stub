@@ -8,8 +8,8 @@ class {{modelName}}Transformer{
     public function transformDetail($model) {
         return [
             'id' => $model->id,
-            'lokasi_kode' => $model->lokasi_kode,
             'thn_periode_keg' => $model->thn_periode_keg,
+            'lokasi_kode' => $model->lokasi_kode,
             'nama_propinsi' => $model->nama_propinsi,
             'nama_kabupatenkota' => $model->nama_kabupatenkota,
             'propinsi_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_propinsi : null,
@@ -23,8 +23,8 @@ class {{modelName}}Transformer{
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
                'id' => $model->id,
-               'lokasi_kode' => $model->lokasi_kode,
                'thn_periode_keg' => $model->thn_periode_keg,
+               'lokasi_kode' => $model->lokasi_kode,
                'nama_propinsi' => $model->nama_propinsi,
                'nama_kabupatenkota' => $model->nama_kabupatenkota,
                {{modelTransform}}
