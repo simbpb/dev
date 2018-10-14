@@ -149,6 +149,10 @@
                                 <div class="form-group"><b>{!! $model['pemanfaatan_ke'] !!}</b></div>
                             </div>
 
+				  		<div class="form-group">
+				    		<label>Status</label>
+				    		<div class="form-group"><b>{!! (!empty($model['is_actived'])) ? 'ACTIVE' : 'INACTIVE' !!}</b></div>
+				  		</div>
 				  	</div>
 			  	</div>
 			  	<div class="text-right">

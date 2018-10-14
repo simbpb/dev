@@ -32,6 +32,7 @@ class BgUmumTransformer{
 'kategori_ketinggian' => $model->kategori_ketinggian,
 'kepemilikan' => $model->kepemilikan,
 
+            'is_actived' => $model->is_actived
         ];
     }
 
@@ -39,12 +40,12 @@ class BgUmumTransformer{
 
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
-               'id' => $model->id,
-               'thn_periode_keg' => $model->thn_periode_keg,
-               'lokasi_kode' => $model->lokasi_kode,
-               'nama_propinsi' => $model->nama_propinsi,
-               'nama_kabupatenkota' => $model->nama_kabupatenkota,
-               'nama_pemilik_bangunan' => $model->nama_pemilik_bangunan,
+                'id' => $model->id,
+                'thn_periode_keg' => $model->thn_periode_keg,
+                'lokasi_kode' => $model->lokasi_kode,
+                'nama_propinsi' => $model->nama_propinsi,
+                'nama_kabupatenkota' => $model->nama_kabupatenkota,
+                'nama_pemilik_bangunan' => $model->nama_pemilik_bangunan,
 'no_ktp_pemilik_bangunan' => $model->no_ktp_pemilik_bangunan,
 'alamat_bangunan' => $model->alamat_bangunan,
 'fungsi_bangunan' => $model->fungsi_bangunan,
@@ -62,6 +63,7 @@ class BgUmumTransformer{
 'kategori_ketinggian' => $model->kategori_ketinggian,
 'kepemilikan' => $model->kepemilikan,
 
+                'is_actived' => $model->is_actived
             ];
         });
 

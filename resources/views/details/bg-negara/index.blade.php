@@ -44,6 +44,10 @@ $(function() {
 { "title": "Luas Bg Negara M2", "data": "luas_bg_negara_m2" },
 { "title": "Titik Koordinat", "data": "titik_koordinat" },
 
+         { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
+            var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';
+            return (row.is_actived) ? '<label class="label label-'+label+'">'+row.is_actived+'<label>' : '';
+         }},
          { "title" : "", "orderable": false, "width": "170px", "className": "text-center", render: function (data, type, row, meta) {
             var view = '';
             var edit = '';

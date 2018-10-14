@@ -21,6 +21,7 @@ class BgNegaraTransformer{
 'titik_koordinat' => $model->titik_koordinat,
 'dokumentasi' => $model->dokumentasi,
 
+            'is_actived' => $model->is_actived
         ];
     }
 
@@ -28,18 +29,19 @@ class BgNegaraTransformer{
 
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
-               'id' => $model->id,
-               'thn_periode_keg' => $model->thn_periode_keg,
-               'lokasi_kode' => $model->lokasi_kode,
-               'nama_propinsi' => $model->nama_propinsi,
-               'nama_kabupatenkota' => $model->nama_kabupatenkota,
-               'nama_bg_negara' => $model->nama_bg_negara,
+                'id' => $model->id,
+                'thn_periode_keg' => $model->thn_periode_keg,
+                'lokasi_kode' => $model->lokasi_kode,
+                'nama_propinsi' => $model->nama_propinsi,
+                'nama_kabupatenkota' => $model->nama_kabupatenkota,
+                'nama_bg_negara' => $model->nama_bg_negara,
 'instansi_pemilik_bg_negara' => $model->instansi_pemilik_bg_negara,
 'alamat_bg_negara' => $model->alamat_bg_negara,
 'luas_bg_negara_m2' => $model->luas_bg_negara_m2,
 'titik_koordinat' => $model->titik_koordinat,
 'dokumentasi' => $model->dokumentasi,
 
+                'is_actived' => $model->is_actived
             ];
         });
 

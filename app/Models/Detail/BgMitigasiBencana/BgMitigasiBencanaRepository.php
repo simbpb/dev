@@ -45,7 +45,8 @@ class BgMitigasiBencanaRepository
 						'tbl_detail_bg_mitigasi_bencana.manajemen_konstruksi',
 						'tbl_detail_bg_mitigasi_bencana.rencana_keu',
 						'tbl_detail_bg_mitigasi_bencana.rencana_fisik',
-						'tbl_detail_bg_mitigasi_bencana.dokumentasi'
+						'tbl_detail_bg_mitigasi_bencana.dokumentasi',
+                        'tbl_detail_bg_mitigasi_bencana.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_bg_mitigasi_bencana.thn_periode_keg',
                         'tbl_detail_bg_mitigasi_bencana.lokasi_kode',
@@ -64,7 +65,8 @@ class BgMitigasiBencanaRepository
 						'tbl_detail_bg_mitigasi_bencana.manajemen_konstruksi',
 						'tbl_detail_bg_mitigasi_bencana.rencana_keu',
 						'tbl_detail_bg_mitigasi_bencana.rencana_fisik',
-						'tbl_detail_bg_mitigasi_bencana.dokumentasi'
+						'tbl_detail_bg_mitigasi_bencana.dokumentasi',
+                        'tbl_detail_bg_mitigasi_bencana.is_actived'
                     ])
                     ->filterLocation()
                     ->paginate($limit);

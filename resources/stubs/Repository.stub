@@ -31,13 +31,15 @@ class {{modelName}}Repository
                         '{{tableName}}.lokasi_kode',
                         '{{tableName}}.nama_propinsi',
                         '{{tableName}}.nama_kabupatenkota',
-                        {{modelColumns}}
+                        {{modelColumns}},
+                        '{{tableName}}.is_actived'
                     )->searchOrder($request, [
                         '{{tableName}}.thn_periode_keg',
                         '{{tableName}}.lokasi_kode',
                         '{{tableName}}.nama_propinsi',
                         '{{tableName}}.nama_kabupatenkota',
-                        {{modelColumns}}
+                        {{modelColumns}},
+                        '{{tableName}}.is_actived'
                     ])
                     ->filterLocation()
                     ->paginate($limit);

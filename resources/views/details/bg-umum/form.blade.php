@@ -185,6 +185,16 @@
                             </div>
                         </div> 
 
+						<div class="form-group">
+				    		<label class="control-label col-lg-3">Status</label>
+				    		<div class="col-lg-9">
+				    			@if(!empty($model) && $model['is_actived'] == 'ACTIVE')
+					    			{!! Form::checkbox('status', 'ACTIVE', $model['is_actived']) !!}
+					    		@else
+								    {!! Form::checkbox('status', 'ACTIVE') !!}
+								@endif
+					    	</div>
+				  		</div>
 			  		</div>
 		  		</div>
 		  		@include('widgets.submit_button')

@@ -15,6 +15,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'HomeController@index');
+Route::get('/generate-all', 'HomeController@generateAll');
 Route::group(['prefix' => config('app.auth_page')], function () {
 	Auth::routes();
 });
@@ -181,6 +182,14 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::delete('/{id}/delete', 'Detail\HsbgnController@delete');
 		});
 
+		Route::group(['prefix' => 'info-kewilayahan'], function () {
+		    Route::get('/{programId}', 'Detail\InfoKewilayahanController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\InfoKewilayahanController@view');
+		    Route::any('/{programId}/create', 'Detail\InfoKewilayahanController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\InfoKewilayahanController@edit');
+		    Route::delete('/{id}/delete', 'Detail\InfoKewilayahanController@delete');
+		});
+
 		Route::group(['prefix' => 'kws-cagar-budaya'], function () {
 		    Route::get('/{programId}', 'Detail\KwsCagarBudayaController@index');
 		    Route::get('/{programId}/{id}/view', 'Detail\KwsCagarBudayaController@view');
@@ -211,6 +220,110 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::any('/{programId}/create', 'Detail\PelepasanRng3Controller@create');
 		    Route::any('/{programId}/{id}/edit', 'Detail\PelepasanRng3Controller@edit');
 		    Route::delete('/{id}/delete', 'Detail\PelepasanRng3Controller@delete');
+		});
+
+		Route::group(['prefix' => 'penataan-bg-kws-destinasi-wisata'], function () {
+		    Route::get('/{programId}', 'Detail\PenataanBgKwsDestinasiWisataController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\PenataanBgKwsDestinasiWisataController@view');
+		    Route::any('/{programId}/create', 'Detail\PenataanBgKwsDestinasiWisataController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\PenataanBgKwsDestinasiWisataController@edit');
+		    Route::delete('/{id}/delete', 'Detail\PenataanBgKwsDestinasiWisataController@delete');
+		});
+
+		Route::group(['prefix' => 'penataan-bg-kws-prioritas-nasional'], function () {
+		    Route::get('/{programId}', 'Detail\PenataanBgKwsPrioritasNasionalController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\PenataanBgKwsPrioritasNasionalController@view');
+		    Route::any('/{programId}/create', 'Detail\PenataanBgKwsPrioritasNasionalController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\PenataanBgKwsPrioritasNasionalController@edit');
+		    Route::delete('/{id}/delete', 'Detail\PenataanBgKwsPrioritasNasionalController@delete');
+		});
+
+		Route::group(['prefix' => 'penataan-bg-kws-rawan-bencana'], function () {
+		    Route::get('/{programId}', 'Detail\PenataanBgKwsRawanBencanaController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\PenataanBgKwsRawanBencanaController@view');
+		    Route::any('/{programId}/create', 'Detail\PenataanBgKwsRawanBencanaController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\PenataanBgKwsRawanBencanaController@edit');
+		    Route::delete('/{id}/delete', 'Detail\PenataanBgKwsRawanBencanaController@delete');
+		});
+
+		Route::group(['prefix' => 'pengelola-teknis-bersertifikasi'], function () {
+		    Route::get('/{programId}', 'Detail\PengelolaTeknisBersertifikasiController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\PengelolaTeknisBersertifikasiController@view');
+		    Route::any('/{programId}/create', 'Detail\PengelolaTeknisBersertifikasiController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\PengelolaTeknisBersertifikasiController@edit');
+		    Route::delete('/{id}/delete', 'Detail\PengelolaTeknisBersertifikasiController@delete');
+		});
+
+		Route::group(['prefix' => 'pengembangan-kota-hijau'], function () {
+		    Route::get('/{programId}', 'Detail\PengembanganKotaHijauController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\PengembanganKotaHijauController@view');
+		    Route::any('/{programId}/create', 'Detail\PengembanganKotaHijauController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\PengembanganKotaHijauController@edit');
+		    Route::delete('/{id}/delete', 'Detail\PengembanganKotaHijauController@delete');
+		});
+
+		Route::group(['prefix' => 'plbn'], function () {
+		    Route::get('/{programId}', 'Detail\PlbnController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\PlbnController@view');
+		    Route::any('/{programId}/create', 'Detail\PlbnController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\PlbnController@edit');
+		    Route::delete('/{id}/delete', 'Detail\PlbnController@delete');
+		});
+
+		Route::group(['prefix' => 'regulasi-perda'], function () {
+		    Route::get('/{programId}', 'Detail\RegulasiPerdaController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\RegulasiPerdaController@view');
+		    Route::any('/{programId}/create', 'Detail\RegulasiPerdaController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\RegulasiPerdaController@edit');
+		    Route::delete('/{id}/delete', 'Detail\RegulasiPerdaController@delete');
+		});
+
+		Route::group(['prefix' => 'rehab-bg-pusaka-istana'], function () {
+		    Route::get('/{programId}', 'Detail\RehabBgPusakaIstanaController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\RehabBgPusakaIstanaController@view');
+		    Route::any('/{programId}/create', 'Detail\RehabBgPusakaIstanaController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\RehabBgPusakaIstanaController@edit');
+		    Route::delete('/{id}/delete', 'Detail\RehabBgPusakaIstanaController@delete');
+		});
+
+		Route::group(['prefix' => 'revolusi-mental'], function () {
+		    Route::get('/{programId}', 'Detail\RevolusiMentalController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\RevolusiMentalController@view');
+		    Route::any('/{programId}/create', 'Detail\RevolusiMentalController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\RevolusiMentalController@edit');
+		    Route::delete('/{id}/delete', 'Detail\RevolusiMentalController@delete');
+		});
+
+		Route::group(['prefix' => 'rth-rencana-tigapuluhpersen'], function () {
+		    Route::get('/{programId}', 'Detail\RthRencanaTigapuluhpersenController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\RthRencanaTigapuluhpersenController@view');
+		    Route::any('/{programId}/create', 'Detail\RthRencanaTigapuluhpersenController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\RthRencanaTigapuluhpersenController@edit');
+		    Route::delete('/{id}/delete', 'Detail\RthRencanaTigapuluhpersenController@delete');
+		});
+
+		Route::group(['prefix' => 'rth-status-tigapuluhpersen'], function () {
+		    Route::get('/{programId}', 'Detail\RthStatusTigapuluhpersenController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\RthStatusTigapuluhpersenController@view');
+		    Route::any('/{programId}/create', 'Detail\RthStatusTigapuluhpersenController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\RthStatusTigapuluhpersenController@edit');
+		    Route::delete('/{id}/delete', 'Detail\RthStatusTigapuluhpersenController@delete');
+		});
+
+		Route::group(['prefix' => 'tabg'], function () {
+		    Route::get('/{programId}', 'Detail\TabgController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\TabgController@view');
+		    Route::any('/{programId}/create', 'Detail\TabgController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\TabgController@edit');
+		    Route::delete('/{id}/delete', 'Detail\TabgController@delete');
+		});
+
+		Route::group(['prefix' => 'tabg-cb'], function () {
+		    Route::get('/{programId}', 'Detail\TabgCbController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\TabgCbController@view');
+		    Route::any('/{programId}/create', 'Detail\TabgCbController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\TabgCbController@edit');
+		    Route::delete('/{id}/delete', 'Detail\TabgCbController@delete');
 		});
 
 	});
