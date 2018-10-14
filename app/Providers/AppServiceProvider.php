@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Query\Builder;
 
@@ -28,6 +29,29 @@ class AppServiceProvider extends ServiceProvider
 
             if (!empty($request['field']) && !empty($request['order'])) {
                 $this->orderBy($request['field'], $request['order']);
+            }
+
+            return $this;
+        });
+
+        Builder::macro("filterLocation", function(){
+            $user = Auth::user();
+            if (!empty($user->provinceDetail->lokasi_nama)) {
+                $this->where(function($query) use ($user) {
+                    $query->where('nama_propinsi', 'like', '%'.$user->provinceDetail->lokasi_nama.'%');
+                });
+            }
+
+            if (!empty($user->cityDetail->lokasi_nama)) {
+                $this->where(function($query) use ($user) {
+                    $query->where('nama_kabupatenkota', 'like', '%'.$user->cityDetail->lokasi_nama.'%');
+                });
+            }
+
+            if (!empty($user->subdit_id)) {
+                $this->where(function($query) use ($user) {
+                    $query->where('subdit_id', '=', $user->subdit_id);
+                });
             }
 
             return $this;

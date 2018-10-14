@@ -114,7 +114,7 @@ class ProgramController extends Controller {
     public function view($id)
     {
         $model = $this->model->find($id);
-        return view('program.view', compact('model'));
+        return view('program.view', compact('id','model'));
     }
 
     public function delete($id) 

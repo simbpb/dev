@@ -8,24 +8,29 @@ class AsianGamesTransformer{
     public function transformDetail($model) {
         return [
             'id' => $model->id,
-            'lokasi_kode' => $model->lokasi_kode,
             'thn_periode_keg' => $model->thn_periode_keg,
+            'lokasi_kode' => $model->lokasi_kode,
             'nama_propinsi' => $model->nama_propinsi,
             'nama_kabupatenkota' => $model->nama_kabupatenkota,
             'propinsi_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_propinsi : null,
             'kota_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_kabupatenkota : null,
             'nama_kegiatan' => $model->nama_kegiatan,
-            'biaya_pelaksanaan_kontraktor' => $model->biaya_pelaksanaan_kontraktor,
-            'manajemen_konstruksi' => $model->manajemen_konstruksi,
-            'rencana_keu' => $model->rencana_keu,
-            'rencana_fisik' => $model->rencana_fisik,
-            'realisasi_keu' => $model->realisasi_keu,
-            'realisasi_fisik' => $model->realisasi_fisik,
-            'mk_keu' => $model->mk_keu,
-            'mk_fisik' => $model->mk_fisik,
-            'permasalahan' => $model->permasalahan,
-            'tindak_lanjut' => $model->tindak_lanjut,
-            'dokumentasi' => $model->dokumentasi,
+'thn_anggaran' => $model->thn_anggaran,
+'sumber_anggaran' => $model->sumber_anggaran,
+'alokasi_anggaran' => $model->alokasi_anggaran,
+'volume_pekerjaan' => $model->volume_pekerjaan,
+'instansi_unit_organisasi_pelaksana' => $model->instansi_unit_organisasi_pelaksana,
+'lokasi_kegiatan_proyek' => $model->lokasi_kegiatan_proyek,
+'titik_koordinat' => $model->titik_koordinat,
+'status_aset' => $model->status_aset,
+'biaya_pelaksanaan_kontraktor' => $model->biaya_pelaksanaan_kontraktor,
+'manajemen_konstruksi' => $model->manajemen_konstruksi,
+'rencana_keu' => $model->rencana_keu,
+'rencana_fisik' => $model->rencana_fisik,
+'mk_keu' => $model->mk_keu,
+'mk_fisik' => $model->mk_fisik,
+'dokumentasi' => $model->dokumentasi,
+
         ];
     }
 
@@ -34,11 +39,27 @@ class AsianGamesTransformer{
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
                'id' => $model->id,
-               'lokasi_kode' => $model->lokasi_kode,
                'thn_periode_keg' => $model->thn_periode_keg,
+               'lokasi_kode' => $model->lokasi_kode,
                'nama_propinsi' => $model->nama_propinsi,
                'nama_kabupatenkota' => $model->nama_kabupatenkota,
                'nama_kegiatan' => $model->nama_kegiatan,
+'thn_anggaran' => $model->thn_anggaran,
+'sumber_anggaran' => $model->sumber_anggaran,
+'alokasi_anggaran' => $model->alokasi_anggaran,
+'volume_pekerjaan' => $model->volume_pekerjaan,
+'instansi_unit_organisasi_pelaksana' => $model->instansi_unit_organisasi_pelaksana,
+'lokasi_kegiatan_proyek' => $model->lokasi_kegiatan_proyek,
+'titik_koordinat' => $model->titik_koordinat,
+'status_aset' => $model->status_aset,
+'biaya_pelaksanaan_kontraktor' => $model->biaya_pelaksanaan_kontraktor,
+'manajemen_konstruksi' => $model->manajemen_konstruksi,
+'rencana_keu' => $model->rencana_keu,
+'rencana_fisik' => $model->rencana_fisik,
+'mk_keu' => $model->mk_keu,
+'mk_fisik' => $model->mk_fisik,
+'dokumentasi' => $model->dokumentasi,
+
             ];
         });
 

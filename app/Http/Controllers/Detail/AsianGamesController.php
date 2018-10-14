@@ -25,28 +25,44 @@ class AsianGamesController extends Controller {
         $this->view = 'asian-games';
     }
 
-    protected function validationRules() {
+    protected function validationRules($scope = 'create') {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
         $rule['nama_kegiatan'] = 'required';
-        $rule['biaya_pelaksanaan_kontraktor'] = 'required';
-        $rule['manajemen_konstruksi'] = 'required';
-        $rule['manajemen_konstruksi'] = 'required';
+$rule['thn_anggaran'] = 'required';
+$rule['sumber_anggaran'] = 'required';
+$rule['alokasi_anggaran'] = 'required';
+$rule['volume_pekerjaan'] = 'required';
+$rule['instansi_unit_organisasi_pelaksana'] = 'required';
+$rule['lokasi_kegiatan_proyek'] = 'required';
+$rule['titik_koordinat'] = 'required';
+$rule['status_aset'] = 'required';
+$rule['biaya_pelaksanaan_kontraktor'] = 'required';
+$rule['manajemen_konstruksi'] = 'required';
+$rule['rencana_keu'] = 'required';
+$rule['rencana_fisik'] = 'required';
+$rule['mk_keu'] = 'required';
+$rule['mk_fisik'] = 'required';
+
+                        if ($scope == 'create') {
+                            $rule['dokumentasi'] = 'required';
+                        }
+
         return $rule;
     }
 
-    public function index(Request $request) {
+    public function index($programId, Request $request) {
         if ($request->ajax()) {
             $model = $this->model->list($request->all());
             return $model;
         }
         $path = $this->view;
 
-        return view('details.'.$this->view.'.index', compact('path'));
+        return view('details.'.$this->view.'.index', compact('path','programId'));
     }
     
-    public function create(Request $request)
+    public function create($programId, Request $request)
     {
         if ($request->isMethod('post')) {
             $validation = Validator::make($request->all(), $this->validationRules());
@@ -57,7 +73,7 @@ class AsianGamesController extends Controller {
             try {
                 $this->model->create($request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/details/'.$this->view));
+                return redirect(Navigation::adminUrl('/details/'.$this->view.'/'.$programId));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
@@ -67,14 +83,14 @@ class AsianGamesController extends Controller {
         $validator = JsValidator::make($this->validationRules());
         $path = $this->view;
 
-        return view('details.'.$this->view.'.form', compact('path','provinces','validator'));
+        return view('details.'.$this->view.'.form', compact('path','programId','provinces','validator'));
     }
 
-    public function edit($id, Request $request)
+    public function edit($programId, $id, Request $request)
     {
         if ($request->isMethod('post')) {
 
-            $validation = Validator::make($request->all(), $this->validationRules());
+            $validation = Validator::make($request->all(), $this->validationRules('edit'));
             if ($validation->fails()) {
                 return redirect()->back()->withInput()->withErrors($validation->errors());
             }
@@ -82,25 +98,25 @@ class AsianGamesController extends Controller {
             try {
                 $this->model->update($id, $request);
                 session()->flash('success', 'Data berhasil disimpan');
-                return redirect(Navigation::adminUrl('/details/'.$this->view));
+                return redirect(Navigation::adminUrl('/details/'.$this->view.'/'.$programId));
             } catch (\Exception $e) {
                 return redirect()->back()->withInput()->withErrors($e->getMessage());
             }
         }
 
         $provinces = $this->lokasi->getProvincesOptions();
-        $validator = JsValidator::make($this->validationRules());
+        $validator = JsValidator::make($this->validationRules('edit','programId'));
         $model = $this->model->find($id);
         $path = $this->view;
 
         return view('details.'.$this->view.'.form', compact('path','model','provinces','validator'));
     }
 
-    public function view($id)
+    public function view($programId, $id)
     {
         $model = $this->model->find($id);
         $path = $this->view;
-        return view('details.'.$this->view.'.view', compact('path','model'));
+        return view('details.'.$this->view.'.view', compact('path','programId','model'));
     }
 
     public function delete($id) 

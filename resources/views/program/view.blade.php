@@ -91,8 +91,8 @@
 								</h6>
 							</div>
 							<div class="panel-body">
-								<a href="{{ Navigation::adminUrl('/details'.$detail->path) }}" class="btn btn-primary" target="_blank"><i class="icon-menu3"></i> Daftar Kegiatan</a>
-								<a href="{{ Navigation::adminUrl('/details'.$detail->path.'/create') }}" class="btn btn-primary" target="_blank"><i class="icon-plus3"></i> Form Input</a>
+								<a href="{{ Navigation::adminUrl('/details'.$detail->path.'/'.$id) }}" class="btn btn-primary" target="_blank"><i class="icon-menu3"></i> Daftar Kegiatan</a>
+								<a href="{{ Navigation::adminUrl('/details'.$detail->path.'/'.$id.'/create') }}" class="btn btn-primary" target="_blank"><i class="icon-plus3"></i> Form Input</a>
 							</div>
 						</div>
 					</div>

@@ -4,15 +4,21 @@ namespace App\Models\Detail\{{modelName}};
 use DB;
 use File;
 use App\Helpers\Location;
+use App\Models\Program\ProgramRepository;
 
 class {{modelName}}Repository
 {
 
     protected $model;
+    protected $program;
     {{modelBasePath}}
       
-    public function __construct({{modelName}} $model) {
+    public function __construct(
+        {{modelName}} $model,
+        ProgramRepository $program
+    ) {
         $this->model = $model;
+        $this->program = $program;
     }
 
     public function list($request)
@@ -21,20 +27,19 @@ class {{modelName}}Repository
      
         $model = $this->model->select(
                         '{{tableName}}.id',
-                        '{{tableName}}.detail_kdprog_id',
                         '{{tableName}}.thn_periode_keg',
                         '{{tableName}}.lokasi_kode',
                         '{{tableName}}.nama_propinsi',
                         '{{tableName}}.nama_kabupatenkota',
                         {{modelColumns}}
                     )->searchOrder($request, [
-                        '{{tableName}}.detail_kdprog_id',
                         '{{tableName}}.thn_periode_keg',
                         '{{tableName}}.lokasi_kode',
                         '{{tableName}}.nama_propinsi',
                         '{{tableName}}.nama_kabupatenkota',
                         {{modelColumns}}
                     ])
+                    ->filterLocation()
                     ->paginate($limit);
 
         return (new {{modelName}}Transformer)->transformPaginate($model);
@@ -50,6 +55,7 @@ class {{modelName}}Repository
     {
         DB::beginTransaction();
         $lokasi = Location::getPropinsiKota($request->input('propinsi_id'), $request->input('kota_id'));
+        $prog = $this->program->find($request->input('program_id'));
         $model = $this->model;
 
         {{uploadCreateFunction}}
@@ -58,9 +64,15 @@ class {{modelName}}Repository
         $model->lokasi_kode = $lokasi->lokasi_kode;
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
+        $model->renstra_id = $prog->renstra_id;
+        $model->output_id = $prog->output_id;
+        $model->suboutput_id = $prog->suboutput_id;
+        $model->sasaran_id = $prog->sasaran_id;
+        $model->uraian_id = $prog->uraian_id;
+        $model->subdit_id = $prog->subdit_id;
+        $model->volume_id = $prog->volume_id;
         {{requestColumns}}
-        $model->detail_kdprog_id = '0';
-        $model->is_actived = '00';
+        $model->is_actived = 'ACTIVE';
         $model->save();
 
         DB::commit();
@@ -79,9 +91,15 @@ class {{modelName}}Repository
         $model->lokasi_kode = $lokasi->lokasi_kode;
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
+        $model->renstra_id = $prog->renstra_id;
+        $model->output_id = $prog->output_id;
+        $model->suboutput_id = $prog->suboutput_id;
+        $model->sasaran_id = $prog->sasaran_id;
+        $model->uraian_id = $prog->uraian_id;
+        $model->subdit_id = $prog->subdit_id;
+        $model->volume_id = $prog->volume_id;
         {{requestColumns}}
-        $model->detail_kdprog_id = '0';
-        $model->is_actived = '00';
+        $model->is_actived = 'ACTIVE';
         $model->save();
         
         DB::commit();
