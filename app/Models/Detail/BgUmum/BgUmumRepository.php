@@ -49,7 +49,8 @@ protected $basePath2 = '/files/details/bg-umum/file-slf';
 						'tbl_detail_bg_umum.zona_gempa',
 						'tbl_detail_bg_umum.kategori_lokasi',
 						'tbl_detail_bg_umum.kategori_ketinggian',
-						'tbl_detail_bg_umum.kepemilikan'
+						'tbl_detail_bg_umum.kepemilikan',
+                        'tbl_detail_bg_umum.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_bg_umum.thn_periode_keg',
                         'tbl_detail_bg_umum.lokasi_kode',
@@ -71,7 +72,8 @@ protected $basePath2 = '/files/details/bg-umum/file-slf';
 						'tbl_detail_bg_umum.zona_gempa',
 						'tbl_detail_bg_umum.kategori_lokasi',
 						'tbl_detail_bg_umum.kategori_ketinggian',
-						'tbl_detail_bg_umum.kepemilikan'
+						'tbl_detail_bg_umum.kepemilikan',
+                        'tbl_detail_bg_umum.is_actived'
                     ])
                     ->filterLocation()
                     ->paginate($limit);

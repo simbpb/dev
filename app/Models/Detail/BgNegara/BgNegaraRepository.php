@@ -37,7 +37,8 @@ class BgNegaraRepository
 						'tbl_detail_bg_negara.alamat_bg_negara',
 						'tbl_detail_bg_negara.luas_bg_negara_m2',
 						'tbl_detail_bg_negara.titik_koordinat',
-						'tbl_detail_bg_negara.dokumentasi'
+						'tbl_detail_bg_negara.dokumentasi',
+                        'tbl_detail_bg_negara.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_bg_negara.thn_periode_keg',
                         'tbl_detail_bg_negara.lokasi_kode',
@@ -48,7 +49,8 @@ class BgNegaraRepository
 						'tbl_detail_bg_negara.alamat_bg_negara',
 						'tbl_detail_bg_negara.luas_bg_negara_m2',
 						'tbl_detail_bg_negara.titik_koordinat',
-						'tbl_detail_bg_negara.dokumentasi'
+						'tbl_detail_bg_negara.dokumentasi',
+                        'tbl_detail_bg_negara.is_actived'
                     ])
                     ->filterLocation()
                     ->paginate($limit);

@@ -105,11 +105,11 @@ $rule['mk_fisik'] = 'required';
         }
 
         $provinces = $this->lokasi->getProvincesOptions();
-        $validator = JsValidator::make($this->validationRules('edit','programId'));
+        $validator = JsValidator::make($this->validationRules('edit'));
         $model = $this->model->find($id);
         $path = $this->view;
 
-        return view('details.'.$this->view.'.form', compact('path','model','provinces','validator'));
+        return view('details.'.$this->view.'.form', compact('path','programId','model','provinces','validator'));
     }
 
     public function view($programId, $id)

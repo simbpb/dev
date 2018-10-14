@@ -52,7 +52,8 @@ protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bg
 						'tbl_detail_bgh.thn_penerbitan_sertifikat_pemanfaatan_bgh',
 						'tbl_detail_bgh.file_upload_sertifikat_pemanfaatan_bgh',
 						'tbl_detail_bgh.peringkat_bgh',
-						'tbl_detail_bgh.pemanfaatan_ke'
+						'tbl_detail_bgh.pemanfaatan_ke',
+                        'tbl_detail_bgh.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_bgh.thn_periode_keg',
                         'tbl_detail_bgh.lokasi_kode',
@@ -77,7 +78,8 @@ protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bg
 						'tbl_detail_bgh.thn_penerbitan_sertifikat_pemanfaatan_bgh',
 						'tbl_detail_bgh.file_upload_sertifikat_pemanfaatan_bgh',
 						'tbl_detail_bgh.peringkat_bgh',
-						'tbl_detail_bgh.pemanfaatan_ke'
+						'tbl_detail_bgh.pemanfaatan_ke',
+                        'tbl_detail_bgh.is_actived'
                     ])
                     ->filterLocation()
                     ->paginate($limit);

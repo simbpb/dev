@@ -47,7 +47,8 @@ class AsianGamesRepository
 						'tbl_detail_asian_games.rencana_fisik',
 						'tbl_detail_asian_games.mk_keu',
 						'tbl_detail_asian_games.mk_fisik',
-						'tbl_detail_asian_games.dokumentasi'
+						'tbl_detail_asian_games.dokumentasi',
+                        'tbl_detail_asian_games.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_asian_games.thn_periode_keg',
                         'tbl_detail_asian_games.lokasi_kode',
@@ -68,7 +69,8 @@ class AsianGamesRepository
 						'tbl_detail_asian_games.rencana_fisik',
 						'tbl_detail_asian_games.mk_keu',
 						'tbl_detail_asian_games.mk_fisik',
-						'tbl_detail_asian_games.dokumentasi'
+						'tbl_detail_asian_games.dokumentasi',
+                        'tbl_detail_asian_games.is_actived'
                     ])
                     ->filterLocation()
                     ->paginate($limit);

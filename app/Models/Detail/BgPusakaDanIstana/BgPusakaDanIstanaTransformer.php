@@ -29,6 +29,7 @@ class BgPusakaDanIstanaTransformer{
 'rencana_fisik' => $model->rencana_fisik,
 'dokumentasi' => $model->dokumentasi,
 
+            'is_actived' => $model->is_actived
         ];
     }
 
@@ -36,12 +37,12 @@ class BgPusakaDanIstanaTransformer{
 
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
-               'id' => $model->id,
-               'thn_periode_keg' => $model->thn_periode_keg,
-               'lokasi_kode' => $model->lokasi_kode,
-               'nama_propinsi' => $model->nama_propinsi,
-               'nama_kabupatenkota' => $model->nama_kabupatenkota,
-               'nama_kegiatan' => $model->nama_kegiatan,
+                'id' => $model->id,
+                'thn_periode_keg' => $model->thn_periode_keg,
+                'lokasi_kode' => $model->lokasi_kode,
+                'nama_propinsi' => $model->nama_propinsi,
+                'nama_kabupatenkota' => $model->nama_kabupatenkota,
+                'nama_kegiatan' => $model->nama_kegiatan,
 'thn_anggaran' => $model->thn_anggaran,
 'sumber_anggaran' => $model->sumber_anggaran,
 'alokasi_anggaran' => $model->alokasi_anggaran,
@@ -56,6 +57,7 @@ class BgPusakaDanIstanaTransformer{
 'rencana_fisik' => $model->rencana_fisik,
 'dokumentasi' => $model->dokumentasi,
 
+                'is_actived' => $model->is_actived
             ];
         });
 

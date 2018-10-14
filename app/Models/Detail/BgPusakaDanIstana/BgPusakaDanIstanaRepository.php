@@ -45,7 +45,8 @@ class BgPusakaDanIstanaRepository
 						'tbl_detail_bg_pusaka_dan_istana.manajemen_konstruksi',
 						'tbl_detail_bg_pusaka_dan_istana.rencana_keu',
 						'tbl_detail_bg_pusaka_dan_istana.rencana_fisik',
-						'tbl_detail_bg_pusaka_dan_istana.dokumentasi'
+						'tbl_detail_bg_pusaka_dan_istana.dokumentasi',
+                        'tbl_detail_bg_pusaka_dan_istana.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_bg_pusaka_dan_istana.thn_periode_keg',
                         'tbl_detail_bg_pusaka_dan_istana.lokasi_kode',
@@ -64,7 +65,8 @@ class BgPusakaDanIstanaRepository
 						'tbl_detail_bg_pusaka_dan_istana.manajemen_konstruksi',
 						'tbl_detail_bg_pusaka_dan_istana.rencana_keu',
 						'tbl_detail_bg_pusaka_dan_istana.rencana_fisik',
-						'tbl_detail_bg_pusaka_dan_istana.dokumentasi'
+						'tbl_detail_bg_pusaka_dan_istana.dokumentasi',
+                        'tbl_detail_bg_pusaka_dan_istana.is_actived'
                     ])
                     ->filterLocation()
                     ->paginate($limit);

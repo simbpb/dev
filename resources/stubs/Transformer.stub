@@ -15,6 +15,7 @@ class {{modelName}}Transformer{
             'propinsi_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_propinsi : null,
             'kota_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_kabupatenkota : null,
             {{modelTransform}}
+            'is_actived' => $model->is_actived
         ];
     }
 
@@ -22,12 +23,13 @@ class {{modelName}}Transformer{
 
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
-               'id' => $model->id,
-               'thn_periode_keg' => $model->thn_periode_keg,
-               'lokasi_kode' => $model->lokasi_kode,
-               'nama_propinsi' => $model->nama_propinsi,
-               'nama_kabupatenkota' => $model->nama_kabupatenkota,
-               {{modelTransform}}
+                'id' => $model->id,
+                'thn_periode_keg' => $model->thn_periode_keg,
+                'lokasi_kode' => $model->lokasi_kode,
+                'nama_propinsi' => $model->nama_propinsi,
+                'nama_kabupatenkota' => $model->nama_kabupatenkota,
+                {{modelTransform}}
+                'is_actived' => $model->is_actived
             ];
         });
 
