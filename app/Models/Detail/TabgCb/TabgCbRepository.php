@@ -122,7 +122,7 @@ $model->Bidang_Keahlian = $request->input('Bidang_Keahlian');
 $model->Jabatan_dalam_tim = $request->input('Jabatan_dalam_tim');
 $model->Keterangan = $request->input('Keterangan');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -173,7 +173,7 @@ $model->Bidang_Keahlian = $request->input('Bidang_Keahlian');
 $model->Jabatan_dalam_tim = $request->input('Jabatan_dalam_tim');
 $model->Keterangan = $request->input('Keterangan');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

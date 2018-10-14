@@ -98,7 +98,7 @@ $model->alamat_bg_negara = $request->input('alamat_bg_negara');
 $model->luas_bg_negara_m2 = $request->input('luas_bg_negara_m2');
 $model->titik_koordinat = $request->input('titik_koordinat');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -141,7 +141,7 @@ $model->alamat_bg_negara = $request->input('alamat_bg_negara');
 $model->luas_bg_negara_m2 = $request->input('luas_bg_negara_m2');
 $model->titik_koordinat = $request->input('titik_koordinat');
 
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

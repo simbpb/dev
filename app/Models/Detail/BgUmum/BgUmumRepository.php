@@ -138,7 +138,7 @@ $model->zona_gempa = $request->input('zona_gempa');
 $model->kategori_lokasi = $request->input('kategori_lokasi');
 $model->kategori_ketinggian = $request->input('kategori_ketinggian');
 $model->kepemilikan = $request->input('kepemilikan');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -201,7 +201,7 @@ $model->zona_gempa = $request->input('zona_gempa');
 $model->kategori_lokasi = $request->input('kategori_lokasi');
 $model->kategori_ketinggian = $request->input('kategori_ketinggian');
 $model->kepemilikan = $request->input('kepemilikan');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

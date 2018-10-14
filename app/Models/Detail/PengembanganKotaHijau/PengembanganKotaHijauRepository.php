@@ -122,7 +122,7 @@ $model->luas_kws = $request->input('luas_kws');
 $model->satuan_luas_kws = $request->input('satuan_luas_kws');
 $model->cakupan_wilayah = $request->input('cakupan_wilayah');
 $model->uraian_singkat_karakter_lokasi = $request->input('uraian_singkat_karakter_lokasi');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -165,7 +165,7 @@ $model->luas_kws = $request->input('luas_kws');
 $model->satuan_luas_kws = $request->input('satuan_luas_kws');
 $model->cakupan_wilayah = $request->input('cakupan_wilayah');
 $model->uraian_singkat_karakter_lokasi = $request->input('uraian_singkat_karakter_lokasi');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

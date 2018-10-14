@@ -11,7 +11,7 @@ class HsbgnRepository
 
     protected $model;
     protected $program;
-    protected $basePath1 = '/files/details/hsbgn/file-SK-penetapan-HSBGN';
+    protected $basePath1 = '/files/details/hsbgn/file-sk-penetapan-hsbgn';
 
       
     public function __construct(
@@ -53,7 +53,7 @@ class HsbgnRepository
 						'tbl_detail_hsbgn.pagar_rumahnegara_samping',
 						'tbl_detail_hsbgn.pagar_rumahnegara_belakang',
 						'tbl_detail_hsbgn.sk_penetapan',
-						'tbl_detail_hsbgn.file_SK_penetapan_HSBGN',
+						'tbl_detail_hsbgn.file_sk_penetapan_hsbgn',
 						'tbl_detail_hsbgn.indeks_kemahalan_konstruksi',
                         'tbl_detail_hsbgn.is_actived'
                     )->searchOrder($request, [
@@ -82,7 +82,7 @@ class HsbgnRepository
 						'tbl_detail_hsbgn.pagar_rumahnegara_samping',
 						'tbl_detail_hsbgn.pagar_rumahnegara_belakang',
 						'tbl_detail_hsbgn.sk_penetapan',
-						'tbl_detail_hsbgn.file_SK_penetapan_HSBGN',
+						'tbl_detail_hsbgn.file_sk_penetapan_hsbgn',
 						'tbl_detail_hsbgn.indeks_kemahalan_konstruksi',
                         'tbl_detail_hsbgn.is_actived'
                     ])
@@ -106,12 +106,12 @@ class HsbgnRepository
         $model = $this->model;
 
         
-		if ($request->hasFile('file_SK_penetapan_HSBGN')) {
-			$image = $request->file('file_SK_penetapan_HSBGN');
-			$filename = str_slug($request->file_SK_penetapan_HSBGN).'.'.$image->getClientOriginalExtension();
+		if ($request->hasFile('file_sk_penetapan_hsbgn')) {
+			$image = $request->file('file_sk_penetapan_hsbgn');
+			$filename = str_slug($request->file_sk_penetapan_hsbgn).'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path($this->basePath1);
 			$image->move($destinationPath, $filename);
-			$model->file_SK_penetapan_HSBGN = $this->basePath1.'/'.$filename;
+			$model->file_sk_penetapan_hsbgn = $this->basePath1.'/'.$filename;
 		}
 
 
@@ -148,7 +148,7 @@ $model->pagar_rumahnegara_samping = $request->input('pagar_rumahnegara_samping')
 $model->pagar_rumahnegara_belakang = $request->input('pagar_rumahnegara_belakang');
 $model->sk_penetapan = $request->input('sk_penetapan');
 $model->indeks_kemahalan_konstruksi = $request->input('indeks_kemahalan_konstruksi');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -162,15 +162,15 @@ $model->indeks_kemahalan_konstruksi = $request->input('indeks_kemahalan_konstruk
         $model = $this->model->find($id);
         
         
-		if ($request->hasFile('file_SK_penetapan_HSBGN')) {
-			$image = $request->file('file_SK_penetapan_HSBGN');
-			if (File::exists(public_path($model->file_SK_penetapan_HSBGN))) {
-				File::delete(public_path($model->file_SK_penetapan_HSBGN));
+		if ($request->hasFile('file_sk_penetapan_hsbgn')) {
+			$image = $request->file('file_sk_penetapan_hsbgn');
+			if (File::exists(public_path($model->file_sk_penetapan_hsbgn))) {
+				File::delete(public_path($model->file_sk_penetapan_hsbgn));
 			}
-			$filename = str_slug($request->file_SK_penetapan_HSBGN).'.'.$image->getClientOriginalExtension();
+			$filename = str_slug($request->file_sk_penetapan_hsbgn).'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path($this->basePath1);
 			$image->move($destinationPath, $filename);
-			$model->file_SK_penetapan_HSBGN = $this->basePath1.'/'.$filename;
+			$model->file_sk_penetapan_hsbgn = $this->basePath1.'/'.$filename;
 		}
 
 
@@ -207,7 +207,7 @@ $model->pagar_rumahnegara_samping = $request->input('pagar_rumahnegara_samping')
 $model->pagar_rumahnegara_belakang = $request->input('pagar_rumahnegara_belakang');
 $model->sk_penetapan = $request->input('sk_penetapan');
 $model->indeks_kemahalan_konstruksi = $request->input('indeks_kemahalan_konstruksi');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

@@ -74,7 +74,7 @@ class {{modelName}}Repository
         $model->subdit_id = $prog->subdit_id;
         $model->volume_id = $prog->volume_id;
         {{requestColumns}}
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -101,7 +101,7 @@ class {{modelName}}Repository
         $model->subdit_id = $prog->subdit_id;
         $model->volume_id = $prog->volume_id;
         {{requestColumns}}
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

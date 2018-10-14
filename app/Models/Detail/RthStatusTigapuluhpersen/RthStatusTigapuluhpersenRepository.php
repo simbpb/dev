@@ -125,7 +125,7 @@ $model->titik_koordinat_long_rth_private = $request->input('titik_koordinat_long
 $model->luas_kawasan_private = $request->input('luas_kawasan_private');
 $model->satuan_luas_kawasan_private = $request->input('satuan_luas_kawasan_private');
 $model->status_aset_private = $request->input('status_aset_private');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
 
         DB::commit();
@@ -169,7 +169,7 @@ $model->titik_koordinat_long_rth_private = $request->input('titik_koordinat_long
 $model->luas_kawasan_private = $request->input('luas_kawasan_private');
 $model->satuan_luas_kawasan_private = $request->input('satuan_luas_kawasan_private');
 $model->status_aset_private = $request->input('status_aset_private');
-        $model->is_actived = 'ACTIVE';
+        $model->is_actived = $request->input('status');
         $model->save();
         
         DB::commit();

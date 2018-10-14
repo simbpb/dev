@@ -35,7 +35,7 @@ class HsbgnTransformer{
 'pagar_rumahnegara_samping' => $model->pagar_rumahnegara_samping,
 'pagar_rumahnegara_belakang' => $model->pagar_rumahnegara_belakang,
 'sk_penetapan' => $model->sk_penetapan,
-'file_SK_penetapan_HSBGN' => $model->file_SK_penetapan_HSBGN,
+'file_sk_penetapan_hsbgn' => $model->file_sk_penetapan_hsbgn,
 'indeks_kemahalan_konstruksi' => $model->indeks_kemahalan_konstruksi,
 
             'is_actived' => $model->is_actived
@@ -72,7 +72,7 @@ class HsbgnTransformer{
 'pagar_rumahnegara_samping' => $model->pagar_rumahnegara_samping,
 'pagar_rumahnegara_belakang' => $model->pagar_rumahnegara_belakang,
 'sk_penetapan' => $model->sk_penetapan,
-'file_SK_penetapan_HSBGN' => $model->file_SK_penetapan_HSBGN,
+'file_sk_penetapan_hsbgn' => $model->file_sk_penetapan_hsbgn,
 'indeks_kemahalan_konstruksi' => $model->indeks_kemahalan_konstruksi,
 
                 'is_actived' => $model->is_actived
