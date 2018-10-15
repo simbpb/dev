@@ -99,11 +99,11 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		});
 
 		Route::group(['prefix' => 'uraian'], function () {
-		    Route::get('/', 'Master\UraianController@index')->middleware('permission:volume_view');
-		    Route::get('/{id}/view', 'Master\UraianController@view')->middleware('permission:volume_view');
-		    Route::any('/create', 'Master\UraianController@create')->middleware('permission:volume_create');
-		    Route::any('/{id}/edit', 'Master\UraianController@edit')->middleware('permission:volume_edit');
-		    Route::delete('/{id}/delete', 'Master\UraianController@delete')->middleware('permission:volume_delete');
+		    Route::get('/', 'Master\UraianController@index')->middleware('permission:uraian_view');
+		    Route::get('/{id}/view', 'Master\UraianController@view')->middleware('permission:uraian_view');
+		    Route::any('/create', 'Master\UraianController@create')->middleware('permission:uraian_create');
+		    Route::any('/{id}/edit', 'Master\UraianController@edit')->middleware('permission:uraian_edit');
+		    Route::delete('/{id}/delete', 'Master\UraianController@delete')->middleware('permission:uraian_delete');
 		});
 
 		Route::group(['prefix' => 'detail'], function () {
