@@ -33,11 +33,13 @@ class RoleRepository
       protected function mappingArray($permissions, $roleId)
       {
          $data = [];
-         foreach ($permissions as $permission) {
-            $data[] = [
-                'role_id' => $roleId,
-                'permission_id' => $permission,
-            ];
+         if (count($permissions) > 0) {
+            foreach ($permissions as $permission) {
+               $data[] = [
+                   'role_id' => $roleId,
+                   'permission_id' => $permission,
+               ];
+            }
          }
 
          return $data;
