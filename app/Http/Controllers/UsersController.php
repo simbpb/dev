@@ -36,9 +36,6 @@ class UsersController extends Controller {
         $rule['fullname'] = 'required';
         $rule['username'] = 'required|unique:users'. ($id ? ",id,$id" : '');
         $rule['role_id'] = 'required';
-        $rule['province_id'] = 'required';
-        $rule['city_id'] = 'required';
-        $rule['role_id'] = 'required';
         $rule['subdit_id'] = 'required';
         $rule['email'] = 'required|email|unique:users'. ($id ? ",id,$id" : '');
         if ($scope == 'create') {
