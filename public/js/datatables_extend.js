@@ -42,8 +42,9 @@ function deleteRow(url,redirect) {
       if (isConfirm) {
          $.ajax({
             url: url,
-            type: 'DELETE',
+            type: 'POST',
             data: { 
+               _method: 'DELETE',
                _token: csrf_token
             }
          }).done(function(resp) {
