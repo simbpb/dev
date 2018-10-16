@@ -47,13 +47,13 @@ class AppServiceProvider extends ServiceProvider
                     $query->where('nama_kabupatenkota', 'like', '%'.$user->cityDetail->lokasi_nama.'%');
                 });
             }
-
+            /*
             if (!empty($user->subdit_id)) {
                 $this->where(function($query) use ($user) {
                     $query->where('subdit_id', '=', $user->subdit_id);
                 });
             }
-
+            */
             return $this;
         });
     }
