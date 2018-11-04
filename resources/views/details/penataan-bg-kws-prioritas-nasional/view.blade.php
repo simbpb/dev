@@ -26,10 +26,6 @@
 				    		<div class="form-group"><b>{!! $model['thn_periode_keg'] !!}</b></div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label>Kode Lokasi</label>
-				    		<div class="form-group"><b>{!! $model['lokasi_kode'] !!}</b></div>
-				  		</div>
-				  		<div class="form-group">
 				    		<label>Nama Propinsi</label>
 				    		<div class="form-group"><b>{!! $model['nama_propinsi'] !!}</b></div>
 				  		</div>
@@ -50,7 +46,7 @@
 
                             <div class="form-group">
                                 <label>Risiko Bencana Dominan</label>
-                                <div class="form-group"><b>{!! $model['Risiko_Bencana_Dominan'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['risiko_bencana_dominan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
@@ -60,22 +56,22 @@
 
                             <div class="form-group">
                                 <label>Nama Kegiatan</label>
-                                <div class="form-group"><b>{!! $model['Nama_Kegiatan'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['nama_kegiatan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
                                 <label>Tahun Anggaran</label>
-                                <div class="form-group"><b>{!! $model['Tahun_Anggaran'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['tahun_anggaran'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
                                 <label>Sumber Pendanaan</label>
-                                <div class="form-group"><b>{!! $model['Sumber_Pendanaan'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['sumber_pendanaan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
                                 <label>Alokasi Anggaran</label>
-                                <div class="form-group"><b>{!! $model['Alokasi_Anggaran'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['alokasi_anggaran'] !!}</b></div>
                             </div>
 
                             </div>
@@ -83,32 +79,32 @@
 
                             <div class="form-group">
                                 <label>Volume Pekerjaan</label>
-                                <div class="form-group"><b>{!! $model['Volume_Pekerjaan'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['volume_pekerjaan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
                                 <label>Instansi Unit</label>
-                                <div class="form-group"><b>{!! $model['Instansi_Unit'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['instansi_unit'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
                                 <label>Lokasi Kegiatan</label>
-                                <div class="form-group"><b>{!! $model['Lokasi_Kegiatan'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['lokasi_kegiatan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
                                 <label>Titik Koordinat Lat</label>
-                                <div class="form-group"><b>{!! $model['Titik_koordinat_lat'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['titik_koordinat_lat'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Titik Koordinat Log</label>
-                                <div class="form-group"><b>{!! $model['Titik_koordinat_log'] !!}</b></div>
+                                <label>Titik Koordinat Long</label>
+                                <div class="form-group"><b>{!! $model['titik_koordinat_long'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
                                 <label>Status Aset</label>
-                                <div class="form-group"><b>{!! $model['Status_Aset'] !!}</b></div>
+                                <div class="form-group"><b>{!! $model['status_aset'] !!}</b></div>
                             </div>
 
 				  		<div class="form-group">

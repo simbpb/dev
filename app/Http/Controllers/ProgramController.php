@@ -10,7 +10,9 @@ use App\Models\Program\ProgramRepository;
 use App\Models\Renstra\RenstraRepository;
 use App\Models\Master\Output\OutputRepository;
 use App\Models\Master\Uraian\UraianRepository;
+use App\Models\Master\Komponen\KomponenRepository;
 use App\Models\Subdit\SubditRepository;
+use App\Models\VisiMisi\VisiMisiRepository;
 use App\Http\Controllers\Controller;
 
 class ProgramController extends Controller {
@@ -20,19 +22,25 @@ class ProgramController extends Controller {
     protected $uraian;
     protected $renstra;
     protected $subdit;
+    protected $visimisi;
+    protected $komponen;
 
     public function __construct(
         ProgramRepository $program,
         OutputRepository $output,
         UraianRepository $uraian,
         RenstraRepository $renstra,
-        SubditRepository $subdit
+        SubditRepository $subdit,
+        VisiMisiRepository $visimisi,
+        KomponenRepository $komponen
     ) {
         $this->model = $program;
         $this->output = $output;
         $this->uraian = $uraian;
         $this->renstra = $renstra;
         $this->subdit = $subdit;
+        $this->visimisi = $visimisi;
+        $this->komponen = $komponen;
     }
     
     protected function validationRules() {
@@ -49,6 +57,10 @@ class ProgramController extends Controller {
 
     public function index(Request $request)
     {
+        // $model = new \App\Helpers\Kodifikasi();
+        // echo $model->getKodifikasi(1).'<br/>';
+        // echo '033.55.2413.001.001.009.009.005.009.101.000.000.000.000.000.002.003';
+        // return;
         if ($request->ajax()) {
             $model = $this->model->list($request->all());
             return $model;
@@ -78,9 +90,12 @@ class ProgramController extends Controller {
         $output = $this->output->getOptions();
         $uraian = $this->uraian->getOptions();
         $subdit = $this->subdit->getOptions();
+        $visimisi = $this->visimisi->getOptions();
+        $komponen = $this->komponen->getOptions();
+        $visi = $this->visimisi->getVisi();
         $validator = JsValidator::make($this->validationRules());
 
-        return view('program.form', compact('subdit','renstra','output','uraian','validator'));
+        return view('program.form', compact('komponen','visi','visimisi','subdit','renstra','output','uraian','validator'));
     }
 
     public function edit($id, Request $request)
@@ -105,10 +120,13 @@ class ProgramController extends Controller {
         $output = $this->output->getOptions();
         $uraian = $this->uraian->getOptions();
         $subdit = $this->subdit->getOptions();
+        $visimisi = $this->visimisi->getOptions();
+        $komponen = $this->komponen->getOptions();
+        $visi = $this->visimisi->getVisi();
         $validator = JsValidator::make($this->validationRules());
         $model = $this->model->find($id);
 
-        return view('program.form', compact('model','subdit','renstra','output','uraian','validator'));
+        return view('program.form', compact('komponen','visi','visimisi','model','subdit','renstra','output','uraian','validator'));
     }
 
     public function view($id)

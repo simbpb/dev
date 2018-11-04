@@ -234,7 +234,7 @@ class CrudGenerator extends Command
             if ($this->isFile($column)) {
                 $template .= "
                         <div class=\"form-group\">
-                            <label class=\"control-label col-lg-3\">".$exp."*</label>
+                            <label class=\"control-label col-lg-3\">".$exp."</label>
                             <div class=\"col-lg-9\"> 
                                 {!! Form::file('".$column."',null, ['class' => 'form-control']) !!}
                             </div>
@@ -255,7 +255,7 @@ class CrudGenerator extends Command
             } else {
                 $template .= "
                         <div class=\"form-group\">
-                            <label class=\"control-label col-lg-3\">".$exp."*</label>
+                            <label class=\"control-label col-lg-3\">".$exp."</label>
                             <div class=\"col-lg-9\"> 
                                 {!! Form::text('".$column."',null, ['class' => 'form-control']) !!}
                             </div>
@@ -424,15 +424,9 @@ class CrudGenerator extends Command
     {
         $fields = [
                 'id',
-                'renstra_id',
-                'output_id',
-                'suboutput_id',
-                'sasaran_id',
-                'uraian_id',
-                'subdit_id',
-                'volume_id',
+                'detail_kdprog_id',
+                'kd_struktur',
                 'thn_periode_keg',
-                'lokasi_kode',
                 'nama_propinsi',
                 'nama_kabupatenkota',
                 'created_by',

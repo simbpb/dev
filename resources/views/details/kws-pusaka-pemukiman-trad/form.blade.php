@@ -9,7 +9,7 @@
             <div class="panel-heading">
                	<h5 class="panel-title">
                		<i class="icon-user position-left"></i>
-               		<a href="{{ Navigation::adminUrl('/details/'.$path) }}">@yield('title')</a> 
+               		<a href="{{ Navigation::adminUrl('/details/'.$path.'/'.$programId) }}">@yield('title')</a> 
                		<i class="icon-forward3"></i> {!! (isset($model)) ? 'Ubah' : 'Tambah' !!}
                	</h5>
                	<div class="heading-elements">
@@ -48,70 +48,70 @@
 				  		</div>
 						
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Nama Kawasan*</label>
+                            <label class="control-label col-lg-3">Nama Kawasan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('nama_kawasan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Jenis Kawasan*</label>
+                            <label class="control-label col-lg-3">Jenis Kawasan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('jenis_kawasan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Nama Kegiatan*</label>
+                            <label class="control-label col-lg-3">Nama Kegiatan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('nama_kegiatan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Thn Anggaran*</label>
+                            <label class="control-label col-lg-3">Thn Anggaran</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('thn_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Sumber Anggaran*</label>
+                            <label class="control-label col-lg-3">Sumber Anggaran</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('sumber_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alokasi Anggaran*</label>
+                            <label class="control-label col-lg-3">Alokasi Anggaran</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Volume Pekerjaan*</label>
+                            <label class="control-label col-lg-3">Volume Pekerjaan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('volume_pekerjaan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana*</label>
+                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('instansi_unit_organisasi_pelaksana',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Lokasi Kegiatan Proyek*</label>
+                            <label class="control-label col-lg-3">Lokasi Kegiatan Proyek</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('lokasi_kegiatan_proyek',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Titik Koordinat Lat*</label>
+                            <label class="control-label col-lg-3">Titik Koordinat Lat</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('titik_koordinat_lat',null, ['class' => 'form-control']) !!}
                             </div>
@@ -121,49 +121,49 @@
                                 <div class="col-lg-6">
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Titik Koordinat Long*</label>
+                            <label class="control-label col-lg-3">Titik Koordinat Long</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('titik_koordinat_long',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Status Aset*</label>
+                            <label class="control-label col-lg-3">Status Aset</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('status_aset',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Biaya Pelaksanaan Kontraktor*</label>
+                            <label class="control-label col-lg-3">Biaya Pelaksanaan Kontraktor</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('biaya_pelaksanaan_kontraktor',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Manajemen Konstruksi*</label>
+                            <label class="control-label col-lg-3">Manajemen Konstruksi</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('manajemen_konstruksi',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Rencana Keu*</label>
+                            <label class="control-label col-lg-3">Rencana Keu</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('rencana_keu',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Rencana Fisik*</label>
+                            <label class="control-label col-lg-3">Rencana Fisik</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('rencana_fisik',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Dokumentasi*</label>
+                            <label class="control-label col-lg-3">Dokumentasi</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('dokumentasi',null, ['class' => 'form-control']) !!}
                             </div>
@@ -180,11 +180,7 @@
 						<div class="form-group">
 				    		<label class="control-label col-lg-3">Status</label>
 				    		<div class="col-lg-9">
-				    			@if(!empty($model) && $model['is_actived'] == 'ACTIVE')
-					    			{!! Form::checkbox('status', 'ACTIVE', $model['is_actived']) !!}
-					    		@else
-								    {!! Form::checkbox('status', 'ACTIVE') !!}
-								@endif
+								{!! Form::checkbox('status', null, isset($model) ? $model['is_actived'] : 0) !!}
 					    	</div>
 				  		</div>
 			  		</div>
@@ -201,11 +197,13 @@
 <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
 <script type="text/javascript">
 $(function() {
+	var currentProvinceId = $('#provinces').val();
 	@if(isset($model))
-		var currentProvinceId = $('#provinces').val();
 		getCities(currentProvinceId, function(){
 			$('#cities').val('<?=$model['kota_id']?>');
 		});
+    @else
+        getCities(currentProvinceId);
 	@endif
     $('#provinces').change(function() {
         var provinceId = this.value;

@@ -24,8 +24,27 @@
 				@else
 				    {{ Form::open(['id' => 'model-form']) }}
 				@endif
-				<div class="row"> 
+				<div class="row">
 					<div class="col-lg-6">
+                  <div class="form-group">
+                     <h5 class="panel-title">VISI</h5>
+                  </div>
+                  <div class="form-group">
+                     {!! $visi->nama_visi !!}
+                     {!! Form::hidden('visi_id', $visi->kd_visi) !!}
+                  </div>
+               </div>
+               <div class="col-lg-6">
+                  <div class="form-group">
+                     <h5 class="panel-title">MISI</h5>
+                  </div>
+                  <div class="form-group">
+                     {!! Form::select('misi_id', ['' => 'Pilih Misi'] + $visimisi, null, ['id' => 'misi', 'class' => 'form-control']) !!}
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-6">
                   <div class="form-group">
                      <label>Renstra</label>
                      {!! Form::select('renstra_id', ['' => 'Pilih Renstra'] + $renstra, null, ['id' => 'renstra', 'class' => 'form-control program']) !!}
@@ -52,6 +71,10 @@
                      <label>Sasaran</label>
                      {!! Form::select('sasaran_id', ['' => 'Pilih Sasaran'], null, ['id' => 'sasaran', 'class' => 'form-control']) !!}
                   </div>
+                  <div class="form-group">
+                     <label>Komponen</label>
+                     {!! Form::select('komponen_id', ['' => 'Pilih Komponen'] + $komponen, null, ['id' => 'komponen', 'class' => 'form-control program']) !!}
+                  </div>
 			  		</div>
                <div class="col-lg-6">
                   <div class="form-group">
@@ -69,9 +92,13 @@
                      <div class="col-lg-8">
                         <div class="form-group">
                            <label>Subdit*</label>
-                           {!! Form::select('subdit_id', $subdit, null, ['placeholder' => 'Pilih Subdit','class' => 'form-control']) !!}
+                           {!! Form::select('subdit_id', $subdit, null, ['id'=>'subdit','placeholder' => 'Pilih Subdit','class' => 'form-control']) !!}
                         </div>
                      </div>
+                  </div>
+                  <div class="form-group">
+                     <label>Tupoksi*</label>
+                     {!! Form::select('tupoksi_id', ['' => 'Pilih Tupoksi'], null, ['id' => 'tupoksi','class' => 'form-control']) !!}
                   </div>
                   <div class="form-group">
                      <label>Status</label>
@@ -84,6 +111,28 @@
                      </div>
                   </div>
    		  		</div>
+            </div>
+            <div class="row">
+               <div class="col-lg-6">
+                  <div class="form-group">
+                     <label>Aktivitas 1</label>
+                     {!! Form::select('akt1_id', ['' => 'Pilih Aktivitas 1'], null, ['id' => 'akt1','class' => 'form-control']) !!}
+                  </div>
+                  <div class="form-group">
+                     <label>Aktivitas 2</label>
+                     {!! Form::select('akt2_id', ['' => 'Pilih Aktivitas 2'], null, ['id' => 'akt2','class' => 'form-control']) !!}
+                  </div>
+               </div>
+               <div class="col-lg-6">
+                  <div class="form-group">
+                     <label>Aktivitas 3</label>
+                     {!! Form::select('akt3_id', ['' => 'Pilih Aktivitas 3'], null, ['id' => 'akt3','class' => 'form-control']) !!}
+                  </div>
+                  <div class="form-group">
+                     <label>Aktivitas 4</label>
+                     {!! Form::select('akt4_id', ['' => 'Pilih Aktivitas 4'], null, ['id' => 'akt4','class' => 'form-control']) !!}
+                  </div>
+               </div>
             </div>
             @include('widgets.submit_button')
             {!! Form::close() !!}
@@ -106,10 +155,20 @@ $(function() {
       getAjaxSource(<?=$model['suboutput_id']?>, '#sasaran','ajax/sasaran', function(){
          $('#sasaran').val(<?=$model['sasaran_id']?>);
       });
+      getAjaxSource(<?=$model['subdit_id']?>, '#tupoksi','ajax/tupoksi', function(){
+         $('#tupoksi').val(<?=$model['tupoksi_id']?>);
+      });
    @endif
    getCascade('#output','#suboutput','ajax/suboutput');
    getCascade('#output','#volume','ajax/volume');
    getCascade('#suboutput','#sasaran','ajax/sasaran');
+   getCascade('#subdit','#tupoksi','ajax/tupoksi');
+
+
+   getCascade('#komponen','#akt1','ajax/aktivitas1');
+   getCascade('#komponen','#akt2','ajax/aktivitas2');
+   getCascade('#komponen','#akt3','ajax/aktivitas3');
+   getCascade('#komponen','#akt4','ajax/aktivitas4');
 
    $('#sasaran').change(function() {
       getAjaxUraian();
@@ -120,8 +179,6 @@ function getCascade(element, elementTarget, path, callback) {
    $(element).change(function() {
       var id = this.value;
       getAjaxSource(id, elementTarget, path);
-      $('#uraian').val('');
-      $('#exe_summary_prog').val('');
    });
 }
 

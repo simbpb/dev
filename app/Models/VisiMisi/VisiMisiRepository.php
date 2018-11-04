@@ -15,6 +15,15 @@ class VisiMisiRepository
 
     public function getOptions() {
         $options = [];
+        $rows = $this->model->select('kd_misi','nama_misi')->get();
+
+        foreach($rows as $row) {
+            $options[$row->kd_misi] = $row->nama_misi;
+        }
         return $options;
+    }
+
+    public function getVisi() {
+    	return $this->model->select('kd_visi','nama_visi')->first();
     }
 }

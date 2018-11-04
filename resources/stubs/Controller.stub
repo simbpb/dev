@@ -29,7 +29,6 @@ class {{modelName}}Controller extends Controller {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
-        {{modelValidate}}
         return $rule;
     }
 
