@@ -9,11 +9,10 @@ class PenataanBgKwsDestinasiWisataTransformer{
         return [
             'id' => $model->id,
             'thn_periode_keg' => $model->thn_periode_keg,
-            'lokasi_kode' => $model->lokasi_kode,
             'nama_propinsi' => $model->nama_propinsi,
             'nama_kabupatenkota' => $model->nama_kabupatenkota,
-            'propinsi_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_propinsi : null,
-            'kota_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_kabupatenkota : null,
+            'propinsi_id' => $model->propinsi_id,
+            'kota_id' => $model->kota_id,
             'lokasi_berada_di_kawasan' => $model->lokasi_berada_di_kawasan,
 'nama_kawasan' => $model->nama_kawasan,
 'nama_kegiatan' => $model->nama_kegiatan,
@@ -42,7 +41,6 @@ class PenataanBgKwsDestinasiWisataTransformer{
             return [
                 'id' => $model->id,
                 'thn_periode_keg' => $model->thn_periode_keg,
-                'lokasi_kode' => $model->lokasi_kode,
                 'nama_propinsi' => $model->nama_propinsi,
                 'nama_kabupatenkota' => $model->nama_kabupatenkota,
                 'lokasi_berada_di_kawasan' => $model->lokasi_berada_di_kawasan,
@@ -63,7 +61,7 @@ class PenataanBgKwsDestinasiWisataTransformer{
 'rencana_fisik' => $model->rencana_fisik,
 'dokumentasi' => $model->dokumentasi,
 
-                'is_actived' => $model->is_actived
+                'is_actived' => ($model->is_actived > 0) ? 'ACTIVE' : 'INACTIVE'
             ];
         });
 

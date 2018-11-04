@@ -26,10 +26,6 @@
 				    		<div class="form-group"><b>{!! $model['thn_periode_keg'] !!}</b></div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label>Kode Lokasi</label>
-				    		<div class="form-group"><b>{!! $model['lokasi_kode'] !!}</b></div>
-				  		</div>
-				  		<div class="form-group">
 				    		<label>Nama Propinsi</label>
 				    		<div class="form-group"><b>{!! $model['nama_propinsi'] !!}</b></div>
 				  		</div>

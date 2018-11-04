@@ -26,10 +26,6 @@
 				    		<div class="form-group"><b>{!! $model['thn_periode_keg'] !!}</b></div>
 				  		</div>
 				  		<div class="form-group">
-				    		<label>Kode Lokasi</label>
-				    		<div class="form-group"><b>{!! $model['lokasi_kode'] !!}</b></div>
-				  		</div>
-				  		<div class="form-group">
 				    		<label>Nama Propinsi</label>
 				    		<div class="form-group"><b>{!! $model['nama_propinsi'] !!}</b></div>
 				  		</div>
@@ -74,8 +70,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Titik Koordinat</label>
-                                <div class="form-group"><b>{!! $model['titik_koordinat'] !!}</b></div>
+                                <label>Titik Koordinat Lat</label>
+                                <div class="form-group"><b>{!! $model['titik_koordinat_lat'] !!}</b></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Titik Koordinat Long</label>
+                                <div class="form-group"><b>{!! $model['titik_koordinat_long'] !!}</b></div>
                             </div>
 
                             <div class="form-group">

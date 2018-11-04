@@ -24,6 +24,7 @@ class DetailRepository
                                 'daftar_form_detail.nama_form',
                                 'daftar_form_detail.path'
                             ])
+                ->where('is_actived','1')
                 ->paginate($limit);
 
         return (new DetailTransformer)->transformPaginate($model);

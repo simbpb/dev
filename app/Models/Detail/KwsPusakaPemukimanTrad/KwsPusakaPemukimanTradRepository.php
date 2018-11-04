@@ -5,21 +5,21 @@ use DB;
 use File;
 use App\Helpers\Location;
 use App\Models\Program\ProgramRepository;
+use App\Helpers\Kodifikasi;
 
 class KwsPusakaPemukimanTradRepository
 {
 
     protected $model;
-    protected $program;
+    protected $kodifikasi;
     protected $basePath1 = '/files/details/kws-pusaka-pemukiman-trad/dokumentasi';
 
       
     public function __construct(
-        KwsPusakaPemukimanTrad $model,
-        ProgramRepository $program
+        KwsPusakaPemukimanTrad $model
     ) {
         $this->model = $model;
-        $this->program = $program;
+        $this->kodifikasi = new Kodifikasi();
     }
 
     public function list($request)
@@ -29,7 +29,6 @@ class KwsPusakaPemukimanTradRepository
         $model = $this->model->select(
                         'tbl_detail_kws_pusaka_pemukiman_trad.id',
                         'tbl_detail_kws_pusaka_pemukiman_trad.thn_periode_keg',
-                        'tbl_detail_kws_pusaka_pemukiman_trad.lokasi_kode',
                         'tbl_detail_kws_pusaka_pemukiman_trad.nama_propinsi',
                         'tbl_detail_kws_pusaka_pemukiman_trad.nama_kabupatenkota',
                         'tbl_detail_kws_pusaka_pemukiman_trad.nama_kawasan',
@@ -52,7 +51,6 @@ class KwsPusakaPemukimanTradRepository
                         'tbl_detail_kws_pusaka_pemukiman_trad.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_kws_pusaka_pemukiman_trad.thn_periode_keg',
-                        'tbl_detail_kws_pusaka_pemukiman_trad.lokasi_kode',
                         'tbl_detail_kws_pusaka_pemukiman_trad.nama_propinsi',
                         'tbl_detail_kws_pusaka_pemukiman_trad.nama_kabupatenkota',
                         'tbl_detail_kws_pusaka_pemukiman_trad.nama_kawasan',
@@ -90,7 +88,6 @@ class KwsPusakaPemukimanTradRepository
     {
         DB::beginTransaction();
         $lokasi = Location::getPropinsiKota($request->input('propinsi_id'), $request->input('kota_id'));
-        $prog = $this->program->find($request->input('program_id'));
         $model = $this->model;
 
         
@@ -104,16 +101,10 @@ class KwsPusakaPemukimanTradRepository
 
 
         $model->thn_periode_keg = $request->input('thn_periode_keg');
-        $model->lokasi_kode = $lokasi->lokasi_kode;
+        $model->detail_kdprog_id = '0';
+        $model->kd_struktur = $this->kodifikasi->getKodifikasi($request->input('program_id'));
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
-        $model->renstra_id = $prog->renstra_id;
-        $model->output_id = $prog->output_id;
-        $model->suboutput_id = $prog->suboutput_id;
-        $model->sasaran_id = $prog->sasaran_id;
-        $model->uraian_id = $prog->uraian_id;
-        $model->subdit_id = $prog->subdit_id;
-        $model->volume_id = $prog->volume_id;
         $model->nama_kawasan = $request->input('nama_kawasan');
 $model->jenis_kawasan = $request->input('jenis_kawasan');
 $model->nama_kegiatan = $request->input('nama_kegiatan');
@@ -131,7 +122,7 @@ $model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
 $model->rencana_keu = $request->input('rencana_keu');
 $model->rencana_fisik = $request->input('rencana_fisik');
 
-        $model->is_actived = $request->input('status');
+        $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
 
         DB::commit();
@@ -158,16 +149,10 @@ $model->rencana_fisik = $request->input('rencana_fisik');
 
 
         $model->thn_periode_keg = $request->input('thn_periode_keg');
-        $model->lokasi_kode = $lokasi->lokasi_kode;
+        $model->detail_kdprog_id = '0';
+        $model->kd_struktur = $this->kodifikasi->getKodifikasi($request->input('program_id'));
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
-        $model->renstra_id = $prog->renstra_id;
-        $model->output_id = $prog->output_id;
-        $model->suboutput_id = $prog->suboutput_id;
-        $model->sasaran_id = $prog->sasaran_id;
-        $model->uraian_id = $prog->uraian_id;
-        $model->subdit_id = $prog->subdit_id;
-        $model->volume_id = $prog->volume_id;
         $model->nama_kawasan = $request->input('nama_kawasan');
 $model->jenis_kawasan = $request->input('jenis_kawasan');
 $model->nama_kegiatan = $request->input('nama_kegiatan');
@@ -185,7 +170,7 @@ $model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
 $model->rencana_keu = $request->input('rencana_keu');
 $model->rencana_fisik = $request->input('rencana_fisik');
 
-        $model->is_actived = $request->input('status');
+        $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
         
         DB::commit();

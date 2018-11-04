@@ -29,21 +29,6 @@ class PenataanBgKwsPrioritasNasionalController extends Controller {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
-        $rule['indeks_resiko'] = 'required';
-$rule['tingkat_resiko'] = 'required';
-$rule['Risiko_Bencana_Dominan'] = 'required';
-$rule['struktur_ruang'] = 'required';
-$rule['Nama_Kegiatan'] = 'required';
-$rule['Tahun_Anggaran'] = 'required';
-$rule['Sumber_Pendanaan'] = 'required';
-$rule['Alokasi_Anggaran'] = 'required';
-$rule['Volume_Pekerjaan'] = 'required';
-$rule['Instansi_Unit'] = 'required';
-$rule['Lokasi_Kegiatan'] = 'required';
-$rule['Titik_koordinat_lat'] = 'required';
-$rule['Titik_koordinat_log'] = 'required';
-$rule['Status_Aset'] = 'required';
-
         return $rule;
     }
 

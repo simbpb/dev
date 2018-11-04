@@ -34,24 +34,23 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Kode Lokasi", "data": "lokasi_kode" },
          { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
          { "title": "Indeks Resiko", "data": "indeks_resiko" },
 { "title": "Tingkat Resiko", "data": "tingkat_resiko" },
-{ "title": "Risiko Bencana Dominan", "data": "Risiko_Bencana_Dominan" },
+{ "title": "Risiko Bencana Dominan", "data": "risiko_bencana_dominan" },
 { "title": "Struktur Ruang", "data": "struktur_ruang" },
-{ "title": "Nama Kegiatan", "data": "Nama_Kegiatan" },
-{ "title": "Tahun Anggaran", "data": "Tahun_Anggaran" },
-{ "title": "Sumber Pendanaan", "data": "Sumber_Pendanaan" },
-{ "title": "Alokasi Anggaran", "data": "Alokasi_Anggaran" },
-{ "title": "Volume Pekerjaan", "data": "Volume_Pekerjaan" },
-{ "title": "Instansi Unit", "data": "Instansi_Unit" },
-{ "title": "Lokasi Kegiatan", "data": "Lokasi_Kegiatan" },
-{ "title": "Titik Koordinat Lat", "data": "Titik_koordinat_lat" },
-{ "title": "Titik Koordinat Log", "data": "Titik_koordinat_log" },
-{ "title": "Status Aset", "data": "Status_Aset" },
+{ "title": "Nama Kegiatan", "data": "nama_kegiatan" },
+{ "title": "Tahun Anggaran", "data": "tahun_anggaran" },
+{ "title": "Sumber Pendanaan", "data": "sumber_pendanaan" },
+{ "title": "Alokasi Anggaran", "data": "alokasi_anggaran" },
+{ "title": "Volume Pekerjaan", "data": "volume_pekerjaan" },
+{ "title": "Instansi Unit", "data": "instansi_unit" },
+{ "title": "Lokasi Kegiatan", "data": "lokasi_kegiatan" },
+{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },
+{ "title": "Titik Koordinat Long", "data": "titik_koordinat_long" },
+{ "title": "Status Aset", "data": "status_aset" },
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';
             return (row.is_actived) ? '<label class="label label-'+label+'">'+row.is_actived+'<label>' : '';
@@ -67,7 +66,7 @@ $(function() {
                edit = '<a href="{{ Navigation::adminUrl('/details/'.$path.'/'.$programId) }}/'+row.id+'/edit" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="icon-pencil"></i></a>';
             @endcan
             @can('program_delete')
-               dele = '<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteRow(\'{{ Navigation::adminUrl('/details/'.$path) }}/'+row.id+'/delete\',\'{{ Navigation::adminUrl('/details/'.$path) }}\');"><i class="icon-eraser3"></i></button>';
+               dele = '<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteRow(\'{{ Navigation::adminUrl('/details/'.$path) }}/'+row.id+'/delete\',\'{{ Navigation::adminUrl('/details/'.$path.'/'.$programId) }}\');"><i class="icon-eraser3"></i></button>';
             @endcan
             return view+' '+edit+' '+dele;
          }}

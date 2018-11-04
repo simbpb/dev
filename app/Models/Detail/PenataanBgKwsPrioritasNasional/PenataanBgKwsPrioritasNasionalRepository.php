@@ -5,20 +5,20 @@ use DB;
 use File;
 use App\Helpers\Location;
 use App\Models\Program\ProgramRepository;
+use App\Helpers\Kodifikasi;
 
 class PenataanBgKwsPrioritasNasionalRepository
 {
 
     protected $model;
-    protected $program;
+    protected $kodifikasi;
     
       
     public function __construct(
-        PenataanBgKwsPrioritasNasional $model,
-        ProgramRepository $program
+        PenataanBgKwsPrioritasNasional $model
     ) {
         $this->model = $model;
-        $this->program = $program;
+        $this->kodifikasi = new Kodifikasi();
     }
 
     public function list($request)
@@ -28,43 +28,41 @@ class PenataanBgKwsPrioritasNasionalRepository
         $model = $this->model->select(
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.id',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.thn_periode_keg',
-                        'tbl_detail_penataan_bg_kws_prioritas_nasional.lokasi_kode',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.nama_propinsi',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.nama_kabupatenkota',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.indeks_resiko',
 						'tbl_detail_penataan_bg_kws_prioritas_nasional.tingkat_resiko',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Risiko_Bencana_Dominan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.risiko_bencana_dominan',
 						'tbl_detail_penataan_bg_kws_prioritas_nasional.struktur_ruang',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Nama_Kegiatan',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Tahun_Anggaran',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Sumber_Pendanaan',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Alokasi_Anggaran',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Volume_Pekerjaan',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Instansi_Unit',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Lokasi_Kegiatan',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Titik_koordinat_lat',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Titik_koordinat_log',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Status_Aset',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.nama_kegiatan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.tahun_anggaran',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.sumber_pendanaan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.alokasi_anggaran',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.volume_pekerjaan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.instansi_unit',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.lokasi_kegiatan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.titik_koordinat_lat',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.titik_koordinat_long',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.status_aset',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.thn_periode_keg',
-                        'tbl_detail_penataan_bg_kws_prioritas_nasional.lokasi_kode',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.nama_propinsi',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.nama_kabupatenkota',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.indeks_resiko',
 						'tbl_detail_penataan_bg_kws_prioritas_nasional.tingkat_resiko',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Risiko_Bencana_Dominan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.risiko_bencana_dominan',
 						'tbl_detail_penataan_bg_kws_prioritas_nasional.struktur_ruang',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Nama_Kegiatan',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Tahun_Anggaran',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Sumber_Pendanaan',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Alokasi_Anggaran',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Volume_Pekerjaan',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Instansi_Unit',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Lokasi_Kegiatan',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Titik_koordinat_lat',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Titik_koordinat_log',
-						'tbl_detail_penataan_bg_kws_prioritas_nasional.Status_Aset',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.nama_kegiatan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.tahun_anggaran',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.sumber_pendanaan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.alokasi_anggaran',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.volume_pekerjaan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.instansi_unit',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.lokasi_kegiatan',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.titik_koordinat_lat',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.titik_koordinat_long',
+						'tbl_detail_penataan_bg_kws_prioritas_nasional.status_aset',
                         'tbl_detail_penataan_bg_kws_prioritas_nasional.is_actived'
                     ])
                     ->filterLocation()
@@ -83,37 +81,30 @@ class PenataanBgKwsPrioritasNasionalRepository
     {
         DB::beginTransaction();
         $lokasi = Location::getPropinsiKota($request->input('propinsi_id'), $request->input('kota_id'));
-        $prog = $this->program->find($request->input('program_id'));
         $model = $this->model;
 
         
 
         $model->thn_periode_keg = $request->input('thn_periode_keg');
-        $model->lokasi_kode = $lokasi->lokasi_kode;
+        $model->detail_kdprog_id = '0';
+        $model->kd_struktur = $this->kodifikasi->getKodifikasi($request->input('program_id'));
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
-        $model->renstra_id = $prog->renstra_id;
-        $model->output_id = $prog->output_id;
-        $model->suboutput_id = $prog->suboutput_id;
-        $model->sasaran_id = $prog->sasaran_id;
-        $model->uraian_id = $prog->uraian_id;
-        $model->subdit_id = $prog->subdit_id;
-        $model->volume_id = $prog->volume_id;
         $model->indeks_resiko = $request->input('indeks_resiko');
 $model->tingkat_resiko = $request->input('tingkat_resiko');
-$model->Risiko_Bencana_Dominan = $request->input('Risiko_Bencana_Dominan');
+$model->risiko_bencana_dominan = $request->input('risiko_bencana_dominan');
 $model->struktur_ruang = $request->input('struktur_ruang');
-$model->Nama_Kegiatan = $request->input('Nama_Kegiatan');
-$model->Tahun_Anggaran = $request->input('Tahun_Anggaran');
-$model->Sumber_Pendanaan = $request->input('Sumber_Pendanaan');
-$model->Alokasi_Anggaran = $request->input('Alokasi_Anggaran');
-$model->Volume_Pekerjaan = $request->input('Volume_Pekerjaan');
-$model->Instansi_Unit = $request->input('Instansi_Unit');
-$model->Lokasi_Kegiatan = $request->input('Lokasi_Kegiatan');
-$model->Titik_koordinat_lat = $request->input('Titik_koordinat_lat');
-$model->Titik_koordinat_log = $request->input('Titik_koordinat_log');
-$model->Status_Aset = $request->input('Status_Aset');
-        $model->is_actived = $request->input('status');
+$model->nama_kegiatan = $request->input('nama_kegiatan');
+$model->tahun_anggaran = $request->input('tahun_anggaran');
+$model->sumber_pendanaan = $request->input('sumber_pendanaan');
+$model->alokasi_anggaran = $request->input('alokasi_anggaran');
+$model->volume_pekerjaan = $request->input('volume_pekerjaan');
+$model->instansi_unit = $request->input('instansi_unit');
+$model->lokasi_kegiatan = $request->input('lokasi_kegiatan');
+$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+$model->titik_koordinat_long = $request->input('titik_koordinat_long');
+$model->status_aset = $request->input('status_aset');
+        $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
 
         DB::commit();
@@ -129,31 +120,25 @@ $model->Status_Aset = $request->input('Status_Aset');
         
 
         $model->thn_periode_keg = $request->input('thn_periode_keg');
-        $model->lokasi_kode = $lokasi->lokasi_kode;
+        $model->detail_kdprog_id = '0';
+        $model->kd_struktur = $this->kodifikasi->getKodifikasi($request->input('program_id'));
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
-        $model->renstra_id = $prog->renstra_id;
-        $model->output_id = $prog->output_id;
-        $model->suboutput_id = $prog->suboutput_id;
-        $model->sasaran_id = $prog->sasaran_id;
-        $model->uraian_id = $prog->uraian_id;
-        $model->subdit_id = $prog->subdit_id;
-        $model->volume_id = $prog->volume_id;
         $model->indeks_resiko = $request->input('indeks_resiko');
 $model->tingkat_resiko = $request->input('tingkat_resiko');
-$model->Risiko_Bencana_Dominan = $request->input('Risiko_Bencana_Dominan');
+$model->risiko_bencana_dominan = $request->input('risiko_bencana_dominan');
 $model->struktur_ruang = $request->input('struktur_ruang');
-$model->Nama_Kegiatan = $request->input('Nama_Kegiatan');
-$model->Tahun_Anggaran = $request->input('Tahun_Anggaran');
-$model->Sumber_Pendanaan = $request->input('Sumber_Pendanaan');
-$model->Alokasi_Anggaran = $request->input('Alokasi_Anggaran');
-$model->Volume_Pekerjaan = $request->input('Volume_Pekerjaan');
-$model->Instansi_Unit = $request->input('Instansi_Unit');
-$model->Lokasi_Kegiatan = $request->input('Lokasi_Kegiatan');
-$model->Titik_koordinat_lat = $request->input('Titik_koordinat_lat');
-$model->Titik_koordinat_log = $request->input('Titik_koordinat_log');
-$model->Status_Aset = $request->input('Status_Aset');
-        $model->is_actived = $request->input('status');
+$model->nama_kegiatan = $request->input('nama_kegiatan');
+$model->tahun_anggaran = $request->input('tahun_anggaran');
+$model->sumber_pendanaan = $request->input('sumber_pendanaan');
+$model->alokasi_anggaran = $request->input('alokasi_anggaran');
+$model->volume_pekerjaan = $request->input('volume_pekerjaan');
+$model->instansi_unit = $request->input('instansi_unit');
+$model->lokasi_kegiatan = $request->input('lokasi_kegiatan');
+$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+$model->titik_koordinat_long = $request->input('titik_koordinat_long');
+$model->status_aset = $request->input('status_aset');
+        $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
         
         DB::commit();

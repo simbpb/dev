@@ -5,21 +5,21 @@ use DB;
 use File;
 use App\Helpers\Location;
 use App\Models\Program\ProgramRepository;
+use App\Helpers\Kodifikasi;
 
 class PlbnRepository
 {
 
     protected $model;
-    protected $program;
+    protected $kodifikasi;
     protected $basePath1 = '/files/details/plbn/dokumentasi';
 
       
     public function __construct(
-        Plbn $model,
-        ProgramRepository $program
+        Plbn $model
     ) {
         $this->model = $model;
-        $this->program = $program;
+        $this->kodifikasi = new Kodifikasi();
     }
 
     public function list($request)
@@ -29,7 +29,6 @@ class PlbnRepository
         $model = $this->model->select(
                         'tbl_detail_plbn.id',
                         'tbl_detail_plbn.thn_periode_keg',
-                        'tbl_detail_plbn.lokasi_kode',
                         'tbl_detail_plbn.nama_propinsi',
                         'tbl_detail_plbn.nama_kabupatenkota',
                         'tbl_detail_plbn.nama_kegiatan',
@@ -39,7 +38,8 @@ class PlbnRepository
 						'tbl_detail_plbn.volume_pekerjaan',
 						'tbl_detail_plbn.instansi_unit_organisasi_pelaksana',
 						'tbl_detail_plbn.lokasi_kegiatan_proyek',
-						'tbl_detail_plbn.titik_koordinat',
+						'tbl_detail_plbn.titik_koordinat_lat',
+						'tbl_detail_plbn.titik_koordinat_long',
 						'tbl_detail_plbn.status_aset',
 						'tbl_detail_plbn.biaya_pelaksanaan_kontraktor',
 						'tbl_detail_plbn.manajemen_konstruksi',
@@ -49,7 +49,6 @@ class PlbnRepository
                         'tbl_detail_plbn.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_plbn.thn_periode_keg',
-                        'tbl_detail_plbn.lokasi_kode',
                         'tbl_detail_plbn.nama_propinsi',
                         'tbl_detail_plbn.nama_kabupatenkota',
                         'tbl_detail_plbn.nama_kegiatan',
@@ -59,7 +58,8 @@ class PlbnRepository
 						'tbl_detail_plbn.volume_pekerjaan',
 						'tbl_detail_plbn.instansi_unit_organisasi_pelaksana',
 						'tbl_detail_plbn.lokasi_kegiatan_proyek',
-						'tbl_detail_plbn.titik_koordinat',
+						'tbl_detail_plbn.titik_koordinat_lat',
+						'tbl_detail_plbn.titik_koordinat_long',
 						'tbl_detail_plbn.status_aset',
 						'tbl_detail_plbn.biaya_pelaksanaan_kontraktor',
 						'tbl_detail_plbn.manajemen_konstruksi',
@@ -84,7 +84,6 @@ class PlbnRepository
     {
         DB::beginTransaction();
         $lokasi = Location::getPropinsiKota($request->input('propinsi_id'), $request->input('kota_id'));
-        $prog = $this->program->find($request->input('program_id'));
         $model = $this->model;
 
         
@@ -98,16 +97,10 @@ class PlbnRepository
 
 
         $model->thn_periode_keg = $request->input('thn_periode_keg');
-        $model->lokasi_kode = $lokasi->lokasi_kode;
+        $model->detail_kdprog_id = '0';
+        $model->kd_struktur = $this->kodifikasi->getKodifikasi($request->input('program_id'));
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
-        $model->renstra_id = $prog->renstra_id;
-        $model->output_id = $prog->output_id;
-        $model->suboutput_id = $prog->suboutput_id;
-        $model->sasaran_id = $prog->sasaran_id;
-        $model->uraian_id = $prog->uraian_id;
-        $model->subdit_id = $prog->subdit_id;
-        $model->volume_id = $prog->volume_id;
         $model->nama_kegiatan = $request->input('nama_kegiatan');
 $model->thn_anggaran = $request->input('thn_anggaran');
 $model->sumber_anggaran = $request->input('sumber_anggaran');
@@ -115,14 +108,15 @@ $model->alokasi_anggaran = $request->input('alokasi_anggaran');
 $model->volume_pekerjaan = $request->input('volume_pekerjaan');
 $model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
 $model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
-$model->titik_koordinat = $request->input('titik_koordinat');
+$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+$model->titik_koordinat_long = $request->input('titik_koordinat_long');
 $model->status_aset = $request->input('status_aset');
 $model->biaya_pelaksanaan_kontraktor = $request->input('biaya_pelaksanaan_kontraktor');
 $model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
 $model->rencana_keu = $request->input('rencana_keu');
 $model->rencana_fisik = $request->input('rencana_fisik');
 
-        $model->is_actived = $request->input('status');
+        $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
 
         DB::commit();
@@ -149,16 +143,10 @@ $model->rencana_fisik = $request->input('rencana_fisik');
 
 
         $model->thn_periode_keg = $request->input('thn_periode_keg');
-        $model->lokasi_kode = $lokasi->lokasi_kode;
+        $model->detail_kdprog_id = '0';
+        $model->kd_struktur = $this->kodifikasi->getKodifikasi($request->input('program_id'));
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
-        $model->renstra_id = $prog->renstra_id;
-        $model->output_id = $prog->output_id;
-        $model->suboutput_id = $prog->suboutput_id;
-        $model->sasaran_id = $prog->sasaran_id;
-        $model->uraian_id = $prog->uraian_id;
-        $model->subdit_id = $prog->subdit_id;
-        $model->volume_id = $prog->volume_id;
         $model->nama_kegiatan = $request->input('nama_kegiatan');
 $model->thn_anggaran = $request->input('thn_anggaran');
 $model->sumber_anggaran = $request->input('sumber_anggaran');
@@ -166,14 +154,15 @@ $model->alokasi_anggaran = $request->input('alokasi_anggaran');
 $model->volume_pekerjaan = $request->input('volume_pekerjaan');
 $model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
 $model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
-$model->titik_koordinat = $request->input('titik_koordinat');
+$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+$model->titik_koordinat_long = $request->input('titik_koordinat_long');
 $model->status_aset = $request->input('status_aset');
 $model->biaya_pelaksanaan_kontraktor = $request->input('biaya_pelaksanaan_kontraktor');
 $model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
 $model->rencana_keu = $request->input('rencana_keu');
 $model->rencana_fisik = $request->input('rencana_fisik');
 
-        $model->is_actived = $request->input('status');
+        $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
         
         DB::commit();

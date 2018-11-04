@@ -29,24 +29,6 @@ class PlbnController extends Controller {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
-        $rule['nama_kegiatan'] = 'required';
-$rule['thn_anggaran'] = 'required';
-$rule['sumber_anggaran'] = 'required';
-$rule['alokasi_anggaran'] = 'required';
-$rule['volume_pekerjaan'] = 'required';
-$rule['instansi_unit_organisasi_pelaksana'] = 'required';
-$rule['lokasi_kegiatan_proyek'] = 'required';
-$rule['titik_koordinat'] = 'required';
-$rule['status_aset'] = 'required';
-$rule['biaya_pelaksanaan_kontraktor'] = 'required';
-$rule['manajemen_konstruksi'] = 'required';
-$rule['rencana_keu'] = 'required';
-$rule['rencana_fisik'] = 'required';
-
-                        if ($scope == 'create') {
-                            $rule['dokumentasi'] = 'required';
-                        }
-
         return $rule;
     }
 

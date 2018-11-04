@@ -34,7 +34,6 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Kode Lokasi", "data": "lokasi_kode" },
          { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
@@ -70,7 +69,7 @@ $(function() {
                edit = '<a href="{{ Navigation::adminUrl('/details/'.$path.'/'.$programId) }}/'+row.id+'/edit" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="icon-pencil"></i></a>';
             @endcan
             @can('program_delete')
-               dele = '<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteRow(\'{{ Navigation::adminUrl('/details/'.$path) }}/'+row.id+'/delete\',\'{{ Navigation::adminUrl('/details/'.$path) }}\');"><i class="icon-eraser3"></i></button>';
+               dele = '<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteRow(\'{{ Navigation::adminUrl('/details/'.$path) }}/'+row.id+'/delete\',\'{{ Navigation::adminUrl('/details/'.$path.'/'.$programId) }}\');"><i class="icon-eraser3"></i></button>';
             @endcan
             return view+' '+edit+' '+dele;
          }}

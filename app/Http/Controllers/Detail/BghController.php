@@ -29,33 +29,6 @@ class BghController extends Controller {
         $rule['thn_periode_keg'] = 'required';
         $rule['propinsi_id'] = 'required';
         $rule['kota_id'] = 'required';
-        $rule['nama_kegiatan'] = 'required';
-$rule['thn_anggaran'] = 'required';
-$rule['sumber_anggaran'] = 'required';
-$rule['alokasi_anggaran'] = 'required';
-$rule['volume_pekerjaan'] = 'required';
-$rule['instansi_unit_organisasi_pelaksana'] = 'required';
-$rule['lokasi_kegiatan_proyek'] = 'required';
-$rule['titik_koordinat'] = 'required';
-$rule['status_aset'] = 'required';
-$rule['nama_kepala_dinas'] = 'required';
-$rule['nama_pengelola'] = 'required';
-$rule['nama_penyedia_jasa_perencanaan'] = 'required';
-$rule['thn_penerbitan_sertifikat_bgh'] = 'required';
-$rule['no_sertifikat_bgh'] = 'required';
-
-                        if ($scope == 'create') {
-                            $rule['file_upload_sertifikat_bgh'] = 'required';
-                        }
-$rule['no_plakat_bgh'] = 'required';
-$rule['thn_penerbitan_sertifikat_pemanfaatan_bgh'] = 'required';
-
-                        if ($scope == 'create') {
-                            $rule['file_upload_sertifikat_pemanfaatan_bgh'] = 'required';
-                        }
-$rule['peringkat_bgh'] = 'required';
-$rule['pemanfaatan_ke'] = 'required';
-
         return $rule;
     }
 

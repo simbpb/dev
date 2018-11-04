@@ -5,22 +5,22 @@ use DB;
 use File;
 use App\Helpers\Location;
 use App\Models\Program\ProgramRepository;
+use App\Helpers\Kodifikasi;
 
 class BghRepository
 {
 
     protected $model;
-    protected $program;
+    protected $kodifikasi;
     protected $basePath1 = '/files/details/bgh/file-upload-sertifikat-bgh';
 protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bgh';
 
       
     public function __construct(
-        Bgh $model,
-        ProgramRepository $program
+        Bgh $model
     ) {
         $this->model = $model;
-        $this->program = $program;
+        $this->kodifikasi = new Kodifikasi();
     }
 
     public function list($request)
@@ -30,7 +30,6 @@ protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bg
         $model = $this->model->select(
                         'tbl_detail_bgh.id',
                         'tbl_detail_bgh.thn_periode_keg',
-                        'tbl_detail_bgh.lokasi_kode',
                         'tbl_detail_bgh.nama_propinsi',
                         'tbl_detail_bgh.nama_kabupatenkota',
                         'tbl_detail_bgh.nama_kegiatan',
@@ -40,7 +39,8 @@ protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bg
 						'tbl_detail_bgh.volume_pekerjaan',
 						'tbl_detail_bgh.instansi_unit_organisasi_pelaksana',
 						'tbl_detail_bgh.lokasi_kegiatan_proyek',
-						'tbl_detail_bgh.titik_koordinat',
+						'tbl_detail_bgh.titik_koordinat_lat',
+						'tbl_detail_bgh.titik_koordinat_long',
 						'tbl_detail_bgh.status_aset',
 						'tbl_detail_bgh.nama_kepala_dinas',
 						'tbl_detail_bgh.nama_pengelola',
@@ -56,7 +56,6 @@ protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bg
                         'tbl_detail_bgh.is_actived'
                     )->searchOrder($request, [
                         'tbl_detail_bgh.thn_periode_keg',
-                        'tbl_detail_bgh.lokasi_kode',
                         'tbl_detail_bgh.nama_propinsi',
                         'tbl_detail_bgh.nama_kabupatenkota',
                         'tbl_detail_bgh.nama_kegiatan',
@@ -66,7 +65,8 @@ protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bg
 						'tbl_detail_bgh.volume_pekerjaan',
 						'tbl_detail_bgh.instansi_unit_organisasi_pelaksana',
 						'tbl_detail_bgh.lokasi_kegiatan_proyek',
-						'tbl_detail_bgh.titik_koordinat',
+						'tbl_detail_bgh.titik_koordinat_lat',
+						'tbl_detail_bgh.titik_koordinat_long',
 						'tbl_detail_bgh.status_aset',
 						'tbl_detail_bgh.nama_kepala_dinas',
 						'tbl_detail_bgh.nama_pengelola',
@@ -97,7 +97,6 @@ protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bg
     {
         DB::beginTransaction();
         $lokasi = Location::getPropinsiKota($request->input('propinsi_id'), $request->input('kota_id'));
-        $prog = $this->program->find($request->input('program_id'));
         $model = $this->model;
 
         
@@ -119,16 +118,10 @@ protected $basePath2 = '/files/details/bgh/file-upload-sertifikat-pemanfaatan-bg
 
 
         $model->thn_periode_keg = $request->input('thn_periode_keg');
-        $model->lokasi_kode = $lokasi->lokasi_kode;
+        $model->detail_kdprog_id = '0';
+        $model->kd_struktur = $this->kodifikasi->getKodifikasi($request->input('program_id'));
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
-        $model->renstra_id = $prog->renstra_id;
-        $model->output_id = $prog->output_id;
-        $model->suboutput_id = $prog->suboutput_id;
-        $model->sasaran_id = $prog->sasaran_id;
-        $model->uraian_id = $prog->uraian_id;
-        $model->subdit_id = $prog->subdit_id;
-        $model->volume_id = $prog->volume_id;
         $model->nama_kegiatan = $request->input('nama_kegiatan');
 $model->thn_anggaran = $request->input('thn_anggaran');
 $model->sumber_anggaran = $request->input('sumber_anggaran');
@@ -136,7 +129,8 @@ $model->alokasi_anggaran = $request->input('alokasi_anggaran');
 $model->volume_pekerjaan = $request->input('volume_pekerjaan');
 $model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
 $model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
-$model->titik_koordinat = $request->input('titik_koordinat');
+$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+$model->titik_koordinat_long = $request->input('titik_koordinat_long');
 $model->status_aset = $request->input('status_aset');
 $model->nama_kepala_dinas = $request->input('nama_kepala_dinas');
 $model->nama_pengelola = $request->input('nama_pengelola');
@@ -147,7 +141,7 @@ $model->no_plakat_bgh = $request->input('no_plakat_bgh');
 $model->thn_penerbitan_sertifikat_pemanfaatan_bgh = $request->input('thn_penerbitan_sertifikat_pemanfaatan_bgh');
 $model->peringkat_bgh = $request->input('peringkat_bgh');
 $model->pemanfaatan_ke = $request->input('pemanfaatan_ke');
-        $model->is_actived = $request->input('status');
+        $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
 
         DB::commit();
@@ -185,16 +179,10 @@ $model->pemanfaatan_ke = $request->input('pemanfaatan_ke');
 
 
         $model->thn_periode_keg = $request->input('thn_periode_keg');
-        $model->lokasi_kode = $lokasi->lokasi_kode;
+        $model->detail_kdprog_id = '0';
+        $model->kd_struktur = $this->kodifikasi->getKodifikasi($request->input('program_id'));
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
-        $model->renstra_id = $prog->renstra_id;
-        $model->output_id = $prog->output_id;
-        $model->suboutput_id = $prog->suboutput_id;
-        $model->sasaran_id = $prog->sasaran_id;
-        $model->uraian_id = $prog->uraian_id;
-        $model->subdit_id = $prog->subdit_id;
-        $model->volume_id = $prog->volume_id;
         $model->nama_kegiatan = $request->input('nama_kegiatan');
 $model->thn_anggaran = $request->input('thn_anggaran');
 $model->sumber_anggaran = $request->input('sumber_anggaran');
@@ -202,7 +190,8 @@ $model->alokasi_anggaran = $request->input('alokasi_anggaran');
 $model->volume_pekerjaan = $request->input('volume_pekerjaan');
 $model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
 $model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
-$model->titik_koordinat = $request->input('titik_koordinat');
+$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+$model->titik_koordinat_long = $request->input('titik_koordinat_long');
 $model->status_aset = $request->input('status_aset');
 $model->nama_kepala_dinas = $request->input('nama_kepala_dinas');
 $model->nama_pengelola = $request->input('nama_pengelola');
@@ -213,7 +202,7 @@ $model->no_plakat_bgh = $request->input('no_plakat_bgh');
 $model->thn_penerbitan_sertifikat_pemanfaatan_bgh = $request->input('thn_penerbitan_sertifikat_pemanfaatan_bgh');
 $model->peringkat_bgh = $request->input('peringkat_bgh');
 $model->pemanfaatan_ke = $request->input('pemanfaatan_ke');
-        $model->is_actived = $request->input('status');
+        $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
         
         DB::commit();

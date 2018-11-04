@@ -9,11 +9,10 @@ class RehabBgPusakaIstanaTransformer{
         return [
             'id' => $model->id,
             'thn_periode_keg' => $model->thn_periode_keg,
-            'lokasi_kode' => $model->lokasi_kode,
             'nama_propinsi' => $model->nama_propinsi,
             'nama_kabupatenkota' => $model->nama_kabupatenkota,
-            'propinsi_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_propinsi : null,
-            'kota_id' => !empty($model->lokasi) ? $model->lokasi->lokasi_kabupatenkota : null,
+            'propinsi_id' => $model->propinsi_id,
+            'kota_id' => $model->kota_id,
             'nama_kegiatan' => $model->nama_kegiatan,
 'thn_anggaran' => $model->thn_anggaran,
 'sumber_anggaran' => $model->sumber_anggaran,
@@ -21,7 +20,8 @@ class RehabBgPusakaIstanaTransformer{
 'volume_pekerjaan' => $model->volume_pekerjaan,
 'instansi_unit_organisasi_pelaksana' => $model->instansi_unit_organisasi_pelaksana,
 'lokasi_kegiatan_proyek' => $model->lokasi_kegiatan_proyek,
-'titik_koordinat' => $model->titik_koordinat,
+'titik_koordinat_lat' => $model->titik_koordinat_lat,
+'titik_koordinat_long' => $model->titik_koordinat_long,
 'status_aset' => $model->status_aset,
 'biaya_pelaksanaan_kontraktor' => $model->biaya_pelaksanaan_kontraktor,
 'manajemen_konstruksi' => $model->manajemen_konstruksi,
@@ -39,7 +39,6 @@ class RehabBgPusakaIstanaTransformer{
             return [
                 'id' => $model->id,
                 'thn_periode_keg' => $model->thn_periode_keg,
-                'lokasi_kode' => $model->lokasi_kode,
                 'nama_propinsi' => $model->nama_propinsi,
                 'nama_kabupatenkota' => $model->nama_kabupatenkota,
                 'nama_kegiatan' => $model->nama_kegiatan,
@@ -49,7 +48,8 @@ class RehabBgPusakaIstanaTransformer{
 'volume_pekerjaan' => $model->volume_pekerjaan,
 'instansi_unit_organisasi_pelaksana' => $model->instansi_unit_organisasi_pelaksana,
 'lokasi_kegiatan_proyek' => $model->lokasi_kegiatan_proyek,
-'titik_koordinat' => $model->titik_koordinat,
+'titik_koordinat_lat' => $model->titik_koordinat_lat,
+'titik_koordinat_long' => $model->titik_koordinat_long,
 'status_aset' => $model->status_aset,
 'biaya_pelaksanaan_kontraktor' => $model->biaya_pelaksanaan_kontraktor,
 'manajemen_konstruksi' => $model->manajemen_konstruksi,
@@ -57,7 +57,7 @@ class RehabBgPusakaIstanaTransformer{
 'rencana_fisik' => $model->rencana_fisik,
 'dokumentasi' => $model->dokumentasi,
 
-                'is_actived' => $model->is_actived
+                'is_actived' => ($model->is_actived > 0) ? 'ACTIVE' : 'INACTIVE'
             ];
         });
 

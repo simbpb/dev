@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'HomeController@index');
-// Route::get('/generate-all', 'HomeController@generateAll');
+Route::get('/generate-all', 'HomeController@generateAll');
 Route::group(['prefix' => config('app.auth_page')], function () {
 	Auth::routes();
 });
@@ -31,6 +31,13 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
     	Route::get('/suboutput/{outputId}', 'Ajax\MasterController@suboutput');
     	Route::get('/sasaran/{suboutputId}', 'Ajax\MasterController@sasaran');
     	Route::get('/volume/{outputId}', 'Ajax\MasterController@volume');
+    	Route::get('/tupoksi/{subditId}', 'Ajax\MasterController@tupoksi');
+
+    	Route::get('/aktivitas1/{komponenId}', 'Ajax\MasterController@aktivitas1');
+    	Route::get('/aktivitas2/{komponenId}', 'Ajax\MasterController@aktivitas2');
+    	Route::get('/aktivitas3/{komponenId}', 'Ajax\MasterController@aktivitas3');
+    	Route::get('/aktivitas4/{komponenId}', 'Ajax\MasterController@aktivitas4');
+
     	Route::get('/uraian', 'Ajax\UraianController@detail_uraian');
     });
     

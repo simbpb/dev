@@ -42,6 +42,8 @@ class ProgramRepository
     {
         DB::beginTransaction();
         $model = $this->model;
+        $model->visi_id = $request->input('visi_id');
+        $model->misi_id = $request->input('misi_id');
         $model->renstra_id = $request->input('renstra_id');
         $model->output_id = $request->input('output_id');
         $model->suboutput_id = $request->input('suboutput_id');
@@ -52,6 +54,12 @@ class ProgramRepository
         $model->exe_summary_prog = $request->input('exe_summary_prog');
         $model->status = ($request->input('status')) ? $request->input('status') : Status::INACTIVE;
         $model->subdit_id = $request->input('subdit_id');
+        $model->tupoksi_id = $request->input('tupoksi_id');
+        $model->komponen_id = $request->input('komponen_id');
+        $model->akt1_id = $request->input('akt1_id');
+        $model->akt2_id = $request->input('akt2_id');
+        $model->akt3_id = $request->input('akt3_id');
+        $model->akt4_id = $request->input('akt4_id');
         $model->save();
         DB::commit();
         return true;
@@ -61,6 +69,8 @@ class ProgramRepository
     {
         DB::beginTransaction();
         $model = $this->model->find($id);
+        $model->visi_id = $request->input('visi_id');
+        $model->misi_id = $request->input('misi_id');
         $model->renstra_id = $request->input('renstra_id');
         $model->output_id = $request->input('output_id');
         $model->suboutput_id = $request->input('suboutput_id');
@@ -71,6 +81,12 @@ class ProgramRepository
         $model->exe_summary_prog = $request->input('exe_summary_prog');
         $model->status = ($request->input('status')) ? $request->input('status') : Status::INACTIVE;
         $model->subdit_id = $request->input('subdit_id');
+        $model->tupoksi_id = $request->input('tupoksi_id');
+        $model->komponen_id = $request->input('komponen_id');
+        $model->akt1_id = $request->input('akt1_id');
+        $model->akt2_id = $request->input('akt2_id');
+        $model->akt3_id = $request->input('akt3_id');
+        $model->akt4_id = $request->input('akt4_id');
         $model->save();
         DB::commit();
         return true;
