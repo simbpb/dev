@@ -23,6 +23,7 @@ Route::group(['prefix' => config('app.auth_page')], function () {
 Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], function () {
     Route::get('/', 'AdminController@index');
     Route::get('/profile', 'Auth\ProfileController@index');
+    Route::get('/profile/kabkot', 'Auth\ProfileController@kabkot')->middleware('permission:profilekabkot_view');
     Route::any('/change-password', 'Auth\ProfileController@changePassword');
     
     Route::group(['prefix' => 'ajax'], function () {
@@ -120,6 +121,7 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::any('/{id}/edit', 'Master\DetailController@edit')->middleware('permission:detail_edit');
 		    Route::delete('/{id}/delete', 'Master\DetailController@delete')->middleware('permission:detail_delete');
 		});
+		
 	/** End controllers Master **/
 	Route::group(['prefix' => 'program'], function () {
 	    Route::get('/', 'ProgramController@index')->middleware('permission:program_view');
@@ -127,6 +129,47 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 	    Route::any('/create', 'ProgramController@create')->middleware('permission:program_create');
 	    Route::any('/{id}/edit', 'ProgramController@edit')->middleware('permission:program_edit');
 	    Route::delete('/{id}/delete', 'ProgramController@delete')->middleware('permission:program_delete');
+	});
+
+	/** Controller integration **/
+	Route::group(['prefix' => 'integrasi-fact-hsbgn'], function () {
+	    Route::get('/', 'IntegrasiFactHsbgnController@index')->middleware('permission:integrasi-fact-hsbgn_view');
+	    Route::get('/{id}/view', 'IntegrasiFactHsbgnController@view')->middleware('permission:integrasi-fact-hsbgn_view');
+	    Route::any('/create', 'IntegrasiFactHsbgnController@create')->middleware('permission:integrasi-fact-hsbgn_create');
+	    Route::any('/{id}/edit', 'IntegrasiFactHsbgnController@edit')->middleware('permission:integrasi-fact-hsbgn_edit');
+	    Route::delete('/{id}/delete', 'IntegrasiFactHsbgnController@delete')->middleware('permission:integrasi-fact-hsbgn_delete');
+	});
+
+	Route::group(['prefix' => 'integrasi-fact-perdabg'], function () {
+	    Route::get('/', 'IntegrasiFactPerdabgController@index')->middleware('permission:integrasi-fact-perdabg_view');
+	    Route::get('/{id}/view', 'IntegrasiFactPerdabgController@view')->middleware('permission:integrasi-fact-perdabg_view');
+	    Route::any('/create', 'IntegrasiFactPerdabgController@create')->middleware('permission:integrasi-fact-perdabg_create');
+	    Route::any('/{id}/edit', 'IntegrasiFactPerdabgController@edit')->middleware('permission:integrasi-fact-perdabg_edit');
+	    Route::delete('/{id}/delete', 'IntegrasiFactPerdabgController@delete')->middleware('permission:integrasi-fact-perdabg_delete');
+	});
+
+	Route::group(['prefix' => 'integrasi-rn'], function () {
+	    Route::get('/', 'IntegrasiRnController@index')->middleware('permission:integrasi-rn_view');
+	    Route::get('/{id}/view', 'IntegrasiRnController@view')->middleware('permission:integrasi-rn_view');
+	    Route::any('/create', 'IntegrasiRnController@create')->middleware('permission:integrasi-rn_create');
+	    Route::any('/{id}/edit', 'IntegrasiRnController@edit')->middleware('permission:integrasi-rn_edit');
+	    Route::delete('/{id}/delete', 'IntegrasiRnController@delete')->middleware('permission:integrasi-rn_delete');
+	});
+
+	Route::group(['prefix' => 'integrasi-rn-rekap-kemen'], function () {
+	    Route::get('/', 'IntegrasiRnRekapKemenController@index')->middleware('permission:integrasi-rn-rekap-kemen_view');
+	    Route::get('/{id}/view', 'IntegrasiRnRekapKemenController@view')->middleware('permission:integrasi-rn-rekap-kemen_view');
+	    Route::any('/create', 'IntegrasiRnRekapKemenController@create')->middleware('permission:integrasi-rn-rekap-kemen_create');
+	    Route::any('/{id}/edit', 'IntegrasiRnRekapKemenController@edit')->middleware('permission:integrasi-rn-rekap-kemen_edit');
+	    Route::delete('/{id}/delete', 'IntegrasiRnRekapKemenController@delete')->middleware('permission:integrasi-rn-rekap-kemen_delete');
+	});
+
+	Route::group(['prefix' => 'integrasi-rn-rekap-prop'], function () {
+	    Route::get('/', 'IntegrasiRnRekapPropController@index')->middleware('permission:integrasi-rn-rekap-prop_view');
+	    Route::get('/{id}/view', 'IntegrasiRnRekapPropController@view')->middleware('permission:integrasi-rn-rekap-prop_view');
+	    Route::any('/create', 'IntegrasiRnRekapPropController@create')->middleware('permission:integrasi-rn-rekap-prop_create');
+	    Route::any('/{id}/edit', 'IntegrasiRnRekapPropController@edit')->middleware('permission:integrasi-rn-rekap-prop_edit');
+	    Route::delete('/{id}/delete', 'IntegrasiRnRekapPropController@delete')->middleware('permission:integrasi-rn-rekap-prop_delete');
 	});
 
 	/** Controllers Detail **/

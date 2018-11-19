@@ -65,5 +65,12 @@ class ProfileController extends Controller {
         return view('auth.change_password',compact('model','validator'));
     }
 
+    public function kabkot()
+    {
+        $id = Auth::user()->id;
+        $model = $this->model->find($id);
+        return view('auth.kabkot',compact('model'));
+    }
+
 }
 

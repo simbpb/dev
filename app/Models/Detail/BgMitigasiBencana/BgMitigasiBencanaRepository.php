@@ -102,20 +102,20 @@ class BgMitigasiBencanaRepository
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
         $model->nama_kegiatan = $request->input('nama_kegiatan');
-$model->thn_anggaran = $request->input('thn_anggaran');
-$model->sumber_anggaran = $request->input('sumber_anggaran');
-$model->alokasi_anggaran = $request->input('alokasi_anggaran');
-$model->volume_pekerjaan = $request->input('volume_pekerjaan');
-$model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
-$model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
-$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
-$model->titik_koordinat_long = $request->input('titik_koordinat_long');
-$model->status_aset = $request->input('status_aset');
-$model->biaya_pelaksanaan_kontraktor = $request->input('biaya_pelaksanaan_kontraktor');
-$model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
-$model->rencana_keu = $request->input('rencana_keu');
-$model->rencana_fisik = $request->input('rencana_fisik');
-
+		$model->thn_anggaran = $request->input('thn_anggaran');
+		$model->sumber_anggaran = $request->input('sumber_anggaran');
+		$model->alokasi_anggaran = $request->input('alokasi_anggaran');
+		$model->volume_pekerjaan = $request->input('volume_pekerjaan');
+		$model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
+		$model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
+		$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+		$model->titik_koordinat_long = $request->input('titik_koordinat_long');
+		$model->status_aset = $request->input('status_aset');
+		$model->biaya_pelaksanaan_kontraktor = $request->input('biaya_pelaksanaan_kontraktor');
+		$model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
+		$model->rencana_keu = $request->input('rencana_keu');
+		$model->rencana_fisik = $request->input('rencana_fisik');
+		
         $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
 
@@ -148,20 +148,20 @@ $model->rencana_fisik = $request->input('rencana_fisik');
         $model->nama_propinsi = $lokasi->nama_propinsi;
         $model->nama_kabupatenkota = $lokasi->nama_kabupatenkota;
         $model->nama_kegiatan = $request->input('nama_kegiatan');
-$model->thn_anggaran = $request->input('thn_anggaran');
-$model->sumber_anggaran = $request->input('sumber_anggaran');
-$model->alokasi_anggaran = $request->input('alokasi_anggaran');
-$model->volume_pekerjaan = $request->input('volume_pekerjaan');
-$model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
-$model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
-$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
-$model->titik_koordinat_long = $request->input('titik_koordinat_long');
-$model->status_aset = $request->input('status_aset');
-$model->biaya_pelaksanaan_kontraktor = $request->input('biaya_pelaksanaan_kontraktor');
-$model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
-$model->rencana_keu = $request->input('rencana_keu');
-$model->rencana_fisik = $request->input('rencana_fisik');
-
+		$model->thn_anggaran = $request->input('thn_anggaran');
+		$model->sumber_anggaran = $request->input('sumber_anggaran');
+		$model->alokasi_anggaran = $request->input('alokasi_anggaran');
+		$model->volume_pekerjaan = $request->input('volume_pekerjaan');
+		$model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
+		$model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
+		$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+		$model->titik_koordinat_long = $request->input('titik_koordinat_long');
+		$model->status_aset = $request->input('status_aset');
+		$model->biaya_pelaksanaan_kontraktor = $request->input('biaya_pelaksanaan_kontraktor');
+		$model->manajemen_konstruksi = $request->input('manajemen_konstruksi');
+		$model->rencana_keu = $request->input('rencana_keu');
+		$model->rencana_fisik = $request->input('rencana_fisik');
+		
         $model->is_actived = !empty($request->input('status')) ? '1' : '0';
         $model->save();
         
