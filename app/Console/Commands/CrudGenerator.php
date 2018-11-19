@@ -147,7 +147,7 @@ class CrudGenerator extends Command
                 if ($key === key($columns)) {
                     $template .= "\$model->".$column." = \$request->input('".$column."');";
                 } else {
-                    $template .= "\$model->".$column." = \$request->input('".$column."');\n";
+                    $template .= "\$model->".$column." = \$request->input('".$column."');\n\t\t";
                 }
             }
         }
@@ -176,7 +176,7 @@ class CrudGenerator extends Command
         $template = "";
         $columns = $this->getColumns($table);
         foreach ($columns as $key => $column) {
-            $template .= "'".$column."' => \$model->".$column.",\n";
+            $template .= "'".$column."' => \$model->".$column.",\n\t\t\t";
         }
 
         return $template;
@@ -215,7 +215,7 @@ class CrudGenerator extends Command
                 if ($key === key($columns)) {
                     $template .= "{ \"title\": \"".$exp."\", \"data\": \"".$column."\" },";
                 } else {
-                    $template .= "{ \"title\": \"".$exp."\", \"data\": \"".$column."\" },\n";
+                    $template .= "{ \"title\": \"".$exp."\", \"data\": \"".$column."\" },\n\t\t\t";
                 }
             }
         }
