@@ -31,9 +31,8 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Nama Form", "data": "nama_form" },
-         { "title": "Path", "data": "path", render: function (data, type, row, meta) {
-             return '<a href="'+base_url+'/details'+row.path+'" target="_blank">'+row.path+'</a>';
+         { "title": "Nama Form", "data": "nama_form", render: function (data, type, row, meta) {
+             return '<a href="'+base_url+'/details'+row.path+'" target="_blank">'+row.nama_form+'</a>';
          }},
          { "title" : "", "orderable": false, "width": "170px", "className": "text-center", render: function (data, type, row, meta) {
             var view = '';
