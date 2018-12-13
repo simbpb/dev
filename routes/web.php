@@ -15,7 +15,8 @@
 //     return view('welcome');
 // });
 Route::get('/', 'HomeController@index');
-Route::get('/generate-all', 'HomeController@generateAll');
+Route::get('/generate-details', 'HomeController@generateDetails');
+Route::get('/generate-faqs', 'HomeController@generateFaqs');
 Route::group(['prefix' => config('app.auth_page')], function () {
 	Auth::routes();
 });
@@ -378,4 +379,29 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 
 	});
 	/** End controllers Detail **/
+
+	Route::group(['prefix' => 'faqs'], function () {
+		Route::get('/faq-asian-games', 'Faq\FaqAsianGamesController@index');
+		Route::get('/faq-asset-cagar-budaya', 'Faq\FaqAssetCagarBudayaController@index');
+		Route::get('/faq-bgh', 'Faq\FaqBghController@index');
+		Route::get('/faq-bg-mitigasi-bencana', 'Faq\FaqBgMitigasiBencanaController@index');
+		Route::get('/faq-bg-negara', 'Faq\FaqBgNegaraController@index');
+		Route::get('/faq-bg-umum', 'Faq\FaqBgUmumController@index');
+		Route::get('/faq-hsbgn', 'Faq\FaqHsbgnController@index');
+		Route::get('/faq-kws-destinasi-wisata', 'Faq\FaqKwsDestinasiWisataController@index');
+		Route::get('/faq-kws-perkotaan-strategis', 'Faq\FaqKwsPerkotaanStrategisController@index');
+		Route::get('/faq-kws-prioritas-nasional', 'Faq\FaqKwsPrioritasNasionalController@index');
+		Route::get('/faq-kws-pusaka-pemukiman-trad', 'Faq\FaqKwsPusakaPemukimanTradController@index');
+		Route::get('/faq-kws-rawan-bencana', 'Faq\FaqKwsRawanBencanaController@index');
+		Route::get('/faq-pengelola-teknis-bersertifikasi', 'Faq\FaqPengelolaTeknisBersertifikasiController@index');
+		Route::get('/faq-pengembangan-kota-hijau', 'Faq\FaqPengembanganKotaHijauController@index');
+		Route::get('/faq-plbn', 'Faq\FaqPlbnController@index');
+		Route::get('/faq-regulasi-perda', 'Faq\FaqRegulasiPerdaController@index');
+		Route::get('/faq-rehab-bg-pusaka-istana', 'Faq\FaqRehabBgPusakaIstanaController@index');
+		Route::get('/faq-revolusi-mental', 'Faq\FaqRevolusiMentalController@index');
+		Route::get('/faq-rth-rencana-tigapuluhpersen', 'Faq\FaqRthRencanaTigapuluhpersenController@index');
+		Route::get('/faq-rth-status-tigapuluhpersen', 'Faq\FaqRthStatusTigapuluhpersenController@index');
+		Route::get('/faq-tabg', 'Faq\FaqTabgController@index');
+		Route::get('/faq-tabg-cb', 'Faq\FaqTabgCbController@index');
+	});
 });

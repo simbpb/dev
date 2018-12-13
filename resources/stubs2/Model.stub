@@ -1,0 +1,9 @@
+<?php
+namespace App\Models\Faq\{{modelName}};
+
+use App\Models\BaseModel;
+
+class {{modelName}} extends BaseModel
+{
+    protected $table = '{{tableName}}';
+}

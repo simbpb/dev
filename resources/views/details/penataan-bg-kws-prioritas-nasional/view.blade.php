@@ -35,38 +35,18 @@
 				  		</div>
 				  		
                             <div class="form-group">
-                                <label>Indeks Resiko</label>
-                                <div class="form-group"><b>{!! $model['indeks_resiko'] !!}</b></div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Tingkat Resiko</label>
-                                <div class="form-group"><b>{!! $model['tingkat_resiko'] !!}</b></div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Risiko Bencana Dominan</label>
-                                <div class="form-group"><b>{!! $model['risiko_bencana_dominan'] !!}</b></div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Struktur Ruang</label>
-                                <div class="form-group"><b>{!! $model['struktur_ruang'] !!}</b></div>
-                            </div>
-
-                            <div class="form-group">
                                 <label>Nama Kegiatan</label>
                                 <div class="form-group"><b>{!! $model['nama_kegiatan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Tahun Anggaran</label>
-                                <div class="form-group"><b>{!! $model['tahun_anggaran'] !!}</b></div>
+                                <label>Thn Anggaran</label>
+                                <div class="form-group"><b>{!! $model['thn_anggaran'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Sumber Pendanaan</label>
-                                <div class="form-group"><b>{!! $model['sumber_pendanaan'] !!}</b></div>
+                                <label>Sumber Anggaran</label>
+                                <div class="form-group"><b>{!! $model['sumber_anggaran'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
@@ -74,22 +54,22 @@
                                 <div class="form-group"><b>{!! $model['alokasi_anggaran'] !!}</b></div>
                             </div>
 
-                            </div>
-                                <div class="col-lg-6">
-
                             <div class="form-group">
                                 <label>Volume Pekerjaan</label>
                                 <div class="form-group"><b>{!! $model['volume_pekerjaan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Instansi Unit</label>
-                                <div class="form-group"><b>{!! $model['instansi_unit'] !!}</b></div>
+                                <label>Instansi Unit Organisasi Pelaksana</label>
+                                <div class="form-group"><b>{!! $model['instansi_unit_organisasi_pelaksana'] !!}</b></div>
                             </div>
 
+                            </div>
+                                <div class="col-lg-6">
+
                             <div class="form-group">
-                                <label>Lokasi Kegiatan</label>
-                                <div class="form-group"><b>{!! $model['lokasi_kegiatan'] !!}</b></div>
+                                <label>Lokasi Kegiatan Proyek</label>
+                                <div class="form-group"><b>{!! $model['lokasi_kegiatan_proyek'] !!}</b></div>
                             </div>
 
                             <div class="form-group">

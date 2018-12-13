@@ -48,34 +48,6 @@
 				  		</div>
 						
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Indeks Resiko</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('indeks_resiko',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
-
-                        <div class="form-group">
-                            <label class="control-label col-lg-3">Tingkat Resiko</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('tingkat_resiko',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
-
-                        <div class="form-group">
-                            <label class="control-label col-lg-3">Risiko Bencana Dominan</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('risiko_bencana_dominan',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
-
-                        <div class="form-group">
-                            <label class="control-label col-lg-3">Struktur Ruang</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('struktur_ruang',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
-
-                        <div class="form-group">
                             <label class="control-label col-lg-3">Nama Kegiatan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('nama_kegiatan',null, ['class' => 'form-control']) !!}
@@ -83,16 +55,16 @@
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Tahun Anggaran</label>
+                            <label class="control-label col-lg-3">Thn Anggaran</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('tahun_anggaran',null, ['class' => 'form-control']) !!}
+                                {!! Form::text('thn_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Sumber Pendanaan</label>
+                            <label class="control-label col-lg-3">Sumber Anggaran</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('sumber_pendanaan',null, ['class' => 'form-control']) !!}
+                                {!! Form::text('sumber_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
@@ -103,9 +75,6 @@
                             </div>
                         </div> 
 
-                            </div>
-                                <div class="col-lg-6">
-
                         <div class="form-group">
                             <label class="control-label col-lg-3">Volume Pekerjaan</label>
                             <div class="col-lg-9"> 
@@ -114,16 +83,19 @@
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Instansi Unit</label>
+                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('instansi_unit',null, ['class' => 'form-control']) !!}
+                                {!! Form::text('instansi_unit_organisasi_pelaksana',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
+                            </div>
+                                <div class="col-lg-6">
+
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Lokasi Kegiatan</label>
+                            <label class="control-label col-lg-3">Lokasi Kegiatan Proyek</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('lokasi_kegiatan',null, ['class' => 'form-control']) !!}
+                                {!! Form::text('lokasi_kegiatan_proyek',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
