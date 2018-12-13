@@ -6,7 +6,7 @@ $(function() {
          orderable: false,
          width: '100px'
       }],
-      dom: '<"datatable-header"fl><"datatable-scroll"tr><"datatable-footer"ip>',
+      dom: '<"datatable-header"fBl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
       language: {
          search: '_INPUT_',
          searchPlaceholder: 'Type to filter...',

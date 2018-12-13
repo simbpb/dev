@@ -1,0 +1,36 @@
+<?php
+namespace App\Models\Faq\{{modelName}};
+
+use DB;
+use File;
+
+class {{modelName}}Repository
+{
+
+    protected $model;
+    {{modelBasePath}}
+      
+    public function __construct(
+        {{modelName}} $model
+    ) {
+        $this->model = $model;
+    }
+
+    public function list($request)
+    {
+        $limit = !empty($request['limit']) ? $request['limit'] : 10;
+     
+        $model = $this->model->select(
+                        '{{tableName}}.id',
+                        {{modelColumns}},
+                        '{{tableName}}.is_actived'
+                    )->searchOrder($request, [
+                        {{modelColumns}},
+                        '{{tableName}}.is_actived'
+                    ])
+                    ->filterLocation()
+                    ->paginate($limit);
+
+        return (new {{modelName}}Transformer)->transformPaginate($model);
+    }
+}
