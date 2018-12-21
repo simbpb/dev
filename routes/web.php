@@ -381,7 +381,7 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 	});
 	/** End controllers Detail **/
 
-	Route::group(['prefix' => 'faqs', 'middleware' => 'permissions:datamart_view'], function () {
+	Route::group(['prefix' => 'faqs', 'middleware' => 'permission:datamart_view'], function () {
 		Route::get('/faq-asian-games', 'Faq\FaqAsianGamesController@index');
 		Route::get('/faq-asset-cagar-budaya', 'Faq\FaqAssetCagarBudayaController@index');
 		Route::get('/faq-bgh', 'Faq\FaqBghController@index');
