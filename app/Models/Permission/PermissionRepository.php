@@ -46,6 +46,7 @@ class PermissionRepository
     {
         DB::beginTransaction();
         $model = $this->model->find($id);
+        $model->name = $request->input('name');
         $model->alias = $request->input('alias');
         $model->menu_id = !empty($request->input('menu_id')) ? $request->input('menu_id') : 0;
         $model->save();

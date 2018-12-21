@@ -28,12 +28,8 @@
 					<div class="col-lg-6">
 						<div class="form-group">
 				    		<label class="control-label col-lg-2">Nama*</label>
-				    		<div class="col-lg-10"> 
-				    			@if(isset($model))
-					    			{!! Form::text('name',null, ['class' => 'form-control', 'disabled' => 'disabled']) !!}
-					    		@else
-					    			{!! Form::text('name',null, ['class' => 'form-control']) !!}
-					    		@endif
+				    		<div class="col-lg-10">
+					    		{!! Form::text('name',null, ['class' => 'form-control']) !!}
 					    	</div>
 				  		</div>
 				  		<div class="form-group">
