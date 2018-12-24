@@ -9,15 +9,19 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Models\User\UserRepository;
 use App\Http\Controllers\Controller;
+use App\Models\Lokasi\LokasiRepository;
 
 class ProfileController extends Controller {
     
     protected $model;
+    protected $lokasi;
 
     public function __construct(
-        UserRepository $user
+        UserRepository $user,
+        LokasiRepository $lokasi
     ) {
         $this->model = $user;
+        $this->lokasi = $lokasi;
     }
 
     protected function validationRules() {
@@ -67,9 +71,12 @@ class ProfileController extends Controller {
 
     public function kabkot()
     {
-        $id = Auth::user()->id;
-        $model = $this->model->find($id);
-        return view('auth.kabkot',compact('model'));
+        $user = Auth::user();
+        $model = $this->model->find($user->id);
+        // dd($model);
+        $provinces = $this->lokasi->getTextProvincesOptions();
+
+        return view('auth.kabkot',compact('provinces'));
     }
 
 }

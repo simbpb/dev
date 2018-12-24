@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Profil Anda')
+@section('title', 'Profil Kabupaten/Kota')
 @section('content')
 <div class="page-container">
    	<div class="page-content">
@@ -15,48 +15,96 @@
 	            </div>
 	            <div class="panel-body">
 	            	<div class="row">
-						<div class="col-xs-4">
-							<div class="form-group">
-					    		<label>Name</label>
-					    		<div class="form-group"><b>{!! $model['fullname'] !!}</b></div>
-					  		</div>
-					  		<div class="form-group">
-					    		<label>Username</label>
-					    		<div class="form-group"><b>{!! $model['username'] !!}</b></div>
-					  		</div>
-					  		<div class="form-group">
-					    		<label>Email</label>
-					    		<div class="form-group"><b>{!! $model['email'] !!}</b></div>
-					  		</div>
-					  	</div>
-					  	<div class="col-xs-4">
-					  		<div class="form-group">
-					    		<label>Group</label>
-					  			<div class="form-group"><b>{!! ($model['role_name']) ? $model['role_name'] : '-' !!}</b></div>
-					  		</div>
-					  		<div class="form-group">
-					    		<label>Propinsi</label>
-					  			<div class="form-group"><b>{!! ($model['province_name']) ? $model['province_name'] : '-' !!}</b></div>
-					  		</div>
-					  		<div class="form-group">
-					    		<label>Kabupaten/Kota</label>
-					  			<div class="form-group"><b>{!! ($model['city_name']) ? $model['city_name'] : '-' !!}</b></div>
-					  		</div>
-					  	</div>
-					  	<div class="col-xs-4">
-					  		<div class="form-group">
-					    		<label>Sub Direktorat</label>
-					  			<div class="form-group"><b>{!! ($model['subdit_name']) ? $model['subdit_name'] : '-' !!}</b></div>
-					  		</div>
-					  		<div class="form-group">
-					    		<label>Status</label>
-					    		<div class="form-group"><b>{!! ($model['status'] == '00') ? 'ACTIVE' : 'INACTIVE' !!}</b></div>
-					  		</div>
-					  	</div>
-				  	</div>
+		            	<div class="form-group">
+		            		<div class="col-lg-12">
+								<div class="row">
+									<div class="col-xs-3">
+										{!! Form::select('propinsi_id', $provinces, null, ['id' => 'provinces', 'class' => 'form-control']) !!}
+									</div>
+									<div class="col-xs-3">
+										{!! Form::select('kota_id', ['' => 'Pilih Kabupaten/Kota'], null, ['id' => 'cities', 'class' => 'form-control']) !!}
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12">&nbsp;</div>
+						</div>
+						<div class="col-lg-3">
+							<div class="thumbnail no-padding">
+								<div class="thumb">
+									<img src="/logo_kabkot/Lambang_Kabupaten_Aceh_Barat.png" alt="">
+								</div>
+							
+						    	<div class="caption text-center">
+						    		<h6 class="text-semibold no-margin"></h6>
+						    	</div>
+					    	</div>
+						</div>
+						<div class="col-lg-9">
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<tbody>
+										<tr>
+											<td width="25%">Nama Provinsi</td>
+											<td width="75%">Aceh</td>
+										</tr>
+										<tr>
+											<td>Nama Kabupaten/Kota</td>
+											<td>Kabupaten Aceh Barat</td>
+										</tr>
+										<tr>
+											<td>Kode Lokasi</td>
+											<td>Kabupaten Aceh Barat</td>
+										</tr>
+										<tr>
+											<td>Kriteria Sistem Perkotaan Nasional</td>
+											<td>Kabupaten Aceh Barat</td>
+										</tr>
+										<tr>
+											<td>Kriteria Prioritas Pembangunan Perkotaan Nasional</td>
+											<td>Kabupaten Aceh Barat</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
       	</div>
    	</div>
 </div>
+@endsection
+@section('js')
+<script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
+<script type="text/javascript">
+$(function() {
+	var currentProvinceId = $('#provinces').val();
+	@if(isset($model))
+		getCities(currentProvinceId, function(){
+			$('#cities').val('<?=$model['kota_id']?>');
+		});
+    @else
+        getCities(currentProvinceId);
+	@endif
+    $('#provinces').change(function() {
+        var provinceId = this.value;
+        getCities(provinceId);
+    });
+});
+
+function getCities(provinceId, callback) {
+	$('#cities').find('option').not(':first').remove();
+	$.ajax({
+        url: base_url + '/ajax/cities/' + provinceId,
+        type: 'GET',
+        datatype: 'JSON',
+        success: function (result) {
+            $.each(result, function (i, item) {
+                $('#cities').append($('<option></option>').val(i).html(item));
+            });
+            callback()
+        }
+    });
+}
+</script>
 @endsection
