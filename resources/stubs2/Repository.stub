@@ -33,4 +33,22 @@ class {{modelName}}Repository
 
         return (new {{modelName}}Transformer)->transformPaginate($model);
     }
+
+    public function listByLokasi($lokasiKode, $request)
+    {
+        $limit = !empty($request['limit']) ? $request['limit'] : 10;
+     
+        $model = $this->model->select(
+                        '{{tableName}}.id',
+                        {{modelColumns}},
+                        '{{tableName}}.is_actived'
+                    )->searchOrder($request, [
+                        {{modelColumns}},
+                        '{{tableName}}.is_actived'
+                    ])
+                    ->where('lokasi_kode',$lokasiKode)
+                    ->paginate($limit);
+
+        return (new {{modelName}}Transformer)->transformPaginate($model);
+    }
 }

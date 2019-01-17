@@ -24,9 +24,9 @@ Route::group(['prefix' => config('app.auth_page')], function () {
 Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], function () {
     Route::get('/', 'AdminController@index');
     Route::get('/profile', 'Auth\ProfileController@index');
-    Route::get('/profile/kabkot', 'Auth\ProfileController@kabkot')->middleware('permission:profilekabkot_view');
     Route::any('/change-password', 'Auth\ProfileController@changePassword');
     Route::get('/data-mart', 'DataMartController@index');
+    Route::get('/profile/kabkot', 'ProfileKabkotController@kabkot')->middleware('permission:profilekabkot_view');
     
     Route::group(['prefix' => 'ajax'], function () {
     	Route::get('/cities/{provinceId}', 'Ajax\LocationsController@cities');
@@ -404,5 +404,30 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		Route::get('/faq-rth-status-tigapuluhpersen', 'Faq\FaqRthStatusTigapuluhpersenController@index');
 		Route::get('/faq-tabg', 'Faq\FaqTabgController@index');
 		Route::get('/faq-tabg-cb', 'Faq\FaqTabgCbController@index');
+	});
+
+	Route::group(['prefix' => 'faqs-modal', 'middleware' => 'permission:datamart_view'], function () {
+		Route::get('/faq-asian-games/{lokasiKode}', 'Faq\FaqAsianGamesController@modal');
+		Route::get('/faq-asset-cagar-budaya/{lokasiKode}', 'Faq\FaqAssetCagarBudayaController@modal');
+		Route::get('/faq-bgh/{lokasiKode}', 'Faq\FaqBghController@modal');
+		Route::get('/faq-bg-mitigasi-bencana/{lokasiKode}', 'Faq\FaqBgMitigasiBencanaController@modal');
+		Route::get('/faq-bg-negara/{lokasiKode}', 'Faq\FaqBgNegaraController@modal');
+		Route::get('/faq-bg-umum/{lokasiKode}', 'Faq\FaqBgUmumController@modal');
+		Route::get('/faq-hsbgn/{lokasiKode}', 'Faq\FaqHsbgnController@modal');
+		Route::get('/faq-kws-destinasi-wisata/{lokasiKode}', 'Faq\FaqKwsDestinasiWisataController@modal');
+		Route::get('/faq-kws-perkotaan-strategis/{lokasiKode}', 'Faq\FaqKwsPerkotaanStrategisController@modal');
+		Route::get('/faq-kws-prioritas-nasional/{lokasiKode}', 'Faq\FaqKwsPrioritasNasionalController@modal');
+		Route::get('/faq-kws-pusaka-pemukiman-trad/{lokasiKode}', 'Faq\FaqKwsPusakaPemukimanTradController@modal');
+		Route::get('/faq-kws-rawan-bencana/{lokasiKode}', 'Faq\FaqKwsRawanBencanaController@modal');
+		Route::get('/faq-pengelola-teknis-bersertifikasi/{lokasiKode}', 'Faq\FaqPengelolaTeknisBersertifikasiController@modal');
+		Route::get('/faq-pengembangan-kota-hijau/{lokasiKode}', 'Faq\FaqPengembanganKotaHijauController@modal');
+		Route::get('/faq-plbn/{lokasiKode}', 'Faq\FaqPlbnController@modal');
+		Route::get('/faq-regulasi-perda/{lokasiKode}', 'Faq\FaqRegulasiPerdaController@modal');
+		Route::get('/faq-rehab-bg-pusaka-istana/{lokasiKode}', 'Faq\FaqRehabBgPusakaIstanaController@modal');
+		Route::get('/faq-revolusi-mental/{lokasiKode}', 'Faq\FaqRevolusiMentalController@modal');
+		Route::get('/faq-rth-rencana-tigapuluhpersen/{lokasiKode}', 'Faq\FaqRthRencanaTigapuluhpersenController@modal');
+		Route::get('/faq-rth-status-tigapuluhpersen/{lokasiKode}', 'Faq\FaqRthStatusTigapuluhpersenController@modal');
+		Route::get('/faq-tabg/{lokasiKode}', 'Faq\FaqTabgController@modal');
+		Route::get('/faq-tabg-cb/{lokasiKode}', 'Faq\FaqTabgCbController@modal');
 	});
 });

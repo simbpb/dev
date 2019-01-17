@@ -28,7 +28,17 @@ class FaqKwsRawanBencanaController extends Controller {
         }
         $path = $this->view;
 
-        return view('faqs.'.$this->view.'.index', compact('path','programId'));
+        return view('faqs.'.$this->view.'.index', compact('path'));
+    }
+
+    public function modal($lokasiKode, Request $request) {
+        if ($request->get('act') == 'ajax') {
+            $model = $this->model->listByLokasi($lokasiKode, $request->all());
+            return $model;
+        }
+        $path = $this->view;
+
+        return view('faqs.'.$this->view.'.modal', compact('path','lokasiKode'));
     }
     
 }

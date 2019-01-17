@@ -324,12 +324,25 @@ class FaqsGenerator extends Command
             $this->getStub('index.blade')
         );
 
+        $modalTemplate = str_replace(
+            [
+                '{{modelNameLabel}}',
+                '{{modelTable}}'
+            ],
+            [
+                ucwords($this->camelToKebab($name, " ")),
+                $this->getTableColumns($table)
+            ],
+            $this->getStub('modal.blade')
+        );
+
         $folder = $this->camelToKebab($name);
         if (!file_exists($path = resource_path("/views/faqs/{$folder}"))) {
             mkdir($path, 0777, true);
         }
 
         file_put_contents(resource_path("/views/faqs/{$folder}/index.blade.php"), $indexTemplate);
+        file_put_contents(resource_path("/views/faqs/{$folder}/modal.blade.php"), $modalTemplate);
     }
 
     protected function getValidateColumns($table)

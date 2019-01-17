@@ -69,13 +69,16 @@ class ProfileController extends Controller {
         return view('auth.change_password',compact('model','validator'));
     }
 
-    public function kabkot()
+    public function kabkot(Request $request)
     {
         $user = Auth::user();
         $model = $this->model->find($user->id);
-        // dd($model);
         $provinces = $this->lokasi->getTextProvincesOptions();
 
+        if ($request->ajax()) {
+            return "AJAX";
+        }
+        
         return view('auth.kabkot',compact('provinces'));
     }
 
