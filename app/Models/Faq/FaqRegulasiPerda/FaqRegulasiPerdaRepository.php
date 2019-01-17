@@ -123,4 +123,98 @@ protected $basePath14 = '/files/faqs/faq-regulasi-perda/file-perbup-rtbl-6';
 
         return (new FaqRegulasiPerdaTransformer)->transformPaginate($model);
     }
+
+    public function listByLokasi($lokasiKode, $request)
+    {
+        $limit = !empty($request['limit']) ? $request['limit'] : 10;
+     
+        $model = $this->model->select(
+                        'faq_regulasi_perda.id',
+                        'faq_regulasi_perda.regulasi_perda_id',
+						'faq_regulasi_perda.info_wilayah_id',
+						'faq_regulasi_perda.detail_kdprog_id',
+						'faq_regulasi_perda.thn_periode_keg',
+						'faq_regulasi_perda.lokasi_kode',
+						'faq_regulasi_perda.nama_propinsi',
+						'faq_regulasi_perda.nama_kabupatenkota',
+						'faq_regulasi_perda.kd_struktur',
+						'faq_regulasi_perda.perda_bg',
+						'faq_regulasi_perda.file_perda_bg',
+						'faq_regulasi_perda.perda_rt_rw',
+						'faq_regulasi_perda.file_rt_rw',
+						'faq_regulasi_perda.perda_rd_tr',
+						'faq_regulasi_perda.file_rd_tr',
+						'faq_regulasi_perda.perda_cagar_budaya',
+						'faq_regulasi_perda.file_perda_cagar_budaya',
+						'faq_regulasi_perda.perda_rth',
+						'faq_regulasi_perda.file_perda_rth',
+						'faq_regulasi_perda.perwal_perbup_bgh',
+						'faq_regulasi_perda.file_perbup_bgh',
+						'faq_regulasi_perda.perwal_perbup_imb',
+						'faq_regulasi_perda.file_perbup_imb',
+						'faq_regulasi_perda.perwal_perbup_slf',
+						'faq_regulasi_perda.file_perbup_slf',
+						'faq_regulasi_perda.perwal_perbup_rtbl_1',
+						'faq_regulasi_perda.file_perbup_rtbl_1',
+						'faq_regulasi_perda.perwal_perbup_rtbl_2',
+						'faq_regulasi_perda.file_perbup_rtbl_2',
+						'faq_regulasi_perda.perwal_perbup_rtbl_3',
+						'faq_regulasi_perda.file_perbup_rtbl_3',
+						'faq_regulasi_perda.perwal_perbup_rtbl_4',
+						'faq_regulasi_perda.file_perbup_rtbl_4',
+						'faq_regulasi_perda.perwal_perbup_rtbl_5',
+						'faq_regulasi_perda.file_perbup_rtbl_5',
+						'faq_regulasi_perda.perwal_perbup_rtbl_6',
+						'faq_regulasi_perda.file_perbup_rtbl_6',
+						'faq_regulasi_perda.tgl_input_wilayah',
+						'faq_regulasi_perda.info_wilayah_sk',
+						'faq_regulasi_perda.last_update',
+                        'faq_regulasi_perda.is_actived'
+                    )->searchOrder($request, [
+                        'faq_regulasi_perda.regulasi_perda_id',
+						'faq_regulasi_perda.info_wilayah_id',
+						'faq_regulasi_perda.detail_kdprog_id',
+						'faq_regulasi_perda.thn_periode_keg',
+						'faq_regulasi_perda.lokasi_kode',
+						'faq_regulasi_perda.nama_propinsi',
+						'faq_regulasi_perda.nama_kabupatenkota',
+						'faq_regulasi_perda.kd_struktur',
+						'faq_regulasi_perda.perda_bg',
+						'faq_regulasi_perda.file_perda_bg',
+						'faq_regulasi_perda.perda_rt_rw',
+						'faq_regulasi_perda.file_rt_rw',
+						'faq_regulasi_perda.perda_rd_tr',
+						'faq_regulasi_perda.file_rd_tr',
+						'faq_regulasi_perda.perda_cagar_budaya',
+						'faq_regulasi_perda.file_perda_cagar_budaya',
+						'faq_regulasi_perda.perda_rth',
+						'faq_regulasi_perda.file_perda_rth',
+						'faq_regulasi_perda.perwal_perbup_bgh',
+						'faq_regulasi_perda.file_perbup_bgh',
+						'faq_regulasi_perda.perwal_perbup_imb',
+						'faq_regulasi_perda.file_perbup_imb',
+						'faq_regulasi_perda.perwal_perbup_slf',
+						'faq_regulasi_perda.file_perbup_slf',
+						'faq_regulasi_perda.perwal_perbup_rtbl_1',
+						'faq_regulasi_perda.file_perbup_rtbl_1',
+						'faq_regulasi_perda.perwal_perbup_rtbl_2',
+						'faq_regulasi_perda.file_perbup_rtbl_2',
+						'faq_regulasi_perda.perwal_perbup_rtbl_3',
+						'faq_regulasi_perda.file_perbup_rtbl_3',
+						'faq_regulasi_perda.perwal_perbup_rtbl_4',
+						'faq_regulasi_perda.file_perbup_rtbl_4',
+						'faq_regulasi_perda.perwal_perbup_rtbl_5',
+						'faq_regulasi_perda.file_perbup_rtbl_5',
+						'faq_regulasi_perda.perwal_perbup_rtbl_6',
+						'faq_regulasi_perda.file_perbup_rtbl_6',
+						'faq_regulasi_perda.tgl_input_wilayah',
+						'faq_regulasi_perda.info_wilayah_sk',
+						'faq_regulasi_perda.last_update',
+                        'faq_regulasi_perda.is_actived'
+                    ])
+                    ->where('lokasi_kode',$lokasiKode)
+                    ->paginate($limit);
+
+        return (new FaqRegulasiPerdaTransformer)->transformPaginate($model);
+    }
 }
