@@ -19,10 +19,40 @@
 		            		<div class="col-lg-12">
 								<div class="row">
 									<div class="col-xs-3">
-										{!! Form::select('propinsi_id', $provinces, null, ['id' => 'provinces', 'class' => 'form-control']) !!}
+									@if (empty($user->provinceDetail->lokasi_propinsi))
+
+										{!! Form::select('propinsi_id', 
+											$provinces, 
+											null, 
+											['id' => 'provinces',
+											 'class' => 'form-control']) !!}
+
+									@elseif (!empty($user->provinceDetail->lokasi_propinsi))
+
+										{!! Form::select('propinsi_id', 
+											$provinces, 
+											$user->provinceDetail->lokasi_propinsi.'-'.$user->provinceDetail->lokasi_nama, 
+											['id' => 'provinces',
+											 'class' => 'form-control',
+											 'disabled' => 'disabled']) !!}
+
+									@endif
 									</div>
 									<div class="col-xs-3">
+									@if (empty($user->cityDetail->lokasi_kabupatenkota))
+
 										{!! Form::select('kota_id', ['' => 'Pilih Kabupaten/Kota'], null, ['id' => 'cities', 'class' => 'form-control']) !!}
+
+									@elseif (!empty($user->cityDetail->lokasi_kabupatenkota))
+
+										{!! Form::select('kota_id', 
+											['' => 'Pilih Kabupaten/Kota'], 
+											null, 
+											['id' => 'cities', 
+											 'class' => 'form-control',
+											 'disabled' => 'disabled']) !!}
+
+									@endif
 									</div>
 									<div class="col-xs-3">
 										<button class="btn btn-success" type="button" id="search">
@@ -66,9 +96,9 @@ $(function() {
 	});
 
 	var currentProvinceId = $('#provinces').val();
-	@if(isset($model))
+	@if(isset($user->cityDetail))
 		getCities(currentProvinceId, function(){
-			$('#cities').val('<?=$model['kota_id']?>');
+			$('#cities').val('<?=$user->cityDetail->lokasi_kabupatenkota?>');
 		});
     @else
         getCities(currentProvinceId);

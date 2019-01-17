@@ -406,7 +406,7 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		Route::get('/faq-tabg-cb', 'Faq\FaqTabgCbController@index');
 	});
 
-	Route::group(['prefix' => 'faqs-modal', 'middleware' => 'permission:datamart_view'], function () {
+	Route::group(['prefix' => 'faqs-modal', 'middleware' => 'permission:profilekabkot_view'], function () {
 		Route::get('/faq-asian-games/{lokasiKode}', 'Faq\FaqAsianGamesController@modal');
 		Route::get('/faq-asset-cagar-budaya/{lokasiKode}', 'Faq\FaqAssetCagarBudayaController@modal');
 		Route::get('/faq-bgh/{lokasiKode}', 'Faq\FaqBghController@modal');
