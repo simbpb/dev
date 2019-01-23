@@ -242,12 +242,12 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::delete('/{id}/delete', 'Detail\InfoKewilayahanController@delete');
 		});
 
-		Route::group(['prefix' => 'kws-cagar-budaya'], function () {
-		    Route::get('/{programId}', 'Detail\KwsCagarBudayaController@index');
-		    Route::get('/{programId}/{id}/view', 'Detail\KwsCagarBudayaController@view');
-		    Route::any('/{programId}/create', 'Detail\KwsCagarBudayaController@create');
-		    Route::any('/{programId}/{id}/edit', 'Detail\KwsCagarBudayaController@edit');
-		    Route::delete('/{id}/delete', 'Detail\KwsCagarBudayaController@delete');
+		Route::group(['prefix' => 'asset-cagar-budaya'], function () {
+		    Route::get('/{programId}', 'Detail\AssetCagarBudayaController@index');
+		    Route::get('/{programId}/{id}/view', 'Detail\AssetCagarBudayaController@view');
+		    Route::any('/{programId}/create', 'Detail\AssetCagarBudayaController@create');
+		    Route::any('/{programId}/{id}/edit', 'Detail\AssetCagarBudayaController@edit');
+		    Route::delete('/{id}/delete', 'Detail\AssetCagarBudayaController@delete');
 		});
 
 		Route::group(['prefix' => 'kws-perkotaan-strategis'], function () {
