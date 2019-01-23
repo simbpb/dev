@@ -41,12 +41,12 @@
 									<div class="col-xs-3">
 									@if (empty($user->cityDetail->lokasi_kabupatenkota))
 
-										{!! Form::select('kota_id', ['' => 'Pilih Kabupaten/Kota'], null, ['id' => 'cities', 'class' => 'form-control']) !!}
+										{!! Form::select('kota_id', ['00' => 'Pilih Kabupaten/Kota'], null, ['id' => 'cities', 'class' => 'form-control']) !!}
 
 									@elseif (!empty($user->cityDetail->lokasi_kabupatenkota))
 
 										{!! Form::select('kota_id', 
-											['' => 'Pilih Kabupaten/Kota'], 
+											['00' => 'Pilih Kabupaten/Kota'], 
 											null, 
 											['id' => 'cities', 
 											 'class' => 'form-control',
