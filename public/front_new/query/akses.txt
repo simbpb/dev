@@ -1,0 +1,10 @@
+ftp > Gunakan FTP client seperti Filezilla
+http://sim.ciptakarya.pu.go.id/
+user: sibpb
+pass: siBPBck@2017!#
+
+Database > Dpt menggunakan web browser
+http://sim.ciptakarya.pu.go.id/phpmyadmin/
+database name: sibpb
+user: SIbpb
+pass: siBPB2017!#
