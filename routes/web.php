@@ -16,7 +16,7 @@
 // });
 Route::get('/', 'HomeController@index');
 // Route::get('/generate-details', 'HomeController@generateDetails');
-Route::get('/generate-faqs', 'HomeController@generateFaqs');
+// Route::get('/generate-faqs', 'HomeController@generateFaqs');
 Route::group(['prefix' => config('app.auth_page')], function () {
 	Auth::routes();
 });
@@ -122,6 +122,11 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		    Route::any('/create', 'Master\DetailController@create')->middleware('permission:detail_create');
 		    Route::any('/{id}/edit', 'Master\DetailController@edit')->middleware('permission:detail_edit');
 		    Route::delete('/{id}/delete', 'Master\DetailController@delete')->middleware('permission:detail_delete');
+		});
+
+		Route::group(['prefix' => 'info-wilayah'], function () {
+		    Route::get('/', 'Master\InfoWilayahController@index')->middleware('permission:infowilayah_view');
+		    Route::any('/{id}/edit', 'Master\InfoWilayahController@edit')->middleware('permission:infowilayah_edit');
 		});
 		
 	/** End controllers Master **/
