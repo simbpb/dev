@@ -27,10 +27,57 @@
                   </ul>
                </div>
             </div>
-
             <div class="panel-body">
-            <h6 class="text-semibold">Welcome to SIBPB</h6>
-            <p class="content-group"> SISTEM INFORMASI BINA PENATAAN BANGUNAN (SIBPB) </div>
+               <table class="table table-striped table-bordered">
+                  <thead>
+                     <tr>
+                        <th colspan="2">2015</th>
+                        <th colspan="2">2016</th>
+                        <th colspan="2">2017</th>
+                        <th colspan="2">2018</th>
+                        <th colspan="2">2019</th>
+                        <th colspan="2">Total</th>
+                        <th rowspan="2">Satuan</th>
+                     </tr>
+                     <tr>
+                        <th>Target</th>
+                        <th>Aktual</th>
+                        <th>Target</th>
+                        <th>Aktual</th>
+                        <th>Target</th>
+                        <th>Aktual</th>
+                        <th>Target</th>
+                        <th>Aktual</th>
+                        <th>Target</th>
+                        <th>Aktual</th>
+                        <th>Target</th>
+                        <th>Aktual</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     @foreach($model as $row)
+                     <tr>
+                        <td colspan="13">{{ $row->nama_kegiatan_renstra }}</td>
+                     </tr>
+                     <tr>
+                        <td>{{ $row->target_2015 }}</td>
+                        <td>{{ $row->capaian_2015 }}</td>
+                        <td>{{ $row->target_2016 }}</td>
+                        <td>{{ $row->capaian_2016 }}</td>
+                        <td>{{ $row->target_2017 }}</td>
+                        <td>{{ $row->capaian_2017 }}</td>
+                        <td>{{ $row->target_2018 }}</td>
+                        <td>{{ $row->capaian_2018 }}</td>
+                        <td>{{ $row->target_2019 }}</td>
+                        <td>{{ $row->capaian_2019 }}</td>
+                        <td>{{ $row->total_target }}</td>
+                        <td>{{ $row->total_capaian }}</td>
+                        <td>{{ $row->satuan }}</td>
+                     </tr>
+                     @endforeach
+                  </tbody>
+               </table>
+            </div>
          </div>
       </div>
    </div>
