@@ -55,6 +55,7 @@ class HomeController extends Controller
 		'FaqRthStatusTigapuluhpersen' => 'faq_rth_status_tigapuluhpersen',
 		'FaqTabg' => 'faq_tabg',
 		'FaqTabgCb' => 'faq_tabg_cb',
+		'FaqPelepasanRng3' => 'faq_pelepasan_rng3',
 	];
 
 	public function index()

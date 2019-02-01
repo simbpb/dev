@@ -16,7 +16,7 @@
 // });
 Route::get('/', 'HomeController@index');
 // Route::get('/generate-details', 'HomeController@generateDetails');
-// Route::get('/generate-faqs', 'HomeController@generateFaqs');
+Route::get('/generate-faqs', 'HomeController@generateFaqs');
 Route::group(['prefix' => config('app.auth_page')], function () {
 	Auth::routes();
 });
@@ -405,6 +405,7 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		Route::get('/faq-rth-status-tigapuluhpersen', 'Faq\FaqRthStatusTigapuluhpersenController@index');
 		Route::get('/faq-tabg', 'Faq\FaqTabgController@index');
 		Route::get('/faq-tabg-cb', 'Faq\FaqTabgCbController@index');
+		Route::get('/faq-pelepasan-rng-3', 'Faq\FaqPelepasanRng3Controller@index');
 	});
 
 	Route::group(['prefix' => 'faqs-modal', 'middleware' => 'permission:profilekabkot_view'], function () {
@@ -430,5 +431,6 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 		Route::get('/faq-rth-status-tigapuluhpersen/{lokasiKode}', 'Faq\FaqRthStatusTigapuluhpersenController@modal');
 		Route::get('/faq-tabg/{lokasiKode}', 'Faq\FaqTabgController@modal');
 		Route::get('/faq-tabg-cb/{lokasiKode}', 'Faq\FaqTabgCbController@modal');
+		Route::get('/faq-pelepasan-rng-3/{lokasiKode}', 'Faq\FaqPelepasanRng3Controller@modal');
 	});
 });

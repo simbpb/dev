@@ -1,5 +1,5 @@
-@extends('layouts.modal')
-@section('title', 'Asian Games')
+@extends('layouts.app')
+@section('title', 'Faq Pelepasan Rng 3')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -32,7 +32,7 @@ $(function() {
       "ajax": function(data, callback, settings) {
          var column = data.columns[data.order[0].column].data;
          var dir = data.order[0].dir;
-         $.getJSON(base_url + '/faqs-modal/{{$path}}/{{$lokasiKode}}?act=ajax', {
+         $.getJSON(base_url + '/faqs/{{$path}}', {
             limit: data.length,
             search: data.search.value,
             page: Math.ceil(data.start/data.length) + 1,
@@ -51,24 +51,26 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Asian Games Id", "data": "asian_games_id" },
+         { "title": "Pelepasan Rng3 Id", "data": "pelepasan_rng3_id" },
 			{ "title": "Info Wilayah Id", "data": "info_wilayah_id" },
 			{ "title": "Detail Kdprog Id", "data": "detail_kdprog_id" },
 			{ "title": "Thn Periode Keg", "data": "thn_periode_keg" },
 			{ "title": "Lokasi Kode", "data": "lokasi_kode" },
+			{ "title": "Hdno Rn", "data": "hdno_rn" },
 			{ "title": "Nama Propinsi", "data": "nama_propinsi" },
 			{ "title": "Nama Kabupatenkota", "data": "nama_kabupatenkota" },
+			{ "title": "Nama Kecamatan", "data": "nama_kecamatan" },
 			{ "title": "Kd Struktur", "data": "kd_struktur" },
-			{ "title": "Nama Kegiatan", "data": "nama_kegiatan" },
-			{ "title": "Thn Anggaran", "data": "thn_anggaran" },
-			{ "title": "Sumber Anggaran", "data": "sumber_anggaran" },
-			{ "title": "Alokasi Anggaran", "data": "alokasi_anggaran" },
-			{ "title": "Volume Pekerjaan", "data": "volume_pekerjaan" },
-			{ "title": "Instansi Unit Organisasi Pelaksana", "data": "instansi_unit_organisasi_pelaksana" },
-			{ "title": "Lokasi Kegiatan Proyek", "data": "lokasi_kegiatan_proyek" },
-			{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },
-			{ "title": "Titik Koordinat Long", "data": "titik_koordinat_long" },
-			{ "title": "Status Aset", "data": "status_aset" },
+			{ "title": "Kemen Lembaga", "data": "kemen_lembaga" },
+			{ "title": "Nama Penghuni", "data": "nama_penghuni" },
+			{ "title": "Alamat Rn", "data": "alamat_rn" },
+			{ "title": "No Sk Gol3", "data": "no_sk_gol3" },
+			{ "title": "No Sip Gol3", "data": "no_sip_gol3" },
+			{ "title": "No Sk Menteri Pupr", "data": "no_sk_menteri_pupr" },
+			{ "title": "Thn Perjanjian Sewabeli", "data": "thn_perjanjian_sewabeli" },
+			{ "title": "Status Rn", "data": "status_rn" },
+			{ "title": "Thn Pelepasan Rng3", "data": "thn_pelepasan_rng3" },
+			{ "title": "Sk Hak Milik", "data": "sk_hak_milik" },
 			{ "title": "Tgl Input Wilayah", "data": "tgl_input_wilayah" },
 			{ "title": "Info Wilayah Sk", "data": "info_wilayah_sk" },
 			{ "title": "Last Update", "data": "last_update" },

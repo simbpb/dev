@@ -1,5 +1,5 @@
 @extends('layouts.modal')
-@section('title', 'Faq Regulasi Perda')
+@section('title', 'Regulasi Perda')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>

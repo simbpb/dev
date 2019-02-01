@@ -28,6 +28,7 @@ class DataMartController extends Controller
 		'faq-rth-status-tigapuluhpersen' => 'RTH Status Tiga puluh persen',
 		'faq-tabg' => 'TABG',
 		'faq-tabg-cb' => 'TABG BC',
+		'faq-pelepasan-rng-3' => 'Pelepasan RNG3',
 	];
 
 	public function index()

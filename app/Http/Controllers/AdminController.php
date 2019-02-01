@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Menu\MenuRepository;
+use App\Models\Dashboard\DashboardRenstra;
 
 class AdminController extends Controller
 {
@@ -16,10 +17,7 @@ class AdminController extends Controller
 
     public function index()
     {
-    	// $user = \Auth::user()->role;
-     //    echo '<pre>';
-     //    print_r($user);
-    	// return;
-        return view('dashboard');
+    	$model = DashboardRenstra::all();
+        return view('dashboard', compact('model'));
     }
 }
