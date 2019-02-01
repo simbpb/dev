@@ -17,7 +17,7 @@ class InfoWilayahRepository
         $limit = (!empty($request['limit'])) ? $request['limit'] : 10;
      
         $model = $this->model->select(
-                        'dim_info_wilayah.sk',
+                        'dim_info_wilayah.id',
                         'dim_info_wilayah.nama_propinsi',
                         'dim_info_wilayah.nama_kabupatenkota'
                    )->searchOrder($request, [
