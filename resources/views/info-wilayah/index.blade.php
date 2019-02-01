@@ -27,7 +27,7 @@ $(function() {
          });
       },
       "columns": [
-         { "title": "ID", "data": "sk", "visible": false },
+         { "title": "ID", "data": "id", "visible": false },
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
@@ -36,7 +36,7 @@ $(function() {
          { "title" : "", "orderable": false, "width": "170px", "className": "text-center", render: function (data, type, row, meta) {
             var edit = '';
             @can('infowilayah_edit')
-               edit = '<a href="{{ Navigation::adminUrl('/info-wilayah') }}/'+row.sk+'/edit" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="icon-pencil"></i></a>';
+               edit = '<a href="{{ Navigation::adminUrl('/info-wilayah') }}/'+row.id+'/edit" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="icon-pencil"></i></a>';
             @endcan
             return edit;
          }}

@@ -9,7 +9,7 @@ class InfoWilayahTransformer{
 
         $data = $model->getCollection()->transform(function($model, $key) {
             return [
-                'sk' => $model->sk,
+                'id' => $model->id,
                 'nama_propinsi' => $model->nama_propinsi,
                 'nama_kabupatenkota' => $model->nama_kabupatenkota,
             ];
