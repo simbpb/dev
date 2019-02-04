@@ -50,6 +50,12 @@
 						    	{!! Form::text('kriteria_prioritas_pembangunan_perkotaan_nasional',null, ['class' => 'form-control']) !!}
 						    </div>
 				  		</div>
+				  		<div class="form-group">
+				    		<label class="control-label col-lg-3">Kriteria Kota Rawan Air dan Sanitasi</label>
+				    		<div class="col-lg-9"> 
+						    	{!! Form::text('kriteria_kota_rawan_air_dan_sanitasi',null, ['class' => 'form-control']) !!}
+						    </div>
+				  		</div>
 			  		</div>
 			  		<div class="col-lg-6">
 			  			<div class="form-group">
