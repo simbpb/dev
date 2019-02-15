@@ -41,19 +41,38 @@
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-3">Kriteria Sistem Perkotaan Nasional</label> 
 				    		<div class="col-lg-9"> 
-						    	{!! Form::text('kriteria_sistem_perkotaan_nasional',null, ['class' => 'form-control']) !!}
+						    	{!! Form::select('kriteria_sistem_perkotaan_nasional', 
+						    		['' => 'Pilih','PKN' => 'PKN','PKW' => 'PKW','PKSN' => 'PKSN'], null, 
+						    		['class' => 'form-control']) !!}
 						    </div>
 				  		</div>
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-3">Kriteria Prioritas Pembangunan Perkotaan Nasional</label>
 				    		<div class="col-lg-9"> 
-						    	{!! Form::text('kriteria_prioritas_pembangunan_perkotaan_nasional',null, ['class' => 'form-control']) !!}
+						    	{!! Form::select('kriteria_prioritas_pembangunan_perkotaan_nasional', 
+						    		[
+						    			'' => 'Pilih',
+						    			'pengembangan/ peningkatan fungsi 17 kota-kota utama kawasan perbatasan' => 'pengembangan/ peningkatan fungsi 17 kota-kota utama kawasan perbatasan',
+						    			'pengembangan baru 21 kota-kota utama kawasan perbatasan' => 'pengembangan baru 21 kota-kota utama kawasan perbatasan',
+						    			'mendorong pengembangan 38 kota sentra produksi' => 'mendorong pengembangan 38 kota sentra produksi',
+						    			'pengembangan/ peningkatan fungsi 136 kota pusat pertumbuhan nasional' => 'pengembangan/ peningkatan fungsi 136 kota pusat pertumbuhan nasional',
+						    			'pengembangan baru 32 kota pusat pertumbuhan nasional,' => 'pengembangan baru 32 kota pusat pertumbuhan nasional',
+						    			'revitalisasi 11 kota yang telah berfungsi sebagai pusat pertumbuhan nasional,' => 'revitalisasi 11 kota yang telah berfungsi sebagai pusat pertumbuhan nasional'
+						    		], null, 
+						    		['class' => 'form-control']) !!}
 						    </div>
 				  		</div>
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-3">Kriteria Kota Rawan Air dan Sanitasi</label>
 				    		<div class="col-lg-9"> 
-						    	{!! Form::text('kriteria_kota_rawan_air_dan_sanitasi',null, ['class' => 'form-control']) !!}
+						    	{!! Form::select('kriteria_kota_rawan_air_dan_sanitasi', 
+						    		[
+						    			'' => 'Pilih',
+						    			'Kluster B' => 'Kluster B',
+						    			'Kluster C' => 'Kluster C',
+						    			'Kluster D' => 'Kluster D'
+						    		], null, 
+						    		['class' => 'form-control']) !!}
 						    </div>
 				  		</div>
 			  		</div>
