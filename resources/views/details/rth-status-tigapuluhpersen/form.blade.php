@@ -120,12 +120,19 @@
                             </div>
                         </div> 
 
-                        <div class="form-group">
-                            <label class="control-label col-lg-3">Status Aset</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('status_aset',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">Status Aset</label>
+                        <div class="col-lg-9"> 
+                            {!! Form::select('status_aset', [
+                                'Pemda Provinsi' => 'Pemda Provinsi',
+                                'Pemda Kab/ Kota' => 'Pemda Kab/ Kota',
+                                'Masyarakat (perorangan)' => 'Masyarakat (perorangan)',
+                                'Yayasan (lembaga)' => 'Yayasan (lembaga)',
+                                'Pemerintah Pusat' => 'Pemerintah Pusat',
+                                'Pemerintah Pusat (dalam proses hibah/ alih status)' => 'Pemerintah Pusat (dalam proses hibah/ alih status)'
+                            ], null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div> 
 
 						<div class="form-group">
 				    		<label class="control-label col-lg-3">Status</label>

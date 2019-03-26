@@ -252,6 +252,49 @@ class CrudGenerator extends Command
                             </div>
                                 <div class=\"col-lg-6\">\n";
                 }
+            } else
+            if ($column == 'sumber_anggaran') {
+                $template .= "
+                    <div class=\"form-group\">
+                        <label class=\"control-label col-lg-3\">".$exp."</label>
+                        <div class=\"col-lg-9\"> 
+                            {!! Form::select('".$column."', [
+                                'APBN' => 'APBN',
+                                'APBD' => 'APBD',
+                                'APBD-1' => 'APBD-1',
+                                'APBD-2' => 'APBD-2',
+                                'CSR' => 'CSR',
+                                'Hibah Luar Negeri' => 'Hibah Luar Negeri',
+                                'Pinjaman Luar Negeri' => 'Pinjaman Luar Negeri'
+                            ], null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div> \n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
+            } else
+            if ($column == 'status_aset') {
+                $template .= "
+                    <div class=\"form-group\">
+                        <label class=\"control-label col-lg-3\">".$exp."</label>
+                        <div class=\"col-lg-9\"> 
+                            {!! Form::select('".$column."', [
+                                'Pemda Provinsi' => 'Pemda Provinsi',
+                                'Pemda Kab/ Kota' => 'Pemda Kab/ Kota',
+                                'Masyarakat (perorangan)' => 'Masyarakat (perorangan)',
+                                'Yayasan (lembaga)' => 'Yayasan (lembaga)',
+                                'Pemerintah Pusat' => 'Pemerintah Pusat',
+                                'Pemerintah Pusat (dalam proses hibah/ alih status)' => 'Pemerintah Pusat (dalam proses hibah/ alih status)'
+                            ], null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div> \n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
             } else {
                 $template .= "
                         <div class=\"form-group\">
