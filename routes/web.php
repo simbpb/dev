@@ -16,7 +16,7 @@
 // });
 Route::get('/', 'HomeController@index');
 // Route::get('/generate-details', 'HomeController@generateDetails');
-Route::get('/generate-faqs', 'HomeController@generateFaqs');
+// Route::get('/generate-faqs', 'HomeController@generateFaqs');
 Route::group(['prefix' => config('app.auth_page')], function () {
 	Auth::routes();
 });
