@@ -324,6 +324,18 @@ class FaqsGenerator extends Command
             $this->getStub('index.blade')
         );
 
+        $formTemplate = str_replace(
+            [
+                '{{modelNameLabel}}',
+                '{{modelForm}}'
+            ],
+            [
+                ucwords($this->camelToKebab($name, " ")),
+                $this->getFormColumns($table)
+            ],
+            $this->getStub('form.blade')
+        );
+
         $modalTemplate = str_replace(
             [
                 '{{modelNameLabel}}',
@@ -343,6 +355,7 @@ class FaqsGenerator extends Command
 
         file_put_contents(resource_path("/views/faqs/{$folder}/index.blade.php"), $indexTemplate);
         file_put_contents(resource_path("/views/faqs/{$folder}/modal.blade.php"), $modalTemplate);
+        file_put_contents(resource_path("/views/faqs/{$folder}/form.blade.php"), $formTemplate);
     }
 
     protected function getValidateColumns($table)
@@ -410,15 +423,6 @@ class FaqsGenerator extends Command
     {
         $fields = [
                 'id',
-                // 'detail_kdprog_id',
-                // 'kd_struktur',
-                // 'thn_periode_keg',
-                // 'nama_propinsi',
-                // 'nama_kabupatenkota',
-                // 'created_by',
-                // 'updated_by',
-                // 'created_at',
-                // 'updated_at',
                 'is_actived'
             ];
         if (in_array($field, $fields)) {

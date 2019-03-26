@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqBgUmum;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqBgUmum extends BaseModel
+class FaqBgUmum extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_bg_umum';
 }

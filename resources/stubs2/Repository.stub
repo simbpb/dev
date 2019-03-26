@@ -34,6 +34,26 @@ class {{modelName}}Repository
         return (new {{modelName}}Transformer)->transformPaginate($model);
     }
 
+    public function find($id)
+    {
+        $model = $this->model->find($id);
+        return $model;
+    }
+
+    public function update($id, $request)
+    {
+        DB::beginTransaction();
+        $model = $this->model->find($id);
+        
+        {{uploadUpdateFunction}}
+        {{requestColumns}}
+        
+        $model->save();
+        
+        DB::commit();
+        return true;
+    }
+
     public function listByLokasi($lokasiKode, $request)
     {
         $limit = !empty($request['limit']) ? $request['limit'] : 10;

@@ -16,7 +16,7 @@
 // });
 Route::get('/', 'HomeController@index');
 // Route::get('/generate-details', 'HomeController@generateDetails');
-// Route::get('/generate-faqs', 'HomeController@generateFaqs');
+Route::get('/generate-faqs', 'HomeController@generateFaqs');
 Route::group(['prefix' => config('app.auth_page')], function () {
 	Auth::routes();
 });
@@ -389,28 +389,73 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 
 	Route::group(['prefix' => 'faqs', 'middleware' => 'permission:datamart_view'], function () {
 		Route::get('/faq-asian-games', 'Faq\FaqAsianGamesController@index');
+		Route::any('/faq-asian-games/{id}/edit', 'Faq\FaqAsianGamesController@edit');
+
 		Route::get('/faq-asset-cagar-budaya', 'Faq\FaqAssetCagarBudayaController@index');
+		Route::any('/faq-asset-cagar-budaya/{id}/edit', 'Faq\FaqAssetCagarBudayaController@edit');
+
 		Route::get('/faq-bgh', 'Faq\FaqBghController@index');
+		Route::any('/faq-bgh/{id}/edit', 'Faq\FaqBghController@edit');
+
 		Route::get('/faq-bg-mitigasi-bencana', 'Faq\FaqBgMitigasiBencanaController@index');
+		Route::any('/faq-bg-mitigasi-bencana/{id}/edit', 'Faq\FaqBgMitigasiBencanaController@edit');
+
 		Route::get('/faq-bg-negara', 'Faq\FaqBgNegaraController@index');
+		Route::any('/faq-bg-negara/{id}/edit', 'Faq\FaqBgNegaraController@edit');
+
 		Route::get('/faq-bg-umum', 'Faq\FaqBgUmumController@index');
+		Route::any('/faq-bg-umum/{id}/edit', 'Faq\FaqBgUmumController@edit');
+
 		Route::get('/faq-hsbgn', 'Faq\FaqHsbgnController@index');
+		Route::any('/faq-hsbgn/{id}/edit', 'Faq\FaqHsbgnController@edit');
+
 		Route::get('/faq-kws-destinasi-wisata', 'Faq\FaqKwsDestinasiWisataController@index');
+		Route::any('/faq-kws-destinasi-wisata/{id}/edit', 'Faq\FaqKwsDestinasiWisataController@edit');
+
 		Route::get('/faq-kws-perkotaan-strategis', 'Faq\FaqKwsPerkotaanStrategisController@index');
+		Route::any('/faq-kws-perkotaan-strategis/{id}/edit', 'Faq\FaqKwsPerkotaanStrategisController@edit');
+
 		Route::get('/faq-kws-prioritas-nasional', 'Faq\FaqKwsPrioritasNasionalController@index');
+		Route::any('/faq-kws-prioritas-nasional/{id}/edit', 'Faq\FaqKwsPrioritasNasionalController@edit');
+
 		Route::get('/faq-kws-pusaka-pemukiman-trad', 'Faq\FaqKwsPusakaPemukimanTradController@index');
+		Route::any('/faq-kws-pusaka-pemukiman-trad/{id}/edit', 'Faq\FaqKwsPusakaPemukimanTradController@edit');
+
 		Route::get('/faq-kws-rawan-bencana', 'Faq\FaqKwsRawanBencanaController@index');
+		Route::any('/faq-kws-rawan-bencana/{id}/edit', 'Faq\FaqKwsRawanBencanaController@edit');
+
 		Route::get('/faq-pengelola-teknis-bersertifikasi', 'Faq\FaqPengelolaTeknisBersertifikasiController@index');
+		Route::any('/faq-pengelola-teknis-bersertifikasi/{id}/edit', 'Faq\FaqPengelolaTeknisBersertifikasiController@edit');
+
 		Route::get('/faq-pengembangan-kota-hijau', 'Faq\FaqPengembanganKotaHijauController@index');
+		Route::any('/faq-pengembangan-kota-hijau/{id}/edit', 'Faq\FaqPengembanganKotaHijauController@edit');
+
 		Route::get('/faq-plbn', 'Faq\FaqPlbnController@index');
+		Route::any('/faq-plbn/{id}/edit', 'Faq\FaqPlbnController@edit');
+
 		Route::get('/faq-regulasi-perda', 'Faq\FaqRegulasiPerdaController@index');
+		Route::any('/faq-regulasi-perda/{id}/edit', 'Faq\FaqRegulasiPerdaController@edit');
+		
 		Route::get('/faq-rehab-bg-pusaka-istana', 'Faq\FaqRehabBgPusakaIstanaController@index');
+		Route::any('/faq-rehab-bg-pusaka-istana/{id}/edit', 'Faq\FaqRehabBgPusakaIstanaController@edit');
+
 		Route::get('/faq-revolusi-mental', 'Faq\FaqRevolusiMentalController@index');
+		Route::any('/faq-revolusi-mental/{id}/edit', 'Faq\FaqRevolusiMentalController@edit');
+
 		Route::get('/faq-rth-rencana-tigapuluhpersen', 'Faq\FaqRthRencanaTigapuluhpersenController@index');
+		Route::any('/faq-rth-rencana-tigapuluhpersen/{id}/edit', 'Faq\FaqRthRencanaTigapuluhpersenController@edit');
+
 		Route::get('/faq-rth-status-tigapuluhpersen', 'Faq\FaqRthStatusTigapuluhpersenController@index');
+		Route::any('/faq-rth-status-tigapuluhpersen/{id}/edit', 'Faq\FaqRthStatusTigapuluhpersenController@edit');
+
 		Route::get('/faq-tabg', 'Faq\FaqTabgController@index');
+		Route::any('/faq-tabg/{id}/edit', 'Faq\FaqTabgController@edit');
+
 		Route::get('/faq-tabg-cb', 'Faq\FaqTabgCbController@index');
+		Route::any('/faq-tabg-cb/{id}/edit', 'Faq\FaqTabgCbController@edit');
+		
 		Route::get('/faq-pelepasan-rng-3', 'Faq\FaqPelepasanRng3Controller@index');
+		Route::any('/faq-pelepasan-rng-3/{id}/edit', 'Faq\FaqPelepasanRng3Controller@edit');
 	});
 
 	Route::group(['prefix' => 'faqs-modal', 'middleware' => 'permission:profilekabkot_view'], function () {

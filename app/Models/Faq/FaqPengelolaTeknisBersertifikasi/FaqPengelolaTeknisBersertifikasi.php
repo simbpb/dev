@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqPengelolaTeknisBersertifikasi;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqPengelolaTeknisBersertifikasi extends BaseModel
+class FaqPengelolaTeknisBersertifikasi extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_pengelola_teknis_bersertifikasi';
 }

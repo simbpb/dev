@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqAssetCagarBudaya;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqAssetCagarBudaya extends BaseModel
+class FaqAssetCagarBudaya extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_asset_cagar_budaya';
 }

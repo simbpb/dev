@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqKwsPerkotaanStrategis;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqKwsPerkotaanStrategis extends BaseModel
+class FaqKwsPerkotaanStrategis extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_kws_perkotaan_strategis';
 }

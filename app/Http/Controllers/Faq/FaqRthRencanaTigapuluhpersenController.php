@@ -21,6 +21,10 @@ class FaqRthRencanaTigapuluhpersenController extends Controller {
         $this->view = 'faq-rth-rencana-tigapuluhpersen';
     }
 
+    protected function validationRules($scope = 'create') {
+        return $rule = [];
+    }
+
     public function index(Request $request) {
         if ($request->ajax()) {
             $model = $this->model->list($request->all());
@@ -29,6 +33,31 @@ class FaqRthRencanaTigapuluhpersenController extends Controller {
         $path = $this->view;
 
         return view('faqs.'.$this->view.'.index', compact('path'));
+    }
+
+    public function edit($id, Request $request)
+    {
+        if ($request->isMethod('post')) {
+
+            $validation = Validator::make($request->all(), $this->validationRules('edit'));
+            if ($validation->fails()) {
+                return redirect()->back()->withInput()->withErrors($validation->errors());
+            }
+
+            try {
+                $this->model->update($id, $request);
+                session()->flash('success', 'Data berhasil disimpan');
+                return redirect(Navigation::adminUrl('/faqs/'.$this->view));
+            } catch (\Exception $e) {
+                return redirect()->back()->withInput()->withErrors($e->getMessage());
+            }
+        }
+
+        $validator = JsValidator::make($this->validationRules('edit'));
+        $model = $this->model->find($id);
+        $path = $this->view;
+
+        return view('faqs.'.$this->view.'.form', compact('path','model','validator'));
     }
 
     public function modal($lokasiKode, Request $request) {
