@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqBgNegara;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqBgNegara extends BaseModel
+class FaqBgNegara extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_bg_negara';
 }

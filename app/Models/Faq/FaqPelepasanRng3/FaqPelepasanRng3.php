@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqPelepasanRng3;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqPelepasanRng3 extends BaseModel
+class FaqPelepasanRng3 extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_pelepasan_rng3';
 }

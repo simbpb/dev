@@ -69,6 +69,53 @@ class FaqAssetCagarBudayaRepository
         return (new FaqAssetCagarBudayaTransformer)->transformPaginate($model);
     }
 
+    public function find($id)
+    {
+        $model = $this->model->find($id);
+        return $model;
+    }
+
+    public function update($id, $request)
+    {
+        DB::beginTransaction();
+        $model = $this->model->find($id);
+        
+        
+		if ($request->hasFile('file_sk_penetapan_cagar_budaya')) {
+			$image = $request->file('file_sk_penetapan_cagar_budaya');
+			if (File::exists(public_path($model->file_sk_penetapan_cagar_budaya))) {
+				File::delete(public_path($model->file_sk_penetapan_cagar_budaya));
+			}
+			$filename = str_slug($request->file_sk_penetapan_cagar_budaya).'.'.$image->getClientOriginalExtension();
+			$destinationPath = public_path($this->basePath1);
+			$image->move($destinationPath, $filename);
+			$model->file_sk_penetapan_cagar_budaya = $this->basePath1.'/'.$filename;
+		}
+
+        $model->cagar_budaya_id = $request->input('cagar_budaya_id');
+		$model->info_wilayah_id = $request->input('info_wilayah_id');
+		$model->detail_kdprog_id = $request->input('detail_kdprog_id');
+		$model->thn_periode_keg = $request->input('thn_periode_keg');
+		$model->lokasi_kode = $request->input('lokasi_kode');
+		$model->nama_propinsi = $request->input('nama_propinsi');
+		$model->nama_kabupatenkota = $request->input('nama_kabupatenkota');
+		$model->kd_struktur = $request->input('kd_struktur');
+		$model->nama_aset_cagar_budaya = $request->input('nama_aset_cagar_budaya');
+		$model->klasifikasi_cagar_budaya = $request->input('klasifikasi_cagar_budaya');
+		$model->nama_instansi_cagar_budaya = $request->input('nama_instansi_cagar_budaya');
+		$model->lokasi_cagar_budaya = $request->input('lokasi_cagar_budaya');
+		$model->sk_penetapan = $request->input('sk_penetapan');
+		$model->tahun_penetapan = $request->input('tahun_penetapan');
+		$model->tgl_input_wilayah = $request->input('tgl_input_wilayah');
+		$model->info_wilayah_sk = $request->input('info_wilayah_sk');
+		$model->last_update = $request->input('last_update');
+        
+        $model->save();
+        
+        DB::commit();
+        return true;
+    }
+
     public function listByLokasi($lokasiKode, $request)
     {
         $limit = !empty($request['limit']) ? $request['limit'] : 10;

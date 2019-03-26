@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqRevolusiMental;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqRevolusiMental extends BaseModel
+class FaqRevolusiMental extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_revolusi_mental';
 }

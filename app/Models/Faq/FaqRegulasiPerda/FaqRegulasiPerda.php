@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqRegulasiPerda;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqRegulasiPerda extends BaseModel
+class FaqRegulasiPerda extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_regulasi_perda';
 }

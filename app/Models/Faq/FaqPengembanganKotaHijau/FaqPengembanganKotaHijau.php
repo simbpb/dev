@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqPengembanganKotaHijau;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqPengembanganKotaHijau extends BaseModel
+class FaqPengembanganKotaHijau extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_pengembangan_kota_hijau';
 }

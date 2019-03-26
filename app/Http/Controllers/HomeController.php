@@ -65,10 +65,6 @@ class HomeController extends Controller
 
     public function generateFaqs()
     {
-    	// foreach ($this->faqs as $key => $val) {
-    	// 	echo "<br/>Route::get('/".str_replace("_","-",$val)."', 'Faq\\".$key."Controller@index');";
-    	// }
-
     	$message = 'Ok';
     	try {
 	    	foreach ($this->faqs as $key => $table) {

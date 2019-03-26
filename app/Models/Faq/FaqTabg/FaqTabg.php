@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqTabg;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqTabg extends BaseModel
+class FaqTabg extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_tabg';
 }

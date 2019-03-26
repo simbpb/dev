@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqAsianGames;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqAsianGames extends BaseModel
+class FaqAsianGames extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_asian_games';
 }

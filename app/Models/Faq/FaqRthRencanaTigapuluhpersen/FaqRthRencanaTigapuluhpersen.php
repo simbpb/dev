@@ -1,9 +1,10 @@
 <?php
 namespace App\Models\Faq\FaqRthRencanaTigapuluhpersen;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class FaqRthRencanaTigapuluhpersen extends BaseModel
+class FaqRthRencanaTigapuluhpersen extends Model
 {
+	public $timestamps = false;
     protected $table = 'faq_rth_rencana_tigapuluhpersen';
 }

@@ -83,6 +83,60 @@ class FaqTabgRepository
         return (new FaqTabgTransformer)->transformPaginate($model);
     }
 
+    public function find($id)
+    {
+        $model = $this->model->find($id);
+        return $model;
+    }
+
+    public function update($id, $request)
+    {
+        DB::beginTransaction();
+        $model = $this->model->find($id);
+        
+        
+		if ($request->hasFile('file_sk_tabg')) {
+			$image = $request->file('file_sk_tabg');
+			if (File::exists(public_path($model->file_sk_tabg))) {
+				File::delete(public_path($model->file_sk_tabg));
+			}
+			$filename = str_slug($request->file_sk_tabg).'.'.$image->getClientOriginalExtension();
+			$destinationPath = public_path($this->basePath1);
+			$image->move($destinationPath, $filename);
+			$model->file_sk_tabg = $this->basePath1.'/'.$filename;
+		}
+
+        $model->tabg_id = $request->input('tabg_id');
+		$model->info_wilayah_id = $request->input('info_wilayah_id');
+		$model->detail_kdprog_id = $request->input('detail_kdprog_id');
+		$model->thn_periode_keg = $request->input('thn_periode_keg');
+		$model->lokasi_kode = $request->input('lokasi_kode');
+		$model->nama_propinsi = $request->input('nama_propinsi');
+		$model->nama_kabupatenkota = $request->input('nama_kabupatenkota');
+		$model->kd_struktur = $request->input('kd_struktur');
+		$model->no_sk_tabg = $request->input('no_sk_tabg');
+		$model->tgl_sk_tabg = $request->input('tgl_sk_tabg');
+		$model->nama_pejabat = $request->input('nama_pejabat');
+		$model->jabatan = $request->input('jabatan');
+		$model->nama_tabg = $request->input('nama_tabg');
+		$model->no_ktp_tabg = $request->input('no_ktp_tabg');
+		$model->alamat_tabg = $request->input('alamat_tabg');
+		$model->pendidikan_terakhir_tabg = $request->input('pendidikan_terakhir_tabg');
+		$model->jurusan_pendidikan_terakhir = $request->input('jurusan_pendidikan_terakhir');
+		$model->asal_universitas = $request->input('asal_universitas');
+		$model->bidang_keahlian = $request->input('bidang_keahlian');
+		$model->jabatan_dalam_tim = $request->input('jabatan_dalam_tim');
+		$model->keterangan = $request->input('keterangan');
+		$model->tgl_input_wilayah = $request->input('tgl_input_wilayah');
+		$model->info_wilayah_sk = $request->input('info_wilayah_sk');
+		$model->last_update = $request->input('last_update');
+        
+        $model->save();
+        
+        DB::commit();
+        return true;
+    }
+
     public function listByLokasi($lokasiKode, $request)
     {
         $limit = !empty($request['limit']) ? $request['limit'] : 10;

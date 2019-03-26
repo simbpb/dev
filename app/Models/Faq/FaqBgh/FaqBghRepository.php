@@ -98,6 +98,77 @@ protected $basePath2 = '/files/faqs/faq-bgh/file-upload-sertifikat-pemanfaatan-b
         return (new FaqBghTransformer)->transformPaginate($model);
     }
 
+    public function find($id)
+    {
+        $model = $this->model->find($id);
+        return $model;
+    }
+
+    public function update($id, $request)
+    {
+        DB::beginTransaction();
+        $model = $this->model->find($id);
+        
+        
+		if ($request->hasFile('file_upload_sertifikat_bgh')) {
+			$image = $request->file('file_upload_sertifikat_bgh');
+			if (File::exists(public_path($model->file_upload_sertifikat_bgh))) {
+				File::delete(public_path($model->file_upload_sertifikat_bgh));
+			}
+			$filename = str_slug($request->file_upload_sertifikat_bgh).'.'.$image->getClientOriginalExtension();
+			$destinationPath = public_path($this->basePath1);
+			$image->move($destinationPath, $filename);
+			$model->file_upload_sertifikat_bgh = $this->basePath1.'/'.$filename;
+		}
+
+		if ($request->hasFile('file_upload_sertifikat_pemanfaatan_bgh')) {
+			$image = $request->file('file_upload_sertifikat_pemanfaatan_bgh');
+			if (File::exists(public_path($model->file_upload_sertifikat_pemanfaatan_bgh))) {
+				File::delete(public_path($model->file_upload_sertifikat_pemanfaatan_bgh));
+			}
+			$filename = str_slug($request->file_upload_sertifikat_pemanfaatan_bgh).'.'.$image->getClientOriginalExtension();
+			$destinationPath = public_path($this->basePath2);
+			$image->move($destinationPath, $filename);
+			$model->file_upload_sertifikat_pemanfaatan_bgh = $this->basePath2.'/'.$filename;
+		}
+
+        $model->bgh_id = $request->input('bgh_id');
+		$model->info_wilayah_id = $request->input('info_wilayah_id');
+		$model->detail_kdprog_id = $request->input('detail_kdprog_id');
+		$model->thn_periode_keg = $request->input('thn_periode_keg');
+		$model->lokasi_kode = $request->input('lokasi_kode');
+		$model->nama_propinsi = $request->input('nama_propinsi');
+		$model->nama_kabupatenkota = $request->input('nama_kabupatenkota');
+		$model->kd_struktur = $request->input('kd_struktur');
+		$model->nama_kegiatan = $request->input('nama_kegiatan');
+		$model->thn_anggaran = $request->input('thn_anggaran');
+		$model->sumber_anggaran = $request->input('sumber_anggaran');
+		$model->alokasi_anggaran = $request->input('alokasi_anggaran');
+		$model->volume_pekerjaan = $request->input('volume_pekerjaan');
+		$model->instansi_unit_organisasi_pelaksana = $request->input('instansi_unit_organisasi_pelaksana');
+		$model->lokasi_kegiatan_proyek = $request->input('lokasi_kegiatan_proyek');
+		$model->titik_koordinat_lat = $request->input('titik_koordinat_lat');
+		$model->titik_koordinat_long = $request->input('titik_koordinat_long');
+		$model->status_aset = $request->input('status_aset');
+		$model->nama_kepala_dinas = $request->input('nama_kepala_dinas');
+		$model->nama_pengelola = $request->input('nama_pengelola');
+		$model->nama_penyedia_jasa_perencanaan = $request->input('nama_penyedia_jasa_perencanaan');
+		$model->thn_penerbitan_sertifikat_bgh = $request->input('thn_penerbitan_sertifikat_bgh');
+		$model->no_sertifikat_bgh = $request->input('no_sertifikat_bgh');
+		$model->no_plakat_bgh = $request->input('no_plakat_bgh');
+		$model->thn_penerbitan_sertifikat_pemanfaatan_bgh = $request->input('thn_penerbitan_sertifikat_pemanfaatan_bgh');
+		$model->peringkat_bgh = $request->input('peringkat_bgh');
+		$model->pemanfaatan_ke = $request->input('pemanfaatan_ke');
+		$model->tgl_input_wilayah = $request->input('tgl_input_wilayah');
+		$model->info_wilayah_sk = $request->input('info_wilayah_sk');
+		$model->last_update = $request->input('last_update');
+        
+        $model->save();
+        
+        DB::commit();
+        return true;
+    }
+
     public function listByLokasi($lokasiKode, $request)
     {
         $limit = !empty($request['limit']) ? $request['limit'] : 10;
