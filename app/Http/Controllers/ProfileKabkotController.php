@@ -56,7 +56,7 @@ class ProfileKabkotController extends Controller {
         $user = Auth::user();
         $provinces = $this->lokasi->getTextProvincesOptions();
         $rows = $this->faqs;
-        // dd($user->cityDetail);
+        
         if ($request->ajax()) {
             $provinceId = $request->get('province');
             $cityId = $request->get('city');
