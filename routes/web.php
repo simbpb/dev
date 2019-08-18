@@ -22,7 +22,8 @@ Route::group(['prefix' => config('app.auth_page')], function () {
 });
 
 Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], function () {
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'ProfileKabkotController@kabkot');
+    // Route::get('/', 'AdminController@index');
     Route::get('/profile', 'Auth\ProfileController@index');
     Route::any('/change-password', 'Auth\ProfileController@changePassword');
     Route::get('/data-mart', 'DataMartController@index');
