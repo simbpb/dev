@@ -83,7 +83,7 @@ class Navigation {
             $permissions = Auth::user()->role->permissions;
             foreach ($permissions as $key => $permission) {
                 $arr[] = $permission->menu_id;
-                if ($permission->menu->parent) {
+                if (!empty($permission->menu->parent)) {
                     $exps = explode("|", self::getParent($permission->menu->parent));
                     foreach ($exps as $exp) {
                         $arr[] = $exp;
