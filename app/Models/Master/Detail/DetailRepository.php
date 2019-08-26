@@ -2,6 +2,7 @@
 namespace App\Models\Master\Detail;
 
 use DB;
+use Auth;
 
 class DetailRepository
 {
@@ -14,6 +15,7 @@ class DetailRepository
 
     public function list($request)
     {
+        $provinceId = Auth::user()->province_id;
         $limit = (!empty($request['limit'])) ? $request['limit'] : 10;
      
         $model = $this->model->select(
@@ -24,6 +26,10 @@ class DetailRepository
                                 'daftar_form_detail.nama_form',
                                 'daftar_form_detail.path'
                             ])
+                ->join('propinsi_form_detail', function($join) use ($provinceId) {
+                    $join->on('propinsi_form_detail.daftar_form_detail_id','=','daftar_form_detail.id')
+                        ->where('propinsi_form_detail.lokasi_propinsi', $provinceId);
+                })
                 ->where('is_actived','1')
                 ->paginate($limit);
 

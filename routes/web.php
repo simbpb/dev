@@ -44,6 +44,9 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
 
     	Route::get('/uraian', 'Ajax\UraianController@detail_uraian');
     });
+
+    Route::get('/propinsi-detail', 'PropinsiDetailController@index');
+    Route::post('/propinsi-detail/insert', 'PropinsiDetailController@insert');
     
     Route::group(['prefix' => 'users'], function () {
 	    Route::get('/', 'UsersController@index')->middleware('permission:users_view');
