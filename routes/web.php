@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'HomeController@index');
-// Route::get('/generate-details', 'HomeController@generateDetails');
+Route::get('/generate-details', 'HomeController@generateDetails');
 // Route::get('/generate-faqs', 'HomeController@generateFaqs');
 Route::group(['prefix' => config('app.auth_page')], function () {
 	Auth::routes();
@@ -27,7 +27,7 @@ Route::group(['prefix' => config('app.auth_page'), 'middleware' => 'auth'], func
     Route::get('/profile', 'Auth\ProfileController@index');
     Route::any('/change-password', 'Auth\ProfileController@changePassword');
     Route::get('/data-mart', 'DataMartController@index');
-    Route::get('/profile/kabkot', 'ProfileKabkotController@kabkot')->middleware('permission:profilekabkot_view');
+    Route::get('/profile/kabkot', 'ProfileKabkotController@kabkot');
     
     Route::group(['prefix' => 'ajax'], function () {
     	Route::get('/cities/{provinceId}', 'Ajax\LocationsController@cities');

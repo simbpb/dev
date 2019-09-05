@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Pengembangan Kota Hijau')
-
+@php
+$user = Auth::user();
+@endphp
 @section('content')
 <div class="page-container">
    <div class="page-content">
@@ -37,7 +39,24 @@
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-3">Propinsi*</label>
 				    		<div class="col-lg-9"> 
-					  			{!! Form::select('propinsi_id', $provinces, null, ['id' => 'provinces', 'class' => 'form-control']) !!}
+					  			@if (empty($user->provinceDetail->lokasi_propinsi))
+
+                                    {!! Form::select('propinsi_id', 
+                                        $provinces, 
+                                        null, 
+                                        ['id' => 'provinces',
+                                         'class' => 'form-control']) !!}
+
+                                @elseif (!empty($user->provinceDetail->lokasi_propinsi))
+
+                                    {!! Form::select('propinsi_id', 
+                                        $provinces, 
+                                        $user->provinceDetail->lokasi_propinsi.'-'.$user->provinceDetail->lokasi_nama, 
+                                        ['id' => 'provinces',
+                                         'class' => 'form-control',
+                                         'disabled' => 'disabled']) !!}
+
+                                @endif
 					  		</div>
 				  		</div>
 				  		<div class="form-group">
