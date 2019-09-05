@@ -55,7 +55,8 @@ $user = Auth::user();
                                         ['id' => 'provinces',
                                          'class' => 'form-control',
                                          'disabled' => 'disabled']) !!}
-
+                                    {!! Form::hidden('propinsi_id',
+                                        $user->provinceDetail->lokasi_propinsi) !!}
                                 @endif
 					  		</div>
 				  		</div>
