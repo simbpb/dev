@@ -15,7 +15,8 @@ class DetailRepository
 
     public function list($request)
     {
-        $provinceId = Auth::user()->province_id;
+        $user = Auth::user();
+        $provinceId = $user->province_id;
         $limit = (!empty($request['limit'])) ? $request['limit'] : 10;
      
         $model = $this->model->select(
@@ -25,12 +26,15 @@ class DetailRepository
                             )->searchOrder($request, [
                                 'daftar_form_detail.nama_form',
                                 'daftar_form_detail.path'
-                            ])
-                ->join('propinsi_form_detail', function($join) use ($provinceId) {
-                    $join->on('propinsi_form_detail.daftar_form_detail_id','=','daftar_form_detail.id')
-                        ->where('propinsi_form_detail.lokasi_propinsi', $provinceId);
-                })
-                ->where('is_actived','1')
+                            ]);
+        if (!$user->isDeveloper()) {
+            $model = $model->join('propinsi_form_detail', function($join) use ($provinceId) {
+                        $join->on('propinsi_form_detail.daftar_form_detail_id','=','daftar_form_detail.id')
+                            ->where('propinsi_form_detail.lokasi_propinsi', $provinceId);
+                    });
+        }
+
+        $model = $model->where('is_actived','1')
                 ->paginate($limit);
 
         return (new DetailTransformer)->transformPaginate($model);

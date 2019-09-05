@@ -51,7 +51,7 @@ $user = Auth::user();
 
                                     {!! Form::select('propinsi_id', 
                                         $provinces, 
-                                        $user->provinceDetail->lokasi_propinsi.'-'.$user->provinceDetail->lokasi_nama, 
+                                        isset($model) ? null : $user->provinceDetail->lokasi_propinsi.'-'.$user->provinceDetail->lokasi_nama, 
                                         ['id' => 'provinces',
                                          'class' => 'form-control',
                                          'disabled' => 'disabled']) !!}
