@@ -62,8 +62,27 @@ $user = Auth::user();
 				  		<div class="form-group">
 				    		<label class="control-label col-lg-3">Kabupaten/Kota*</label>
 				    		<div class="col-lg-9"> 
-					  			{!! Form::select('kota_id', ['' => 'Pilih Kabupaten/Kota'], null, ['id' => 'cities', 'class' => 'form-control']) !!}
-					  		</div>
+					  		 @if (empty($user->cityDetail->lokasi_kabupatenkota))
+
+                      {!! Form::select('kota_id', 
+                          ['00' => 'Pilih Kabupaten/Kota'], 
+                          null, 
+                          ['id' => 'cities', 
+                          'class' => 'form-control']) !!}
+
+                  @elseif (!empty($user->cityDetail->lokasi_kabupatenkota))
+
+                      {!! Form::select('kota_id', 
+                          ['00' => 'Pilih Kabupaten/Kota'], 
+                          null, 
+                          ['id' => 'cities', 
+                           'class' => 'form-control',
+                           'disabled' => 'disabled']) !!}
+
+                      {!! Form::hidden('kota_id',
+                      $user->cityDetail->lokasi_kabupatenkota) !!}
+                  @endif
+                </div>
 				  		</div>
 						
                         <div class="form-group">
@@ -203,13 +222,18 @@ $user = Auth::user();
 <script type="text/javascript">
 $(function() {
 	var currentProvinceId = $('#provinces').val();
-	@if(isset($model))
-		getCities(currentProvinceId, function(){
-			$('#cities').val('<?=$model['kota_id']?>');
-		});
+    @if(isset($user->cityDetail))
+        getCities(currentProvinceId, function(){
+            $('#cities').val('<?=$user->cityDetail->lokasi_kabupatenkota?>');
+        });
+    @endif
+  @if(isset($model))
+    getCities(currentProvinceId, function(){
+      $('#cities').val('<?=$model['kota_id']?>');
+    });
     @else
         getCities(currentProvinceId);
-	@endif
+  @endif
     $('#provinces').change(function() {
         var provinceId = this.value;
         getCities(provinceId);
