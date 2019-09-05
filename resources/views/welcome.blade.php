@@ -67,7 +67,7 @@
         <![endif]-->
     <!-- Start Header Top Area -->
     <div class="header-top-area" style="margin-top: -40px;">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area" style="padding-bottom: 0px;">
@@ -76,6 +76,9 @@
                             Kementerian Pekerjaan Umum dan Perumahan Rakyat </br>
                             Direktorat Jenderal Cipta Karya </br>
                             Direktorat Bina Penataan Bangunan
+                        </p>
+                        <p style="margin-left: 10px;">
+                            <a style="color: #fff;" href="/panel/login">LOGIN PENGGUNA</a>
                         </p>
                     </div>
                 </div>
