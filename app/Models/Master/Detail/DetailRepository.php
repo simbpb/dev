@@ -27,7 +27,7 @@ class DetailRepository
                                 'daftar_form_detail.nama_form',
                                 'daftar_form_detail.path'
                             ]);
-        if (!$user->isDeveloper()) {
+        if (!empty($user->province_id) && !empty($user->city_id)) {
             $model = $model->join('propinsi_form_detail', function($join) use ($provinceId) {
                         $join->on('propinsi_form_detail.daftar_form_detail_id','=','daftar_form_detail.id')
                             ->where('propinsi_form_detail.lokasi_propinsi', $provinceId);

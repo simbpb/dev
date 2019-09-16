@@ -295,6 +295,48 @@ class CrudGenerator extends Command
                             </div>
                                 <div class=\"col-lg-6\">\n";
                 }
+            } else 
+            if ($column == 'alokasi_anggaran') {
+                $template .= "
+                        <div class=\"form-group\">
+                            <label class=\"control-label col-lg-3\">".$exp."</label>
+                            <div class=\"col-lg-9\"> 
+                                {!! Form::text('".$column."',null, ['class' => 'form-control currency']) !!}
+                            </div>
+                        </div> \n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
+            } else 
+            if ($column == 'titik_koordinat_lat') {
+                $template .= "
+                        <div class=\"form-group\">
+                            <label class=\"control-label col-lg-3\">".$exp."</label>
+                            <div class=\"col-lg-9\"> 
+                                {!! Form::text('".$column."',null, ['class' => 'form-control number']) !!}
+                            </div>
+                        </div> \n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
+            } else 
+            if ($column == 'titik_koordinat_long') {
+                $template .= "
+                        <div class=\"form-group\">
+                            <label class=\"control-label col-lg-3\">".$exp."</label>
+                            <div class=\"col-lg-9\"> 
+                                {!! Form::text('".$column."',null, ['class' => 'form-control number']) !!}
+                            </div>
+                        </div> \n";
+                if ($next == $key) {
+                    $template .= "
+                            </div>
+                                <div class=\"col-lg-6\">\n";
+                }
             } else {
                 $template .= "
                         <div class=\"form-group\">
