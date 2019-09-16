@@ -37,6 +37,12 @@ $(function() {
             return ( input === 0 ) ? "" : input.toLocaleString();
         });
     });
+
+    $('.number').keypress(function(event) {
+        if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
     // Disable CSS transitions on page load
     $('body').addClass('no-transitions');
 

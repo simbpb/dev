@@ -262,14 +262,14 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Titik Koordinat Lat</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('titik_koordinat_lat',null, ['class' => 'form-control']) !!}
+                                {!! Form::text('titik_koordinat_lat',null, ['class' => 'form-control number']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
                             <label class="control-label col-lg-3">Titik Koordinat Long</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('titik_koordinat_long',null, ['class' => 'form-control']) !!}
+                                {!! Form::text('titik_koordinat_long',null, ['class' => 'form-control number']) !!}
                             </div>
                         </div> 
 
