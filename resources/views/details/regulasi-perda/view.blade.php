@@ -43,7 +43,8 @@
                             <div class="form-group">
                                 <label>File Peraturan Daerah tentang Bangunan Gedung (PERDABG)</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perda_bg'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perda_bg'] !!}" 
+                                    {!! (!$model['file_perda_bg']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -57,7 +58,8 @@
                             <div class="form-group">
                                 <label>File Peraturan Daerah tentang Rencana Tata Ruang Wilayah (RTRW)</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_rt_rw'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_rt_rw'] !!}" 
+                                    {!! (!$model['file_rt_rw']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -71,7 +73,8 @@
                             <div class="form-group">
                                 <label>File Peraturan Daerah tentang Rencana Detil Tata Ruang (RDTR)</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_rd_tr'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_rd_tr'] !!}" 
+                                    {!! (!$model['file_rd_tr']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -85,7 +88,8 @@
                             <div class="form-group">
                                 <label>File Peraturan Daerah tentang Cagar Budaya</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perda_cagar_budaya'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perda_cagar_budaya'] !!}" 
+                                    {!! (!$model['file_perda_cagar_budaya']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -99,7 +103,8 @@
                             <div class="form-group">
                                 <label>File Peraturan Daerah tentang Ruang Terbuka Hijau (RTH)</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perda_rth'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perda_rth'] !!}" 
+                                    {!! (!$model['file_perda_rth']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -113,7 +118,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Bangunan Gedung Hijau (BGH)</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_bgh'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_bgh'] !!}" 
+                                    {!! (!$model['file_perbup_bgh']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -127,7 +133,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Izin Mendirikan Bangunan (IMB)</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_imb'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_imb'] !!}" 
+                                    {!! (!$model['file_perbup_imb']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -144,7 +151,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Sertifikat Laik Fungsi (SLF)</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_slf'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_slf'] !!}" 
+                                    {!! (!$model['file_perbup_slf']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -158,7 +166,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-1</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_1'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_1'] !!}" 
+                                    {!! (!$model['file_perbup_rtbl_1']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -172,7 +181,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-2</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_2'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_2'] !!}" 
+                                    {!! (!$model['file_perbup_rtbl_2']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -186,7 +196,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-3</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_3'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_3'] !!}" 
+                                    {!! (!$model['file_perbup_rtbl_3']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -200,7 +211,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-4</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_4'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_4'] !!}" 
+                                    {!! (!$model['file_perbup_rtbl_4']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -214,7 +226,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-5</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_5'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_5'] !!}" 
+                                    {!! (!$model['file_perbup_rtbl_5']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
@@ -228,7 +241,8 @@
                             <div class="form-group">
                                 <label>File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-6</label>
                                 <div class="form-group">
-                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_6'] !!}">
+                                    <a class="btn btn-primary" href="{!! $model['file_perbup_rtbl_6'] !!}" 
+                                    {!! (!$model['file_perbup_rtbl_6']) ? 'disabled': '' !!}>
                                     <i class="icon-file-download2"></i>
                                     Download File</a>
                                 </div>
