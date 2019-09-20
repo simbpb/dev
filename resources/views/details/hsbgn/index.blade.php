@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Hsbgn')
+@section('title', 'STANDAR HARGA SATUAN BANGUNAN GEDUNG NEGARA (HSBGN)')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -42,19 +42,19 @@ $(function() {
 			{ "title": "Angka Luas Wilayah", "data": "angka_luas_wilayah" },
 			{ "title": "Satuan Luas Wilayah", "data": "satuan_luas_wilayah" },
 			{ "title": "Zona", "data": "zona" },
-			{ "title": "Bg Tidak Sederhana", "data": "bg_tidak_sederhana" },
-			{ "title": "Bg Sederhana", "data": "bg_sederhana" },
-			{ "title": "Rumahnegara Tipe A", "data": "rumahnegara_tipe_a" },
-			{ "title": "Rumahnegara Tipe B", "data": "rumahnegara_tipe_b" },
-			{ "title": "Rumahnegara Tipe C D E", "data": "rumahnegara_tipe_c_d_e" },
-			{ "title": "Pagar Gedungnegara Depan", "data": "pagar_gedungnegara_depan" },
-			{ "title": "Pagar Gedungnegara Samping", "data": "pagar_gedungnegara_samping" },
-			{ "title": "Pagar Gedungnegara Belakang", "data": "pagar_gedungnegara_belakang" },
-			{ "title": "Pagar Rumahnegara Depan", "data": "pagar_rumahnegara_depan" },
-			{ "title": "Pagar Rumahnegara Samping", "data": "pagar_rumahnegara_samping" },
-			{ "title": "Pagar Rumahnegara Belakang", "data": "pagar_rumahnegara_belakang" },
-			{ "title": "Sk Penetapan", "data": "sk_penetapan" },
-			{ "title": "Indeks Kemahalan Konstruksi", "data": "indeks_kemahalan_konstruksi" },
+			{ "title": "Bangunan Gedung Tidak Sederhana", "data": "bg_tidak_sederhana" },
+			{ "title": "Bangunan Gedung Sederhana", "data": "bg_sederhana" },
+			{ "title": "Rumah Negara Tipe A", "data": "rumahnegara_tipe_a" },
+			{ "title": "Rumah Negara Tipe B", "data": "rumahnegara_tipe_b" },
+			{ "title": "Rumah Negara Tipe C, D dan E", "data": "rumahnegara_tipe_c_d_e" },
+			{ "title": "Pagar Gedung Negara Depan", "data": "pagar_gedungnegara_depan" },
+			{ "title": "Pagar Gedung Negara Samping", "data": "pagar_gedungnegara_samping" },
+			{ "title": "Pagar Gedung Negara Belakang", "data": "pagar_gedungnegara_belakang" },
+			{ "title": "Pagar Rumah Negara Depan", "data": "pagar_rumahnegara_depan" },
+			{ "title": "Pagar Rumah Negara Samping", "data": "pagar_rumahnegara_samping" },
+			{ "title": "Pagar Rumah Negara Belakang", "data": "pagar_rumahnegara_belakang" },
+			{ "title": "SK Penetapan", "data": "sk_penetapan" },
+			{ "title": "Indeks Kemahalan Konstruksi (IKK)", "data": "indeks_kemahalan_konstruksi" },
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';
             return (row.is_actived) ? '<label class="label label-'+label+'">'+row.is_actived+'<label>' : '';

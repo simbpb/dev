@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Asset Cagar Budaya')
+@section('title', 'DAFTAR ASET CAGAR BUDAYA')
 @php
 $user = Auth::user();
 @endphp
@@ -92,11 +92,16 @@ $user = Auth::user();
                                 {!! Form::text('nama_aset_cagar_budaya',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
-
-                        <div class="form-group">
+                        
+			<div class="form-group">
                             <label class="control-label col-lg-3">Klasifikasi Cagar Budaya</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('klasifikasi_cagar_budaya',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('klasifikasi_cagar_budaya',[
+				'Bangunan' => 'Bangunan',
+				'Struktur' => 'Struktur',
+				'Kawasan' => 'Kawasan'
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 

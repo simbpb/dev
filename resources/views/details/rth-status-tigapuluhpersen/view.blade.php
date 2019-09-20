@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Rth Status Tigapuluhpersen')
+@section('title', 'FORM STATUS PEMENUHAN 30 % RUANG TERBUKA HIJAU')
 
 @section('content')
 <div class="page-container">
@@ -45,12 +45,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Jenis Rth</label>
+                                <label>Jenis Ruang Terbuka Hijau (RTH)</label>
                                 <div class="form-group"><b>{!! $model['jenis_rth'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Bentuk Rth</label>
+                                <label>Bentuk Ruang Terbuka Hijau (RTH)</label>
                                 <div class="form-group"><b>{!! $model['bentuk_rth'] !!}</b></div>
                             </div>
 
@@ -78,12 +78,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Luas Kawasan</label>
+                                <label>Luas Kawasan Ruang Terbuka Hijau (RTH)</label>
                                 <div class="form-group"><b>{!! $model['luas_kawasan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Satuan Luas Kawasan</label>
+                                <label>Satuan Luas Kawasan Ruang Terbuka Hijau (RTH)</label>
                                 <div class="form-group"><b>{!! $model['satuan_luas_kawasan'] !!}</b></div>
                             </div>
 

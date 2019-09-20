@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Kws Pusaka Pemukiman Trad')
+@section('title', 'Revitalisasi Kawasan Pusaka dan Pemukiman Tradisional')
 @php
 $user = Auth::user();
 @endphp
@@ -96,7 +96,12 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Jenis Kawasan</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('jenis_kawasan',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('jenis_kawasan',
+				[
+				'Kawasan Pusaka'=>'Kawasan Pusaka',
+				'Pemukiman Tradisional'=>'Pemukiman Tradisional'	
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
@@ -108,7 +113,7 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Thn Anggaran</label>
+                            <label class="control-label col-lg-3">Tahun Anggaran</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('thn_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
@@ -130,21 +135,21 @@ $user = Auth::user();
                     </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alokasi Anggaran</label>
+                            <label class="control-label col-lg-3">Alokasi Anggaran Rp. (1.000)</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control currency']) !!}
+                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Volume Pekerjaan</label>
+                            <label class="control-label col-lg-3">Volume Pekerjaan (m<sup>2</sup>)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('volume_pekerjaan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana</label>
+                            <label class="control-label col-lg-3">Instansi/ Unit Organisasi Pelaksana</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('instansi_unit_organisasi_pelaksana',null, ['class' => 'form-control']) !!}
                             </div>
@@ -186,35 +191,7 @@ $user = Auth::user();
                                 'Pemerintah Pusat (dalam proses hibah/ alih status)' => 'Pemerintah Pusat (dalam proses hibah/ alih status)'
                             ], null, ['class' => 'form-control']) !!}
                         </div>
-                    </div> 
-
-                        <div class="form-group">
-                            <label class="control-label col-lg-3">Biaya Pelaksanaan Kontraktor</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('biaya_pelaksanaan_kontraktor',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
-
-                        <div class="form-group">
-                            <label class="control-label col-lg-3">Manajemen Konstruksi</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('manajemen_konstruksi',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
-
-                        <div class="form-group">
-                            <label class="control-label col-lg-3">Rencana Keu</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('rencana_keu',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
-
-                        <div class="form-group">
-                            <label class="control-label col-lg-3">Rencana Fisik</label>
-                            <div class="col-lg-9"> 
-                                {!! Form::text('rencana_fisik',null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div> 
+                    </div>  
 
                         <div class="form-group">
                             <label class="control-label col-lg-3">Dokumentasi</label>

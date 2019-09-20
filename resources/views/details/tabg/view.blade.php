@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Tabg')
+@section('title', 'DATA TIM AHLI BANGUNAN GEDUNG (TABG)')
 
 @section('content')
 <div class="page-container">
@@ -35,12 +35,12 @@
 				  		</div>
 				  		
                             <div class="form-group">
-                                <label>No Sk Tabg</label>
+                                <label>No SK TABG</label>
                                 <div class="form-group"><b>{!! $model['no_sk_tabg'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Tgl Sk Tabg</label>
+                                <label>Tgl SK TABG</label>
                                 <div class="form-group"><b>{!! $model['tgl_sk_tabg'] !!}</b></div>
                             </div>
 
@@ -55,22 +55,22 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Nama Tabg</label>
+                                <label>Nama TABG</label>
                                 <div class="form-group"><b>{!! $model['nama_tabg'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>No Ktp Tabg</label>
+                                <label>No KTP TABG</label>
                                 <div class="form-group"><b>{!! $model['no_ktp_tabg'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Alamat Tabg</label>
+                                <label>Alamat TABG</label>
                                 <div class="form-group"><b>{!! $model['alamat_tabg'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Pendidikan Terakhir Tabg</label>
+                                <label>Pendidikan Terakhir TABG</label>
                                 <div class="form-group"><b>{!! $model['pendidikan_terakhir_tabg'] !!}</b></div>
                             </div>
 
@@ -103,7 +103,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>File Sk Tabg</label>
+                                <label>File SK TABG</label>
                                 <div class="form-group">
                                     <a class="btn btn-primary" href="{!! $model['file_sk_tabg'] !!}">
                                     <i class="icon-file-download2"></i>

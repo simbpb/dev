@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Penataan Bg Kws Prioritas Nasional')
+@section('title', 'Aktivitas Penataan Bangunan Kawasan Prioritas Nasional')
 @php
 $user = Auth::user();
 @endphp
@@ -30,7 +30,7 @@ $user = Auth::user();
 				<div class="row"> 
 					<div class="col-lg-6">
 						<div class="form-group">
-				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
+				    		<label class="control-label col-lg-3">Tahun Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
 					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
 					    		{!! Form::hidden('program_id',$programId) !!}
@@ -94,7 +94,7 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Thn Anggaran</label>
+                            <label class="control-label col-lg-3">Tahun Anggaran</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('thn_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
@@ -116,21 +116,21 @@ $user = Auth::user();
                     </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alokasi Anggaran</label>
+                            <label class="control-label col-lg-3">Alokasi_Anggaran Rp. (1.000)</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control currency']) !!}
+                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Volume Pekerjaan</label>
+                            <label class="control-label col-lg-3">Volume Pekerjaan (m<sup>2</sup>)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('volume_pekerjaan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana</label>
+                            <label class="control-label col-lg-3">Instansi/ Unit Organisasi Pelaksana</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('instansi_unit_organisasi_pelaksana',null, ['class' => 'form-control']) !!}
                             </div>

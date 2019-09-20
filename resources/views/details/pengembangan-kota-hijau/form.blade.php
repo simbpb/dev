@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Pengembangan Kota Hijau')
+@section('title', 'AKTIVITAS FASILITASI PENGEMBANGAN KOTA HIJAU')
 @php
 $user = Auth::user();
 @endphp
@@ -87,7 +87,7 @@ $user = Auth::user();
 				  		</div>
 						
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Thn Anggaran</label>
+                            <label class="control-label col-lg-3">Tahun Anggaran</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('thn_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
@@ -103,12 +103,23 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Attribute Kota Hijau</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('attribute_kota_hijau',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('attribute_kota_hijau',
+				[
+				'Green Planning Design'=>'Green Planning Design',
+				'Green Open Space'=>'Green Open Space',
+				'Green Waste'=>'Green Waste',
+				'Green Transportation'=>'Green Transportation',
+				'Green Water'=>'Green Water',
+                                'Green Energy'=>'Green Energy',
+                                'Green Building'=>'Green Building',
+                                'Green Community'=>'Green Community'
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Thn Penetapan</label>
+                            <label class="control-label col-lg-3">Tahun Penetapan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('thn_penetapan',null, ['class' => 'form-control']) !!}
                             </div>
@@ -130,14 +141,14 @@ $user = Auth::user();
                     </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alokasi Anggaran</label>
+                            <label class="control-label col-lg-3">Alokasi Anggaran Rp. (1.000)</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control currency']) !!}
+                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Volume Pekerjaan</label>
+                            <label class="control-label col-lg-3">Volume Pekerjaan (m<sup>2</sup>)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('volume_pekerjaan',null, ['class' => 'form-control']) !!}
                             </div>
@@ -147,7 +158,7 @@ $user = Auth::user();
                                 <div class="col-lg-6">
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana</label>
+                            <label class="control-label col-lg-3">Instansi/ Unit Organisasi Pelaksana</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('instansi_unit_organisasi_pelaksana',null, ['class' => 'form-control']) !!}
                             </div>

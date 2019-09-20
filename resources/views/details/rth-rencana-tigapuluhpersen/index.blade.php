@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Rth Rencana Tigapuluhpersen')
+@section('title', 'RENCANA PEMENUHAN 30 % RUANG TERBUKA HIJAU')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -34,13 +34,13 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
+         { "title": "Tahun Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
-         { "title": "Dok Rencana Kota Hijau Rakh", "data": "dok_rencana_kota_hijau_rakh" },
+         { "title": "Dokumen Perencanaan Kota Hijau/ Rencana Aksi Kota Hijau (RAKH) atau Dokumen Perencanaan Sejenis", "data": "dok_rencana_kota_hijau_rakh" },
 			{ "title": "Nama Dokumen Perencanaan", "data": "nama_dokumen_perencanaan" },
-			{ "title": "Dok Disusun Tahun", "data": "dok_disusun_tahun" },
-			{ "title": "Dok Disahkan Oleh", "data": "dok_disahkan_oleh" },
+			{ "title": "Dokumen Perencanaan Disusun Tahun", "data": "dok_disusun_tahun" },
+			{ "title": "Dokumen Perencanaan Disahkan Oleh", "data": "dok_disahkan_oleh" },
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';
             return (row.is_actived) ? '<label class="label label-'+label+'">'+row.is_actived+'<label>' : '';

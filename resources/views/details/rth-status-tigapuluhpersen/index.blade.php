@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Rth Status Tigapuluhpersen')
+@section('title', 'STATUS PEMENUHAN 30 % RUANG TERBUKA HIJAU')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -39,14 +39,14 @@ $(function() {
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
          { "title": "Luas Wilayah", "data": "luas_wilayah" },
 			{ "title": "Satuan Luas Wilayah", "data": "satuan_luas_wilayah" },
-			{ "title": "Jenis Rth", "data": "jenis_rth" },
-			{ "title": "Bentuk Rth", "data": "bentuk_rth" },
+			{ "title": "Jenis Ruang Terbuka Hijau (RTH)", "data": "jenis_rth" },
+			{ "title": "Bentuk Ruang Terbuka Hijau (RTH)", "data": "bentuk_rth" },
 			{ "title": "Nama Kawasan", "data": "nama_kawasan" },
 			{ "title": "Lokasi Kawasan", "data": "lokasi_kawasan" },
 			{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },
 			{ "title": "Titik Koordinat Long", "data": "titik_koordinat_long" },
-			{ "title": "Luas Kawasan", "data": "luas_kawasan" },
-			{ "title": "Satuan Luas Kawasan", "data": "satuan_luas_kawasan" },
+			{ "title": "Luas Kawasan Ruang Terbuka Hijau (RTH)", "data": "luas_kawasan" },
+			{ "title": "Satuan Luas Kawasan Ruang Terbuka Hijau (RTH)", "data": "satuan_luas_kawasan" },
 			{ "title": "Status Aset", "data": "status_aset" },
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';

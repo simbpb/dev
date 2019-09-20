@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Asset Cagar Budaya')
+@section('title', 'DAFTAR ASET CAGAR BUDAYA')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -41,7 +41,7 @@ $(function() {
 			{ "title": "Klasifikasi Cagar Budaya", "data": "klasifikasi_cagar_budaya" },
 			{ "title": "Nama Instansi Cagar Budaya", "data": "nama_instansi_cagar_budaya" },
 			{ "title": "Lokasi Cagar Budaya", "data": "lokasi_cagar_budaya" },
-			{ "title": "Sk Penetapan", "data": "sk_penetapan" },
+			{ "title": "SK Penetapan", "data": "sk_penetapan" },
 			{ "title": "Tahun Penetapan", "data": "tahun_penetapan" },
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';

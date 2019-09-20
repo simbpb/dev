@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Pengelola Teknis Bersertifikasi')
+@section('title', 'DATA TENAGA PENGELOLA TEKNIS BERSERTIFIKASI')
 
 @section('content')
 <div class="page-container">
@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Dinas Instansi Asal Unit Org</label>
+                                <label>Unit Organisasi/ Dinas/ Instansi Asal</label>
                                 <div class="form-group"><b>{!! $model['dinas_instansi_asal_unit_org'] !!}</b></div>
                             </div>
 

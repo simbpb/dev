@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Tabg Cb')
+@section('title', 'DATA TIM AHLI BANGUNAN GEDUNG CAGAR BUDAYA (TABG-CB)')
 @php
 $user = Auth::user();
 @endphp
@@ -87,14 +87,14 @@ $user = Auth::user();
 				  		</div>
 						
                         <div class="form-group">
-                            <label class="control-label col-lg-3">No Sk Tabg Cb</label>
+                            <label class="control-label col-lg-3">No SK TABG Cagar Budaya</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('no_sk_tabg_cb',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Tgl Sk Tabg Cb</label>
+                            <label class="control-label col-lg-3">Tgl SK TABG Cagar Budaya</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('tgl_sk_tabg_cb',null, ['class' => 'form-control']) !!}
                             </div>
@@ -115,30 +115,36 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Nama Tabg Cb</label>
+                            <label class="control-label col-lg-3">Nama TABG Cagar Budaya</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('nama_tabg_cb',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">No Ktp Tabg Cb</label>
+                            <label class="control-label col-lg-3">No KTP TABG Cagar Budaya</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('no_ktp_tabg_cb',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alamat Tabg Cb</label>
+                            <label class="control-label col-lg-3">Alamat TABG Cagar Budaya</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('alamat_tabg_cb',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Pendidikan Terakhir Tabg Cb</label>
+                            <label class="control-label col-lg-3">Pendidikan Terakhir TABG Cagar Budaya</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('pendidikan_terakhir_tabg_cb',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('pendidikan_terakhir_tabg_cb',
+				[
+				'Diploma'=>'Diploma',
+                                'Sarjana Strata 1 (S1)'=>'Sarjana Strata 1 (S1)',
+                                'Sarjana Strata 2 (S2)'=>'Sarjana Strata 2 (S2)',
+                                'Sarjana Strata 3 (S3)'=>'Sarjana Strata 3 (S3)'
+				], null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
@@ -162,7 +168,16 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Bidang Keahlian</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('bidang_keahlian',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('bidang_keahlian',
+				[
+				'Arsitektur Bangunan Gedung dan Perkotaan'=>'Arsitektur Bangunan Gedung dan Perkotaan',
+				'Struktur dan Konstruksi Bangunan Gedung'=>'Struktur dan Konstruksi Bangunan Gedung',
+				'Mekanikal dan Elektrikal Bangunan Gedung'=>'Mekanikal dan Elektrikal Bangunan Gedung',
+				'Bangunan Gedung Adat'=>'Bangunan Gedung Adat',
+				'Bidang Utilitas Jaringan Air Bersih dan Air Kotor Bangunan Gedung'=>'Bidang Utilitas Jaringan Air Bersih dan Air Kotor Bangunan Gedung',
+				'Bidang Keamanan terhadap Bahaya Kebakaran Bangunan Gedung'=>'Bidang Keamanan terhadap Bahaya Kebakaran Bangunan Gedung',
+				'Bidang Seni dan Budaya Bangunan Gedung'=>'Bidang Seni dan Budaya Bangunan Gedung'
+				], null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
@@ -174,14 +189,21 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Keterangan</label>
+                            <label class="control-label col-lg-3">Perwakilan/ Unsur</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('keterangan',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('keterangan',
+				[
+				'Unsur Budayawan'=>'Unsur Budayawan',
+				'Dinas Pendidikan/ Sejarawan'=>'Dinas Pendidikan/ Sejarawan',
+				'Perwakilan Balai Arkeologi'=>'Perwakilan Balai Arkeologi',
+				'Perwakilan Balai Pelestarian'=>'Perwakilan Balai Pelestarian',
+				'Pejabat Pemerintah'=>'Pejabat Pemerintah'		
+				],null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Sk Tabg Cb</label>
+                            <label class="control-label col-lg-3">File SK TABG CB</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_sk_tabg_cb',null, ['class' => 'form-control']) !!}
                             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Bgh')
+@section('title', 'Aktivitas Pembangunan Bangunan Gedung Hijau')
 @php
 $user = Auth::user();
 @endphp
@@ -30,7 +30,7 @@ $user = Auth::user();
 				<div class="row"> 
 					<div class="col-lg-6">
 						<div class="form-group">
-				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
+				    		<label class="control-label col-lg-3">Tahun Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
 					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
 					    		{!! Form::hidden('program_id',$programId) !!}
@@ -94,7 +94,7 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Thn Anggaran</label>
+                            <label class="control-label col-lg-3">Tahun Anggaran</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('thn_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
@@ -116,21 +116,21 @@ $user = Auth::user();
                     </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alokasi Anggaran</label>
+                            <label class="control-label col-lg-3">Alokasi Anggaran Rp. (1.000)</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control currency']) !!}
+                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Volume Pekerjaan</label>
+                            <label class="control-label col-lg-3">Volume Pekerjaan (m<sup>2</sup>)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('volume_pekerjaan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Instansi Unit Organisasi Pelaksana</label>
+                            <label class="control-label col-lg-3">Instansi/ Unit Organisasi Pelaksan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('instansi_unit_organisasi_pelaksana',null, ['class' => 'form-control']) !!}
                             </div>
@@ -196,21 +196,21 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Thn Penerbitan Sertifikat Bgh</label>
+                            <label class="control-label col-lg-3">Tahun Penerbitan Sertifikat Bangunan Gedung Hijau (BGH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('thn_penerbitan_sertifikat_bgh',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">No Sertifikat Bgh</label>
+                            <label class="control-label col-lg-3">No Sertifikat Bangunan Gedung Hijau (BGH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('no_sertifikat_bgh',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Upload Sertifikat Bgh</label>
+                            <label class="control-label col-lg-3">File Upload Sertifikat Bangunan Gedung Hijau (BGH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_upload_sertifikat_bgh',null, ['class' => 'form-control']) !!}
                             </div>
@@ -225,21 +225,21 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">No Plakat Bgh</label>
+                            <label class="control-label col-lg-3">No Plakat Bangunan Gedung Hijau</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('no_plakat_bgh',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Thn Penerbitan Sertifikat Pemanfaatan Bgh</label>
+                            <label class="control-label col-lg-3">Tahun Penerbitan Sertifikat Pemanfaatan Bangunan Gedung Hijau (BGH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('thn_penerbitan_sertifikat_pemanfaatan_bgh',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Upload Sertifikat Pemanfaatan Bgh</label>
+                            <label class="control-label col-lg-3">File Upload Sertifikat Pemanfaatan Bangunan Gedung Hijau (BGH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_upload_sertifikat_pemanfaatan_bgh',null, ['class' => 'form-control']) !!}
                             </div>
@@ -254,9 +254,15 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Peringkat Bgh</label>
+                            <label class="control-label col-lg-3">Peringkat Bangunan Gedung Hijau </label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('peringkat_bgh',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('peringkat_bgh',
+				[
+				 'Bangunan Gedung Hijau Utama'=>'Bangunan Gedung Hijau Utama',
+				 'Bangunan Gedung Hijau Madya'=>'Bangunan Gedung Hijau Madya',
+				 'Bangunan Gedung Hijau Pratama'=>'Bangunan Gedung Hijau Pratama'	
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 

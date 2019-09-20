@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Pengembangan Kota Hijau')
+@section('title', 'AKTIVITAS FASILITASI PENGEMBANGAN KOTA HIJAU')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -37,14 +37,14 @@ $(function() {
          { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
-         { "title": "Thn Anggaran", "data": "thn_anggaran" },
+         { "title": "Tahun Anggaran", "data": "thn_anggaran" },
 			{ "title": "Nama Kegiatan", "data": "nama_kegiatan" },
 			{ "title": "Attribute Kota Hijau", "data": "attribute_kota_hijau" },
-			{ "title": "Thn Penetapan", "data": "thn_penetapan" },
+			{ "title": "Tahun Penetapan", "data": "thn_penetapan" },
 			{ "title": "Sumber Anggaran", "data": "sumber_anggaran" },
-			{ "title": "Alokasi Anggaran", "data": "alokasi_anggaran" },
-			{ "title": "Volume Pekerjaan", "data": "volume_pekerjaan" },
-			{ "title": "Instansi Unit Organisasi Pelaksana", "data": "instansi_unit_organisasi_pelaksana" },
+			{ "title": "Alokasi Anggaran Rp. (1.000)", "data": "alokasi_anggaran" },
+			{ "title": "Volume Pekerjaan (m<sup>2</sup>)", "data": "volume_pekerjaan" },
+			{ "title": "Instansi/ Unit Organisasi Pelaksana", "data": "instansi_unit_organisasi_pelaksana" },
 			{ "title": "Lokasi Kegiatan Proyek", "data": "lokasi_kegiatan_proyek" },
 			{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },
 			{ "title": "Titik Koordinat Long", "data": "titik_koordinat_long" },

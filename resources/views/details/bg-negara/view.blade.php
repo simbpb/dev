@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Bg Negara')
+@section('title', 'DATA BANGUNAN GEDUNG NEGARA')
 
 @section('content')
 <div class="page-container">
@@ -35,22 +35,22 @@
 				  		</div>
 				  		
                             <div class="form-group">
-                                <label>Nama Bg Negara</label>
+                                <label>Nama Bangunan Gedung Negara</label>
                                 <div class="form-group"><b>{!! $model['nama_bg_negara'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Instansi Pemilik Bg Negara</label>
+                                <label>Instansi Pemilik Bangunan Gedung Negara</label>
                                 <div class="form-group"><b>{!! $model['instansi_pemilik_bg_negara'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Alamat Bg Negara</label>
+                                <label>Alamat Bangunan Gedung Negara</label>
                                 <div class="form-group"><b>{!! $model['alamat_bg_negara'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Luas Bg Negara M2</label>
+                                <label>Luas Bangunan Gedung Negara m<sup>2</sup></label>
                                 <div class="form-group"><b>{!! $model['luas_bg_negara_m2'] !!}</b></div>
                             </div>
 

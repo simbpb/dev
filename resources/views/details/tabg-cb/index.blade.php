@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Tabg Cb')
+@section('title', 'DATA TIM AHLI BANGUNAN GEDUNG CAGAR BUDAYA (TABG-CB)')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -37,19 +37,19 @@ $(function() {
          { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
-         { "title": "No Sk Tabg Cb", "data": "no_sk_tabg_cb" },
-			{ "title": "Tgl Sk Tabg Cb", "data": "tgl_sk_tabg_cb" },
+         { "title": "No SK TABG Cagar Budaya", "data": "no_sk_tabg_cb" },
+			{ "title": "Tgl SK TABG Cagar Budaya", "data": "tgl_sk_tabg_cb" },
 			{ "title": "Nama Pejabat", "data": "nama_pejabat" },
 			{ "title": "Jabatan", "data": "jabatan" },
-			{ "title": "Nama Tabg Cb", "data": "nama_tabg_cb" },
-			{ "title": "No Ktp Tabg Cb", "data": "no_ktp_tabg_cb" },
-			{ "title": "Alamat Tabg Cb", "data": "alamat_tabg_cb" },
-			{ "title": "Pendidikan Terakhir Tabg Cb", "data": "pendidikan_terakhir_tabg_cb" },
+			{ "title": "Nama TABG Cagar Budaya", "data": "nama_tabg_cb" },
+			{ "title": "No Ktp TABG Cagar Budaya", "data": "no_ktp_tabg_cb" },
+			{ "title": "Alamat TABG Cagar Budaya", "data": "alamat_tabg_cb" },
+			{ "title": "Pendidikan Terakhir TABG Cagar Budaya", "data": "pendidikan_terakhir_tabg_cb" },
 			{ "title": "Jurusan Pendidikan Terakhir", "data": "jurusan_pendidikan_terakhir" },
 			{ "title": "Asal Universitas", "data": "asal_universitas" },
 			{ "title": "Bidang Keahlian", "data": "bidang_keahlian" },
 			{ "title": "Jabatan Dalam Tim", "data": "jabatan_dalam_tim" },
-			{ "title": "Keterangan", "data": "keterangan" },
+			{ "title": "Perwakilan/ Unsur", "data": "keterangan" },
 			
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Pengembangan Kota Hijau')
+@section('title', 'AKTIVITAS FASILITASI PENGEMBANGAN KOTA HIJAU')
 
 @section('content')
 <div class="page-container">
@@ -35,7 +35,7 @@
 				  		</div>
 				  		
                             <div class="form-group">
-                                <label>Thn Anggaran</label>
+                                <label>Tahun Anggaran</label>
                                 <div class="form-group"><b>{!! $model['thn_anggaran'] !!}</b></div>
                             </div>
 
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Thn Penetapan</label>
+                                <label>Tahun Penetapan</label>
                                 <div class="form-group"><b>{!! $model['thn_penetapan'] !!}</b></div>
                             </div>
 
@@ -60,12 +60,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Alokasi Anggaran</label>
+                                <label>Alokasi Anggaran Rp. (1.000)</label>
                                 <div class="form-group"><b>{!! $model['alokasi_anggaran'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Volume Pekerjaan</label>
+                                <label>Volume Pekerjaan (m2)</label>
                                 <div class="form-group"><b>{!! $model['volume_pekerjaan'] !!}</b></div>
                             </div>
 
@@ -73,7 +73,7 @@
                                 <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label>Instansi Unit Organisasi Pelaksana</label>
+                                <label>Instansi/ Unit Organisasi Pelaksana</label>
                                 <div class="form-group"><b>{!! $model['instansi_unit_organisasi_pelaksana'] !!}</b></div>
                             </div>
 

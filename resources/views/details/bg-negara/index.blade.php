@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Bg Negara')
+@section('title', 'DATA BANGUNAN GEDUNG NEGARA')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -37,10 +37,10 @@ $(function() {
          { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
-         { "title": "Nama Bg Negara", "data": "nama_bg_negara" },
-			{ "title": "Instansi Pemilik Bg Negara", "data": "instansi_pemilik_bg_negara" },
-			{ "title": "Alamat Bg Negara", "data": "alamat_bg_negara" },
-			{ "title": "Luas Bg Negara M2", "data": "luas_bg_negara_m2" },
+         { "title": "Nama Bangunan Gedung Negara", "data": "nama_bg_negara" },
+			{ "title": "Instansi Pemilik Bangunan Gedung Negara", "data": "instansi_pemilik_bg_negara" },
+			{ "title": "Alamat Bangunan Gedung Negara", "data": "alamat_bg_negara" },
+			{ "title": "Luas Bangunan Gedung Negara (m<sup>2</sup>)", "data": "luas_bg_negara_m2" },
 			{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },
 			{ "title": "Titik Koordinat Long", "data": "titik_koordinat_long" },
 			

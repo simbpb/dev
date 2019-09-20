@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Plbn')
+@section('title', 'AKTIVITAS PENYELENGGARAAN BANGUNAN GEDUNG DAN PENATAAN KAWASAN POS LINTAS BATAS NEGARA (PLBN)')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -38,19 +38,15 @@ $(function() {
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
          { "title": "Nama Kegiatan", "data": "nama_kegiatan" },
-			{ "title": "Thn Anggaran", "data": "thn_anggaran" },
+			{ "title": "Tahun Anggaran", "data": "thn_anggaran" },
 			{ "title": "Sumber Anggaran", "data": "sumber_anggaran" },
-			{ "title": "Alokasi Anggaran", "data": "alokasi_anggaran" },
-			{ "title": "Volume Pekerjaan", "data": "volume_pekerjaan" },
+			{ "title": "Alokasi Anggaran Rp. (1.000)", "data": "alokasi_anggaran" },
+			{ "title": "Volume Pekerjaan (m<sup>2</sup>)", "data": "volume_pekerjaan" },
 			{ "title": "Instansi Unit Organisasi Pelaksana", "data": "instansi_unit_organisasi_pelaksana" },
 			{ "title": "Lokasi Kegiatan Proyek", "data": "lokasi_kegiatan_proyek" },
 			{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },
 			{ "title": "Titik Koordinat Long", "data": "titik_koordinat_long" },
 			{ "title": "Status Aset", "data": "status_aset" },
-			{ "title": "Biaya Pelaksanaan Kontraktor", "data": "biaya_pelaksanaan_kontraktor" },
-			{ "title": "Manajemen Konstruksi", "data": "manajemen_konstruksi" },
-			{ "title": "Rencana Keu", "data": "rencana_keu" },
-			{ "title": "Rencana Fisik", "data": "rencana_fisik" },
 			
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';

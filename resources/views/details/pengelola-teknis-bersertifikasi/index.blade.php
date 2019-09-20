@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Pengelola Teknis Bersertifikasi')
+@section('title', 'DATA TENAGA PENGELOLA TEKNIS BERSERTIFIKASI')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -42,8 +42,8 @@ $(function() {
 			{ "title": "Nama Pejabat", "data": "nama_pejabat" },
 			{ "title": "Jabatan", "data": "jabatan" },
 			{ "title": "Nama Pengelola Teknis", "data": "nama_pengelola_teknis" },
-			{ "title": "No Ktp Pengelola Teknis", "data": "no_ktp_pengelola_teknis" },
-			{ "title": "Dinas Instansi Asal Unit Org", "data": "dinas_instansi_asal_unit_org" },
+			{ "title": "No KTP Pengelola Teknis", "data": "no_ktp_pengelola_teknis" },
+			{ "title": "Unit Organisasi/ Dinas/ Instansi Asal", "data": "dinas_instansi_asal_unit_org" },
 			{ "title": "Alamat Pengelola Teknis", "data": "alamat_pengelola_teknis" },
 			{ "title": "Pendidikan Terakhir Pengelola Teknis", "data": "pendidikan_terakhir_pengelola_teknis" },
 			{ "title": "Jurusan Pendidikan Terakhir", "data": "jurusan_pendidikan_terakhir" },

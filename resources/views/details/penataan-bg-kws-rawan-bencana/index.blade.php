@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Penataan Bg Kws Rawan Bencana')
+@section('title', 'Aktivitas Penataan Bangunan Kawasan Rawan Bencana')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -34,7 +34,7 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
+         { "title": "Tahun Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
          { "title": "Indeks Risiko Bencana", "data": "indeks_risiko_bencana" },
@@ -42,11 +42,11 @@ $(function() {
 			{ "title": "Risiko Bencana Dominan", "data": "risiko_bencana_dominan" },
 			{ "title": "Struktur Ruang", "data": "struktur_ruang" },
 			{ "title": "Nama Kegiatan", "data": "nama_kegiatan" },
-			{ "title": "Thn Anggaran", "data": "thn_anggaran" },
+			{ "title": "Tahun Anggaran", "data": "thn_anggaran" },
 			{ "title": "Sumber Anggaran", "data": "sumber_anggaran" },
-			{ "title": "Alokasi Anggaran", "data": "alokasi_anggaran" },
-			{ "title": "Volume Pekerjaan", "data": "volume_pekerjaan" },
-			{ "title": "Instansi Unit Organisasi Pelaksana", "data": "instansi_unit_organisasi_pelaksana" },
+			{ "title": "Alokasi Anggaran Rp. (1.000)", "data": "alokasi_anggaran" },
+			{ "title": "Volume Pekerjaan (m<sup>2</sp>)", "data": "volume_pekerjaan" },
+			{ "title": "Instansi/ Unit Organisasi Pelaksana", "data": "instansi_unit_organisasi_pelaksana" },
 			{ "title": "Lokasi Kegiatan Proyek", "data": "lokasi_kegiatan_proyek" },
 			{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },
 			{ "title": "Titik Koordinat Long", "data": "titik_koordinat_long" },

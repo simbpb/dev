@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Bgh')
+@section('title', 'Aktivitas Pembangunan Bangunan Gedung Hijau')
 
 @section('content')
 <div class="page-container">
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Thn Anggaran</label>
+                                <label>Tahun Anggaran</label>
                                 <div class="form-group"><b>{!! $model['thn_anggaran'] !!}</b></div>
                             </div>
 
@@ -50,17 +50,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Alokasi Anggaran</label>
+                                <label>Alokasi Anggaran Rp. (1.000)</label>
                                 <div class="form-group"><b>{!! $model['alokasi_anggaran'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Volume Pekerjaan</label>
+                                <label>Volume Pekerjaan (m<sup>2</sup>)</label>
                                 <div class="form-group"><b>{!! $model['volume_pekerjaan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Instansi Unit Organisasi Pelaksana</label>
+                                <label>Instansi/ Unit Organisasi Pelaksan</label>
                                 <div class="form-group"><b>{!! $model['instansi_unit_organisasi_pelaksana'] !!}</b></div>
                             </div>
 
@@ -103,17 +103,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Thn Penerbitan Sertifikat Bgh</label>
+                                <label>Thn Penerbitan Sertifikat Bangunan Gedung Hijau (BGH)</label>
                                 <div class="form-group"><b>{!! $model['thn_penerbitan_sertifikat_bgh'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>No Sertifikat Bgh</label>
+                                <label>No Sertifikat BGH</label>
                                 <div class="form-group"><b>{!! $model['no_sertifikat_bgh'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>File Upload Sertifikat Bgh</label>
+                                <label>File Upload Sertifikat BGH</label>
                                 <div class="form-group">
                                     <a class="btn btn-primary" href="{!! $model['file_upload_sertifikat_bgh'] !!}">
                                     <i class="icon-file-download2"></i>
@@ -122,17 +122,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label>No Plakat Bgh</label>
+                                <label>No Plakat BGH</label>
                                 <div class="form-group"><b>{!! $model['no_plakat_bgh'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Thn Penerbitan Sertifikat Pemanfaatan Bgh</label>
+                                <label>Thn Penerbitan Sertifikat Pemanfaatan BGH</label>
                                 <div class="form-group"><b>{!! $model['thn_penerbitan_sertifikat_pemanfaatan_bgh'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>File Upload Sertifikat Pemanfaatan Bgh</label>
+                                <label>File Upload Sertifikat Pemanfaatan BGH</label>
                                 <div class="form-group">
                                     <a class="btn btn-primary" href="{!! $model['file_upload_sertifikat_pemanfaatan_bgh'] !!}">
                                     <i class="icon-file-download2"></i>
@@ -141,7 +141,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Peringkat Bgh</label>
+                                <label>Peringkat BGH</label>
                                 <div class="form-group"><b>{!! $model['peringkat_bgh'] !!}</b></div>
                             </div>
 

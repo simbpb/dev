@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Asian Games')
+@section('title', 'Penyelenggaraan Bangunan Gedung dan Penataan Kawasan Pendukung Asian Games 2018')
 
 @section('content')
 <div class="page-container">
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Thn Anggaran</label>
+                                <label>Tahun Anggaran</label>
                                 <div class="form-group"><b>{!! $model['thn_anggaran'] !!}</b></div>
                             </div>
 
@@ -50,12 +50,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Alokasi Anggaran</label>
+                                <label>Alokasi Anggaran Rp. (1.000)</label>
                                 <div class="form-group"><b>{!! $model['alokasi_anggaran'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Volume Pekerjaan</label>
+                                <label>Volume Pekerjaan (m<sup>2</sup>)</label>
                                 <div class="form-group"><b>{!! $model['volume_pekerjaan'] !!}</b></div>
                             </div>
 

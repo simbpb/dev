@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Bg Negara')
+@section('title', 'DATA BANGUNAN GEDUNG NEGARA')
 @php
 $user = Auth::user();
 @endphp
@@ -30,7 +30,7 @@ $user = Auth::user();
 				<div class="row"> 
 					<div class="col-lg-6">
 						<div class="form-group">
-				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
+				    		<label class="control-label col-lg-3">Tahun Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
 					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
 					    		{!! Form::hidden('program_id',$programId) !!}
@@ -87,28 +87,28 @@ $user = Auth::user();
 				  		</div>
 						
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Nama Bg Negara</label>
+                            <label class="control-label col-lg-3">Nama Bangunan Gedung  Negara</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('nama_bg_negara',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Instansi Pemilik Bg Negara</label>
+                            <label class="control-label col-lg-3">Instansi Pemilik Bangunan Gedung Negara</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('instansi_pemilik_bg_negara',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alamat Bg Negara</label>
+                            <label class="control-label col-lg-3">Alamat Bangunan Gedung Negara</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('alamat_bg_negara',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Luas Bg Negara M2</label>
+                            <label class="control-label col-lg-3">Luas Bangunan Gedung Negara (m<sup>2</sup>)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('luas_bg_negara_m2',null, ['class' => 'form-control']) !!}
                             </div>
