@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Tabg Cb')
+@section('title', 'DATA TIM AHLI BANGUNAN GEDUNG CAGAR BUDAYA (TABG-CB)')
 
 @section('content')
 <div class="page-container">
@@ -35,12 +35,12 @@
 				  		</div>
 				  		
                             <div class="form-group">
-                                <label>No Sk Tabg Cb</label>
+                                <label>No SK TABG CB</label>
                                 <div class="form-group"><b>{!! $model['no_sk_tabg_cb'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Tgl Sk Tabg Cb</label>
+                                <label>Tgl SK TABG CB</label>
                                 <div class="form-group"><b>{!! $model['tgl_sk_tabg_cb'] !!}</b></div>
                             </div>
 
@@ -55,22 +55,22 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Nama Tabg Cb</label>
+                                <label>Nama TABG CB</label>
                                 <div class="form-group"><b>{!! $model['nama_tabg_cb'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>No Ktp Tabg Cb</label>
+                                <label>No KTP TABG CB</label>
                                 <div class="form-group"><b>{!! $model['no_ktp_tabg_cb'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Alamat Tabg Cb</label>
+                                <label>Alamat TABG CB</label>
                                 <div class="form-group"><b>{!! $model['alamat_tabg_cb'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Pendidikan Terakhir Tabg Cb</label>
+                                <label>Pendidikan Terakhir TABG CB</label>
                                 <div class="form-group"><b>{!! $model['pendidikan_terakhir_tabg_cb'] !!}</b></div>
                             </div>
 
@@ -93,17 +93,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Jabatan Dalam Tim</label>
-                                <div class="form-group"><b>{!! $model['jabatan_dalam_tim'] !!}</b></div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Keterangan</label>
+                                <label>Perwakilan/ Unsur</label>
                                 <div class="form-group"><b>{!! $model['keterangan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>File Sk Tabg Cb</label>
+                                <label>File SK TABG CB</label>
                                 <div class="form-group">
                                     <a class="btn btn-primary" href="{!! $model['file_sk_tabg_cb'] !!}">
                                     <i class="icon-file-download2"></i>

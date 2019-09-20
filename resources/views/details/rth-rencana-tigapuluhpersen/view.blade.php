@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Rth Rencana Tigapuluhpersen')
+@section('title', 'RENCANA PEMENUHAN 30 % RUANG TERBUKA HIJAU')
 
 @section('content')
 <div class="page-container">
@@ -35,12 +35,12 @@
 				  		</div>
 				  		
                             <div class="form-group">
-                                <label>Dok Rencana Kota Hijau Rakh</label>
+                                <label>Dokumen Perencanaan Kota Hijau/ Rencana Aksi Kota Hijau (RAKH) atau Dokumen Perencanaan Sejenis</label>
                                 <div class="form-group"><b>{!! $model['dok_rencana_kota_hijau_rakh'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>File Dok Rencana Kota Hijau Rakh</label>
+                                <label>Berkas Dokumen Perencanaan Kota Hijau/ Rencana Aksi Kota Hijau atau Dokumen Perencanaan Sejenis</label>
                                 <div class="form-group">
                                     <a class="btn btn-primary" href="{!! $model['file_dok_rencana_kota_hijau_rakh'] !!}">
                                     <i class="icon-file-download2"></i>
@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Dok Disusun Tahun</label>
+                                <label>Dokumen Perencanaan Disusun Tahun</label>
                                 <div class="form-group"><b>{!! $model['dok_disusun_tahun'] !!}</b></div>
                             </div>
 
@@ -62,7 +62,7 @@
                                 <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label>Dok Disahkan Oleh</label>
+                                <label>Dokumen Perencanaan Disahkan Oleh</label>
                                 <div class="form-group"><b>{!! $model['dok_disahkan_oleh'] !!}</b></div>
                             </div>
 

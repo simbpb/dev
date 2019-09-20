@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Regulasi Perda')
+@section('title', 'Regulasi/ Peraturan Daerah (PERDA)')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -34,23 +34,23 @@ $(function() {
          { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
              return meta.row + meta.settings._iDisplayStart + 1;
          }},
-         { "title": "Thn Periode Kegiatan", "data": "thn_periode_keg" },
+         { "title": "Tahun Periode Kegiatan", "data": "thn_periode_keg" },
          { "title": "Propinsi", "data": "nama_propinsi" },
          { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
-         { "title": "Perda Bg", "data": "perda_bg" },
-			{ "title": "Perda Rt Rw", "data": "perda_rt_rw" },
-			{ "title": "Perda Rd Tr", "data": "perda_rd_tr" },
-			{ "title": "Perda Cagar Budaya", "data": "perda_cagar_budaya" },
-			{ "title": "Perda Rth", "data": "perda_rth" },
-			{ "title": "Perwal Perbup Bgh", "data": "perwal_perbup_bgh" },
-			{ "title": "Perwal Perbup Imb", "data": "perwal_perbup_imb" },
-			{ "title": "Perwal Perbup Slf", "data": "perwal_perbup_slf" },
-			{ "title": "Perwal Perbup Rtbl 1", "data": "perwal_perbup_rtbl_1" },
-			{ "title": "Perwal Perbup Rtbl 2", "data": "perwal_perbup_rtbl_2" },
-			{ "title": "Perwal Perbup Rtbl 3", "data": "perwal_perbup_rtbl_3" },
-			{ "title": "Perwal Perbup Rtbl 4", "data": "perwal_perbup_rtbl_4" },
-			{ "title": "Perwal Perbup Rtbl 5", "data": "perwal_perbup_rtbl_5" },
-			{ "title": "Perwal Perbup Rtbl 6", "data": "perwal_perbup_rtbl_6" },
+         { "title": "Peraturan Daerah tentang Bangunan Gedung (PERDABG)", "data": "perda_bg" },
+			{ "title": "Peraturan Daerah tentang Rencana Tata Ruang Wilayah (RTRW)", "data": "perda_rt_rw" },
+			{ "title": "Peraturan Daerah tentang Rencana Detil Tata Ruang (RDTR)", "data": "perda_rd_tr" },
+			{ "title": "Peraturan Daerah tentang Cagar Budaya", "data": "perda_cagar_budaya" },
+			{ "title": "Peraturan Daerah tentang Ruang Terbuka Hijau (RTH)", "data": "perda_rth" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Bangunan Gedung Hijau (BGH)", "data": "perwal_perbup_bgh" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Izin Mendirikan Bangunan (IMB)", "data": "perwal_perbup_imb" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Sertifikat Laik Fungsi (SLF)", "data": "perwal_perbup_slf" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-1", "data": "perwal_perbup_rtbl_1" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-2", "data": "perwal_perbup_rtbl_2" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-3", "data": "perwal_perbup_rtbl_3" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-4", "data": "perwal_perbup_rtbl_4" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-5", "data": "perwal_perbup_rtbl_5" },
+			{ "title": "PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-6", "data": "perwal_perbup_rtbl_6" },
 			
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Hsbgn')
+@section('title', 'STANDAR HARGA SATUAN BANGUNAN GEDUNG NEGARA (HSBGN)')
 @php
 $user = Auth::user();
 @endphp
@@ -110,54 +110,73 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Satuan Luas Wilayah</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('satuan_luas_wilayah',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('satuan_luas_wilayah',
+				[
+				'km2'=>'km2',
+				'HA'=>'HA'
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
                             <label class="control-label col-lg-3">Zona</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('zona',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('zona',
+				[
+				'Zona 1'=>'Zona 1',
+				'Zona 1 (Daratan)'=>'Zona 1 (Daratan)',
+				'Zona 2'=>'Zona 2',
+				'Zona 2 (Binta Pesisir)'=>'Zona 2 (Binta Pesisir)',
+				'Zona 3'=>'Zona 3',
+				'Zona 3 (Tambelan)'=>'Zona 3 (Tambelan)',
+				'Zona 4'=>'Zona 4',
+                                'Zona 5'=>'Zona 5',
+                                'Zona 6'=>'Zona 6',
+                                'Zona Darat'=>'Zona Darat',
+                                'Zona Kepulauan'=>'Zona Kepulauan'		
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Bg Tidak Sederhana</label>
+                            <label class="control-label col-lg-3">Bangunan Tidak Sederhana</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('bg_tidak_sederhana',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Bg Sederhana</label>
+                            <label class="control-label col-lg-3">Bangunan Sederhana</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('bg_sederhana',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Rumahnegara Tipe A</label>
+                            <label class="control-label col-lg-3">Rumah Negara Tipe A</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('rumahnegara_tipe_a',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Rumahnegara Tipe B</label>
+                            <label class="control-label col-lg-3">Rumah Negara Tipe B</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('rumahnegara_tipe_b',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Rumahnegara Tipe C D E</label>
+                            <label class="control-label col-lg-3">Rumah Negara Tipe C, D dan E</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('rumahnegara_tipe_c_d_e',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Pagar Gedungnegara Depan</label>
+                            <label class="control-label col-lg-3">Pagar Gedung Negara Depan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('pagar_gedungnegara_depan',null, ['class' => 'form-control']) !!}
                             </div>
@@ -167,49 +186,49 @@ $user = Auth::user();
                                 <div class="col-lg-6">
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Pagar Gedungnegara Samping</label>
+                            <label class="control-label col-lg-3">Pagar Gedung Negara Samping</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('pagar_gedungnegara_samping',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Pagar Gedungnegara Belakang</label>
+                            <label class="control-label col-lg-3">Pagar Gedung Negara Belakang</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('pagar_gedungnegara_belakang',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Pagar Rumahnegara Depan</label>
+                            <label class="control-label col-lg-3">Pagar Rumah Negara Depan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('pagar_rumahnegara_depan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Pagar Rumahnegara Samping</label>
+                            <label class="control-label col-lg-3">Pagar Rumah Negara Samping</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('pagar_rumahnegara_samping',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Pagar Rumahnegara Belakang</label>
+                            <label class="control-label col-lg-3">Pagar Rumah Negara Belakang</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('pagar_rumahnegara_belakang',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Sk Penetapan</label>
+                            <label class="control-label col-lg-3">SK Penetapan</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('sk_penetapan',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Sk Penetapan Hsbgn</label>
+                            <label class="control-label col-lg-3">File SK Penetapan HSBGN</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_sk_penetapan_hsbgn',null, ['class' => 'form-control']) !!}
                             </div>
@@ -224,7 +243,7 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Indeks Kemahalan Konstruksi</label>
+                            <label class="control-label col-lg-3">Indeks Kemahalan Konstruksi (IKK) | <a href="https://www.bps.go.id/publication/2018/10/22/e4c1963d3afa1f53f9754fcf/indeks-kemahalan-konstruksi-provinsi-dan-kabupaten-kota-2018.html">Lihat Panduan</a></label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('indeks_kemahalan_konstruksi',null, ['class' => 'form-control']) !!}
                             </div>

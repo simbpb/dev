@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Asian Games')
+@section('title', 'Penyelenggaraan Bangunan Gedung dan Penataan Kawasan Pendukung Asian Games 2018')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -40,8 +40,8 @@ $(function() {
          { "title": "Nama Kegiatan", "data": "nama_kegiatan" },
 			{ "title": "Thn Anggaran", "data": "thn_anggaran" },
 			{ "title": "Sumber Anggaran", "data": "sumber_anggaran" },
-			{ "title": "Alokasi Anggaran", "data": "alokasi_anggaran" },
-			{ "title": "Volume Pekerjaan", "data": "volume_pekerjaan" },
+			{ "title": "Alokasi Anggaran Rp. (1.000)", "data": "alokasi_anggaran" },
+			{ "title": "Volume Pekerjaan (m<sup>2</sup>)", "data": "volume_pekerjaan" },
 			{ "title": "Instansi Unit Organisasi Pelaksana", "data": "instansi_unit_organisasi_pelaksana" },
 			{ "title": "Lokasi Kegiatan Proyek", "data": "lokasi_kegiatan_proyek" },
 			{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Hsbgn')
+@section('title', 'STANDAR HARGA SATUAN BANGUNAN GEDUNG NEGARA (HSBGN)')
 
 @section('content')
 <div class="page-container">
@@ -60,32 +60,32 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Bg Tidak Sederhana</label>
+                                <label>Bangunan Gedung Tidak Sederhana</label>
                                 <div class="form-group"><b>{!! $model['bg_tidak_sederhana'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Bg Sederhana</label>
+                                <label>Bangunan Gedung Sederhana</label>
                                 <div class="form-group"><b>{!! $model['bg_sederhana'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Rumahnegara Tipe A</label>
+                                <label>Rumah Negara Tipe A</label>
                                 <div class="form-group"><b>{!! $model['rumahnegara_tipe_a'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Rumahnegara Tipe B</label>
+                                <label>Rumah Negara Tipe B</label>
                                 <div class="form-group"><b>{!! $model['rumahnegara_tipe_b'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Rumahnegara Tipe C D E</label>
+                                <label>Rumah Negara Tipe C, D dan E</label>
                                 <div class="form-group"><b>{!! $model['rumahnegara_tipe_c_d_e'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Pagar Gedungnegara Depan</label>
+                                <label>Pagar Gedung Negara Depan</label>
                                 <div class="form-group"><b>{!! $model['pagar_gedungnegara_depan'] !!}</b></div>
                             </div>
 
@@ -93,37 +93,37 @@
                                 <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label>Pagar Gedungnegara Samping</label>
+                                <label>Pagar Gedung Negara Samping</label>
                                 <div class="form-group"><b>{!! $model['pagar_gedungnegara_samping'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Pagar Gedungnegara Belakang</label>
+                                <label>Pagar Gedung Negara Belakang</label>
                                 <div class="form-group"><b>{!! $model['pagar_gedungnegara_belakang'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Pagar Rumahnegara Depan</label>
+                                <label>Pagar Rumah Negara Depan</label>
                                 <div class="form-group"><b>{!! $model['pagar_rumahnegara_depan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Pagar Rumahnegara Samping</label>
+                                <label>Pagar Rumah Negara Samping</label>
                                 <div class="form-group"><b>{!! $model['pagar_rumahnegara_samping'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Pagar Rumahnegara Belakang</label>
+                                <label>Pagar Rumah Negara Belakang</label>
                                 <div class="form-group"><b>{!! $model['pagar_rumahnegara_belakang'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Sk Penetapan</label>
+                                <label>SK Penetapan</label>
                                 <div class="form-group"><b>{!! $model['sk_penetapan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>File Sk Penetapan Hsbgn</label>
+                                <label>File SK Penetapan HSBGN</label>
                                 <div class="form-group">
                                     <a class="btn btn-primary" href="{!! $model['file_sk_penetapan_hsbgn'] !!}">
                                     <i class="icon-file-download2"></i>
@@ -132,7 +132,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Indeks Kemahalan Konstruksi</label>
+                                <label>Indeks Kemahalan Konstruksi (IKK)</label>
                                 <div class="form-group"><b>{!! $model['indeks_kemahalan_konstruksi'] !!}</b></div>
                             </div>
 

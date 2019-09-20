@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Asian Games')
+@section('title', 'Penyelenggaraan Bangunan Gedung dan Penataan Kawasan Pendukung Asian Games 2018')
 @php
 $user = Auth::user();
 @endphp
@@ -116,14 +116,14 @@ $user = Auth::user();
                     </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alokasi Anggaran</label>
+                            <label class="control-label col-lg-3">Alokasi Anggaran Rp. (1.000)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control currency']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Volume Pekerjaan</label>
+                            <label class="control-label col-lg-3">Volume Pekerjaan (m<sup>2</sup>)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('volume_pekerjaan',null, ['class' => 'form-control']) !!}
                             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Rth Status Tigapuluhpersen')
+@section('title', 'FORM STATUS PEMENUHAN 30 % RUANG TERBUKA HIJAU')
 @php
 $user = Auth::user();
 @endphp
@@ -96,21 +96,43 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Satuan Luas Wilayah</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('satuan_luas_wilayah',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('satuan_luas_wilayah',
+				[
+				'm2'=>'m2',
+				'km2'=>'km2'
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Jenis Rth</label>
+                            <label class="control-label col-lg-3">Jenis Ruang Terbuka Hijau (RTH)</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('jenis_rth',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('jenis_rth',
+				[
+                                'Publik'=>'Publik',
+                                'Privat'=>'Privat'
+                                ],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Bentuk Rth</label>
+                            <label class="control-label col-lg-3">Bentuk Ruang Terbuka Hijau (RTH)</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('bentuk_rth',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('bentuk_rth',
+				[
+				'Hutan Kota/ Taman Kota'=>'Hutan Kota/ Taman Kota',
+				'Taman Pemakaman Umum'=>'Taman Pemakaman Umum',
+				'Jalur Hijau Sepanjang Jalan'=>'Jalur Hijau Sepanjang Jalan',
+				'Jalur Hijau Sepanjang Sungai'=>'Jalur Hijau Sepanjang Sungai',
+				'Jalur Hijau Sepanjang Pantai'=>'Jalur Hijau Sepanjang Pantai',
+                                'Kebun/ Taman'=>'Kebun/ Taman',
+                                'Taman Pemakaman Masyarakat/ Lainnya'=>'Taman Pemakaman Masyarakat/ Lainnya',
+                                'Halaman Gedung/ Rumah'=>'Halaman Gedung/ Rumah',
+				'Ruang Hijau Lainnya'=>'Ruang Hijau Lainnya'
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
@@ -155,7 +177,12 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Satuan Luas Kawasan</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('satuan_luas_kawasan',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('satuan_luas_kawasan',
+				[
+                                'm2'=>'m2',
+                                'km2'=>'km2'
+                                ],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 

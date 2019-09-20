@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Kws Perkotaan Strategis')
+@section('title', 'AKTIVITAS PENGEMBANGAN KAWASAN PERKOTAAN STRATEGIS NASIONAL')
 
 @section('content')
 <div class="page-container">
@@ -35,7 +35,7 @@
 				  		</div>
 				  		
                             <div class="form-group">
-                                <label>Nama Kws Perkotaan</label>
+                                <label>Nama Kawasan Perkotaan</label>
                                 <div class="form-group"><b>{!! $model['nama_kws_perkotaan'] !!}</b></div>
                             </div>
 
@@ -45,7 +45,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Thn Anggaran</label>
+                                <label>Tahun Anggaran</label>
                                 <div class="form-group"><b>{!! $model['thn_anggaran'] !!}</b></div>
                             </div>
 
@@ -55,17 +55,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Alokasi Anggaran</label>
+                                <label>Alokasi Anggaran Rp. (1.000)</label>
                                 <div class="form-group"><b>{!! $model['alokasi_anggaran'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Volume Pekerjaan</label>
+                                <label>Volume Pekerjaan (m<sup>2</sup>)</label>
                                 <div class="form-group"><b>{!! $model['volume_pekerjaan'] !!}</b></div>
                             </div>
 
                             <div class="form-group">
-                                <label>Instansi Unit Organisasi Pelaksana</label>
+                                <label>Instansi/ Unit Organisasi Pelaksana</label>
                                 <div class="form-group"><b>{!! $model['instansi_unit_organisasi_pelaksana'] !!}</b></div>
                             </div>
 

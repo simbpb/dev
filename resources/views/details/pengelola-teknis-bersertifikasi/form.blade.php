@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Pengelola Teknis Bersertifikasi')
+@section('title', 'DATA TENAGA PENGELOLA TEKNIS BERSERTIFIKASI')
 @php
 $user = Auth::user();
 @endphp
@@ -30,7 +30,7 @@ $user = Auth::user();
 				<div class="row"> 
 					<div class="col-lg-6">
 						<div class="form-group">
-				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
+				    		<label class="control-label col-lg-3">Tahun Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
 					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
 					    		{!! Form::hidden('program_id',$programId) !!}
@@ -94,7 +94,7 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Tgl Sertifikat Pengelola Teknis</label>
+                            <label class="control-label col-lg-3">Tanggal Sertifikat Pengelola Teknis</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('tgl_sertifikat_pengelola_teknis',null, ['class' => 'form-control']) !!}
                             </div>
@@ -122,14 +122,14 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">No Ktp Pengelola Teknis</label>
+                            <label class="control-label col-lg-3">No KTP Pengelola Teknis</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('no_ktp_pengelola_teknis',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Dinas Instansi Asal Unit Org</label>
+                            <label class="control-label col-lg-3">Unit Organisasi/ Dinas/ Instansi Asal</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('dinas_instansi_asal_unit_org',null, ['class' => 'form-control']) !!}
                             </div>
@@ -139,7 +139,7 @@ $user = Auth::user();
                                 <div class="col-lg-6">
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Alamat Pengelola Teknis</label>
+                            <label class="control-label col-lg-3">Alamat Lengkap Pengelola Teknis</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('alamat_pengelola_teknis',null, ['class' => 'form-control']) !!}
                             </div>
@@ -148,7 +148,15 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Pendidikan Terakhir Pengelola Teknis</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('pendidikan_terakhir_pengelola_teknis',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('pendidikan_terakhir_pengelola_teknis',
+				[
+				'Diploma'=>'Diploma',
+				'S1'=>'S1',
+				'S2'=>'S2',
+				'S3'=>'S3',
+				'Lainnya'=>'Lainnya'
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 

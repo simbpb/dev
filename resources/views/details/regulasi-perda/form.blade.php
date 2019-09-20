@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Regulasi Perda')
+@section('title', 'Regulasi/ Peraturan Daerah')
 @php
 $user = Auth::user();
 @endphp
@@ -30,7 +30,7 @@ $user = Auth::user();
 				<div class="row"> 
 					<div class="col-lg-6">
 						<div class="form-group">
-				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
+				    		<label class="control-label col-lg-3">Tahun Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
 					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
 					    		{!! Form::hidden('program_id',$programId) !!}
@@ -87,14 +87,14 @@ $user = Auth::user();
 				  		</div>
 						
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perda Bg</label>
+                            <label class="control-label col-lg-3">Peraturan Daerah tentang Bangunan Gedung (PERDABG)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perda_bg',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perda Bg</label>
+                            <label class="control-label col-lg-3">File Peraturan Daerah tentang Bangunan Gedung (PERDABG)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perda_bg',null, ['class' => 'form-control']) !!}
                             </div>
@@ -109,14 +109,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perda Rt Rw</label>
+                            <label class="control-label col-lg-3">Peraturan Daerah tentang Rencana Tata Ruang Wilayah (RTRW)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perda_rt_rw',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Rt Rw</label>
+                            <label class="control-label col-lg-3">File Peraturan Daerah tentang Rencana Tata Ruang Wilayah (RTRW)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_rt_rw',null, ['class' => 'form-control']) !!}
                             </div>
@@ -131,14 +131,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perda Rd Tr</label>
+                            <label class="control-label col-lg-3">Peraturan Daerah tentang Rencana Detil Tata Ruang (RDTR)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perda_rd_tr',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Rd Tr</label>
+                            <label class="control-label col-lg-3">File Peraturan Daerah tentang Rencana Detil Tata Ruang (RDTR)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_rd_tr',null, ['class' => 'form-control']) !!}
                             </div>
@@ -153,14 +153,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perda Cagar Budaya</label>
+                            <label class="control-label col-lg-3">Peraturan Daerah tentang Cagar Budaya</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perda_cagar_budaya',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perda Cagar Budaya</label>
+                            <label class="control-label col-lg-3">File Peraturan Daerah tentang Cagar Budaya</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perda_cagar_budaya',null, ['class' => 'form-control']) !!}
                             </div>
@@ -175,14 +175,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perda Rth</label>
+                            <label class="control-label col-lg-3">Peraturan Daerah tentang Ruang Terbuka Hijau (RTH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perda_rth',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perda Rth</label>
+                            <label class="control-label col-lg-3">File Peraturan Daerah tentang Ruang Terbuka Hijau (RTH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perda_rth',null, ['class' => 'form-control']) !!}
                             </div>
@@ -197,14 +197,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Bgh</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Bangunan Gedung Hijau (BGH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_bgh',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Bgh</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Bangunan Gedung Hijau (BGH)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_bgh',null, ['class' => 'form-control']) !!}
                             </div>
@@ -219,14 +219,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Imb</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Izin Mendirikan Bangunan (IMB)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_imb',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Imb</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Izin Mendirikan Bangunan (IMB)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_imb',null, ['class' => 'form-control']) !!}
                             </div>
@@ -241,7 +241,7 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Slf</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Sertifikat Laik Fungsi (SLF)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_slf',null, ['class' => 'form-control']) !!}
                             </div>
@@ -251,7 +251,7 @@ $user = Auth::user();
                                 <div class="col-lg-6">
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Slf</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Sertifikat Laik Fungsi (SLF)</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_slf',null, ['class' => 'form-control']) !!}
                             </div>
@@ -266,14 +266,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Rtbl 1</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-1</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_rtbl_1',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Rtbl 1</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-1</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_rtbl_1',null, ['class' => 'form-control']) !!}
                             </div>
@@ -288,14 +288,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Rtbl 2</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-2</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_rtbl_2',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Rtbl 2</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-2</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_rtbl_2',null, ['class' => 'form-control']) !!}
                             </div>
@@ -310,14 +310,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Rtbl 3</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-3</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_rtbl_3',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Rtbl 3</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-3</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_rtbl_3',null, ['class' => 'form-control']) !!}
                             </div>
@@ -332,14 +332,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Rtbl 4</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-4</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_rtbl_4',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Rtbl 4</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-4</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_rtbl_4',null, ['class' => 'form-control']) !!}
                             </div>
@@ -354,14 +354,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Rtbl 5</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-5</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_rtbl_5',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Rtbl 5</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-5</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_rtbl_5',null, ['class' => 'form-control']) !!}
                             </div>
@@ -376,14 +376,14 @@ $user = Auth::user();
                         @endif 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Perwal Perbup Rtbl 6</label>
+                            <label class="control-label col-lg-3">PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-6</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('perwal_perbup_rtbl_6',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Perbup Rtbl 6</label>
+                            <label class="control-label col-lg-3">File PERDA/ PERWAL/ PERBUP tentang Rencana Tata Bangunan dan Lingkungan (RTBL) ke-6</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_perbup_rtbl_6',null, ['class' => 'form-control']) !!}
                             </div>

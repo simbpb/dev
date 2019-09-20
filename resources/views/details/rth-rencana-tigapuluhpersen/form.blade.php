@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Rth Rencana Tigapuluhpersen')
+@section('title', 'RENCANA PEMENUHAN 30 % RUANG TERBUKA HIJAU')
 @php
 $user = Auth::user();
 @endphp
@@ -87,14 +87,21 @@ $user = Auth::user();
 				  		</div>
 						
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Dok Rencana Kota Hijau Rakh</label>
+                            <label class="control-label col-lg-3">Dokumen Perencanaan Kota Hijau/ Rencana Aksi Kota Hijau (RAKH) atau Dokumen Perencanaan Sejenisnya</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('dok_rencana_kota_hijau_rakh',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('dok_rencana_kota_hijau_rakh',
+				[
+				'Dokumen Perencanaan Kota Hijau'=>'Dokumen Perencanaan Kota Hijau',
+				'Rencana Aksi Kota Hijau'=>'Rencana Aksi Kota Hijau',
+				'Dokumen Perencanaan Sejenis'=>'Dokumen Perencanaan Sejenis',
+				'Tidak Memiliki Dokumen'=>'Tidak Memiliki Dokumen'	
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">File Dok Rencana Kota Hijau Rakh</label>
+                            <label class="control-label col-lg-3">Unggah Dokumen Perencanaan Kota Hijau/ Rencana Aksi Kota Hijau (RAKH) atau Dokumen Perencanaan Sejenisnya</label>
                             <div class="col-lg-9"> 
                                 {!! Form::file('file_dok_rencana_kota_hijau_rakh',null, ['class' => 'form-control']) !!}
                             </div>
@@ -116,7 +123,7 @@ $user = Auth::user();
                         </div> 
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Dok Disusun Tahun</label>
+                            <label class="control-label col-lg-3">Dokumen Perencanaan Disusun Tahun</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('dok_disusun_tahun',null, ['class' => 'form-control']) !!}
                             </div>
@@ -126,7 +133,7 @@ $user = Auth::user();
                                 <div class="col-lg-6">
 
                         <div class="form-group">
-                            <label class="control-label col-lg-3">Dok Disahkan Oleh</label>
+                            <label class="control-label col-lg-3">Dokumen Perencanaan Disahkan Oleh</label>
                             <div class="col-lg-9"> 
                                 {!! Form::text('dok_disahkan_oleh',null, ['class' => 'form-control']) !!}
                             </div>

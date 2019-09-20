@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Penataan Bg Kws Rawan Bencana')
+@section('title', 'Aktivitas Penataan Bangunan Kawasan Rawan Bencana')
 @php
 $user = Auth::user();
 @endphp
@@ -30,7 +30,7 @@ $user = Auth::user();
 				<div class="row"> 
 					<div class="col-lg-6">
 						<div class="form-group">
-				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
+				    		<label class="control-label col-lg-3">Tahun Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
 					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
 					    		{!! Form::hidden('program_id',$programId) !!}
@@ -96,14 +96,30 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Tingkat Risiko Bencana</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('tingkat_risiko_bencana',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('tingkat_risiko_bencana',
+				[
+				'TINGGI'=>'TINGGI',
+				'SEDANG'=>'SEDANG',
+				'RENDAH'=>'RENDAH'
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
                         <div class="form-group">
                             <label class="control-label col-lg-3">Risiko Bencana Dominan</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('risiko_bencana_dominan',null, ['class' => 'form-control']) !!}
+                                {!! Form::select('risiko_bencana_dominan',
+				[
+				'BANJIR'=>'BANJIR',
+				'GEMPA BUMI'=>'GEMPABUMI',
+				'KEBAKARAN LAHAN HUTAN'=>'KEBAKARAN LAHAN HUTAN',
+				'TANAH LONGSOR'=>'TANAH LONGSOR',
+				'TSUNAMI'=>'TSUNAMI',
+				'BANJIR BANDANG'=>'BANJIR BANDANG',
+				'KEKERINGAN'=>'KEKEIRINGAN'	
+				],
+				null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 
@@ -146,7 +162,7 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Alokasi Anggaran</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control currency']) !!}
+                                {!! Form::text('alokasi_anggaran',null, ['class' => 'form-control']) !!}
                             </div>
                         </div> 
 

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Bg Mitigasi Bencana')
+@section('title', 'AKTIVITAS PEMBANGUNAN BANGUNAN GEDUNG MITIGASI BENCANA')
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
@@ -47,10 +47,6 @@ $(function() {
 			{ "title": "Titik Koordinat Lat", "data": "titik_koordinat_lat" },
 			{ "title": "Titik Koordinat Long", "data": "titik_koordinat_long" },
 			{ "title": "Status Aset", "data": "status_aset" },
-			{ "title": "Biaya Pelaksanaan Kontraktor", "data": "biaya_pelaksanaan_kontraktor" },
-			{ "title": "Manajemen Konstruksi", "data": "manajemen_konstruksi" },
-			{ "title": "Rencana Keu", "data": "rencana_keu" },
-			{ "title": "Rencana Fisik", "data": "rencana_fisik" },
 			
          { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
             var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Asset Cagar Budaya')
+@section('title', 'DAFTAR ASET CAGAR BUDAYA')
 
 @section('content')
 <div class="page-container">
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Sk Penetapan</label>
+                                <label>SK Penetapan</label>
                                 <div class="form-group"><b>{!! $model['sk_penetapan'] !!}</b></div>
                             </div>
 
@@ -63,7 +63,7 @@
                                 <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label>File Sk Penetapan Cagar Budaya</label>
+                                <label>File SK Penetapan Cagar Budaya</label>
                                 <div class="form-group">
                                     <a class="btn btn-primary" href="{!! $model['file_sk_penetapan_cagar_budaya'] !!}">
                                     <i class="icon-file-download2"></i>
