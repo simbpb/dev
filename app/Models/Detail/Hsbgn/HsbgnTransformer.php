@@ -32,7 +32,7 @@ class HsbgnTransformer{
 			'sk_penetapan' => $model->sk_penetapan,
 			'file_sk_penetapan_hsbgn' => $model->file_sk_penetapan_hsbgn,
 			'indeks_kemahalan_konstruksi' => $model->indeks_kemahalan_konstruksi,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

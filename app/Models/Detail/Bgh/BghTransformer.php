@@ -34,7 +34,7 @@ class BghTransformer{
 			'file_upload_sertifikat_pemanfaatan_bgh' => $model->file_upload_sertifikat_pemanfaatan_bgh,
 			'peringkat_bgh' => $model->peringkat_bgh,
 			'pemanfaatan_ke' => $model->pemanfaatan_ke,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

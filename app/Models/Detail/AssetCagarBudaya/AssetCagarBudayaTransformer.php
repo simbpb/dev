@@ -20,7 +20,7 @@ class AssetCagarBudayaTransformer{
 			'sk_penetapan' => $model->sk_penetapan,
 			'file_sk_penetapan_cagar_budaya' => $model->file_sk_penetapan_cagar_budaya,
 			'tahun_penetapan' => $model->tahun_penetapan,
-			
+            'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

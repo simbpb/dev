@@ -27,7 +27,7 @@ class TabgCbTransformer{
 			'jabatan_dalam_tim' => $model->jabatan_dalam_tim,
 			'keterangan' => $model->keterangan,
 			'file_sk_tabg_cb' => $model->file_sk_tabg_cb,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

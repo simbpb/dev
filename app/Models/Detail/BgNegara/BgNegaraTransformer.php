@@ -20,7 +20,7 @@ class BgNegaraTransformer{
 			'titik_koordinat_lat' => $model->titik_koordinat_lat,
 			'titik_koordinat_long' => $model->titik_koordinat_long,
 			'dokumentasi' => $model->dokumentasi,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

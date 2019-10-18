@@ -88,7 +88,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Lokasi Kegiatan Proyek</label>
+                                <label>Alamat Kegiatan Proyek</label>
                                 <div class="form-group"><b>{!! $model['lokasi_kegiatan_proyek'] !!}</b></div>
                             </div>
 
@@ -111,6 +111,10 @@
 				    		<label>Status</label>
 				    		<div class="form-group"><b>{!! (!empty($model['is_actived'])) ? 'ACTIVE' : 'INACTIVE' !!}</b></div>
 				  		</div>
+                        <div class="form-group">
+                <label>Last Update</label>
+                <div class="form-group"><b>{!! $model['updated_at'] !!}</b></div>
+              </div>
 				  	</div>
 			  	</div>
 			  	<div class="text-right">

@@ -30,21 +30,6 @@ $(function() {
          });
       },
       "columns": [
-         { "title": "ID", "data": "id", "visible": false },
-         { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
-             return meta.row + meta.settings._iDisplayStart + 1;
-         }},
-         { "title": "Tahun Periode Kegiatan", "data": "thn_periode_keg" },
-         { "title": "Propinsi", "data": "nama_propinsi" },
-         { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
-         { "title": "Dokumen Perencanaan Kota Hijau/ Rencana Aksi Kota Hijau (RAKH) atau Dokumen Perencanaan Sejenis", "data": "dok_rencana_kota_hijau_rakh" },
-			{ "title": "Nama Dokumen Perencanaan", "data": "nama_dokumen_perencanaan" },
-			{ "title": "Dokumen Perencanaan Disusun Tahun", "data": "dok_disusun_tahun" },
-			{ "title": "Dokumen Perencanaan Disahkan Oleh", "data": "dok_disahkan_oleh" },
-         { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
-            var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';
-            return (row.is_actived) ? '<label class="label label-'+label+'">'+row.is_actived+'<label>' : '';
-         }},
          { "title" : "", "orderable": false, "width": "170px", "className": "text-center", render: function (data, type, row, meta) {
             var view = '';
             var edit = '';
@@ -59,6 +44,21 @@ $(function() {
                dele = '<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="deleteRow(\'{{ Navigation::adminUrl('/details/'.$path) }}/'+row.id+'/delete\',\'{{ Navigation::adminUrl('/details/'.$path.'/'.$programId) }}\');"><i class="icon-eraser3"></i></button>';
             @endcan
             return view+' '+edit+' '+dele;
+         }},
+         { "title": "ID", "data": "id", "visible": false },
+         { "title" : "No.", "data": null, "orderable": false, "width": "40px", render: function (data, type, row, meta) {
+             return meta.row + meta.settings._iDisplayStart + 1;
+         }},
+         { "title": "Tahun Periode Kegiatan", "data": "thn_periode_keg" },
+         { "title": "Propinsi", "data": "nama_propinsi" },
+         { "title": "Kabupaten/Kota", "data": "nama_kabupatenkota" },
+         { "title": "Dokumen Perencanaan Kota Hijau/ Rencana Aksi Kota Hijau (RAKH) atau Dokumen Perencanaan Sejenis", "data": "dok_rencana_kota_hijau_rakh" },
+			{ "title": "Nama Dokumen Perencanaan", "data": "nama_dokumen_perencanaan" },
+			{ "title": "Dokumen Perencanaan Disusun Tahun", "data": "dok_disusun_tahun" },
+			{ "title": "Dokumen Perencanaan Disahkan Oleh", "data": "dok_disahkan_oleh" },
+         { "title" : "Status", "data": "is_actived", "width": "40px", render: function (data, type, row, meta) {
+            var label = (row.is_actived == 'ACTIVE') ? 'primary' : 'warning';
+            return (row.is_actived) ? '<label class="label label-'+label+'">'+row.is_actived+'<label>' : '';
          }}
       ]
    });

@@ -24,7 +24,7 @@ class RthStatusTigapuluhpersenTransformer{
 			'luas_kawasan' => $model->luas_kawasan,
 			'satuan_luas_kawasan' => $model->satuan_luas_kawasan,
 			'status_aset' => $model->status_aset,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }
