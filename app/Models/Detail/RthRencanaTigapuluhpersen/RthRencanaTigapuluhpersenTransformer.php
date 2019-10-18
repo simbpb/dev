@@ -18,7 +18,7 @@ class RthRencanaTigapuluhpersenTransformer{
 			'nama_dokumen_perencanaan' => $model->nama_dokumen_perencanaan,
 			'dok_disusun_tahun' => $model->dok_disusun_tahun,
 			'dok_disahkan_oleh' => $model->dok_disahkan_oleh,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

@@ -29,7 +29,7 @@ class PelepasanRng3Transformer{
 			'thn_pelepasan_rng3' => $model->thn_pelepasan_rng3,
 			'sk_hak_milik' => $model->sk_hak_milik,
 			'file_upload_sk_hak_milik' => $model->file_upload_sk_hak_milik,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

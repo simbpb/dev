@@ -23,7 +23,7 @@ class AsianGamesTransformer{
 			'titik_koordinat_lat' => $model->titik_koordinat_lat,
 			'titik_koordinat_long' => $model->titik_koordinat_long,
 			'status_aset' => $model->status_aset,
-			
+            'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

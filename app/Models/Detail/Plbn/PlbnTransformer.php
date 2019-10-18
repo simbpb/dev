@@ -28,7 +28,7 @@ class PlbnTransformer{
 			'rencana_keu' => $model->rencana_keu,
 			'rencana_fisik' => $model->rencana_fisik,
 			'dokumentasi' => $model->dokumentasi,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

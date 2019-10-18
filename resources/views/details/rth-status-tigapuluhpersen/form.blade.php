@@ -32,7 +32,13 @@ $user = Auth::user();
 						<div class="form-group">
 				    		<label class="control-label col-lg-3">Thn Periode Kegiatan*</label>
 				    		<div class="col-lg-9"> 
-					    		{!! Form::text('thn_periode_keg',null, ['class' => 'form-control']) !!}
+					    		@php
+                  $thn = ['' => 'Pilih Tahun'];
+                  for ($i=2010; $i<2020; $i++) {
+                    $thn[$i] = $i;
+                  }
+                  @endphp
+                  {!! Form::select('thn_periode_keg', $thn, null, ['class' => 'form-control']) !!}
 					    		{!! Form::hidden('program_id',$programId) !!}
 					    	</div>
 				  		</div>
@@ -89,7 +95,7 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Luas Wilayah</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('luas_wilayah',null, ['class' => 'form-control']) !!}
+                                {!! Form::text('luas_wilayah',null, ['class' => 'form-control number']) !!}
                             </div>
                         </div> 
 
@@ -170,7 +176,7 @@ $user = Auth::user();
                         <div class="form-group">
                             <label class="control-label col-lg-3">Luas Kawasan</label>
                             <div class="col-lg-9"> 
-                                {!! Form::text('luas_kawasan',null, ['class' => 'form-control']) !!}
+                                {!! Form::text('luas_kawasan',null, ['class' => 'form-control number']) !!}
                             </div>
                         </div> 
 

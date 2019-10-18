@@ -10,8 +10,8 @@
                <h5 class="panel-title">
                		<i class="icon-grid3 position-left"></i> 
 	               	<a href="{{ Navigation::adminUrl('/details/'.$path) }}">@yield('title')</a>
-	               	<i class="icon-forward3"></i> Rincian  
-	           </h5>
+	               	<i class="icon-forward3"></i> Rincian
+	             </h5>
                <div class="heading-elements">
                   <ul class="icons-list">
                      <li><a data-action="collapse"></a></li>
@@ -86,11 +86,14 @@
                                 <label>Status Aset</label>
                                 <div class="form-group"><b>{!! $model['status_aset'] !!}</b></div>
                             </div>
-
 				  		<div class="form-group">
 				    		<label>Status</label>
 				    		<div class="form-group"><b>{!! (!empty($model['is_actived'])) ? 'ACTIVE' : 'INACTIVE' !!}</b></div>
 				  		</div>
+              <div class="form-group">
+                <label>Last Update</label>
+                <div class="form-group"><b>{!! $model['updated_at'] !!}</b></div>
+              </div>
 				  	</div>
 			  	</div>
 			  	<div class="text-right">

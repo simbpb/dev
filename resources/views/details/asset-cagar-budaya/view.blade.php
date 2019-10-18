@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Lokasi Cagar Budaya</label>
+                                <label>Alamat Cagar Budaya</label>
                                 <div class="form-group"><b>{!! $model['lokasi_cagar_budaya'] !!}</b></div>
                             </div>
 
@@ -80,6 +80,10 @@
 				    		<label>Status</label>
 				    		<div class="form-group"><b>{!! (!empty($model['is_actived'])) ? 'ACTIVE' : 'INACTIVE' !!}</b></div>
 				  		</div>
+              <div class="form-group">
+                <label>Last Update</label>
+                <div class="form-group"><b>{!! $model['updated_at'] !!}</b></div>
+              </div>
 				  	</div>
 			  	</div>
 			  	<div class="text-right">

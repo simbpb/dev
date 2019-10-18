@@ -25,7 +25,7 @@ class PengelolaTeknisBersertifikasiTransformer{
 			'jurusan_pendidikan_terakhir' => $model->jurusan_pendidikan_terakhir,
 			'asal_universitas' => $model->asal_universitas,
 			'file_sertifikat_pengelola_teknis' => $model->file_sertifikat_pengelola_teknis,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }

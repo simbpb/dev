@@ -41,7 +41,7 @@ class RegulasiPerdaTransformer{
 			'file_perbup_rtbl_5' => $model->file_perbup_rtbl_5,
 			'perwal_perbup_rtbl_6' => $model->perwal_perbup_rtbl_6,
 			'file_perbup_rtbl_6' => $model->file_perbup_rtbl_6,
-			
+			'updated_at' => $model->updated_at,
             'is_actived' => $model->is_actived
         ];
     }
